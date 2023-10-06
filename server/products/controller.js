@@ -6,7 +6,7 @@ const {
   createProductQuery,
   deleteProductQuery,
   updateProductQuery,
-} = require("./queries");
+} = require("./query");
 
 const getAllProducts = async (req, res) => {
   try {
@@ -41,7 +41,7 @@ const createProduct = async (req, res) => {
       category,
     ]);
 
-    res.json(newProduct);
+    res.json(newProduct.rows[0]);
   } catch (error) {
     console.error(error.message);
   }

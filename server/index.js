@@ -1,8 +1,9 @@
 require("dotenv").config();
 
 const productRoutes = require("./products/route");
+const userRoutes = require("./user/routes");
+
 const express = require("express");
-const bodyParser = require("body-parser");
 
 // express app
 const app = express();
@@ -14,3 +15,4 @@ app.listen(process.env.PORT, () => {
 });
 
 app.use("/api/product", productRoutes);
+app.use("/api/users", userRoutes);
