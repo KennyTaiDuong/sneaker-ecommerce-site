@@ -1,7 +1,8 @@
 require("dotenv").config();
 
 const productRoutes = require("./products/route");
-const userRoutes = require("./user/routes");
+const userRoutes = require("./users/route");
+const orderRoutes = require("./orders/route");
 
 const express = require("express");
 
@@ -14,5 +15,6 @@ app.listen(process.env.PORT, () => {
   console.log(`Connected to db and listening on port ${process.env.PORT}`);
 });
 
-app.use("/api/product", productRoutes);
+app.use("/api/products", productRoutes);
 app.use("/api/users", userRoutes);
+app.use("/api/orders", orderRoutes);
