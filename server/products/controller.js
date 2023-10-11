@@ -24,7 +24,7 @@ const getProduct = async (req, res) => {
   try {
     const product = await pool.query(getProductQuery, [id]);
 
-    res.json(product);
+    res.json(product.rows[0]);
   } catch (error) {
     console.error(error.message);
   }
@@ -32,16 +32,18 @@ const getProduct = async (req, res) => {
 
 const createProduct = async (req, res) => {
   try {
-    const { sku, name, price, sizes, category } = req.body;
+    const { sku, name, price, sizes, category, images } = req.body;
+
     const newProduct = await pool.query(createProductQuery, [
       sku,
       name,
       price,
       sizes,
       category,
+      images,
     ]);
 
-    res.json(newProduct.rows[0]);
+    res.json(newProduct);
   } catch (error) {
     console.error(error.message);
   }
@@ -61,18 +63,23 @@ const deleteProduct = async (req, res) => {
 
 const updateProduct = async (req, res) => {
   const { id } = req.params;
-  const { sku, name, price, sizes, category } = req.body;
+  const { sku, name, price, sizes, category, images } = req.body;
 
-  const updateProduct = await pool.query(updateProductQuery, [
-    sku,
-    name,
-    price,
-    sizes,
-    category,
-    id,
-  ]);
+  try {
+    const updateProduct = await pool.query(updateProductQuery, [
+      sku,
+      name,
+      price,
+      sizes,
+      category,
+      images,
+      id,
+    ]);
 
-  res.json(updateProduct);
+    res.json(updateProduct);
+  } catch (error) {
+    console.error(error.message);
+  }
 };
 
 module.exports = {
