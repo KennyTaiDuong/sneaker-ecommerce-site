@@ -7,16 +7,16 @@ const {
   updateUser,
 } = require("./controller");
 
-const userRouter = express.Router();
+const router = express.Router();
 
-userRouter.get("/", getAllUsers);
+router.get("/", getAllUsers);
 
-userRouter.get("/:id", getUser);
+router.get("/:id", getUser);
 
-userRouter.post("/", createUser);
+router.post("/", createUser);
 
-userRouter.delete("/:id", deleteUser);
+router.delete("/:id", deleteUser);
 
-userRouter.put("/:id", updateUser);
+router.put("/:id", updateUser);
 
-module.exports = userRouter;
+module.exports = router;

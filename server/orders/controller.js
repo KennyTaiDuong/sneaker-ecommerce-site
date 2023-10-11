@@ -61,12 +61,15 @@ const updateOrder = async (req, res) => {
   const { id } = req.params;
 
   try {
-    const { total_price, shipping_info, order_status } = req.body;
+    const { total_price, shipping_info, order_status, user_id, cart_id } =
+      req.body;
 
     const updatedOrder = await pool.query(updateOrderQuery, [
       total_price,
       shipping_info,
       order_status,
+      user_id,
+      cart_id,
       id,
     ]);
 

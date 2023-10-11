@@ -8,16 +8,16 @@ const {
   updateOrder,
 } = require("./controller");
 
-const orderRouter = express.Router();
+const router = express.Router();
 
-orderRouter.get("/", getAllOrders);
+router.get("/", getAllOrders);
 
-orderRouter.get("/:id", getOrder);
+router.get("/:id", getOrder);
 
-orderRouter.post("/", createOrder);
+router.post("/", createOrder);
 
-orderRouter.delete("/:id", deleteOrder);
+router.delete("/:id", deleteOrder);
 
-orderRouter.put("/:id", updateOrder);
+router.put("/:id", updateOrder);
 
-module.exports = orderRouter;
+module.exports = router;
