@@ -1,5 +1,7 @@
 import styled from "styled-components"
 import { Outlet } from "react-router-dom"
+import { Header } from "../Header/Header"
+import { Footer } from "../Footer/Footer"
 
 const SiteContainer = styled.div`
   min-height: 100vh;
@@ -10,11 +12,11 @@ const SiteContainer = styled.div`
 export const Layout = () => {
   return (
     <SiteContainer>
-      <h1>Header</h1>
+      <Header />
       <main>
         <Outlet />
       </main>
-      <h2>Footer</h2>
+      <Footer />
     </SiteContainer>
   )
 }
