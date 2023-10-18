@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1697647766853" clover="3.2.0">
-  <project timestamp="1697647766853" name="All files">
-    <metrics statements="17" coveredstatements="16" conditionals="3" coveredconditionals="3" methods="2" coveredmethods="2" elements="22" coveredelements="21" complexity="0" loc="17" ncloc="17" packages="6" files="8" classes="8"/>
+<coverage generated="1697648246901" clover="3.2.0">
+  <project timestamp="1697648246901" name="All files">
+    <metrics statements="17" coveredstatements="17" conditionals="3" coveredconditionals="3" methods="2" coveredmethods="2" elements="22" coveredelements="22" complexity="0" loc="17" ncloc="17" packages="6" files="8" classes="8"/>
     <package name="src">
-      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="App.tsx" path="D:/dev/sneaker-ecommerce-site/client/src/App.tsx">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
       <file name="GlobalStyles.tsx" path="D:\dev\sneaker-ecommerce-site\client\src\GlobalStyles.tsx">
-        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="3" count="0" type="stmt"/>
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="2" type="stmt"/>
       </file>
       <file name="main.tsx" path="D:/dev/sneaker-ecommerce-site/client/src/main.tsx">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
