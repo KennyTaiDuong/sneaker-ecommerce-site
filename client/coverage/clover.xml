@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1697595863196" clover="3.2.0">
-  <project timestamp="1697595863196" name="All files">
-    <metrics statements="19" coveredstatements="19" conditionals="3" coveredconditionals="3" methods="2" coveredmethods="2" elements="24" coveredelements="24" complexity="0" loc="19" ncloc="19" packages="5" files="7" classes="7"/>
+<coverage generated="1697662327196" clover="3.2.0">
+  <project timestamp="1697662327196" name="All files">
+    <metrics statements="66" coveredstatements="62" conditionals="10" coveredconditionals="8" methods="10" coveredmethods="5" elements="86" coveredelements="75" complexity="0" loc="66" ncloc="66" packages="5" files="7" classes="7"/>
     <package name="src">
       <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="App.tsx" path="D:/dev/sneaker-ecommerce-site/client/src/App.tsx">
@@ -16,27 +16,74 @@
       </file>
     </package>
     <package name="src.components.Footer">
-      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <metrics statements="18" coveredstatements="18" conditionals="3" coveredconditionals="3" methods="2" coveredmethods="2"/>
       <file name="Footer.tsx" path="D:/dev/sneaker-ecommerce-site/client/src/components/Footer/Footer.tsx">
-        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <metrics statements="18" coveredstatements="18" conditionals="3" coveredconditionals="3" methods="2" coveredmethods="2"/>
+        <line num="1" count="30" type="cond" truecount="3" falsecount="0"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="20" count="2" type="stmt"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="25" count="2" type="stmt"/>
+        <line num="27" count="2" type="stmt"/>
+        <line num="30" count="2" type="stmt"/>
+        <line num="32" count="2" type="stmt"/>
+        <line num="34" count="2" type="stmt"/>
+        <line num="36" count="2" type="stmt"/>
+        <line num="41" count="2" type="stmt"/>
+        <line num="43" count="2" type="stmt"/>
+        <line num="48" count="2" type="stmt"/>
+        <line num="50" count="2" type="stmt"/>
+        <line num="52" count="2" type="stmt"/>
+        <line num="54" count="16" type="stmt"/>
+        <line num="55" count="2" type="stmt"/>
+        <line num="97" count="2" type="stmt"/>
       </file>
     </package>
     <package name="src.components.Header">
-      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <metrics statements="21" coveredstatements="20" conditionals="2" coveredconditionals="1" methods="3" coveredmethods="1"/>
       <file name="Header.tsx" path="D:/dev/sneaker-ecommerce-site/client/src/components/Header/Header.tsx">
-        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <metrics statements="21" coveredstatements="20" conditionals="2" coveredconditionals="1" methods="3" coveredmethods="1"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="23" count="2" type="stmt"/>
+        <line num="28" count="2" type="stmt"/>
+        <line num="30" count="2" type="stmt"/>
+        <line num="36" count="2" type="stmt"/>
+        <line num="38" count="2" type="stmt"/>
+        <line num="43" count="2" type="stmt"/>
+        <line num="45" count="2" type="stmt"/>
+        <line num="48" count="2" type="stmt"/>
+        <line num="50" count="2" type="stmt"/>
+        <line num="78" count="2" type="stmt"/>
+        <line num="80" count="2" type="stmt"/>
+        <line num="87" count="2" type="stmt"/>
+        <line num="93" count="18" type="stmt"/>
+        <line num="94" count="2" type="stmt"/>
+        <line num="96" count="2" type="stmt"/>
+        <line num="102" count="0" type="stmt"/>
+        <line num="112" count="2" type="stmt"/>
       </file>
     </package>
     <package name="src.components.Layout">
-      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <metrics statements="8" coveredstatements="6" conditionals="2" coveredconditionals="1" methods="3" coveredmethods="1"/>
       <file name="Layout.tsx" path="D:/dev/sneaker-ecommerce-site/client/src/components/Layout/Layout.tsx">
-        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <metrics statements="8" coveredstatements="6" conditionals="2" coveredconditionals="1" methods="3" coveredmethods="1"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="14" count="4" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="19" count="0" type="cond" truecount="1" falsecount="1"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="27" count="2" type="stmt"/>
       </file>
     </package>
     <package name="src.components.Sidebar">
-      <metrics statements="18" coveredstatements="18" conditionals="3" coveredconditionals="3" methods="2" coveredmethods="2"/>
+      <metrics statements="18" coveredstatements="17" conditionals="3" coveredconditionals="3" methods="2" coveredmethods="1"/>
       <file name="Sidebar.tsx" path="D:/dev/sneaker-ecommerce-site/client/src/components/Sidebar/Sidebar.tsx">
-        <metrics statements="18" coveredstatements="18" conditionals="3" coveredconditionals="3" methods="2" coveredmethods="2"/>
+        <metrics statements="18" coveredstatements="17" conditionals="3" coveredconditionals="3" methods="2" coveredmethods="1"/>
         <line num="1" count="30" type="cond" truecount="3" falsecount="0"/>
         <line num="8" count="2" type="stmt"/>
         <line num="17" count="2" type="stmt"/>
@@ -53,7 +100,7 @@
         <line num="49" count="2" type="stmt"/>
         <line num="62" count="2" type="stmt"/>
         <line num="68" count="16" type="stmt"/>
-        <line num="70" count="2" type="stmt"/>
+        <line num="70" count="0" type="stmt"/>
         <line num="105" count="2" type="stmt"/>
       </file>
     </package>
