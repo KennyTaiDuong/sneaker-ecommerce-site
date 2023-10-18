@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { useState } from "react";
 
 import RightArrow from "../../assets/icons/right-arrow-icon.svg"
 import CloseIcon from "../../assets/icons/x-icon.svg"
@@ -10,8 +9,7 @@ const Container = styled.div`
   top: 0;
   bottom: 0;
   left: 0;
-  right: 30%;
-  width: clamp(15rem, 50vw, 20vw);
+  right: 0;
   padding: 1rem;
   border: 1px solid red;
 `

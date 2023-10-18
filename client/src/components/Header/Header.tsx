@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { useContext, useState } from "react"
+import { useState } from "react"
 
 // Icons/Logos/Images
 import logo from "../../assets/logo/aksupplied.png" 
@@ -35,6 +35,10 @@ const SearchBar = styled.div`
   border: 1px solid #fff;
 `
 
+const MenuButton = styled.button`
+
+`
+
 const Logo = styled.img`
   height: 4rem;
   border-radius: 50%;
@@ -44,6 +48,7 @@ const Logo = styled.img`
 
 const Icon = styled.img`
   width: 2rem;
+<<<<<<< HEAD
   cursor: pointer;
 `
 
@@ -74,6 +79,16 @@ const MenuLabel = styled.p`
 
   &:hover {
     color: rgb(255, 0, 0);
+=======
+  height: 2rem;
+  border: 1px solid black;
+  border-radius: 50%;
+  box-shadow: 0px 5px 1px black;
+
+  &:hover {
+    translate: 0px -4px;
+    box-shadow: 0px 9px 1px black;
+>>>>>>> 08c9219584e5b5a81a64ec83c40fdd66ddacfd62
   }
 `
 
@@ -95,6 +110,7 @@ export const Header = ({ setMenuIsOpen }: SidebarProps) => {
 
   return (
     <Container>
+<<<<<<< HEAD
       <DarkContainer>
         <Logo src={logo} alt="aksupplied logo" />
         <IconContainer>
@@ -107,6 +123,26 @@ export const Header = ({ setMenuIsOpen }: SidebarProps) => {
           <StyledInput type="text" placeholder="Search for an item"/>
         </SearchBar>
       </DarkContainer>
+=======
+      <Logo src={logo} alt="aksupplied logo" />
+      <IconContainer>
+        <MenuButton onClick={setMenuIsOpen}>
+          <Icon src={hamburgerIcon} alt="hamburger icon" data-cy="hamburger-icon" />
+        </MenuButton>
+        <MenuButton onClick={() => setSearchIsOpen(prev => !prev)}>
+          <Icon src={searchIcon} alt="search icon 1" data-cy="search-icon" />
+        </MenuButton>
+        <MenuButton>
+          <Icon src={cartIcon} alt="cart icon" />
+        </MenuButton>
+        <MenuButton>
+          <Icon src={userIcon} alt="user icon" />
+        </MenuButton>
+      </IconContainer>
+      <SearchBar data-cy="search-bar" style={{ display: `${searchIsOpen ? "block" : "none"}`}}>
+        <StyledInput type="text" placeholder="Search here"/>
+      </SearchBar>
+>>>>>>> 08c9219584e5b5a81a64ec83c40fdd66ddacfd62
     </Container>
   )
 }
