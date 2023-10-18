@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { useState } from "react"
+import { useContext, useState } from "react"
 
 // Icons/Logos
 import logo from "../../assets/logo/aksupplied.png" 
@@ -42,20 +42,23 @@ const StyledInput = styled.input`
   border: 0;
 `
 
-export const Header = () => {
+type SidebarProps = {
+  setMenuIsOpen: () => void
+}
+
+export const Header = ({ setMenuIsOpen }: SidebarProps) => {
   const [searchIsOpen, setSearchIsOpen] = useState(false)
 
   return (
     <Container>
       <Logo src={logo} alt="aksupplied logo" />
       <IconContainer>
-        <Icon src={hamburgerIcon} alt="hamburger icon" />
-        <Icon src={searchIcon} alt="search icon 1" style={{ filter: "brightness(1000%)", width: "1.5rem"}} data-cy="search-icon" onClick={() => setSearchIsOpen(prev => !prev)} />
+        <Icon src={hamburgerIcon} alt="hamburger icon" data-cy="hamburger-icon" onClick={setMenuIsOpen}/>
+        <Icon src={searchIcon} alt="search icon 1" data-cy="search-icon" style={{ width: "1.5rem"}} onClick={() => setSearchIsOpen(prev => !prev)} />
         <Icon src={cartIcon} alt="cart icon" />
         <Icon src={userIcon} alt="user icon" />
       </IconContainer>
       <SearchBar data-cy="search-bar" style={{ display: `${searchIsOpen ? "block" : "none"}`}}>
-        <Icon src={searchIcon} alt="search icon 2" style={{ width: "1.5rem"}} />
         <StyledInput type="text" placeholder="Search here"/>
       </SearchBar>
     </Container>

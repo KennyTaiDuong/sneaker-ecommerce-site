@@ -12,11 +12,8 @@ const MockFooter = () => {
 }
 
 describe("Footer Component", () => {
-  beforeEach(() => {
-    cy.mount(<MockFooter />)
-  })
-
   it("should render footer", () => {
     cy.viewport('iphone-x')
+    cy.mount(<MockFooter />)
   })
 })

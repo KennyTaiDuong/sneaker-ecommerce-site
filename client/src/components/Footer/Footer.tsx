@@ -72,7 +72,7 @@ export const Footer = () => {
         </StyledSection>
         <StyledSection>
           <SectionTitle>Site Links</SectionTitle>
-          <FooterLinks to="">Home</FooterLinks>
+          <FooterLinks to="/">Home</FooterLinks>
           <FooterLinks to="">Products</FooterLinks>
           <FooterLinks to="">Contact</FooterLinks>
         </StyledSection>
@@ -83,7 +83,7 @@ export const Footer = () => {
             <Logo src={IGLogo} />
             Instagram
           </FooterLinks>
-          <FooterLinks to="">
+          <FooterLinks to="https://www.tiktok.com/@aksuppliedsneakers">
             <Logo src={TikTokLogo} />
             TikTok
           </FooterLinks>
