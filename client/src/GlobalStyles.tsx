@@ -5,7 +5,7 @@ const Global = createGlobalStyle`
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Heebo', sans-serif;
   }
 
   body {

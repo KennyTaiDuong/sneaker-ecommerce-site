@@ -128,7 +128,49 @@
 <a name='L63'></a><a href='#L63'>63</a>
 <a name='L64'></a><a href='#L64'>64</a>
 <a name='L65'></a><a href='#L65'>65</a>
-<a name='L66'></a><a href='#L66'>66</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a>
+<a name='L76'></a><a href='#L76'>76</a>
+<a name='L77'></a><a href='#L77'>77</a>
+<a name='L78'></a><a href='#L78'>78</a>
+<a name='L79'></a><a href='#L79'>79</a>
+<a name='L80'></a><a href='#L80'>80</a>
+<a name='L81'></a><a href='#L81'>81</a>
+<a name='L82'></a><a href='#L82'>82</a>
+<a name='L83'></a><a href='#L83'>83</a>
+<a name='L84'></a><a href='#L84'>84</a>
+<a name='L85'></a><a href='#L85'>85</a>
+<a name='L86'></a><a href='#L86'>86</a>
+<a name='L87'></a><a href='#L87'>87</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -194,7 +236,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import styled from "styled-components"
-import { useContext, useState } from "react"
+import { useState } from "react"
 &nbsp;
 // Icons/Logos
 import logo from "../../assets/logo/aksupplied.png" 
@@ -223,6 +265,10 @@ const SearchBar = styled.div`
   padding: 0.5rem;
 `
 &nbsp;
+const MenuButton = styled.button`
+&nbsp;
+`
+&nbsp;
 const Logo = styled.img`
   height: 4rem;
   border-radius: 50%;
@@ -231,6 +277,15 @@ const Logo = styled.img`
 &nbsp;
 const Icon = styled.img`
   width: 2rem;
+  height: 2rem;
+  border: 1px solid black;
+  border-radius: 50%;
+  box-shadow: 0px 5px 1px black;
+&nbsp;
+  &amp;:hover {
+    translate: 0px -4px;
+    box-shadow: 0px 9px 1px black;
+  }
 `
 &nbsp;
 const StyledInput = styled.input`
@@ -248,10 +303,18 @@ export const Header = ({ setMenuIsOpen }: SidebarProps) =&gt; {
     &lt;Container&gt;
       &lt;Logo src={logo} alt="aksupplied logo" /&gt;
       &lt;IconContainer&gt;
-        &lt;Icon src={hamburgerIcon} alt="hamburger icon" data-cy="hamburger-icon" onClick={setMenuIsOpen}/&gt;
-        &lt;Icon src={searchIcon} alt="search icon 1" data-cy="search-icon" style={{ width: "1.5rem"}} onClick={() =&gt; setSearchIsOpen(prev =&gt; !prev)} /&gt;
-        &lt;Icon src={cartIcon} alt="cart icon" /&gt;
-        &lt;Icon src={userIcon} alt="user icon" /&gt;
+        &lt;MenuButton onClick={setMenuIsOpen}&gt;
+          &lt;Icon src={hamburgerIcon} alt="hamburger icon" data-cy="hamburger-icon" /&gt;
+        &lt;/MenuButton&gt;
+        &lt;MenuButton onClick={() =&gt; setSearchIsOpen(prev =&gt; !prev)}&gt;
+          &lt;Icon src={searchIcon} alt="search icon 1" data-cy="search-icon" /&gt;
+        &lt;/MenuButton&gt;
+        &lt;MenuButton&gt;
+          &lt;Icon src={cartIcon} alt="cart icon" /&gt;
+        &lt;/MenuButton&gt;
+        &lt;MenuButton&gt;
+          &lt;Icon src={userIcon} alt="user icon" /&gt;
+        &lt;/MenuButton&gt;
       &lt;/IconContainer&gt;
       &lt;SearchBar data-cy="search-bar" style={{ display: `${searchIsOpen ? "block" : "none"}`}}&gt;
         &lt;StyledInput type="text" placeholder="Search here"/&gt;
@@ -265,7 +328,7 @@ export const Header = ({ setMenuIsOpen }: SidebarProps) =&gt; {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-10-18T02:24:23.163Z
+                at 2023-10-18T16:49:26.837Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>
