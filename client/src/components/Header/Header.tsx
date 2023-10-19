@@ -17,7 +17,6 @@ const DarkContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: 1rem;
-  border-bottom: 1px solid #999999;
 `
 
 const IconContainer = styled.div`
@@ -33,10 +32,6 @@ const SearchBar = styled.div`
   border-radius: 1.5rem;
   padding: 0.5rem;
   border: 1px solid #fff;
-`
-
-const MenuButton = styled.button`
-
 `
 
 const Logo = styled.img`
