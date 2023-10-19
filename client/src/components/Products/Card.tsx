@@ -48,13 +48,13 @@ type CardProps = {
   name: string,
   price: number,
   image: string,
-  link: string
+  sku: string
 }
 
-export const Card = ({ name, price, image, link }: CardProps) => {
+export const Card = ({ name, price, image, sku }: CardProps) => {
 
   return (
-    <ProductCard to={link}>
+    <ProductCard to={`/products/${sku}`}>
       <ProductImage src={image} />
       <CardText>
         <Icon src={VerifiedIcon} />
