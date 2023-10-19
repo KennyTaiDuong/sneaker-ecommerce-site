@@ -10,13 +10,12 @@ import EmailLogo from "../../assets/logo/logo-email.svg"
 const Container = styled.div`
   background: #303030;
   color: white;
-  position: absolute;
-  bottom: 0;
   width: 100%;
   padding: 1rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  margin-top: auto;
 `
 
 const StyledSection = styled.section`
