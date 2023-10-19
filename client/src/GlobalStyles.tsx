@@ -5,7 +5,11 @@ const Global = createGlobalStyle`
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+<<<<<<< HEAD
+    font-family: 'Montserrat', sans-serif;
+=======
     font-family: 'Heebo', sans-serif;
+>>>>>>> 08c9219584e5b5a81a64ec83c40fdd66ddacfd62
   }
 
   body {
