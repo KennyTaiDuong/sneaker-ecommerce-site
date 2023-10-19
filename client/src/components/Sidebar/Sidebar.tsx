@@ -5,13 +5,15 @@ import CloseIcon from "../../assets/icons/x-icon.svg"
 import CompanyLogo from "../../assets/logo/aksupplied.png"
 
 const Container = styled.div`
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   padding: 1rem;
   border: 1px solid red;
+  z-index: 2;
+  background-color: white;
 `
 
 const StyledHeader = styled.header`
@@ -50,12 +52,29 @@ const MenuItem = styled.p`
   padding-left: 1rem;
   padding: 0.5rem;
   font-weight: 500;
+  position: relative;
+
+  &::after {
+    content: "";
+    color: rgb(255, 0, 0);
+    position: absolute;
+    width: 3px;
+    transform: scaleY(0);
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: #ff0000;
+    transform-origin: bottom;
+    transition: transform 0.25s ease-out;
+  }
+
+  &:hover::after {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
 
   &:hover {
-    border-left: 3px solid var(--red-400);
-    color: var(--red-400);
-    cursor: pointer;
-    font-weight: 700;
+    color: rgb(255, 0, 0);
   }
 `
 
