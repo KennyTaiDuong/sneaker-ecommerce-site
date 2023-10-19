@@ -11,7 +11,6 @@ const Container = styled.div`
   left: 0;
   right: 0;
   padding: 1rem;
-  border: 1px solid red;
   z-index: 2;
   background-color: white;
 `
@@ -22,7 +21,7 @@ const StyledHeader = styled.header`
 `
 
 const Icon = styled.img`
-
+  cursor: pointer;
 
   &:hover {
     filter: brightness(10%);
@@ -92,27 +91,27 @@ export const Sidebar = ({ setMenuIsOpen }: SidebarProps) => {
       </StyledHeader>
       <MenuCategory>Shop by Brand:</MenuCategory>
       <MenuContainer>
-        <MenuItem>
+        <MenuItem onClick={setMenuIsOpen}>
           Nike
           <Icon src={RightArrow} alt="right arrow"/>
         </MenuItem>
-        <MenuItem>
+        <MenuItem onClick={setMenuIsOpen}>
           Jordan
           <Icon src={RightArrow} alt="right arrow"/>
         </MenuItem>
-        <MenuItem>
+        <MenuItem onClick={setMenuIsOpen}>
           Yeezy
           <Icon src={RightArrow} alt="right arrow"/>
         </MenuItem>
-        <MenuItem>
+        <MenuItem onClick={setMenuIsOpen}>
           Adidas
           <Icon src={RightArrow} alt="right arrow"/>
         </MenuItem>
-        <MenuItem>
+        <MenuItem onClick={setMenuIsOpen}>
           New Balance
           <Icon src={RightArrow} alt="right arrow"/>
         </MenuItem>
-        <MenuItem>
+        <MenuItem onClick={setMenuIsOpen}>
           Asics
           <Icon src={RightArrow} alt="right arrow"/>
         </MenuItem>

@@ -4,6 +4,7 @@ import { useState } from "react"
 // Icons/Logos/Images
 import logo from "../../assets/logo/aksupplied.png" 
 import hamburgerIcon from "../../assets/icons/hamburger-icon.svg"
+import { NavLink } from "react-router-dom"
 
 const Container = styled.div`
   background-image: url("src/assets/backgrounds/lostnfound.jpg");
@@ -23,7 +24,6 @@ const IconContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 0;
 `
 
 const SearchBar = styled.div`
@@ -35,9 +35,8 @@ const SearchBar = styled.div`
 `
 
 const Logo = styled.img`
-  height: 4rem;
+  height: 3rem;
   border-radius: 50%;
-  margin: 0 auto;
   box-shadow: 0 0 20px black;
 `
 
@@ -95,10 +94,10 @@ export const Header = ({ setMenuIsOpen }: SidebarProps) => {
   return (
     <Container>
       <DarkContainer>
-        <Logo src={logo} alt="aksupplied logo" />
         <IconContainer>
           <Icon src={hamburgerIcon} alt="hamburger icon" data-cy="hamburger-icon" onClick={setMenuIsOpen}/>
           <MenuLabel data-cy="search-button" onClick={() => setSearchIsOpen(prev => !prev)} >Search</MenuLabel>
+          <NavLink to="/"><Logo src={logo} alt="aksupplied logo" /></NavLink>
           <MenuLabel>Cart</MenuLabel>
           <MenuLabel>Account</MenuLabel>
         </IconContainer>

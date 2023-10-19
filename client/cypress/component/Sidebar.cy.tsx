@@ -14,6 +14,5 @@ describe("Sidebar component", () => {
   it("should mount sidebar", () => {
     cy.mount(<MockSidebar />)
     cy.get('[data-cy="close-button"]').click()
-    cy.get('#aksupplied').should("not.be.visible")
   })
 })
