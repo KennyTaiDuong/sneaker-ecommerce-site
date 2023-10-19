@@ -1,8 +1,17 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
+import { Card } from "../components/Products/Card";
 
 const HomeContainer = styled.div`
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+`
 
+const CardContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 1rem;
 `
 
 export const Home = () => {
@@ -16,7 +25,6 @@ export const Home = () => {
         const data = await res.json()
 
         setProductsArray(data.rows)
-        console.log(productsArray)
       } catch (error: any) {
         console.error(error.message)
       }
@@ -25,7 +33,19 @@ export const Home = () => {
     fetchProducts()
   }, [])
 
+  const CardElements = productsArray.map((product, index) => {
+    const {name, price, images, sku} = product
+
+    return (
+      <Card name={name} price={price} image={images} sku={sku} key={index}/>
+    )
+  })
+
   return (
-    <HomeContainer></HomeContainer>
+    <HomeContainer>
+      <CardContainer> 
+        {CardElements}
+      </CardContainer>
+    </HomeContainer>
   )
 }
