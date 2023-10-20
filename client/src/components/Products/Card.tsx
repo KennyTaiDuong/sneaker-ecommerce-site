@@ -4,7 +4,6 @@ import { NavLink } from "react-router-dom";
 import VerifiedIcon from "../../assets/icons/verified-icon.png"
 
 const ProductCard = styled(NavLink)`
-  /* background-color: #b58d56; */
   border: 2px solid rgb(238, 238, 238);
   display: flex;
   flex-direction: column;
@@ -12,7 +11,7 @@ const ProductCard = styled(NavLink)`
   gap: 0.5rem;
   border-radius: 0.5rem;
   padding: 0.5rem;
-  width: 180px;
+  width: 20rem;
 `
 
 const ProductName = styled.p`
@@ -23,7 +22,7 @@ const ProductName = styled.p`
 const ProductPrice = styled.p`
   font-weight: 700;
   color: #000;
-  margin-top: 0.25rem;
+  margin-top: auto;
   display: flex;
   justify-content: space-between;
 `
@@ -36,7 +35,7 @@ const CardText = styled.p`
 `
 
 const ProductImage = styled.img`
-  width: 10rem;
+  width: 100%;
   border-radius: 0.5rem;
 `
 
