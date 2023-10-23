@@ -16,7 +16,7 @@
     "fnMap": {},
     "branchMap": {},
     "s": {
-      "0": 2
+      "0": 16
     },
     "f": {},
     "b": {},
@@ -151,310 +151,370 @@
       "11": {
         "start": {
           "line": 31,
-          "column": 20
+          "column": 16
         },
         "end": {
-          "line": 34,
+          "line": 35,
           "column": 1
         }
       },
       "12": {
         "start": {
-          "line": 35,
+          "line": 36,
           "column": 0
         },
         "end": {
-          "line": 35,
-          "column": 18
+          "line": 36,
+          "column": 14
         }
       },
       "13": {
         "start": {
-          "line": 36,
-          "column": 21
+          "line": 37,
+          "column": 17
         },
         "end": {
-          "line": 42,
+          "line": 39,
           "column": 1
         }
       },
       "14": {
         "start": {
-          "line": 43,
+          "line": 40,
           "column": 0
         },
         "end": {
-          "line": 43,
-          "column": 19
+          "line": 40,
+          "column": 15
         }
       },
       "15": {
         "start": {
-          "line": 44,
-          "column": 17
+          "line": 41,
+          "column": 20
         },
         "end": {
-          "line": 50,
+          "line": 44,
           "column": 1
         }
       },
       "16": {
         "start": {
-          "line": 51,
+          "line": 45,
           "column": 0
         },
         "end": {
-          "line": 51,
-          "column": 15
+          "line": 45,
+          "column": 18
         }
       },
       "17": {
         "start": {
-          "line": 52,
+          "line": 46,
           "column": 21
         },
         "end": {
-          "line": 55,
+          "line": 52,
           "column": 1
         }
       },
       "18": {
         "start": {
-          "line": 56,
+          "line": 53,
           "column": 0
         },
         "end": {
-          "line": 56,
+          "line": 53,
           "column": 19
         }
       },
       "19": {
         "start": {
-          "line": 57,
-          "column": 13
+          "line": 54,
+          "column": 17
         },
         "end": {
-          "line": 59,
+          "line": 60,
           "column": 1
         }
       },
       "20": {
         "start": {
-          "line": 60,
+          "line": 61,
           "column": 0
         },
         "end": {
-          "line": 60,
-          "column": 11
+          "line": 61,
+          "column": 15
         }
       },
       "21": {
         "start": {
-          "line": 61,
-          "column": 20
+          "line": 62,
+          "column": 21
         },
         "end": {
-          "line": 108,
+          "line": 65,
           "column": 1
         }
       },
       "22": {
         "start": {
-          "line": 67,
-          "column": 2
+          "line": 66,
+          "column": 0
         },
         "end": {
-          "line": 107,
-          "column": 11
+          "line": 66,
+          "column": 19
         }
       },
       "23": {
         "start": {
-          "line": 109,
-          "column": 0
+          "line": 67,
+          "column": 13
         },
         "end": {
-          "line": 109,
-          "column": 11
+          "line": 69,
+          "column": 1
         }
       },
       "24": {
         "start": {
-          "line": 111,
+          "line": 70,
           "column": 0
         },
         "end": {
-          "line": 111,
-          "column": 32
+          "line": 70,
+          "column": 11
         }
       },
       "25": {
         "start": {
-          "line": 112,
-          "column": 0
+          "line": 71,
+          "column": 20
         },
         "end": {
-          "line": 112,
-          "column": 33
+          "line": 128,
+          "column": 1
         }
       },
       "26": {
         "start": {
-          "line": 113,
-          "column": 0
+          "line": 77,
+          "column": 2
         },
         "end": {
-          "line": 113,
-          "column": 34
+          "line": 127,
+          "column": 11
         }
       },
       "27": {
         "start": {
-          "line": 114,
+          "line": 129,
           "column": 0
         },
         "end": {
-          "line": 114,
-          "column": 30
+          "line": 129,
+          "column": 11
         }
       },
       "28": {
         "start": {
-          "line": 115,
-          "column": 0
-        },
-        "end": {
-          "line": 115,
-          "column": 34
-        }
-      },
-      "29": {
-        "start": {
-          "line": 116,
-          "column": 0
-        },
-        "end": {
-          "line": 116,
-          "column": 26
-        }
-      },
-      "30": {
-        "start": {
-          "line": 117,
-          "column": 0
-        },
-        "end": {
-          "line": 117,
-          "column": 26
-        }
-      },
-      "31": {
-        "start": {
-          "line": 118,
+          "line": 131,
           "column": 0
         },
         "end": {
           "line": 131,
-          "column": 1
+          "column": 32
+        }
+      },
+      "29": {
+        "start": {
+          "line": 132,
+          "column": 0
+        },
+        "end": {
+          "line": 132,
+          "column": 29
+        }
+      },
+      "30": {
+        "start": {
+          "line": 133,
+          "column": 0
+        },
+        "end": {
+          "line": 133,
+          "column": 30
+        }
+      },
+      "31": {
+        "start": {
+          "line": 134,
+          "column": 0
+        },
+        "end": {
+          "line": 134,
+          "column": 33
         }
       },
       "32": {
         "start": {
-          "line": 119,
-          "column": 2
+          "line": 135,
+          "column": 0
         },
         "end": {
-          "line": 119,
-          "column": 39
+          "line": 135,
+          "column": 34
         }
       },
       "33": {
         "start": {
-          "line": 120,
-          "column": 2
+          "line": 136,
+          "column": 0
         },
         "end": {
-          "line": 120,
-          "column": 39
+          "line": 136,
+          "column": 30
         }
       },
       "34": {
         "start": {
-          "line": 121,
-          "column": 2
+          "line": 137,
+          "column": 0
         },
         "end": {
-          "line": 130,
-          "column": 5
+          "line": 137,
+          "column": 34
         }
       },
       "35": {
         "start": {
-          "line": 122,
-          "column": 4
+          "line": 138,
+          "column": 0
         },
         "end": {
-          "line": 122,
-          "column": 139
+          "line": 138,
+          "column": 26
         }
       },
       "36": {
         "start": {
-          "line": 123,
-          "column": 4
+          "line": 139,
+          "column": 0
         },
         "end": {
-          "line": 129,
-          "column": 7
+          "line": 139,
+          "column": 26
         }
       },
       "37": {
         "start": {
-          "line": 124,
-          "column": 6
+          "line": 140,
+          "column": 0
         },
         "end": {
-          "line": 125,
-          "column": 15
+          "line": 153,
+          "column": 1
         }
       },
       "38": {
         "start": {
-          "line": 125,
-          "column": 8
+          "line": 141,
+          "column": 2
         },
         "end": {
-          "line": 125,
-          "column": 15
+          "line": 141,
+          "column": 39
         }
       },
       "39": {
         "start": {
-          "line": 126,
-          "column": 32
+          "line": 142,
+          "column": 2
         },
         "end": {
-          "line": 126,
-          "column": 115
+          "line": 142,
+          "column": 39
         }
       },
       "40": {
         "start": {
-          "line": 127,
-          "column": 6
+          "line": 143,
+          "column": 2
         },
         "end": {
-          "line": 128,
-          "column": 54
+          "line": 152,
+          "column": 5
         }
       },
       "41": {
         "start": {
-          "line": 128,
+          "line": 144,
+          "column": 4
+        },
+        "end": {
+          "line": 144,
+          "column": 139
+        }
+      },
+      "42": {
+        "start": {
+          "line": 145,
+          "column": 4
+        },
+        "end": {
+          "line": 151,
+          "column": 7
+        }
+      },
+      "43": {
+        "start": {
+          "line": 146,
+          "column": 6
+        },
+        "end": {
+          "line": 147,
+          "column": 15
+        }
+      },
+      "44": {
+        "start": {
+          "line": 147,
           "column": 8
         },
         "end": {
-          "line": 128,
+          "line": 147,
+          "column": 15
+        }
+      },
+      "45": {
+        "start": {
+          "line": 148,
+          "column": 32
+        },
+        "end": {
+          "line": 148,
+          "column": 115
+        }
+      },
+      "46": {
+        "start": {
+          "line": 149,
+          "column": 6
+        },
+        "end": {
+          "line": 150,
+          "column": 54
+        }
+      },
+      "47": {
+        "start": {
+          "line": 150,
+          "column": 8
+        },
+        "end": {
+          "line": 150,
           "column": 54
         }
       }
@@ -488,73 +548,73 @@
         "name": "(anonymous_1)",
         "decl": {
           "start": {
-            "line": 61,
+            "line": 71,
             "column": 20
           },
           "end": {
-            "line": 61,
+            "line": 71,
             "column": 21
           }
         },
         "loc": {
           "start": {
-            "line": 66,
+            "line": 76,
             "column": 6
           },
           "end": {
-            "line": 108,
+            "line": 128,
             "column": 1
           }
         },
-        "line": 66
+        "line": 76
       },
       "2": {
         "name": "(anonymous_2)",
         "decl": {
           "start": {
-            "line": 121,
+            "line": 143,
             "column": 52
           },
           "end": {
-            "line": 121,
+            "line": 143,
             "column": 53
           }
         },
         "loc": {
           "start": {
-            "line": 121,
+            "line": 143,
             "column": 72
           },
           "end": {
-            "line": 130,
+            "line": 152,
             "column": 3
           }
         },
-        "line": 121
+        "line": 143
       },
       "3": {
         "name": "(anonymous_3)",
         "decl": {
           "start": {
-            "line": 123,
+            "line": 145,
             "column": 27
           },
           "end": {
-            "line": 123,
+            "line": 145,
             "column": 28
           }
         },
         "loc": {
           "start": {
-            "line": 123,
+            "line": 145,
             "column": 44
           },
           "end": {
-            "line": 129,
+            "line": 151,
             "column": 5
           }
         },
-        "line": 123
+        "line": 145
       }
     },
     "branchMap": {
@@ -693,11 +753,11 @@
       "4": {
         "loc": {
           "start": {
-            "line": 118,
+            "line": 140,
             "column": 0
           },
           "end": {
-            "line": 131,
+            "line": 153,
             "column": 1
           }
         },
@@ -705,11 +765,11 @@
         "locations": [
           {
             "start": {
-              "line": 118,
+              "line": 140,
               "column": 0
             },
             "end": {
-              "line": 131,
+              "line": 153,
               "column": 1
             }
           },
@@ -718,16 +778,16 @@
             "end": {}
           }
         ],
-        "line": 118
+        "line": 140
       },
       "5": {
         "loc": {
           "start": {
-            "line": 118,
+            "line": 140,
             "column": 4
           },
           "end": {
-            "line": 118,
+            "line": 140,
             "column": 35
           }
         },
@@ -735,35 +795,35 @@
         "locations": [
           {
             "start": {
-              "line": 118,
+              "line": 140,
               "column": 4
             },
             "end": {
-              "line": 118,
+              "line": 140,
               "column": 19
             }
           },
           {
             "start": {
-              "line": 118,
+              "line": 140,
               "column": 23
             },
             "end": {
-              "line": 118,
+              "line": 140,
               "column": 35
             }
           }
         ],
-        "line": 118
+        "line": 140
       },
       "6": {
         "loc": {
           "start": {
-            "line": 124,
+            "line": 146,
             "column": 6
           },
           "end": {
-            "line": 125,
+            "line": 147,
             "column": 15
           }
         },
@@ -771,11 +831,11 @@
         "locations": [
           {
             "start": {
-              "line": 124,
+              "line": 146,
               "column": 6
             },
             "end": {
-              "line": 125,
+              "line": 147,
               "column": 15
             }
           },
@@ -784,16 +844,16 @@
             "end": {}
           }
         ],
-        "line": 124
+        "line": 146
       },
       "7": {
         "loc": {
           "start": {
-            "line": 127,
+            "line": 149,
             "column": 6
           },
           "end": {
-            "line": 128,
+            "line": 150,
             "column": 54
           }
         },
@@ -801,11 +861,11 @@
         "locations": [
           {
             "start": {
-              "line": 127,
+              "line": 149,
               "column": 6
             },
             "end": {
-              "line": 128,
+              "line": 150,
               "column": 54
             }
           },
@@ -814,20 +874,20 @@
             "end": {}
           }
         ],
-        "line": 127
+        "line": 149
       }
     },
     "s": {
-      "0": 2,
-      "1": 2,
-      "2": 2,
-      "3": 0,
-      "4": 2,
-      "5": 2,
-      "6": 2,
-      "7": 14,
-      "8": 2,
-      "9": 2,
+      "0": 6,
+      "1": 6,
+      "2": 6,
+      "3": 4,
+      "4": 6,
+      "5": 6,
+      "6": 6,
+      "7": 22,
+      "8": 6,
+      "9": 4,
       "10": 2,
       "11": 2,
       "12": 2,
@@ -855,14 +915,20 @@
       "34": 2,
       "35": 2,
       "36": 2,
-      "37": 0,
-      "38": 0,
-      "39": 0,
-      "40": 0,
-      "41": 0
+      "37": 2,
+      "38": 2,
+      "39": 2,
+      "40": 2,
+      "41": 2,
+      "42": 2,
+      "43": 0,
+      "44": 0,
+      "45": 0,
+      "46": 0,
+      "47": 0
     },
     "f": {
-      "0": 14,
+      "0": 20,
       "1": 2,
       "2": 2,
       "3": 0
@@ -903,31 +969,36 @@
     },
     "inputSourceMap": {
       "version": 3,
-      "mappings": "AAwDM;AAxDN,OAAOA,oBAAY;AAAmB;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AACtC,SAASC,eAAe;AAExB,OAAOC,kBAAkB;AAEzB,MAAMC,cAAcH,OAAOC,OAAO;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AASjCG,KATKD;AAWN,MAAME,cAAcL,OAAOM;AAAAA;AAAAA;AAAAA;AAG1BC,MAHKF;AAKN,MAAMG,eAAeR,OAAOM;AAAAA;AAAAA;AAAAA;AAAAA;AAAAA;AAAAA;AAM3BG,MANKD;AAON,MAAME,WAAWV,OAAOM;AAAAA;AAAAA;AAAAA;AAAAA;AAAAA;AAAAA;AAMvBK,MANKD;AAQN,MAAME,eAAeZ,OAAOa;AAAAA;AAAAA;AAAAA;AAG3BC,MAHKF;AAKN,MAAMG,OAAOf,OAAOa;AAAAA;AAAAA;AAEnBG,MAFKD;AAWC,aAAME,OAAOA,CAAC;AAAA,EAAEC;AAAAA,EAAMC;AAAAA,EAAOC;AAAAA,EAAOC;AAAe,MAAM;AAE9D,SACE,uBAAC,eAAY,IAAK,aAAYA,GAAI,IAChC;AAAA,2BAAC,gBAAa,KAAKD,SAAnB;AAAA;AAAA;AAAA;AAAA,WAAyB;AAAA,IACzB,uBAAC,YACC;AAAA,6BAAC,QAAK,KAAKlB,gBAAX;AAAA;AAAA;AAAA;AAAA,aAAwB;AAAA,MAAG;AAAA,SAD7B;AAAA;AAAA;AAAA;AAAA,WAGA;AAAA,IACA,uBAAC,eAAagB,kBAAd;AAAA;AAAA;AAAA;AAAA,WAAmB;AAAA,IACnB,uBAAC,gBACC;AAAA,6BAAC,YAAS,uBAAV;AAAA;AAAA;AAAA;AAAA,aAAiB;AAAA,MAAW;AAAA,MAC1BC;AAAAA,SAFJ;AAAA;AAAA;AAAA;AAAA,WAGA;AAAA,OAVF;AAAA;AAAA;AAAA;AAAA,SAWA;AAEJ;AAACG,MAhBYL;AAAI,IAAAb,IAAAG,KAAAE,KAAAE,KAAAG,KAAAE,KAAAM;AAAAC,aAAAnB,IAAA;AAAAmB,aAAAhB,KAAA;AAAAgB,aAAAd,KAAA;AAAAc,aAAAZ,KAAA;AAAAY,aAAAT,KAAA;AAAAS,aAAAP,KAAA;AAAAO,aAAAD,KAAA",
+      "mappings": "AAmEQ;AAnER,OAAOA,oBAAY;AAAmB;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AACtC,SAASC,eAAe;AAExB,OAAOC,kBAAkB;AAEzB,MAAMC,cAAcH,OAAOC,OAAO;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AASjCG,KATKD;AAWN,MAAME,UAAUL,OAAOM;AAAAA;AAAAA;AAAAA;AAAAA;AAItBC,MAJKF;AAMN,MAAMG,WAAWR,OAAOM;AAAAA;AAAAA;AAEvBG,MAFKD;AAIN,MAAME,cAAcV,OAAOW;AAAAA;AAAAA;AAAAA;AAG1BC,MAHKF;AAKN,MAAMG,eAAeb,OAAOW;AAAAA;AAAAA;AAAAA;AAAAA;AAAAA;AAAAA;AAM3BG,MANKD;AAON,MAAME,WAAWf,OAAOW;AAAAA;AAAAA;AAAAA;AAAAA;AAAAA;AAAAA;AAMvBK,MANKD;AAQN,MAAME,eAAejB,OAAOkB;AAAAA;AAAAA;AAAAA;AAG3BC,MAHKF;AAKN,MAAMG,OAAOpB,OAAOkB;AAAAA;AAAAA;AAEnBG,MAFKD;AAWC,aAAME,OAAOA,CAAC;AAAA,EAAEC;AAAAA,EAAMC;AAAAA,EAAOC;AAAAA,EAAOC;AAAe,MAAM;AAE9D,SACE,uBAAC,eAAY,IAAK,aAAYA,GAAI,IAChC;AAAA,2BAAC,WACC,iCAAC,gBAAa,KAAKD,SAAnB;AAAA;AAAA;AAAA;AAAA,WAAyB,KAD3B;AAAA;AAAA;AAAA;AAAA,WAEA;AAAA,IACA,uBAAC,YACC;AAAA,6BAAC,YACC;AAAA,+BAAC,QAAK,KAAKvB,gBAAX;AAAA;AAAA;AAAA;AAAA,eAAwB;AAAA,QAAG;AAAA,WAD7B;AAAA;AAAA;AAAA;AAAA,aAGA;AAAA,MACA,uBAAC,eAAaqB,kBAAd;AAAA;AAAA;AAAA;AAAA,aAAmB;AAAA,MACnB,uBAAC,gBACC;AAAA,+BAAC,YAAS,uBAAV;AAAA;AAAA;AAAA;AAAA,eAAiB;AAAA,QAAW;AAAA,QAC1BC;AAAAA,WAFJ;AAAA;AAAA;AAAA;AAAA,aAGA;AAAA,SATF;AAAA;AAAA;AAAA;AAAA,WAUA;AAAA,OAdF;AAAA;AAAA;AAAA;AAAA,SAeA;AAEJ;AAACG,MApBYL;AAAI,IAAAlB,IAAAG,KAAAE,KAAAG,KAAAE,KAAAE,KAAAG,KAAAE,KAAAM;AAAAC,aAAAxB,IAAA;AAAAwB,aAAArB,KAAA;AAAAqB,aAAAnB,KAAA;AAAAmB,aAAAhB,KAAA;AAAAgB,aAAAd,KAAA;AAAAc,aAAAZ,KAAA;AAAAY,aAAAT,KAAA;AAAAS,aAAAP,KAAA;AAAAO,aAAAD,KAAA",
       "names": [
         "styled",
         "NavLink",
         "VerifiedIcon",
         "ProductCard",
         "_c",
+        "CardImg",
+        "div",
+        "_c2",
+        "CardInfo",
+        "_c3",
         "ProductName",
         "p",
-        "_c2",
-        "ProductPrice",
-        "_c3",
-        "CardText",
         "_c4",
+        "ProductPrice",
+        "_c5",
+        "CardText",
+        "_c6",
         "ProductImage",
         "img",
-        "_c5",
+        "_c7",
         "Icon",
-        "_c6",
+        "_c8",
         "Card",
         "name",
         "price",
         "image",
         "sku",
-        "_c7",
+        "_c9",
         "$RefreshReg$"
       ],
       "sources": [
@@ -936,7 +1007,2373 @@
       "file": "D:/dev/sneaker-ecommerce-site/client/src/components/Products/Card.tsx"
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "9f33755362a43b4d266ee2010a091edc9332f392"
+    "hash": "e6c9240cdae85f6ac185646c12a5ba3d9917bec1"
+  },
+  "D:/dev/sneaker-ecommerce-site/client/src/components/Filter/Filter.tsx": {
+    "path": "D:/dev/sneaker-ecommerce-site/client/src/components/Filter/Filter.tsx",
+    "statementMap": {
+      "0": {
+        "start": {
+          "line": 7,
+          "column": 24
+        },
+        "end": {
+          "line": 14,
+          "column": 1
+        }
+      },
+      "1": {
+        "start": {
+          "line": 15,
+          "column": 25
+        },
+        "end": {
+          "line": 20,
+          "column": 1
+        }
+      },
+      "2": {
+        "start": {
+          "line": 21,
+          "column": 22
+        },
+        "end": {
+          "line": 23,
+          "column": 1
+        }
+      },
+      "3": {
+        "start": {
+          "line": 24,
+          "column": 19
+        },
+        "end": {
+          "line": 29,
+          "column": 1
+        }
+      },
+      "4": {
+        "start": {
+          "line": 30,
+          "column": 23
+        },
+        "end": {
+          "line": 33,
+          "column": 1
+        }
+      },
+      "5": {
+        "start": {
+          "line": 34,
+          "column": 26
+        },
+        "end": {
+          "line": 36,
+          "column": 1
+        }
+      },
+      "6": {
+        "start": {
+          "line": 37,
+          "column": 21
+        },
+        "end": {
+          "line": 41,
+          "column": 1
+        }
+      },
+      "7": {
+        "start": {
+          "line": 42,
+          "column": 21
+        },
+        "end": {
+          "line": 44,
+          "column": 1
+        }
+      },
+      "8": {
+        "start": {
+          "line": 45,
+          "column": 13
+        },
+        "end": {
+          "line": 47,
+          "column": 1
+        }
+      },
+      "9": {
+        "start": {
+          "line": 48,
+          "column": 22
+        },
+        "end": {
+          "line": 222,
+          "column": 1
+        }
+      },
+      "10": {
+        "start": {
+          "line": 49,
+          "column": 42
+        },
+        "end": {
+          "line": 49,
+          "column": 57
+        }
+      },
+      "11": {
+        "start": {
+          "line": 50,
+          "column": 34
+        },
+        "end": {
+          "line": 50,
+          "column": 49
+        }
+      },
+      "12": {
+        "start": {
+          "line": 51,
+          "column": 36
+        },
+        "end": {
+          "line": 51,
+          "column": 51
+        }
+      },
+      "13": {
+        "start": {
+          "line": 52,
+          "column": 38
+        },
+        "end": {
+          "line": 52,
+          "column": 53
+        }
+      },
+      "14": {
+        "start": {
+          "line": 53,
+          "column": 2
+        },
+        "end": {
+          "line": 221,
+          "column": 11
+        }
+      },
+      "15": {
+        "start": {
+          "line": 76,
+          "column": 60
+        },
+        "end": {
+          "line": 76,
+          "column": 92
+        }
+      },
+      "16": {
+        "start": {
+          "line": 76,
+          "column": 86
+        },
+        "end": {
+          "line": 76,
+          "column": 91
+        }
+      },
+      "17": {
+        "start": {
+          "line": 110,
+          "column": 60
+        },
+        "end": {
+          "line": 110,
+          "column": 88
+        }
+      },
+      "18": {
+        "start": {
+          "line": 110,
+          "column": 82
+        },
+        "end": {
+          "line": 110,
+          "column": 87
+        }
+      },
+      "19": {
+        "start": {
+          "line": 144,
+          "column": 60
+        },
+        "end": {
+          "line": 144,
+          "column": 89
+        }
+      },
+      "20": {
+        "start": {
+          "line": 144,
+          "column": 83
+        },
+        "end": {
+          "line": 144,
+          "column": 88
+        }
+      },
+      "21": {
+        "start": {
+          "line": 178,
+          "column": 60
+        },
+        "end": {
+          "line": 178,
+          "column": 90
+        }
+      },
+      "22": {
+        "start": {
+          "line": 178,
+          "column": 84
+        },
+        "end": {
+          "line": 178,
+          "column": 89
+        }
+      }
+    },
+    "fnMap": {
+      "0": {
+        "name": "(anonymous_0)",
+        "decl": {
+          "start": {
+            "line": 48,
+            "column": 22
+          },
+          "end": {
+            "line": 48,
+            "column": 23
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 48,
+            "column": 28
+          },
+          "end": {
+            "line": 222,
+            "column": 1
+          }
+        },
+        "line": 48
+      },
+      "1": {
+        "name": "(anonymous_1)",
+        "decl": {
+          "start": {
+            "line": 76,
+            "column": 54
+          },
+          "end": {
+            "line": 76,
+            "column": 55
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 76,
+            "column": 60
+          },
+          "end": {
+            "line": 76,
+            "column": 92
+          }
+        },
+        "line": 76
+      },
+      "2": {
+        "name": "(anonymous_2)",
+        "decl": {
+          "start": {
+            "line": 76,
+            "column": 76
+          },
+          "end": {
+            "line": 76,
+            "column": 77
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 76,
+            "column": 86
+          },
+          "end": {
+            "line": 76,
+            "column": 91
+          }
+        },
+        "line": 76
+      },
+      "3": {
+        "name": "(anonymous_3)",
+        "decl": {
+          "start": {
+            "line": 110,
+            "column": 54
+          },
+          "end": {
+            "line": 110,
+            "column": 55
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 110,
+            "column": 60
+          },
+          "end": {
+            "line": 110,
+            "column": 88
+          }
+        },
+        "line": 110
+      },
+      "4": {
+        "name": "(anonymous_4)",
+        "decl": {
+          "start": {
+            "line": 110,
+            "column": 72
+          },
+          "end": {
+            "line": 110,
+            "column": 73
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 110,
+            "column": 82
+          },
+          "end": {
+            "line": 110,
+            "column": 87
+          }
+        },
+        "line": 110
+      },
+      "5": {
+        "name": "(anonymous_5)",
+        "decl": {
+          "start": {
+            "line": 144,
+            "column": 54
+          },
+          "end": {
+            "line": 144,
+            "column": 55
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 144,
+            "column": 60
+          },
+          "end": {
+            "line": 144,
+            "column": 89
+          }
+        },
+        "line": 144
+      },
+      "6": {
+        "name": "(anonymous_6)",
+        "decl": {
+          "start": {
+            "line": 144,
+            "column": 73
+          },
+          "end": {
+            "line": 144,
+            "column": 74
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 144,
+            "column": 83
+          },
+          "end": {
+            "line": 144,
+            "column": 88
+          }
+        },
+        "line": 144
+      },
+      "7": {
+        "name": "(anonymous_7)",
+        "decl": {
+          "start": {
+            "line": 178,
+            "column": 54
+          },
+          "end": {
+            "line": 178,
+            "column": 55
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 178,
+            "column": 60
+          },
+          "end": {
+            "line": 178,
+            "column": 90
+          }
+        },
+        "line": 178
+      },
+      "8": {
+        "name": "(anonymous_8)",
+        "decl": {
+          "start": {
+            "line": 178,
+            "column": 74
+          },
+          "end": {
+            "line": 178,
+            "column": 75
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 178,
+            "column": 84
+          },
+          "end": {
+            "line": 178,
+            "column": 89
+          }
+        },
+        "line": 178
+      }
+    },
+    "branchMap": {
+      "0": {
+        "loc": {
+          "start": {
+            "line": 79,
+            "column": 46
+          },
+          "end": {
+            "line": 79,
+            "column": 80
+          }
+        },
+        "type": "cond-expr",
+        "locations": [
+          {
+            "start": {
+              "line": 79,
+              "column": 61
+            },
+            "end": {
+              "line": 79,
+              "column": 68
+            }
+          },
+          {
+            "start": {
+              "line": 79,
+              "column": 71
+            },
+            "end": {
+              "line": 79,
+              "column": 80
+            }
+          }
+        ],
+        "line": 79
+      },
+      "1": {
+        "loc": {
+          "start": {
+            "line": 89,
+            "column": 73
+          },
+          "end": {
+            "line": 89,
+            "column": 104
+          }
+        },
+        "type": "cond-expr",
+        "locations": [
+          {
+            "start": {
+              "line": 89,
+              "column": 88
+            },
+            "end": {
+              "line": 89,
+              "column": 95
+            }
+          },
+          {
+            "start": {
+              "line": 89,
+              "column": 98
+            },
+            "end": {
+              "line": 89,
+              "column": 104
+            }
+          }
+        ],
+        "line": 89
+      },
+      "2": {
+        "loc": {
+          "start": {
+            "line": 113,
+            "column": 46
+          },
+          "end": {
+            "line": 113,
+            "column": 76
+          }
+        },
+        "type": "cond-expr",
+        "locations": [
+          {
+            "start": {
+              "line": 113,
+              "column": 57
+            },
+            "end": {
+              "line": 113,
+              "column": 64
+            }
+          },
+          {
+            "start": {
+              "line": 113,
+              "column": 67
+            },
+            "end": {
+              "line": 113,
+              "column": 76
+            }
+          }
+        ],
+        "line": 113
+      },
+      "3": {
+        "loc": {
+          "start": {
+            "line": 123,
+            "column": 73
+          },
+          "end": {
+            "line": 123,
+            "column": 100
+          }
+        },
+        "type": "cond-expr",
+        "locations": [
+          {
+            "start": {
+              "line": 123,
+              "column": 84
+            },
+            "end": {
+              "line": 123,
+              "column": 91
+            }
+          },
+          {
+            "start": {
+              "line": 123,
+              "column": 94
+            },
+            "end": {
+              "line": 123,
+              "column": 100
+            }
+          }
+        ],
+        "line": 123
+      },
+      "4": {
+        "loc": {
+          "start": {
+            "line": 147,
+            "column": 46
+          },
+          "end": {
+            "line": 147,
+            "column": 77
+          }
+        },
+        "type": "cond-expr",
+        "locations": [
+          {
+            "start": {
+              "line": 147,
+              "column": 58
+            },
+            "end": {
+              "line": 147,
+              "column": 65
+            }
+          },
+          {
+            "start": {
+              "line": 147,
+              "column": 68
+            },
+            "end": {
+              "line": 147,
+              "column": 77
+            }
+          }
+        ],
+        "line": 147
+      },
+      "5": {
+        "loc": {
+          "start": {
+            "line": 157,
+            "column": 73
+          },
+          "end": {
+            "line": 157,
+            "column": 101
+          }
+        },
+        "type": "cond-expr",
+        "locations": [
+          {
+            "start": {
+              "line": 157,
+              "column": 85
+            },
+            "end": {
+              "line": 157,
+              "column": 92
+            }
+          },
+          {
+            "start": {
+              "line": 157,
+              "column": 95
+            },
+            "end": {
+              "line": 157,
+              "column": 101
+            }
+          }
+        ],
+        "line": 157
+      },
+      "6": {
+        "loc": {
+          "start": {
+            "line": 181,
+            "column": 46
+          },
+          "end": {
+            "line": 181,
+            "column": 78
+          }
+        },
+        "type": "cond-expr",
+        "locations": [
+          {
+            "start": {
+              "line": 181,
+              "column": 59
+            },
+            "end": {
+              "line": 181,
+              "column": 66
+            }
+          },
+          {
+            "start": {
+              "line": 181,
+              "column": 69
+            },
+            "end": {
+              "line": 181,
+              "column": 78
+            }
+          }
+        ],
+        "line": 181
+      },
+      "7": {
+        "loc": {
+          "start": {
+            "line": 191,
+            "column": 73
+          },
+          "end": {
+            "line": 191,
+            "column": 102
+          }
+        },
+        "type": "cond-expr",
+        "locations": [
+          {
+            "start": {
+              "line": 191,
+              "column": 86
+            },
+            "end": {
+              "line": 191,
+              "column": 93
+            }
+          },
+          {
+            "start": {
+              "line": 191,
+              "column": 96
+            },
+            "end": {
+              "line": 191,
+              "column": 102
+            }
+          }
+        ],
+        "line": 191
+      }
+    },
+    "s": {
+      "0": 2,
+      "1": 2,
+      "2": 2,
+      "3": 2,
+      "4": 2,
+      "5": 2,
+      "6": 2,
+      "7": 2,
+      "8": 2,
+      "9": 2,
+      "10": 10,
+      "11": 0,
+      "12": 0,
+      "13": 0,
+      "14": 0,
+      "15": 0,
+      "16": 0,
+      "17": 0,
+      "18": 0,
+      "19": 0,
+      "20": 0,
+      "21": 0,
+      "22": 0
+    },
+    "f": {
+      "0": 10,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0
+    },
+    "b": {
+      "0": [
+        0,
+        0
+      ],
+      "1": [
+        0,
+        0
+      ],
+      "2": [
+        0,
+        0
+      ],
+      "3": [
+        0,
+        0
+      ],
+      "4": [
+        0,
+        0
+      ],
+      "5": [
+        0,
+        0
+      ],
+      "6": [
+        0,
+        0
+      ],
+      "7": [
+        0,
+        0
+      ]
+    },
+    "inputSourceMap": {
+      "version": 3,
+      "sources": [
+        "D:/dev/sneaker-ecommerce-site/client/src/components/Filter/Filter.tsx"
+      ],
+      "mappings": "AAkEQ;AAlER,OAAO,YAAY;AACnB,SAAS,gBAAgB;AAEzB,OAAO,iBAAiB;AACxB,OAAO,eAAe;AACtB,OAAO,aAAa;AAEpB,MAAM,kBAAkB,OAAO;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAS/B,MAAM,mBAAmB,OAAO;AAAA;AAAA;AAAA;AAAA;AAAA;AAOhC,MAAM,gBAAgB,OAAO;AAAA;AAAA;AAI7B,MAAM,aAAa,OAAO;AAAA;AAAA;AAAA;AAAA;AAAA;AAO1B,MAAM,iBAAiB,OAAO;AAAA;AAAA;AAAA;AAK9B,MAAM,oBAAoB,OAAO;AAAA;AAAA;AAIjC,MAAM,eAAe,OAAO;AAAA;AAAA;AAAA;AAAA;AAM5B,MAAM,eAAe,OAAO;AAAA;AAAA;AAI5B,MAAM,OAAO,OAAO;AAAA;AAAA;AAIb,aAAM,SAAS,MAAM;AAC1B,QAAM,CAAC,cAAc,eAAe,IAAI,SAAS,KAAK;AACtD,QAAM,CAAC,UAAU,WAAW,IAAI,SAAS,KAAK;AAC9C,QAAM,CAAC,WAAW,YAAY,IAAI,SAAS,KAAK;AAChD,QAAM,CAAC,YAAY,aAAa,IAAI,SAAS,KAAK;AAElD,SACE,uBAAC,mBACC;AAAA,2BAAC,oBACC;AAAA,6BAAC,iBAAc,yBAAf;AAAA;AAAA;AAAA;AAAA,aAAwB;AAAA,MACxB,uBAAC,QAAK,KAAK,aAAa,KAAI,YAA5B;AAAA;AAAA;AAAA;AAAA,aAAoC;AAAA,SAFtC;AAAA;AAAA;AAAA;AAAA,WAGA;AAAA,IACA,uBAAC,UAAD;AAAA;AAAA;AAAA;AAAA,WAAI;AAAA,IACJ,uBAAC,cACC;AAAA,6BAAC,gBAAa,SAAS,MAAM,gBAAgB,UAAQ,CAAC,IAAI,GAAG,WAAQ,qBACnE;AAAA,+BAAC,kBAAe;AAAA;AAAA,UAEd,uBAAC,QAAK,KAAK,eAAe,UAAU,WAAW,KAAI,gBAAnD;AAAA;AAAA;AAAA;AAAA,iBAA+D;AAAA,aAFjE;AAAA;AAAA;AAAA;AAAA,eAGA;AAAA,QACA,uBAAC,qBAAkB,OAAO,EAAE,SAAS,GAAG,eAAe,UAAU,MAAM,GAAE,GACvE;AAAA,iCAAC,gBAAa,WAAQ,UAAS,sBAA/B;AAAA;AAAA;AAAA;AAAA,iBAAqC;AAAA,UACrC,uBAAC,gBAAa,sBAAd;AAAA;AAAA;AAAA;AAAA,iBAAoB;AAAA,aAFtB;AAAA;AAAA;AAAA;AAAA,eAGA;AAAA,WARF;AAAA;AAAA;AAAA;AAAA,aASA;AAAA,MACA,uBAAC,gBAAa,SAAS,MAAM,YAAY,UAAQ,CAAC,IAAI,GAAG,WAAQ,iBAC/D;AAAA,+BAAC,kBAAe;AAAA;AAAA,UAEd,uBAAC,QAAK,KAAK,WAAW,UAAU,WAAW,KAAI,gBAA/C;AAAA;AAAA;AAAA;AAAA,iBAA2D;AAAA,aAF7D;AAAA;AAAA;AAAA;AAAA,eAGA;AAAA,QACA,uBAAC,qBAAkB,OAAO,EAAE,SAAS,GAAG,WAAW,UAAU,MAAM,GAAE,GACnE;AAAA,iCAAC,gBAAa,WAAQ,UAAS,sBAA/B;AAAA;AAAA;AAAA;AAAA,iBAAqC;AAAA,UACrC,uBAAC,gBAAa,sBAAd;AAAA;AAAA;AAAA;AAAA,iBAAoB;AAAA,aAFtB;AAAA;AAAA;AAAA;AAAA,eAGA;AAAA,WARF;AAAA;AAAA;AAAA;AAAA,aASA;AAAA,MACA,uBAAC,gBAAa,SAAS,MAAM,aAAa,UAAQ,CAAC,IAAI,GAAG,WAAQ,kBAChE;AAAA,+BAAC,kBAAe;AAAA;AAAA,UAEd,uBAAC,QAAK,KAAK,YAAY,UAAU,WAAW,KAAI,gBAAhD;AAAA;AAAA;AAAA;AAAA,iBAA4D;AAAA,aAF9D;AAAA;AAAA;AAAA;AAAA,eAGA;AAAA,QACA,uBAAC,qBAAkB,OAAO,EAAE,SAAS,GAAG,YAAY,UAAU,MAAM,GAAE,GACpE;AAAA,iCAAC,gBAAa,WAAQ,UAAS,sBAA/B;AAAA;AAAA;AAAA;AAAA,iBAAqC;AAAA,UACrC,uBAAC,gBAAa,sBAAd;AAAA;AAAA;AAAA;AAAA,iBAAoB;AAAA,aAFtB;AAAA;AAAA;AAAA;AAAA,eAGA;AAAA,WARF;AAAA;AAAA;AAAA;AAAA,aASA;AAAA,MACA,uBAAC,gBAAa,SAAS,MAAM,cAAc,UAAQ,CAAC,IAAI,GAAG,WAAQ,mBACjE;AAAA,+BAAC,kBAAe;AAAA;AAAA,UAEd,uBAAC,QAAK,KAAK,aAAa,UAAU,WAAW,KAAI,gBAAjD;AAAA;AAAA;AAAA;AAAA,iBAA6D;AAAA,aAF/D;AAAA;AAAA;AAAA;AAAA,eAGA;AAAA,QACA,uBAAC,qBAAkB,OAAO,EAAE,SAAS,GAAG,aAAa,UAAU,MAAM,GAAE,GACrE;AAAA,iCAAC,gBAAa,WAAQ,UAAS,sBAA/B;AAAA;AAAA;AAAA;AAAA,iBAAqC;AAAA,UACrC,uBAAC,gBAAa,sBAAd;AAAA;AAAA;AAAA;AAAA,iBAAoB;AAAA,aAFtB;AAAA;AAAA;AAAA;AAAA,eAGA;AAAA,WARF;AAAA;AAAA;AAAA;AAAA,aASA;AAAA,SAxCF;AAAA;AAAA;AAAA;AAAA,WAyCA;AAAA,OA/CF;AAAA;AAAA;AAAA;AAAA,SAgDA;AAEJ;",
+      "names": []
+    },
+    "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    "hash": "d27960a616cd0f57d6abcd595018cc952004deb4"
+  },
+  "D:/dev/sneaker-ecommerce-site/client/src/components/Footer/Footer.tsx": {
+    "path": "D:/dev/sneaker-ecommerce-site/client/src/components/Footer/Footer.tsx",
+    "statementMap": {
+      "0": {
+        "start": {
+          "line": 9,
+          "column": 18
+        },
+        "end": {
+          "line": 18,
+          "column": 1
+        }
+      },
+      "1": {
+        "start": {
+          "line": 19,
+          "column": 22
+        },
+        "end": {
+          "line": 22,
+          "column": 1
+        }
+      },
+      "2": {
+        "start": {
+          "line": 23,
+          "column": 21
+        },
+        "end": {
+          "line": 26,
+          "column": 1
+        }
+      },
+      "3": {
+        "start": {
+          "line": 27,
+          "column": 20
+        },
+        "end": {
+          "line": 29,
+          "column": 1
+        }
+      },
+      "4": {
+        "start": {
+          "line": 30,
+          "column": 20
+        },
+        "end": {
+          "line": 35,
+          "column": 1
+        }
+      },
+      "5": {
+        "start": {
+          "line": 36,
+          "column": 20
+        },
+        "end": {
+          "line": 41,
+          "column": 1
+        }
+      },
+      "6": {
+        "start": {
+          "line": 42,
+          "column": 13
+        },
+        "end": {
+          "line": 44,
+          "column": 1
+        }
+      },
+      "7": {
+        "start": {
+          "line": 45,
+          "column": 22
+        },
+        "end": {
+          "line": 165,
+          "column": 1
+        }
+      },
+      "8": {
+        "start": {
+          "line": 46,
+          "column": 2
+        },
+        "end": {
+          "line": 164,
+          "column": 11
+        }
+      }
+    },
+    "fnMap": {
+      "0": {
+        "name": "(anonymous_0)",
+        "decl": {
+          "start": {
+            "line": 45,
+            "column": 22
+          },
+          "end": {
+            "line": 45,
+            "column": 23
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 45,
+            "column": 28
+          },
+          "end": {
+            "line": 165,
+            "column": 1
+          }
+        },
+        "line": 45
+      }
+    },
+    "branchMap": {},
+    "s": {
+      "0": 4,
+      "1": 4,
+      "2": 4,
+      "3": 4,
+      "4": 4,
+      "5": 4,
+      "6": 4,
+      "7": 4,
+      "8": 2
+    },
+    "f": {
+      "0": 2
+    },
+    "b": {},
+    "inputSourceMap": {
+      "version": 3,
+      "sources": [
+        "D:/dev/sneaker-ecommerce-site/client/src/components/Footer/Footer.tsx"
+      ],
+      "mappings": "AAwDU;AAxDV,OAAO,YAAY;AACnB,SAAS,eAAe;AAExB,OAAO,YAAY;AACnB,OAAO,iBAAiB;AACxB,OAAO,gBAAgB;AACvB,OAAO,eAAe;AACtB,OAAO,eAAe;AAEtB,MAAM,YAAY,OAAO;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAWzB,MAAM,gBAAgB,OAAO;AAAA;AAAA;AAAA;AAK7B,MAAM,eAAe,OAAO;AAAA;AAAA;AAAA;AAK5B,MAAM,cAAc,OAAO;AAAA;AAAA;AAI3B,MAAM,cAAc,OAAO;AAAA;AAAA;AAAA;AAAA;AAAA;AAO3B,MAAM,cAAc,OAAO,OAAO;AAAA;AAAA;AAAA;AAAA;AAAA;AAOlC,MAAM,OAAO,OAAO;AAAA;AAAA;AAIb,aAAM,SAAS,MAAM;AAC1B,SACI,uBAAC,aACC;AAAA,2BAAC,iBACC;AAAA,6BAAC,gBAAa,wBAAd;AAAA;AAAA;AAAA;AAAA,aAAsB;AAAA,MACtB,uBAAC,eAAY,gKAAb;AAAA;AAAA;AAAA;AAAA,aAIA;AAAA,MACA,uBAAC,eACC;AAAA,+BAAC,QAAK,KAAK,WAAW,OAAO,EAAE,OAAO,OAAO,KAA7C;AAAA;AAAA;AAAA;AAAA,eAA+C;AAAA,QAAE;AAAA,WADnD;AAAA;AAAA;AAAA;AAAA,aAGA;AAAA,MACA,uBAAC,eACC;AAAA,+BAAC,QAAK,KAAK,WAAW,OAAO,EAAE,OAAO,OAAO,KAA7C;AAAA;AAAA;AAAA;AAAA,eAAgD;AAAA,QAAE;AAAA,WADpD;AAAA;AAAA;AAAA;AAAA,aAGA;AAAA,SAdF;AAAA;AAAA;AAAA;AAAA,WAeA;AAAA,IACA,uBAAC,iBACC;AAAA,6BAAC,gBAAa,0BAAd;AAAA;AAAA;AAAA;AAAA,aAAwB;AAAA,MACxB,uBAAC,eAAY,IAAG,KAAI,oBAApB;AAAA;AAAA;AAAA;AAAA,aAAwB;AAAA,MACxB,uBAAC,eAAY,IAAG,IAAG,wBAAnB;AAAA;AAAA;AAAA;AAAA,aAA2B;AAAA,MAC3B,uBAAC,eAAY,IAAG,IAAG,uBAAnB;AAAA;AAAA;AAAA;AAAA,aAA0B;AAAA,SAJ5B;AAAA;AAAA;AAAA;AAAA,WAKA;AAAA,IACA,uBAAC,iBACC;AAAA,6BAAC,gBAAa,4BAAd;AAAA;AAAA;AAAA;AAAA,aAA0B;AAAA,MAE1B,uBAAC,eAAY,IAAG,wCACd;AAAA,+BAAC,QAAK,KAAK,UAAX;AAAA;AAAA;AAAA;AAAA,eAAmB;AAAA,QAAE;AAAA,WADvB;AAAA;AAAA;AAAA;AAAA,aAGA;AAAA,MACA,uBAAC,eAAY,IAAG,8CACd;AAAA,+BAAC,QAAK,KAAK,cAAX;AAAA;AAAA;AAAA;AAAA,eAAuB;AAAA,QAAE;AAAA,WAD3B;AAAA;AAAA;AAAA;AAAA,aAGA;AAAA,MACA,uBAAC,eAAY,IAAG,IACd;AAAA,+BAAC,QAAK,KAAK,eAAX;AAAA;AAAA;AAAA;AAAA,eAAwB;AAAA,QAAE;AAAA,WAD5B;AAAA;AAAA;AAAA;AAAA,aAGA;AAAA,SAdF;AAAA;AAAA;AAAA;AAAA,WAeA;AAAA,OAtCF;AAAA;AAAA;AAAA;AAAA,SAuCA;AAEN;",
+      "names": []
+    },
+    "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    "hash": "3c92539eef55628b68f8074cd7debb5ac71ec712"
+  },
+  "D:/dev/sneaker-ecommerce-site/client/src/components/Header/Header.tsx": {
+    "path": "D:/dev/sneaker-ecommerce-site/client/src/components/Header/Header.tsx",
+    "statementMap": {
+      "0": {
+        "start": {
+          "line": 7,
+          "column": 18
+        },
+        "end": {
+          "line": 12,
+          "column": 1
+        }
+      },
+      "1": {
+        "start": {
+          "line": 13,
+          "column": 22
+        },
+        "end": {
+          "line": 18,
+          "column": 1
+        }
+      },
+      "2": {
+        "start": {
+          "line": 19,
+          "column": 22
+        },
+        "end": {
+          "line": 23,
+          "column": 1
+        }
+      },
+      "3": {
+        "start": {
+          "line": 24,
+          "column": 18
+        },
+        "end": {
+          "line": 30,
+          "column": 1
+        }
+      },
+      "4": {
+        "start": {
+          "line": 31,
+          "column": 13
+        },
+        "end": {
+          "line": 35,
+          "column": 1
+        }
+      },
+      "5": {
+        "start": {
+          "line": 36,
+          "column": 13
+        },
+        "end": {
+          "line": 39,
+          "column": 1
+        }
+      },
+      "6": {
+        "start": {
+          "line": 40,
+          "column": 18
+        },
+        "end": {
+          "line": 68,
+          "column": 1
+        }
+      },
+      "7": {
+        "start": {
+          "line": 69,
+          "column": 20
+        },
+        "end": {
+          "line": 76,
+          "column": 1
+        }
+      },
+      "8": {
+        "start": {
+          "line": 77,
+          "column": 22
+        },
+        "end": {
+          "line": 133,
+          "column": 1
+        }
+      },
+      "9": {
+        "start": {
+          "line": 78,
+          "column": 42
+        },
+        "end": {
+          "line": 78,
+          "column": 57
+        }
+      },
+      "10": {
+        "start": {
+          "line": 79,
+          "column": 2
+        },
+        "end": {
+          "line": 132,
+          "column": 11
+        }
+      },
+      "11": {
+        "start": {
+          "line": 86,
+          "column": 85
+        },
+        "end": {
+          "line": 86,
+          "column": 117
+        }
+      },
+      "12": {
+        "start": {
+          "line": 86,
+          "column": 111
+        },
+        "end": {
+          "line": 86,
+          "column": 116
+        }
+      }
+    },
+    "fnMap": {
+      "0": {
+        "name": "(anonymous_0)",
+        "decl": {
+          "start": {
+            "line": 77,
+            "column": 22
+          },
+          "end": {
+            "line": 77,
+            "column": 23
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 77,
+            "column": 45
+          },
+          "end": {
+            "line": 133,
+            "column": 1
+          }
+        },
+        "line": 77
+      },
+      "1": {
+        "name": "(anonymous_1)",
+        "decl": {
+          "start": {
+            "line": 86,
+            "column": 79
+          },
+          "end": {
+            "line": 86,
+            "column": 80
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 86,
+            "column": 85
+          },
+          "end": {
+            "line": 86,
+            "column": 117
+          }
+        },
+        "line": 86
+      },
+      "2": {
+        "name": "(anonymous_2)",
+        "decl": {
+          "start": {
+            "line": 86,
+            "column": 101
+          },
+          "end": {
+            "line": 86,
+            "column": 102
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 86,
+            "column": 111
+          },
+          "end": {
+            "line": 86,
+            "column": 116
+          }
+        },
+        "line": 86
+      }
+    },
+    "branchMap": {
+      "0": {
+        "loc": {
+          "start": {
+            "line": 115,
+            "column": 86
+          },
+          "end": {
+            "line": 115,
+            "column": 117
+          }
+        },
+        "type": "cond-expr",
+        "locations": [
+          {
+            "start": {
+              "line": 115,
+              "column": 101
+            },
+            "end": {
+              "line": 115,
+              "column": 108
+            }
+          },
+          {
+            "start": {
+              "line": 115,
+              "column": 111
+            },
+            "end": {
+              "line": 115,
+              "column": 117
+            }
+          }
+        ],
+        "line": 115
+      }
+    },
+    "s": {
+      "0": 4,
+      "1": 4,
+      "2": 4,
+      "3": 4,
+      "4": 4,
+      "5": 4,
+      "6": 4,
+      "7": 4,
+      "8": 4,
+      "9": 8,
+      "10": 0,
+      "11": 0,
+      "12": 0
+    },
+    "f": {
+      "0": 8,
+      "1": 0,
+      "2": 0
+    },
+    "b": {
+      "0": [
+        0,
+        0
+      ]
+    },
+    "inputSourceMap": {
+      "version": 3,
+      "sources": [
+        "D:/dev/sneaker-ecommerce-site/client/src/components/Header/Header.tsx"
+      ],
+      "mappings": "AAiGU;AAjGV,OAAO,YAAY;AACnB,SAAS,gBAAgB;AAGzB,OAAO,UAAU;AACjB,OAAO,mBAAmB;AAC1B,SAAS,eAAe;AAExB,MAAM,YAAY,OAAO;AAAA;AAAA;AAAA;AAAA;AAAA;AAOzB,MAAM,gBAAgB,OAAO;AAAA;AAAA;AAAA;AAAA;AAAA;AAO7B,MAAM,gBAAgB,OAAO;AAAA;AAAA;AAAA;AAAA;AAM7B,MAAM,YAAY,OAAO;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAQzB,MAAM,OAAO,OAAO;AAAA;AAAA;AAAA;AAAA;AAMpB,MAAM,OAAO,OAAO;AAAA;AAAA;AAAA;AAKpB,MAAM,YAAY,OAAO;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AA8BzB,MAAM,cAAc,OAAO;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAapB,aAAM,SAAS,CAAC,EAAE,cAAc,MAAoB;AACzD,QAAM,CAAC,cAAc,eAAe,IAAI,SAAS,KAAK;AAEtD,SACE,uBAAC,aACC,iCAAC,iBACC;AAAA,2BAAC,iBACC;AAAA,6BAAC,QAAK,KAAK,eAAe,KAAI,kBAAiB,WAAQ,kBAAiB,SAAS,iBAAjF;AAAA;AAAA;AAAA;AAAA,aAA+F;AAAA,MAC/F,uBAAC,aAAU,WAAQ,iBAAgB,SAAS,MAAM,gBAAgB,UAAQ,CAAC,IAAI,GAAI,sBAAnF;AAAA;AAAA;AAAA;AAAA,aAAyF;AAAA,MACzF,uBAAC,WAAQ,IAAG,KAAI,iCAAC,QAAK,KAAK,MAAM,KAAI,qBAArB;AAAA;AAAA;AAAA;AAAA,aAAuC,KAAvD;AAAA;AAAA;AAAA;AAAA,aAAyD;AAAA,MACzD,uBAAC,aAAU,oBAAX;AAAA;AAAA;AAAA;AAAA,aAAe;AAAA,MACf,uBAAC,aAAU,uBAAX;AAAA;AAAA;AAAA;AAAA,aAAkB;AAAA,SALpB;AAAA;AAAA;AAAA;AAAA,WAMA;AAAA,IACA,uBAAC,aAAU,WAAQ,cAAa,OAAO,EAAE,SAAS,GAAG,eAAe,UAAU,MAAM,GAAE,GACpF,iCAAC,eAAY,MAAK,QAAO,aAAY,wBAArC;AAAA;AAAA;AAAA;AAAA,WAAyD,KAD3D;AAAA;AAAA;AAAA;AAAA,WAEA;AAAA,OAVF;AAAA;AAAA;AAAA;AAAA,SAWA,KAZF;AAAA;AAAA;AAAA;AAAA,SAaA;AAEJ;",
+      "names": []
+    },
+    "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    "hash": "7fc6d6c213726156e1605e17fd703aaac5af7213"
+  },
+  "D:/dev/sneaker-ecommerce-site/client/src/components/Sidebar/Sidebar.tsx": {
+    "path": "D:/dev/sneaker-ecommerce-site/client/src/components/Sidebar/Sidebar.tsx",
+    "statementMap": {
+      "0": {
+        "start": {
+          "line": 6,
+          "column": 18
+        },
+        "end": {
+          "line": 15,
+          "column": 1
+        }
+      },
+      "1": {
+        "start": {
+          "line": 16,
+          "column": 21
+        },
+        "end": {
+          "line": 19,
+          "column": 1
+        }
+      },
+      "2": {
+        "start": {
+          "line": 20,
+          "column": 13
+        },
+        "end": {
+          "line": 26,
+          "column": 1
+        }
+      },
+      "3": {
+        "start": {
+          "line": 27,
+          "column": 13
+        },
+        "end": {
+          "line": 31,
+          "column": 1
+        }
+      },
+      "4": {
+        "start": {
+          "line": 32,
+          "column": 21
+        },
+        "end": {
+          "line": 35,
+          "column": 1
+        }
+      },
+      "5": {
+        "start": {
+          "line": 36,
+          "column": 22
+        },
+        "end": {
+          "line": 40,
+          "column": 1
+        }
+      },
+      "6": {
+        "start": {
+          "line": 41,
+          "column": 17
+        },
+        "end": {
+          "line": 71,
+          "column": 1
+        }
+      },
+      "7": {
+        "start": {
+          "line": 72,
+          "column": 23
+        },
+        "end": {
+          "line": 178,
+          "column": 1
+        }
+      },
+      "8": {
+        "start": {
+          "line": 73,
+          "column": 2
+        },
+        "end": {
+          "line": 177,
+          "column": 11
+        }
+      }
+    },
+    "fnMap": {
+      "0": {
+        "name": "(anonymous_0)",
+        "decl": {
+          "start": {
+            "line": 72,
+            "column": 23
+          },
+          "end": {
+            "line": 72,
+            "column": 24
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 72,
+            "column": 46
+          },
+          "end": {
+            "line": 178,
+            "column": 1
+          }
+        },
+        "line": 72
+      }
+    },
+    "branchMap": {},
+    "s": {
+      "0": 4,
+      "1": 4,
+      "2": 4,
+      "3": 4,
+      "4": 4,
+      "5": 4,
+      "6": 4,
+      "7": 4,
+      "8": 2
+    },
+    "f": {
+      "0": 2
+    },
+    "b": {},
+    "inputSourceMap": {
+      "version": 3,
+      "sources": [
+        "D:/dev/sneaker-ecommerce-site/client/src/components/Sidebar/Sidebar.tsx"
+      ],
+      "mappings": "AAwFQ;AAxFR,OAAO,YAAY;AAEnB,OAAO,gBAAgB;AACvB,OAAO,eAAe;AACtB,OAAO,iBAAiB;AAExB,MAAM,YAAY,OAAO;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAWzB,MAAM,eAAe,OAAO;AAAA;AAAA;AAAA;AAK5B,MAAM,OAAO,OAAO;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAQpB,MAAM,OAAO,OAAO;AAAA;AAAA;AAAA;AAAA;AAMpB,MAAM,eAAe,OAAO;AAAA;AAAA;AAAA;AAK5B,MAAM,gBAAgB,OAAO;AAAA;AAAA;AAAA;AAAA;AAM7B,MAAM,WAAW,OAAO;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAoCjB,aAAM,UAAU,CAAC,EAAE,cAAc,MAAoB;AAE1D,SACE,uBAAC,aACC;AAAA,2BAAC,gBACC;AAAA,6BAAC,QAAK,KAAK,aAAa,IAAG,gBAA3B;AAAA;AAAA;AAAA;AAAA,aAAuC;AAAA,MACvC,uBAAC,QAAK,KAAK,WAAW,SAAS,eAAe,WAAQ,kBAAtD;AAAA;AAAA;AAAA;AAAA,aAAqE;AAAA,SAFvE;AAAA;AAAA;AAAA;AAAA,WAGA;AAAA,IACA,uBAAC,gBAAa,8BAAd;AAAA;AAAA;AAAA;AAAA,WAA4B;AAAA,IAC5B,uBAAC,iBACC;AAAA,6BAAC,YAAS,SAAS,eAAe;AAAA;AAAA,QAEhC,uBAAC,QAAK,KAAK,YAAY,KAAI,iBAA3B;AAAA;AAAA;AAAA;AAAA,eAAwC;AAAA,WAF1C;AAAA;AAAA;AAAA;AAAA,aAGA;AAAA,MACA,uBAAC,YAAS,SAAS,eAAe;AAAA;AAAA,QAEhC,uBAAC,QAAK,KAAK,YAAY,KAAI,iBAA3B;AAAA;AAAA;AAAA;AAAA,eAAwC;AAAA,WAF1C;AAAA;AAAA;AAAA;AAAA,aAGA;AAAA,MACA,uBAAC,YAAS,SAAS,eAAe;AAAA;AAAA,QAEhC,uBAAC,QAAK,KAAK,YAAY,KAAI,iBAA3B;AAAA;AAAA;AAAA;AAAA,eAAwC;AAAA,WAF1C;AAAA;AAAA;AAAA;AAAA,aAGA;AAAA,MACA,uBAAC,YAAS,SAAS,eAAe;AAAA;AAAA,QAEhC,uBAAC,QAAK,KAAK,YAAY,KAAI,iBAA3B;AAAA;AAAA;AAAA;AAAA,eAAwC;AAAA,WAF1C;AAAA;AAAA;AAAA;AAAA,aAGA;AAAA,MACA,uBAAC,YAAS,SAAS,eAAe;AAAA;AAAA,QAEhC,uBAAC,QAAK,KAAK,YAAY,KAAI,iBAA3B;AAAA;AAAA;AAAA;AAAA,eAAwC;AAAA,WAF1C;AAAA;AAAA;AAAA;AAAA,aAGA;AAAA,MACA,uBAAC,YAAS,SAAS,eAAe;AAAA;AAAA,QAEhC,uBAAC,QAAK,KAAK,YAAY,KAAI,iBAA3B;AAAA;AAAA;AAAA;AAAA,eAAwC;AAAA,WAF1C;AAAA;AAAA;AAAA;AAAA,aAGA;AAAA,SAxBF;AAAA;AAAA;AAAA;AAAA,WAyBA;AAAA,OA/BF;AAAA;AAAA;AAAA;AAAA,SAgCA;AAEJ;",
+      "names": []
+    },
+    "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    "hash": "66a5b5783de8f50ce9deca80fafd704b99cbe240"
+  },
+  "D:/dev/sneaker-ecommerce-site/client/src/components/Layout/Layout.tsx": {
+    "path": "D:/dev/sneaker-ecommerce-site/client/src/components/Layout/Layout.tsx",
+    "statementMap": {
+      "0": {
+        "start": {
+          "line": 8,
+          "column": 22
+        },
+        "end": {
+          "line": 12,
+          "column": 1
+        }
+      },
+      "1": {
+        "start": {
+          "line": 13,
+          "column": 22
+        },
+        "end": {
+          "line": 45,
+          "column": 1
+        }
+      },
+      "2": {
+        "start": {
+          "line": 14,
+          "column": 38
+        },
+        "end": {
+          "line": 14,
+          "column": 53
+        }
+      },
+      "3": {
+        "start": {
+          "line": 15,
+          "column": 2
+        },
+        "end": {
+          "line": 44,
+          "column": 11
+        }
+      },
+      "4": {
+        "start": {
+          "line": 16,
+          "column": 73
+        },
+        "end": {
+          "line": 16,
+          "column": 93
+        }
+      },
+      "5": {
+        "start": {
+          "line": 21,
+          "column": 58
+        },
+        "end": {
+          "line": 21,
+          "column": 77
+        }
+      }
+    },
+    "fnMap": {
+      "0": {
+        "name": "(anonymous_0)",
+        "decl": {
+          "start": {
+            "line": 13,
+            "column": 22
+          },
+          "end": {
+            "line": 13,
+            "column": 23
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 13,
+            "column": 28
+          },
+          "end": {
+            "line": 45,
+            "column": 1
+          }
+        },
+        "line": 13
+      },
+      "1": {
+        "name": "(anonymous_1)",
+        "decl": {
+          "start": {
+            "line": 16,
+            "column": 67
+          },
+          "end": {
+            "line": 16,
+            "column": 68
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 16,
+            "column": 73
+          },
+          "end": {
+            "line": 16,
+            "column": 93
+          }
+        },
+        "line": 16
+      },
+      "2": {
+        "name": "(anonymous_2)",
+        "decl": {
+          "start": {
+            "line": 21,
+            "column": 52
+          },
+          "end": {
+            "line": 21,
+            "column": 53
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 21,
+            "column": 58
+          },
+          "end": {
+            "line": 21,
+            "column": 77
+          }
+        },
+        "line": 21
+      }
+    },
+    "branchMap": {
+      "0": {
+        "loc": {
+          "start": {
+            "line": 16,
+            "column": 4
+          },
+          "end": {
+            "line": 20,
+            "column": 12
+          }
+        },
+        "type": "binary-expr",
+        "locations": [
+          {
+            "start": {
+              "line": 16,
+              "column": 4
+            },
+            "end": {
+              "line": 16,
+              "column": 14
+            }
+          },
+          {
+            "start": {
+              "line": 16,
+              "column": 34
+            },
+            "end": {
+              "line": 20,
+              "column": 12
+            }
+          }
+        ],
+        "line": 16
+      }
+    },
+    "s": {
+      "0": 2,
+      "1": 2,
+      "2": 10,
+      "3": 0,
+      "4": 0,
+      "5": 0
+    },
+    "f": {
+      "0": 10,
+      "1": 0,
+      "2": 0
+    },
+    "b": {
+      "0": [
+        0,
+        0
+      ]
+    },
+    "inputSourceMap": {
+      "version": 3,
+      "sources": [
+        "D:/dev/sneaker-ecommerce-site/client/src/components/Layout/Layout.tsx"
+      ],
+      "mappings": "AAkBqB;AAlBrB,OAAO,YAAY;AACnB,SAAS,cAAc;AACvB,SAAS,cAAc;AACvB,SAAS,cAAc;AACvB,SAAS,gBAAgB;AACzB,SAAS,eAAe;AAExB,MAAM,gBAAgB,OAAO;AAAA;AAAA;AAAA;AAAA;AAMtB,aAAM,SAAS,MAAM;AAC1B,QAAM,CAAC,YAAY,aAAa,IAAI,SAAS,KAAK;AAElD,SACE,uBAAC,iBACE;AAAA,kBAAc,uBAAC,WAAQ,eAAe,MAAM,cAAc,KAAK,KAAjD;AAAA;AAAA;AAAA;AAAA,WAAoD;AAAA,IACnE,uBAAC,UAAO,eAAe,MAAM,cAAc,IAAI,KAA/C;AAAA;AAAA;AAAA;AAAA,WAAkD;AAAA,IAClD,uBAAC,UACC,iCAAC,YAAD;AAAA;AAAA;AAAA;AAAA,WAAQ,KADV;AAAA;AAAA;AAAA;AAAA,WAEA;AAAA,IACA,uBAAC,YAAD;AAAA;AAAA;AAAA;AAAA,WAAQ;AAAA,OANV;AAAA;AAAA;AAAA;AAAA,SAOA;AAEJ;",
+      "names": []
+    },
+    "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    "hash": "248fd602d1bf4159ffe82e3d26fdf7df1fbb1402"
+  },
+  "D:/dev/sneaker-ecommerce-site/client/src/pages/Contact.tsx": {
+    "path": "D:/dev/sneaker-ecommerce-site/client/src/pages/Contact.tsx",
+    "statementMap": {
+      "0": {
+        "start": {
+          "line": 4,
+          "column": 25
+        },
+        "end": {
+          "line": 6,
+          "column": 1
+        }
+      },
+      "1": {
+        "start": {
+          "line": 7,
+          "column": 16
+        },
+        "end": {
+          "line": 9,
+          "column": 1
+        }
+      },
+      "2": {
+        "start": {
+          "line": 10,
+          "column": 19
+        },
+        "end": {
+          "line": 12,
+          "column": 1
+        }
+      },
+      "3": {
+        "start": {
+          "line": 13,
+          "column": 23
+        },
+        "end": {
+          "line": 19,
+          "column": 1
+        }
+      },
+      "4": {
+        "start": {
+          "line": 20,
+          "column": 20
+        },
+        "end": {
+          "line": 25,
+          "column": 1
+        }
+      },
+      "5": {
+        "start": {
+          "line": 26,
+          "column": 23
+        },
+        "end": {
+          "line": 28,
+          "column": 1
+        }
+      },
+      "6": {
+        "start": {
+          "line": 29,
+          "column": 26
+        },
+        "end": {
+          "line": 32,
+          "column": 1
+        }
+      },
+      "7": {
+        "start": {
+          "line": 33,
+          "column": 23
+        },
+        "end": {
+          "line": 35,
+          "column": 1
+        }
+      },
+      "8": {
+        "start": {
+          "line": 36,
+          "column": 20
+        },
+        "end": {
+          "line": 38,
+          "column": 1
+        }
+      },
+      "9": {
+        "start": {
+          "line": 39,
+          "column": 18
+        },
+        "end": {
+          "line": 41,
+          "column": 1
+        }
+      },
+      "10": {
+        "start": {
+          "line": 42,
+          "column": 23
+        },
+        "end": {
+          "line": 49,
+          "column": 1
+        }
+      },
+      "11": {
+        "start": {
+          "line": 50,
+          "column": 20
+        },
+        "end": {
+          "line": 52,
+          "column": 1
+        }
+      },
+      "12": {
+        "start": {
+          "line": 53,
+          "column": 23
+        },
+        "end": {
+          "line": 167,
+          "column": 1
+        }
+      },
+      "13": {
+        "start": {
+          "line": 54,
+          "column": 2
+        },
+        "end": {
+          "line": 166,
+          "column": 11
+        }
+      }
+    },
+    "fnMap": {
+      "0": {
+        "name": "(anonymous_0)",
+        "decl": {
+          "start": {
+            "line": 53,
+            "column": 23
+          },
+          "end": {
+            "line": 53,
+            "column": 24
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 53,
+            "column": 29
+          },
+          "end": {
+            "line": 167,
+            "column": 1
+          }
+        },
+        "line": 53
+      }
+    },
+    "branchMap": {},
+    "s": {
+      "0": 2,
+      "1": 2,
+      "2": 2,
+      "3": 2,
+      "4": 2,
+      "5": 2,
+      "6": 2,
+      "7": 2,
+      "8": 2,
+      "9": 2,
+      "10": 2,
+      "11": 2,
+      "12": 2,
+      "13": 2
+    },
+    "f": {
+      "0": 2
+    },
+    "b": {},
+    "inputSourceMap": {
+      "version": 3,
+      "sources": [
+        "D:/dev/sneaker-ecommerce-site/client/src/pages/Contact.tsx"
+      ],
+      "mappings": "AAmEM;AAnEN,SAAS,eAAe;AACxB,OAAO,YAAY;AAEnB,MAAM,mBAAmB,OAAO;AAAA;AAAA;AAIhC,MAAM,UAAU,OAAO;AAAA;AAAA;AAIvB,MAAM,aAAa,OAAO;AAAA;AAAA;AAI1B,MAAM,iBAAiB,OAAO;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAQ9B,MAAM,cAAc,OAAO;AAAA;AAAA;AAAA;AAAA;AAAA;AAO3B,MAAM,iBAAiB,OAAO;AAAA;AAAA;AAI9B,MAAM,oBAAoB,OAAO;AAAA;AAAA;AAAA;AAKjC,MAAM,iBAAiB,OAAO;AAAA;AAAA;AAI9B,MAAM,cAAc,OAAO,OAAO;AAAA;AAAA;AAIlC,MAAM,YAAY,OAAO;AAAA;AAAA;AAIzB,MAAM,iBAAiB,OAAO;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAS9B,MAAM,cAAc,OAAO;AAAA;AAAA;AAIpB,aAAM,UAAU,MAAM;AAC3B,SACE,uBAAC,oBACC;AAAA,2BAAC,WAAQ,0BAAT;AAAA;AAAA;AAAA;AAAA,WAAmB;AAAA,IACnB,uBAAC,cAAW,kIAAZ;AAAA;AAAA;AAAA;AAAA,WAA8H;AAAA,IAC9H,uBAAC,kBACC;AAAA,6BAAC,eACC;AAAA,+BAAC,kBAAe,+CAAhB;AAAA;AAAA;AAAA;AAAA,eAA+C;AAAA,QAC/C,uBAAC,qBAAkB,kDAAnB;AAAA;AAAA;AAAA;AAAA,eAAqD;AAAA,QACrD,uBAAC,kBAAe,gCAAhB;AAAA;AAAA;AAAA;AAAA,eAAgC;AAAA,WAHlC;AAAA;AAAA;AAAA;AAAA,aAIA;AAAA,MACA,uBAAC,eACC;AAAA,+BAAC,kBAAe,8CAAhB;AAAA;AAAA;AAAA;AAAA,eAA8C;AAAA,QAC9C,uBAAC,eAAY,IAAI,wCAAwC,yBAAzD;AAAA;AAAA;AAAA;AAAA,eAAkE;AAAA,WAFpE;AAAA;AAAA;AAAA;AAAA,aAGA;AAAA,MACA,uBAAC,eACC;AAAA,+BAAC,kBAAe,mCAAhB;AAAA;AAAA;AAAA;AAAA,eAAmC;AAAA,QACnC,uBAAC,aAAU,MAAK,gCAA+B,0BAA/C;AAAA;AAAA;AAAA;AAAA,eAAyD;AAAA,WAF3D;AAAA;AAAA;AAAA;AAAA,aAGA;AAAA,SAbF;AAAA;AAAA;AAAA;AAAA,WAcA;AAAA,IACA,uBAAC,kBACC;AAAA,6BAAC,eACC;AAAA,+BAAC,kBAAe,kCAAhB;AAAA;AAAA;AAAA;AAAA,eAAkC;AAAA,QAClC,uBAAC,kBAAe,8LAAhB;AAAA;AAAA;AAAA;AAAA,eAIA;AAAA,WANF;AAAA;AAAA;AAAA;AAAA,aAOA;AAAA,MACA,uBAAC,eACC;AAAA,+BAAC,kBAAe,yBAAhB;AAAA;AAAA;AAAA;AAAA,eAAyB;AAAA,QACzB,uBAAC,kBAAe,wHAAhB;AAAA;AAAA;AAAA;AAAA,eAGA;AAAA,WALF;AAAA;AAAA;AAAA;AAAA,aAMA;AAAA,SAfF;AAAA;AAAA;AAAA;AAAA,WAgBA;AAAA,OAlCF;AAAA;AAAA;AAAA;AAAA,SAmCA;AAEJ;",
+      "names": []
+    },
+    "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    "hash": "195ea36efba8dac1bd418b91114608ec74680a42"
+  },
+  "D:/dev/sneaker-ecommerce-site/client/src/components/Products/CardSection.tsx": {
+    "path": "D:/dev/sneaker-ecommerce-site/client/src/components/Products/CardSection.tsx",
+    "statementMap": {
+      "0": {
+        "start": {
+          "line": 5,
+          "column": 21
+        },
+        "end": {
+          "line": 7,
+          "column": 1
+        }
+      },
+      "1": {
+        "start": {
+          "line": 8,
+          "column": 22
+        },
+        "end": {
+          "line": 12,
+          "column": 1
+        }
+      },
+      "2": {
+        "start": {
+          "line": 13,
+          "column": 20
+        },
+        "end": {
+          "line": 17,
+          "column": 1
+        }
+      },
+      "3": {
+        "start": {
+          "line": 18,
+          "column": 22
+        },
+        "end": {
+          "line": 20,
+          "column": 1
+        }
+      },
+      "4": {
+        "start": {
+          "line": 21,
+          "column": 13
+        },
+        "end": {
+          "line": 24,
+          "column": 1
+        }
+      },
+      "5": {
+        "start": {
+          "line": 25,
+          "column": 27
+        },
+        "end": {
+          "line": 63,
+          "column": 1
+        }
+      },
+      "6": {
+        "start": {
+          "line": 27,
+          "column": 25
+        },
+        "end": {
+          "line": 36,
+          "column": 6
+        }
+      },
+      "7": {
+        "start": {
+          "line": 28,
+          "column": 6
+        },
+        "end": {
+          "line": 28,
+          "column": 54
+        }
+      },
+      "8": {
+        "start": {
+          "line": 30,
+          "column": 43
+        },
+        "end": {
+          "line": 30,
+          "column": 50
+        }
+      },
+      "9": {
+        "start": {
+          "line": 31,
+          "column": 6
+        },
+        "end": {
+          "line": 35,
+          "column": 15
+        }
+      },
+      "10": {
+        "start": {
+          "line": 37,
+          "column": 4
+        },
+        "end": {
+          "line": 37,
+          "column": 24
+        }
+      },
+      "11": {
+        "start": {
+          "line": 39,
+          "column": 2
+        },
+        "end": {
+          "line": 62,
+          "column": 11
+        }
+      }
+    },
+    "fnMap": {
+      "0": {
+        "name": "(anonymous_0)",
+        "decl": {
+          "start": {
+            "line": 25,
+            "column": 27
+          },
+          "end": {
+            "line": 25,
+            "column": 28
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 25,
+            "column": 63
+          },
+          "end": {
+            "line": 63,
+            "column": 1
+          }
+        },
+        "line": 25
+      },
+      "1": {
+        "name": "CreateCards",
+        "decl": {
+          "start": {
+            "line": 26,
+            "column": 11
+          },
+          "end": {
+            "line": 26,
+            "column": 22
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 26,
+            "column": 31
+          },
+          "end": {
+            "line": 38,
+            "column": 3
+          }
+        },
+        "line": 26
+      },
+      "2": {
+        "name": "(anonymous_2)",
+        "decl": {
+          "start": {
+            "line": 27,
+            "column": 46
+          },
+          "end": {
+            "line": 27,
+            "column": 47
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 27,
+            "column": 59
+          },
+          "end": {
+            "line": 29,
+            "column": 5
+          }
+        },
+        "line": 27
+      },
+      "3": {
+        "name": "(anonymous_3)",
+        "decl": {
+          "start": {
+            "line": 29,
+            "column": 11
+          },
+          "end": {
+            "line": 29,
+            "column": 12
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 29,
+            "column": 31
+          },
+          "end": {
+            "line": 36,
+            "column": 5
+          }
+        },
+        "line": 29
+      }
+    },
+    "branchMap": {
+      "0": {
+        "loc": {
+          "start": {
+            "line": 40,
+            "column": 130
+          },
+          "end": {
+            "line": 40,
+            "column": 226
+          }
+        },
+        "type": "cond-expr",
+        "locations": [
+          {
+            "start": {
+              "line": 40,
+              "column": 149
+            },
+            "end": {
+              "line": 40,
+              "column": 170
+            }
+          },
+          {
+            "start": {
+              "line": 40,
+              "column": 173
+            },
+            "end": {
+              "line": 40,
+              "column": 226
+            }
+          }
+        ],
+        "line": 40
+      },
+      "1": {
+        "loc": {
+          "start": {
+            "line": 40,
+            "column": 173
+          },
+          "end": {
+            "line": 40,
+            "column": 226
+          }
+        },
+        "type": "cond-expr",
+        "locations": [
+          {
+            "start": {
+              "line": 40,
+              "column": 194
+            },
+            "end": {
+              "line": 40,
+              "column": 201
+            }
+          },
+          {
+            "start": {
+              "line": 40,
+              "column": 204
+            },
+            "end": {
+              "line": 40,
+              "column": 226
+            }
+          }
+        ],
+        "line": 40
+      }
+    },
+    "s": {
+      "0": 2,
+      "1": 2,
+      "2": 2,
+      "3": 2,
+      "4": 2,
+      "5": 2,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0
+    },
+    "f": {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "b": {
+      "0": [
+        0,
+        0
+      ],
+      "1": [
+        0,
+        0
+      ]
+    },
+    "inputSourceMap": {
+      "version": 3,
+      "sources": [
+        "D:/dev/sneaker-ecommerce-site/client/src/components/Products/CardSection.tsx"
+      ],
+      "mappings": "AAoDQ;AApDR,OAAO,YAAY;AACnB,SAAS,eAAe;AAExB,SAAS,YAAY;AAErB,MAAM,eAAe,OAAO;AAAA;AAAA;AAI5B,MAAM,gBAAgB,OAAO;AAAA;AAAA;AAAA;AAAA;AAM7B,MAAM,cAAc,OAAO;AAAA;AAAA;AAAA;AAAA;AAM3B,MAAM,gBAAgB,OAAO,OAAO;AAAA;AAAA;AAIpC,MAAM,OAAO,OAAO;AAAA;AAAA;AAAA;AAmBb,aAAM,cAAc,CAAC,EAAE,eAAe,MAAM,MAAM,MAAwB;AAC/E,WAAS,YAAYA,QAAe;AAClC,UAAM,eAAe,cAAc,OAAO,CAAC,YAA0B;AAEnE,aAAO,QAAQ,KAAK,MAAM,KAAK,CAAC,EAAE,CAAC,MAAMA;AAAA,IAC3C,CAAC,EAAE,IAAI,CAAC,SAAuB,UAAkB;AAC/C,YAAM,EAAC,MAAM,OAAO,QAAQ,IAAG,IAAI;AACnC,aACE,uBAAC,QAAK,MAAY,OAAc,OAAO,QAAQ,OAAe,OAA9D;AAAA;AAAA;AAAA;AAAA,aAAoE;AAAA,IAExE,CAAC;AAED,WAAO;AAAA,EACT;AAEA,SACE,uBAAC,gBAEC;AAAA,2BAAC,iBAAc,IAAI,KACjB,iCAAC,eAAY,OAAO,EAAE,iBAAiB,GAAG,UAAU,SAAS,wBAAwB,UAAU,WAAW,UAAU,sBAAsB,GAAG,GAC3I,iCAAC,QAAK,KAAK,QAAX;AAAA;AAAA;AAAA;AAAA,WAAiB,KADnB;AAAA;AAAA;AAAA;AAAA,WAEA,KAHF;AAAA;AAAA;AAAA;AAAA,WAIA;AAAA,IAGA,uBAAC,iBACE,sBAAY,GAAG,KAAK,EAAE,KADzB;AAAA;AAAA;AAAA;AAAA,WAEA;AAAA,OAXF;AAAA;AAAA;AAAA;AAAA,SAYA;AAEJ;",
+      "names": [
+        "brand"
+      ]
+    },
+    "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    "hash": "20d5f1be74f8bcc6615e1aff30b9157f6ccc6103"
+  },
+  "D:/dev/sneaker-ecommerce-site/client/src/pages/Home.tsx": {
+    "path": "D:/dev/sneaker-ecommerce-site/client/src/pages/Home.tsx",
+    "statementMap": {
+      "0": {
+        "start": {
+          "line": 8,
+          "column": 22
+        },
+        "end": {
+          "line": 13,
+          "column": 1
+        }
+      },
+      "1": {
+        "start": {
+          "line": 14,
+          "column": 20
+        },
+        "end": {
+          "line": 49,
+          "column": 1
+        }
+      },
+      "2": {
+        "start": {
+          "line": 15,
+          "column": 44
+        },
+        "end": {
+          "line": 15,
+          "column": 56
+        }
+      },
+      "3": {
+        "start": {
+          "line": 16,
+          "column": 2
+        },
+        "end": {
+          "line": 27,
+          "column": 9
+        }
+      },
+      "4": {
+        "start": {
+          "line": 18,
+          "column": 6
+        },
+        "end": {
+          "line": 24,
+          "column": 7
+        }
+      },
+      "5": {
+        "start": {
+          "line": 19,
+          "column": 20
+        },
+        "end": {
+          "line": 19,
+          "column": 69
+        }
+      },
+      "6": {
+        "start": {
+          "line": 20,
+          "column": 21
+        },
+        "end": {
+          "line": 20,
+          "column": 37
+        }
+      },
+      "7": {
+        "start": {
+          "line": 21,
+          "column": 8
+        },
+        "end": {
+          "line": 21,
+          "column": 36
+        }
+      },
+      "8": {
+        "start": {
+          "line": 23,
+          "column": 8
+        },
+        "end": {
+          "line": 23,
+          "column": 37
+        }
+      },
+      "9": {
+        "start": {
+          "line": 26,
+          "column": 4
+        },
+        "end": {
+          "line": 26,
+          "column": 20
+        }
+      },
+      "10": {
+        "start": {
+          "line": 28,
+          "column": 2
+        },
+        "end": {
+          "line": 48,
+          "column": 11
+        }
+      }
+    },
+    "fnMap": {
+      "0": {
+        "name": "(anonymous_0)",
+        "decl": {
+          "start": {
+            "line": 14,
+            "column": 20
+          },
+          "end": {
+            "line": 14,
+            "column": 21
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 14,
+            "column": 26
+          },
+          "end": {
+            "line": 49,
+            "column": 1
+          }
+        },
+        "line": 14
+      },
+      "1": {
+        "name": "(anonymous_1)",
+        "decl": {
+          "start": {
+            "line": 16,
+            "column": 12
+          },
+          "end": {
+            "line": 16,
+            "column": 13
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 16,
+            "column": 18
+          },
+          "end": {
+            "line": 27,
+            "column": 3
+          }
+        },
+        "line": 16
+      },
+      "2": {
+        "name": "fetchProducts",
+        "decl": {
+          "start": {
+            "line": 17,
+            "column": 19
+          },
+          "end": {
+            "line": 17,
+            "column": 32
+          }
+        },
+        "loc": {
+          "start": {
+            "line": 17,
+            "column": 35
+          },
+          "end": {
+            "line": 25,
+            "column": 5
+          }
+        },
+        "line": 17
+      }
+    },
+    "branchMap": {},
+    "s": {
+      "0": 2,
+      "1": 2,
+      "2": 10,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0
+    },
+    "f": {
+      "0": 10,
+      "1": 0,
+      "2": 0
+    },
+    "b": {},
+    "inputSourceMap": {
+      "version": 3,
+      "sources": [
+        "D:/dev/sneaker-ecommerce-site/client/src/pages/Home.tsx"
+      ],
+      "mappings": "AAoCM;AApCN,SAAS,WAAW,gBAAgB;AACpC,OAAO,YAAY;AAEnB,OAAO,cAAc;AACrB,OAAO,eAAe;AACtB,OAAO,gBAAgB;AACvB,SAAS,mBAAmB;AAE5B,MAAM,gBAAgB,OAAO;AAAA;AAAA;AAAA;AAAA;AAAA;AAOtB,aAAM,OAAO,MAAM;AACxB,QAAM,CAAC,eAAe,gBAAgB,IAAI,SAAS,CAAC,CAAC;AAErD,YAAU,MAAM;AACd,mBAAe,gBAAgB;AAC7B,UAAI;AACF,cAAM,MAAM,MAAM,MAAM,oCAAoC;AAE5D,cAAM,OAAO,MAAM,IAAI,KAAK;AAE5B,yBAAiB,KAAK,IAAI;AAAA,MAC5B,SAAS,OAAY;AACnB,gBAAQ,MAAM,MAAM,OAAO;AAAA,MAC7B;AAAA,IAEF;AACA,kBAAc;AAAA,EAChB,GAAG,CAAC,CAAC;AAEL,SACE,uBAAC,iBACC;AAAA,2BAAC,eAAY,eAA8B,MAAM,UAAU,OAAO,UAAlE;AAAA;AAAA;AAAA;AAAA,WAA0E;AAAA,IAC1E,uBAAC,eAAY,eAA8B,MAAM,YAAY,OAAO,YAApE;AAAA;AAAA;AAAA;AAAA,WAA8E;AAAA,IAC9E,uBAAC,eAAY,eAA8B,MAAM,WAAW,OAAO,WAAnE;AAAA;AAAA;AAAA;AAAA,WAA4E;AAAA,OAH9E;AAAA;AAAA;AAAA;AAAA,SAIA;AAEJ;",
+      "names": []
+    },
+    "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    "hash": "13f86a2ae50da0dbf41a9dbd74752fc54ad5ca57"
   },
   "D:/dev/sneaker-ecommerce-site/client/src/App.tsx": {
     "path": "D:/dev/sneaker-ecommerce-site/client/src/App.tsx",
@@ -949,69 +3386,6 @@
   },
   "D:/dev/sneaker-ecommerce-site/client/src/main.tsx": {
     "path": "D:/dev/sneaker-ecommerce-site/client/src/main.tsx",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "D:/dev/sneaker-ecommerce-site/client/src/pages/Contact.tsx": {
-    "path": "D:/dev/sneaker-ecommerce-site/client/src/pages/Contact.tsx",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "D:/dev/sneaker-ecommerce-site/client/src/pages/Home.tsx": {
-    "path": "D:/dev/sneaker-ecommerce-site/client/src/pages/Home.tsx",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "D:/dev/sneaker-ecommerce-site/client/src/components/Filter/Filter.tsx": {
-    "path": "D:/dev/sneaker-ecommerce-site/client/src/components/Filter/Filter.tsx",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "D:/dev/sneaker-ecommerce-site/client/src/components/Footer/Footer.tsx": {
-    "path": "D:/dev/sneaker-ecommerce-site/client/src/components/Footer/Footer.tsx",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "D:/dev/sneaker-ecommerce-site/client/src/components/Header/Header.tsx": {
-    "path": "D:/dev/sneaker-ecommerce-site/client/src/components/Header/Header.tsx",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "D:/dev/sneaker-ecommerce-site/client/src/components/Layout/Layout.tsx": {
-    "path": "D:/dev/sneaker-ecommerce-site/client/src/components/Layout/Layout.tsx",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "D:/dev/sneaker-ecommerce-site/client/src/components/Sidebar/Sidebar.tsx": {
-    "path": "D:/dev/sneaker-ecommerce-site/client/src/components/Sidebar/Sidebar.tsx",
     "statementMap": {},
     "fnMap": {},
     "branchMap": {},
