@@ -11,7 +11,17 @@ const ProductCard = styled(NavLink)`
   gap: 0.5rem;
   border-radius: 0.5rem;
   padding: 0.5rem;
-  width: 20rem;
+  min-width: 10rem;
+`
+
+const CardImg = styled.div`
+  display: flex;
+  align-items: center;
+  height: 6rem;
+`
+
+const CardInfo = styled.div`
+
 `
 
 const ProductName = styled.p`
@@ -31,7 +41,7 @@ const CardText = styled.p`
   color: #3b3b3b;
   display: flex;
   align-items: center;
-  font-size: 1rem;
+  font-size: 0.75rem;
 `
 
 const ProductImage = styled.img`
@@ -54,16 +64,20 @@ export const Card = ({ name, price, image, sku }: CardProps) => {
 
   return (
     <ProductCard to={`/products/${sku}`}>
-      <ProductImage src={image} />
-      <CardText>
-        <Icon src={VerifiedIcon} />
-        100% Authentic
-      </CardText>
-      <ProductName>{name}</ProductName>
-      <ProductPrice>
-        <CardText>Price: </CardText>
-        ${price}
-      </ProductPrice>
+      <CardImg>
+        <ProductImage src={image} />
+      </CardImg>
+      <CardInfo>
+        <CardText>
+          <Icon src={VerifiedIcon} />
+          100% Authentic
+        </CardText>
+        <ProductName>{name}</ProductName>
+        <ProductPrice>
+          <CardText>Price: </CardText>
+          ${price}
+        </ProductPrice>
+      </CardInfo>
     </ProductCard>
   )
 }
