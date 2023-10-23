@@ -72,7 +72,7 @@ export const Filter = () => {
         <FilterLabels onClick={() => setCategoryOpen(prev => !prev)} data-cy="category-dropdown">
           <LabelContainer>
             Category
-            <Icon src={categoryOpen ? UpArrow : DownArrow} alt="down arrow"/>
+            <Icon src={categoryOpen ? UpArrow : DownArrow} alt="down/up arrow"/>
           </LabelContainer>
           <DropDownContainer style={{ display: `${categoryOpen ? "block" : "none"}`}} >
             <DropDownItem data-cy="item-1">item 1</DropDownItem>
@@ -82,7 +82,7 @@ export const Filter = () => {
         <FilterLabels onClick={() => setSizeOpen(prev => !prev)} data-cy="size-dropdown" >
           <LabelContainer>
             Size
-            <Icon src={sizeOpen ? UpArrow : DownArrow} alt="down arrow"/>
+            <Icon src={sizeOpen ? UpArrow : DownArrow} alt="down/up arrow"/>
           </LabelContainer>
           <DropDownContainer style={{ display: `${sizeOpen ? "block" : "none"}`}} >
             <DropDownItem data-cy="item-2">item 1</DropDownItem>
@@ -92,7 +92,7 @@ export const Filter = () => {
         <FilterLabels onClick={() => setPriceOpen(prev => !prev)} data-cy="price-dropdown">
           <LabelContainer>
             Price
-            <Icon src={priceOpen ? UpArrow : DownArrow} alt="down arrow"/>
+            <Icon src={priceOpen ? UpArrow : DownArrow} alt="down/up arrow"/>
           </LabelContainer>
           <DropDownContainer style={{ display: `${priceOpen ? "block" : "none"}`}} >
             <DropDownItem data-cy="item-3">item 1</DropDownItem>
@@ -102,7 +102,7 @@ export const Filter = () => {
         <FilterLabels onClick={() => setBrandsOpen(prev => !prev)} data-cy="brands-dropdown">
           <LabelContainer>
             Brands
-            <Icon src={brandsOpen ? UpArrow : DownArrow} alt="down arrow"/>
+            <Icon src={brandsOpen ? UpArrow : DownArrow} alt="down/up arrow"/>
           </LabelContainer>
           <DropDownContainer style={{ display: `${brandsOpen ? "block" : "none"}`}} >
             <DropDownItem data-cy="item-4">item 1</DropDownItem>
