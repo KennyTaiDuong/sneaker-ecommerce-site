@@ -39,7 +39,6 @@ type ProductProps = {
   price: number,
   images: string
   sku: string,
-
 }
 
 export const CardSection = ({ productsArray, logo, brand }: CardSectionProps) => {

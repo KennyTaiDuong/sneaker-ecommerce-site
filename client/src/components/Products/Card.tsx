@@ -17,11 +17,13 @@ const ProductCard = styled(NavLink)`
 const CardImg = styled.div`
   display: flex;
   align-items: center;
-  height: 6rem;
+  height: 100%;
 `
 
 const CardInfo = styled.div`
-
+  display:flex;
+  flex-direction: column;
+  height: 100%;
 `
 
 const ProductName = styled.p`
@@ -46,6 +48,7 @@ const CardText = styled.p`
 
 const ProductImage = styled.img`
   width: 100%;
+  height: 100%;
   border-radius: 0.5rem;
 `
 
@@ -75,7 +78,7 @@ export const Card = ({ name, price, image, sku }: CardProps) => {
         <ProductName>{name}</ProductName>
         <ProductPrice>
           <CardText>Price: </CardText>
-          ${price}
+          ${price}.00
         </ProductPrice>
       </CardInfo>
     </ProductCard>
