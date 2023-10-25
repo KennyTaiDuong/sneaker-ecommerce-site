@@ -11,6 +11,7 @@ const CardContainer = styled.div`
   display: flex;
   overflow: scroll;
   padding: 1rem 0;
+  gap: 1rem;
 `
 
 const BrandBanner = styled.div`
@@ -29,7 +30,17 @@ const Logo = styled.img`
 `
 
 type CardSectionProps = {
-  productsArray: Array<any>,
+  productsArray: {
+    sku: string,
+    name: string,
+    images: string,
+    price: number,
+    category: string,
+    sizes: {
+      size: string,
+      quantity: string
+    }[]
+  }[],
   logo: string,
   brand: string,
 }

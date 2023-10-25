@@ -50,7 +50,8 @@ const DropDownContainer = styled.div`
 `
 
 const DropdownItem = styled.p`
-border: 1px solid rgb(238, 238, 238);
+  border: 1px solid rgb(238, 238, 238);
+  padding: 0.5rem 0;
 `
 
 type ProductProps = {
@@ -121,12 +122,12 @@ export const ProductsPage = () => {
       <Header>All Products</Header>
       <ButtonContainer>
         <StyledButton>Filter By:</StyledButton>
-        <StyledButton onClick={() => setSortOpen(prev => !prev)}>Sort By:
+        <StyledButton onClick={() => setSortOpen(prev => !prev)} data-cy="sort-btn">Sort By:
           <DropDownContainer style={{ display: `${sortOpen ? "block" : "none"}`}}>
-            <DropdownItem onClick={() => sortData("low")}>Lowest Price</DropdownItem>
-            <DropdownItem onClick={() => sortData("high")}>Highest Price</DropdownItem>
-            <DropdownItem onClick={() => sortData("alpha")}>A-Z</DropdownItem>
-            <DropdownItem onClick={() => sortData("reverse-alpha")}>Z-A</DropdownItem>
+            <DropdownItem onClick={() => sortData("low")} data-cy="sort-low">Lowest Price</DropdownItem>
+            <DropdownItem onClick={() => sortData("high")} data-cy="sort-high">Highest Price</DropdownItem>
+            <DropdownItem onClick={() => sortData("alpha")} data-cy="sort-alpha">A-Z</DropdownItem>
+            <DropdownItem onClick={() => sortData("reverse-alpha")} data-cy="sort-reverse">Z-A</DropdownItem>
           </DropDownContainer>
         </StyledButton>
         
