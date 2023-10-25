@@ -4,6 +4,7 @@ import { Layout } from "./components/Layout/Layout";
 import { Contact } from "./pages/Contact";
 import { Home } from "./pages/Home";
 import { ProductsPage } from "./pages/Product/Products";
+import { ProductDetail } from "./pages/Product/ProductDetail";
 
 function App() {
   
@@ -15,9 +16,8 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="contact" element={<Contact />} />
-
-          <Route path="products" element={<ProductsPage />}>
-          </Route>
+          <Route path="products" element={<ProductsPage />} />
+          <Route path="products/:id" element={<ProductDetail />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -5,9 +5,10 @@ import { useState } from "react"
 import logo from "../../assets/logo/aksupplied.png" 
 import hamburgerIcon from "../../assets/icons/hamburger-icon.svg"
 import { NavLink } from "react-router-dom"
+import Background from "../../assets/backgrounds/lostnfound.jpg"
 
 const Container = styled.div`
-  background-image: url("src/assets/backgrounds/lostnfound.jpg");
+  background-image: url(${Background});
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
