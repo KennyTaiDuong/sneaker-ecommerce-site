@@ -72,7 +72,7 @@ export const ProductsPage = () => {
         const res = await fetch("http://localhost:5000/api/products")
 
         const data = await res.json()
-        console.log(data)
+        
         setAllProducts(data.rows)
       } catch (error) {
         console.error(error)
