@@ -5,6 +5,7 @@ import { Contact } from "./pages/Contact";
 import { Home } from "./pages/Home";
 import { ProductsPage } from "./pages/Product/Products";
 import { ProductDetail } from "./pages/Product/ProductDetail";
+import { ProductsPageLayout } from "./components/Layout/ProductsLayout";
 
 function App() {
   
@@ -16,8 +17,10 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="contact" element={<Contact />} />
-          <Route path="products" element={<ProductsPage />} />
           <Route path="products/:id" element={<ProductDetail />} />
+          <Route path="products" element={<ProductsPageLayout />}>
+            <Route index element={<ProductsPage />} />
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>
