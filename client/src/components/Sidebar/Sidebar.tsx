@@ -3,6 +3,7 @@ import styled from "styled-components";
 import RightArrow from "../../assets/icons/right-arrow-icon.svg"
 import CloseIcon from "../../assets/icons/x-icon.svg"
 import CompanyLogo from "../../assets/logo/aksupplied.png"
+import { NavLink } from "react-router-dom";
 
 const Container = styled.div`
   position: fixed;
@@ -45,13 +46,15 @@ const MenuContainer = styled.div`
   flex-direction: column;
 `
 
-const MenuItem = styled.p`
+const MenuItem = styled(NavLink)`
   display: flex;
   justify-content: space-between;
   padding-left: 1rem;
   padding: 0.5rem;
   font-weight: 500;
   position: relative;
+  text-decoration: none;
+  color: black;
 
   &::after {
     content: "";
@@ -86,32 +89,38 @@ export const Sidebar = ({ setMenuIsOpen }: SidebarProps) => {
   return (
     <Container>
       <StyledHeader>
-        <Logo src={CompanyLogo} id="aksupplied"/>
+        <NavLink to={"/"} onClick={setMenuIsOpen}>
+          <Logo src={CompanyLogo} id="aksupplied"/>
+        </NavLink>
         <Icon src={CloseIcon} onClick={setMenuIsOpen} data-cy="close-button" />
       </StyledHeader>
       <MenuCategory>Shop by Brand:</MenuCategory>
       <MenuContainer>
-        <MenuItem onClick={setMenuIsOpen}>
+        <MenuItem onClick={setMenuIsOpen} to={"/products"}>
+          All Products
+          <Icon src={RightArrow} alt="right arrow"/>
+        </MenuItem>
+        <MenuItem onClick={setMenuIsOpen} to={"/products?brand=nike"}>
           Nike
           <Icon src={RightArrow} alt="right arrow"/>
         </MenuItem>
-        <MenuItem onClick={setMenuIsOpen}>
+        <MenuItem onClick={setMenuIsOpen} to={"/products?brand=jordan"}>
           Jordan
           <Icon src={RightArrow} alt="right arrow"/>
         </MenuItem>
-        <MenuItem onClick={setMenuIsOpen}>
+        <MenuItem onClick={setMenuIsOpen} to={"/products?brand=yeezy"}>
           Yeezy
           <Icon src={RightArrow} alt="right arrow"/>
         </MenuItem>
-        <MenuItem onClick={setMenuIsOpen}>
+        <MenuItem onClick={setMenuIsOpen} to={"/products?brand=adidas"}>
           Adidas
           <Icon src={RightArrow} alt="right arrow"/>
         </MenuItem>
-        <MenuItem onClick={setMenuIsOpen}>
+        <MenuItem onClick={setMenuIsOpen} to={"/products?brand=new+balance"}>
           New Balance
           <Icon src={RightArrow} alt="right arrow"/>
         </MenuItem>
-        <MenuItem onClick={setMenuIsOpen}>
+        <MenuItem onClick={setMenuIsOpen} to={"/products?brand=asics"}>
           Asics
           <Icon src={RightArrow} alt="right arrow"/>
         </MenuItem>
