@@ -20,7 +20,7 @@ const StyledButton = styled.button`
   font-weight: 700;
   color: rgb(160, 160, 160);
   position: relative;
-  margin: 1rem 0;
+  margin-top: 1rem;
   
   &:active {
     background-color: rgb(238, 238, 238);

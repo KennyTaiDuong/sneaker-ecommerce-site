@@ -1,5 +1,5 @@
 import Global from "../../src/GlobalStyles";
-import { ProductsNavbar } from "../../src/components/ProductsNavbar/ProductsNavbar";
+import { ProductsNavbar } from "../../src/components/Pagination/Pagination";
 import { BrowserRouter } from "react-router-dom";
 
 const MockProductsNavbar = () => {

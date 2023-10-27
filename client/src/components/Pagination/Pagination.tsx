@@ -9,14 +9,17 @@ const Container = styled.div`
 
 const PageButton = styled.button`
   color: black;
-  padding: 0.5rem;
+  border: 2px solid rgb(160, 160, 160);
+  border-radius: 50%;
+  height: 2rem;
+  width: 2rem;
 `
 
 type NavbarProps = {
   pageCount: number
 }
 
-export const ProductsNavbar = ({ pageCount }: NavbarProps) => {
+export const Pagination = ({ pageCount }: NavbarProps) => {
   const [, setSearchParams] = useSearchParams()
 
   const pageElements = new Array(pageCount ? pageCount : 1)
