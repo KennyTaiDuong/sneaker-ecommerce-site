@@ -70,7 +70,7 @@ export const ProductsContext = createContext<ProductsContextType>(defaultState)
 
 export const ProductsPageLayout = () => {
   const [sortOpen, setSortOpen] = useState(false)
-  const [refresh, setRefresh] = useState(0)
+  const [, setRefresh] = useState(0)
   const [allProducts, setAllProducts] = useState<Product[]>()
 
   const [searchParams, setSearchParams] = useSearchParams()

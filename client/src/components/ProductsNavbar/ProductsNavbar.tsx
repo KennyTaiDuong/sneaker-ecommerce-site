@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 
 const Container = styled.div`
   display: flex;
@@ -7,9 +7,9 @@ const Container = styled.div`
   gap: 1rem;
 `
 
-const PageButton = styled(NavLink)`
+const PageButton = styled.button`
   color: black;
-  text-decoration: none;
+  padding: 0.5rem;
 `
 
 type NavbarProps = {
@@ -17,14 +17,22 @@ type NavbarProps = {
 }
 
 export const ProductsNavbar = ({ pageCount }: NavbarProps) => {
-  
+  const [, setSearchParams] = useSearchParams()
+
+  const pageElements = new Array(pageCount ? pageCount : 1)
+  .fill("")
+  .map((_item, index: number) => {
+    
+    return <PageButton onClick={() => setSearchParams({ page: `${index + 1}`})}>{index + 1}</PageButton>
+  })
 
   return (
     <Container>
-      <PageButton to="">{pageCount}</PageButton>
-      <PageButton to="">2</PageButton>
-      <PageButton to="">3</PageButton>
-      <PageButton to="">4</PageButton>
+      {pageElements}
     </Container>
   )
+}
+
+function index(_value: any, _index: number, _array: any[]): unknown {
+  throw new Error("Function not implemented.");
 }
