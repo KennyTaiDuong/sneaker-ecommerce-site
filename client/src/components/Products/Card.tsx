@@ -46,6 +46,14 @@ const CardText = styled.p`
   font-size: 0.75rem;
 `
 
+const StyledSpan = styled.span`
+  font-weight: 500;
+  color: #3b3b3b;
+  display: flex;
+  align-items: center;
+  font-size: 0.75rem;
+`
+
 const ProductImage = styled.img`
   width: 100%;
   height: 100%;
@@ -77,7 +85,7 @@ export const Card = ({ name, price, image, sku }: CardProps) => {
         </CardText>
         <ProductName>{name}</ProductName>
         <ProductPrice>
-          <CardText>Price: </CardText>
+          <StyledSpan>Price: </StyledSpan>
           ${price}.00
         </ProductPrice>
       </CardInfo>

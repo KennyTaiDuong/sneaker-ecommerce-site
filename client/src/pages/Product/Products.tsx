@@ -20,22 +20,49 @@ export const ProductsPage = () => {
   const {allProducts, setRefresh} = useContext(ProductsContext)
 
   const [searchParams] = useSearchParams()
-  
+
   const brand: any = searchParams.get("brand")
+
+  const query: any = searchParams.get("query")
+
+  const page: any = searchParams.get("page")
 
   const ProductCards = allProducts?.map((product: Product, index: number) => {
     const {name, price, images, sku} = product
 
-    if (brand != null) {
-      if (name.toLowerCase().includes(brand)) {
+    const upperBoundary = parseInt(page) * 12
+    const lowerBoundary = (parseInt(page) - 1) * 12
+
+    // removes quotation marks and extra spaces
+    const plainQuery = query?.toLowerCase().split('"').join("").trimEnd()
+
+    const plainName = name?.toLowerCase().split('"').join("")
+
+    // only renders 12 items per page
+    if (index < upperBoundary && index >= lowerBoundary) {
+
+      if (brand || query) {
+        if (brand && plainName.includes(brand)) {
+          
+          // returns products that have brand included in name
+          return (
+            <Card name={name} price={price} image={images} sku={sku} key={index}/>
+          )
+        } else if (query && plainName.includes(plainQuery)) {
+
+          // returns products where query is included in name
+          return (
+            <Card name={name} price={price} image={images} sku={sku} key={index}/>
+          )
+        }
+  
+      } else if (!brand && !query) {
+
+        // Return all products when no brand or query specified
         return (
           <Card name={name} price={price} image={images} sku={sku} key={index}/>
         )
-      } else return
-    } else if (brand === null) {
-      return (
-        <Card name={name} price={price} image={images} sku={sku} key={index}/>
-      )
+      }
     }
     setRefresh(prev => prev++)
   })
