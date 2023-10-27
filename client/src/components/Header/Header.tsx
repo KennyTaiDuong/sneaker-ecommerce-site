@@ -4,7 +4,7 @@ import { useState } from "react"
 // Icons/Logos/Images
 import logo from "../../assets/logo/aksupplied.png" 
 import hamburgerIcon from "../../assets/icons/hamburger-icon.svg"
-import { NavLink, useSearchParams } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
 import Background from "../../assets/backgrounds/lostnfound.jpg"
 
 const Container = styled.div`
@@ -93,15 +93,12 @@ export const Header = ({ setMenuIsOpen }: SidebarProps) => {
   const [searchIsOpen, setSearchIsOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState("")
 
-  const [, setSearchParams] = useSearchParams()
+  const navigate = useNavigate()
 
   function handleOnSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-
-    setSearchParams(prev => {
-      console.log(prev.get("query"))
-      return prev
-    })
+    
+    navigate(`/products?query=${searchQuery}&brand=&page=1`)
   }
 
   function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
@@ -123,7 +120,11 @@ export const Header = ({ setMenuIsOpen }: SidebarProps) => {
           style={{ display: `${searchIsOpen ? "block" : "none"}`}} 
           onSubmit={(e) => handleOnSubmit(e)}
         >
-          <StyledInput type="text" placeholder="Search for an item" onChange={(event) => {handleInputChange(event)}}/>
+          <StyledInput 
+            type="text" 
+            placeholder={`Search for an item (include punctuation)`} 
+            onChange={(event) => {handleInputChange(event)}}
+          />
         </SearchBar>
       </DarkContainer>
     </Container>

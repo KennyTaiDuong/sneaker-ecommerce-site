@@ -73,15 +73,21 @@ export const ProductsPageLayout = () => {
   const [refresh, setRefresh] = useState(0)
   const [allProducts, setAllProducts] = useState<Product[]>()
 
-  const [searchParams] = useSearchParams()
+  const [searchParams, setSearchParams] = useSearchParams()
+
+  if (searchParams.size === 0) {
+    // automatically routes to first page when user loads /products
+    setSearchParams({ page: "1"})
+  }
 
   // Gets value of "brand" search query
   const brand = searchParams.get("brand")
+  const query = searchParams.get("query")
 
   // Capitalizes the first letter of each word:
   // brand.split(" ") returns an array of string(s) split by a space
   // .map((name) => {}) loops through array and capitalizes the first char
-  const brandTitle = brand?.split(" ")?.map((name) => {
+  const brandHeading = brand?.split(" ")?.map((name) => {
     return `${name.charAt(0).toUpperCase() + name.slice(1)} `
   })
 
@@ -126,12 +132,12 @@ export const ProductsPageLayout = () => {
       })
     }
 
-    setRefresh(refresh + 1)
+    setRefresh(prev => prev++)
   }
 
   return (
     <ProductsLayoutContainer>
-      <Header>{brand ? brandTitle : "All "}Products</Header>
+      <Header>{query ? `"${query}"` : brand ? `${brandHeading?.join("")} Products`: "All Products"}</Header>
       <StyledButton onClick={() => setSortOpen(prev => !prev)} data-cy="sort-btn">Sort By:
         <DropDownContainer style={{ display: `${sortOpen ? "block" : "none"}`}}>
           <DropdownItem 

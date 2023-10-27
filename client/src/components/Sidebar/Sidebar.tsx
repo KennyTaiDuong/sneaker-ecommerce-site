@@ -96,31 +96,31 @@ export const Sidebar = ({ setMenuIsOpen }: SidebarProps) => {
       </StyledHeader>
       <MenuCategory>Shop by Brand:</MenuCategory>
       <MenuContainer>
-        <MenuItem onClick={setMenuIsOpen} to={"/products"}>
+        <MenuItem onClick={setMenuIsOpen} to={"/products?page=1"}>
           All Products
           <Icon src={RightArrow} alt="right arrow"/>
         </MenuItem>
-        <MenuItem onClick={setMenuIsOpen} to={"/products?brand=nike"}>
+        <MenuItem onClick={setMenuIsOpen} to={"/products?brand=nike&page=1"}>
           Nike
           <Icon src={RightArrow} alt="right arrow"/>
         </MenuItem>
-        <MenuItem onClick={setMenuIsOpen} to={"/products?brand=jordan"}>
+        <MenuItem onClick={setMenuIsOpen} to={"/products?brand=jordan&page=1"}>
           Jordan
           <Icon src={RightArrow} alt="right arrow"/>
         </MenuItem>
-        <MenuItem onClick={setMenuIsOpen} to={"/products?brand=yeezy"}>
+        <MenuItem onClick={setMenuIsOpen} to={"/products?brand=yeezy&page=1"}>
           Yeezy
           <Icon src={RightArrow} alt="right arrow"/>
         </MenuItem>
-        <MenuItem onClick={setMenuIsOpen} to={"/products?brand=adidas"}>
+        <MenuItem onClick={setMenuIsOpen} to={"/products?brand=adidas&page=1"}>
           Adidas
           <Icon src={RightArrow} alt="right arrow"/>
         </MenuItem>
-        <MenuItem onClick={setMenuIsOpen} to={"/products?brand=new+balance"}>
+        <MenuItem onClick={setMenuIsOpen} to={"/products?brand=new+balance&page=1"}>
           New Balance
           <Icon src={RightArrow} alt="right arrow"/>
         </MenuItem>
-        <MenuItem onClick={setMenuIsOpen} to={"/products?brand=asics"}>
+        <MenuItem onClick={setMenuIsOpen} to={"/products?brand=asics&page=1"}>
           Asics
           <Icon src={RightArrow} alt="right arrow"/>
         </MenuItem>
