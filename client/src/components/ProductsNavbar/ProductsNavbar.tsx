@@ -32,7 +32,3 @@ export const ProductsNavbar = ({ pageCount }: NavbarProps) => {
     </Container>
   )
 }
-
-function index(_value: any, _index: number, _array: any[]): unknown {
-  throw new Error("Function not implemented.");
-}
