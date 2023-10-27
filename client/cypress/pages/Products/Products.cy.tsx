@@ -32,17 +32,17 @@ describe("Products Page", () => {
     cy.get("[data-cy='sort-low']").click()
   })
 
-  it("sort by lowest price", () => {
+  it("sort by highest price", () => {
     cy.get("[data-cy='sort-btn']").click()
     cy.get("[data-cy='sort-high']").click()
   })
 
-  it("sort by lowest price", () => {
+  it("sort by alphabetical order", () => {
     cy.get("[data-cy='sort-btn']").click()
     cy.get("[data-cy='sort-alpha']").click()
   })
 
-  it("sort by lowest price", () => {
+  it("sort by reverse-alphabetical order", () => {
     cy.get("[data-cy='sort-btn']").click()
     cy.get("[data-cy='sort-reverse']").click()
   })
