@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useEffect, useState,createContext } from "react";
+import { useEffect, useState,createContext, Dispatch, SetStateAction } from "react";
 import { Outlet } from "react-router";
 import { useSearchParams } from "react-router-dom";
 
@@ -42,19 +42,12 @@ const DropdownItem = styled.p`
   padding: 0.5rem 0;
 `
 
-export type ProductProps = {
-  name: string,
-  price: number,
-  images: string,
-  sku: string,
-}
-
 type Size = {
   size: string,
   quantity: string
 }
 
-type Product = {
+export type Product = {
   sku: string;
   name: string;
   price: number;
@@ -63,14 +56,23 @@ type Product = {
   images: string;
 }
 
-type ProductsContextType = Product[]
+type ProductsContextType = {
+  allProducts?: Product[],
+  setRefresh: Dispatch<SetStateAction<number>>
+}
 
-export const ProductsContext = createContext<ProductsContextType | undefined>(undefined)
+const defaultState = {
+  allProducts: [],
+  setRefresh: (_num: number) => {}
+} as ProductsContextType
+
+export const ProductsContext = createContext<ProductsContextType>(defaultState)
 
 export const ProductsPageLayout = () => {
   const [sortOpen, setSortOpen] = useState(false)
   const [refresh, setRefresh] = useState(0)
-  const [allProducts, setAllProducts] = useState<ProductsContextType>()
+  const [allProducts, setAllProducts] = useState<Product[]>()
+
   const [searchParams] = useSearchParams()
 
   // Gets value of "brand" search query
@@ -103,22 +105,22 @@ export const ProductsPageLayout = () => {
   function sortData(option: string) {
     // Conditions check which option was clicked
     if (option === "low") {
-      allProducts?.sort((a: ProductProps, b: ProductProps) => {
+      allProducts?.sort((a: Product, b: Product) => {
         // sorts by lowest price
         return a.price - b.price
       })
     } else if (option === "high") {
-      allProducts?.sort((a: ProductProps, b: ProductProps) => {
+      allProducts?.sort((a: Product, b: Product) => {
         // sorts by highest price
         return b.price - a.price
       })
     } else if (option === "alpha") {
-      allProducts?.sort((a: ProductProps, b: ProductProps) => {
+      allProducts?.sort((a: Product, b: Product) => {
         // takes the first letter of the colorway name and sorts in alphabetical order
         return a.name.split("\"", 2)[1].charCodeAt(0) - b.name.split("\"", 2)[1].charCodeAt(0)
       })
     } else if (option === "reverse-alpha") {
-      allProducts?.sort((a: ProductProps, b: ProductProps) => {
+      allProducts?.sort((a: Product, b: Product) => {
         // takes the first letter of the colorway name and sorts in reverse alphabetical order
         return b.name.split("\"", 2)[1].charCodeAt(0) - a.name.split("\"", 2)[1].charCodeAt(0)
       })
@@ -158,7 +160,7 @@ export const ProductsPageLayout = () => {
           </DropdownItem>
         </DropDownContainer>
       </StyledButton>
-      <ProductsContext.Provider value={allProducts}>
+      <ProductsContext.Provider value={{allProducts, setRefresh}}>
         <Outlet />
       </ProductsContext.Provider>
     </ProductsLayoutContainer>

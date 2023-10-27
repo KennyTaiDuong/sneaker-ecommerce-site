@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useContext } from "react";
 import { Card } from "../../components/Products/Card";
-import { ProductsContext, ProductProps } from "../../components/Layout/ProductsLayout";
+import { ProductsContext, Product } from "../../components/Layout/ProductsLayout";
 import { ProductsNavbar } from "../../components/ProductsNavbar/ProductsNavbar";
 import { useSearchParams } from "react-router-dom";
 
@@ -17,15 +17,13 @@ const CardsContainer = styled.div`
 `
 
 export const ProductsPage = () => {
-  const allProducts = useContext(ProductsContext)
+  const {allProducts, setRefresh} = useContext(ProductsContext)
 
   const [searchParams] = useSearchParams()
   
   const brand: any = searchParams.get("brand")
 
-  console.log(brand)
-
-  const ProductCards = allProducts?.map((product: ProductProps, index: number) => {
+  const ProductCards = allProducts?.map((product: Product, index: number) => {
     const {name, price, images, sku} = product
 
     if (brand != null) {
@@ -33,13 +31,13 @@ export const ProductsPage = () => {
         return (
           <Card name={name} price={price} image={images} sku={sku} key={index}/>
         )
-      } 
-    } else {
+      } else return
+    } else if (brand === null) {
       return (
         <Card name={name} price={price} image={images} sku={sku} key={index}/>
       )
     }
-
+    setRefresh(prev => prev++)
   })
 
   return (

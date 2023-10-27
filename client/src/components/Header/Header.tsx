@@ -4,7 +4,7 @@ import { useState } from "react"
 // Icons/Logos/Images
 import logo from "../../assets/logo/aksupplied.png" 
 import hamburgerIcon from "../../assets/icons/hamburger-icon.svg"
-import { NavLink } from "react-router-dom"
+import { NavLink, useSearchParams } from "react-router-dom"
 import Background from "../../assets/backgrounds/lostnfound.jpg"
 
 const Container = styled.div`
@@ -27,7 +27,7 @@ const IconContainer = styled.div`
   align-items: center;
 `
 
-const SearchBar = styled.div`
+const SearchBar = styled.form`
   background-color: white;
   display: flex;
   border-radius: 1.5rem;
@@ -91,6 +91,22 @@ type SidebarProps = {
 
 export const Header = ({ setMenuIsOpen }: SidebarProps) => {
   const [searchIsOpen, setSearchIsOpen] = useState(false)
+  const [searchQuery, setSearchQuery] = useState("")
+
+  const [, setSearchParams] = useSearchParams()
+
+  function handleOnSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+
+    setSearchParams(prev => {
+      console.log(prev.get("query"))
+      return prev
+    })
+  }
+
+  function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
+    setSearchQuery(event.target.value)
+  }
 
   return (
     <Container>
@@ -102,8 +118,12 @@ export const Header = ({ setMenuIsOpen }: SidebarProps) => {
           <MenuLabel>Cart</MenuLabel>
           <MenuLabel>Account</MenuLabel>
         </IconContainer>
-        <SearchBar data-cy="search-bar" style={{ display: `${searchIsOpen ? "block" : "none"}`}}>
-          <StyledInput type="text" placeholder="Search for an item"/>
+        <SearchBar 
+          data-cy="search-bar" 
+          style={{ display: `${searchIsOpen ? "block" : "none"}`}} 
+          onSubmit={(e) => handleOnSubmit(e)}
+        >
+          <StyledInput type="text" placeholder="Search for an item" onChange={(event) => {handleInputChange(event)}}/>
         </SearchBar>
       </DarkContainer>
     </Container>
