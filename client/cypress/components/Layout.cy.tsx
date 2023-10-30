@@ -19,7 +19,6 @@ describe("Testing functionality of layour", () => {
 
   it("should render component", () => {
     cy.get('[data-cy="hamburger-icon"]').click()
-    
   })
 
   it('should display search bar when icon clicked', () => {
