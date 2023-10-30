@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { Card } from "../../components/Products/Card";
 import { ProductsContext, Product } from "../../components/Layout/ProductsLayout";
 import { Pagination } from "../../components/Pagination/Pagination";
@@ -19,7 +19,6 @@ const CardsContainer = styled.div`
 
 export const ProductsPage = () => {
   const {allProducts, setRefresh} = useContext(ProductsContext)
-  const [loading, setLoading] = useState(false)
 
   const [searchParams] = useSearchParams()
 
