@@ -14,6 +14,7 @@
     "cy:run-unit": "cypress run --component"
   },
   "dependencies": {
+    "@auth0/auth0-react": "^2.2.1",
     "react": "^18.2.0",
     "react-router-dom": "^6.16.0"
   },
