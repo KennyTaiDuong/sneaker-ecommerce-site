@@ -6,6 +6,7 @@ import { Home } from "./pages/Home";
 import { ProductsPage } from "./pages/Product/Products";
 import { ProductDetail } from "./pages/Product/ProductDetail";
 import { ProductsPageLayout } from "./components/Layout/ProductsLayout";
+import { Profile } from "./pages/Profile/Profile";
 
 function App() {
   
@@ -21,6 +22,7 @@ function App() {
           <Route path="products" element={<ProductsPageLayout />}>
             <Route index element={<ProductsPage />} />
           </Route>
+          <Route path="profile" element={<Profile />} />
         </Route>
       </Routes>
     </BrowserRouter>

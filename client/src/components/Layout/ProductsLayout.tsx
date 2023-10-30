@@ -2,8 +2,6 @@ import styled from "styled-components";
 import { useEffect, useState,createContext, Dispatch, SetStateAction } from "react";
 import { Outlet } from "react-router";
 import { useSearchParams } from "react-router-dom";
-import { LoginButton } from "../LoginButton/LoginButton";
-import { LogoutButton } from "../LogoutButton/LogoutButton";
 
 const ProductsLayoutContainer = styled.div`
   padding: 1rem;
@@ -140,8 +138,6 @@ export const ProductsPageLayout = () => {
   return (
     <ProductsLayoutContainer>
       <Header>{query ? `"${query}"` : brand ? `${brandHeading?.join("")} Products`: "All Products"}</Header>
-      <LoginButton />
-      <LogoutButton />
       <StyledButton onClick={() => setSortOpen(prev => !prev)} data-cy="sort-btn">Sort By:
         <DropDownContainer style={{ display: `${sortOpen ? "block" : "none"}`}}>
           <DropdownItem 
