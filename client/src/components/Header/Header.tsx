@@ -112,7 +112,7 @@ export const Header = ({ setMenuIsOpen }: SidebarProps) => {
           <Icon src={hamburgerIcon} alt="hamburger icon" data-cy="hamburger-icon" onClick={setMenuIsOpen}/>
           <MenuLabel data-cy="search-button" onClick={() => setSearchIsOpen(prev => !prev)} >Search</MenuLabel>
           <NavLink to="/"><Logo src={logo} alt="aksupplied logo" /></NavLink>
-          <MenuLabel>Cart</MenuLabel>
+          <MenuLabel onClick={() => navigate("/cart")}>Cart</MenuLabel>
           <MenuLabel onClick={() => navigate("/profile")}>Account</MenuLabel>
         </IconContainer>
         <SearchBar 
