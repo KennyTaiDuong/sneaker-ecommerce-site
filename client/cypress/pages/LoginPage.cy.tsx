@@ -8,8 +8,8 @@ const MockLoginPage = () => {
       domain=""
       clientId=""
       authorizationParams={{
-      redirect_uri: ""
-    }}
+        redirect_uri: ""
+      }}
     >
       <Global />
       <LoginPage />

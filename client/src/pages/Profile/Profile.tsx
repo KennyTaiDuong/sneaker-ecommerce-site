@@ -40,8 +40,8 @@ const Email = styled.p`
 export const Profile = () => {
   const userAuth = useAuth0();
   console.log(userAuth)
-
   const { isLoading, isAuthenticated, user } = userAuth
+  console.log(user)
 
   if (isLoading) {
     return <div>Loading...</div>

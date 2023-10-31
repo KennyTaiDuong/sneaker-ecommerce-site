@@ -40,6 +40,7 @@ const DropDownContainer = styled.div`
 const DropdownItem = styled.p`
   border: 1px solid rgb(238, 238, 238);
   padding: 0.5rem 0;
+  cursor: pointer;
 `
 
 type Size = {
@@ -63,13 +64,14 @@ type ProductsContextType = {
 
 const defaultState = {
   allProducts: [],
-  setRefresh: (_num: number) => {}
+  setRefresh: () => {}
 } as ProductsContextType
 
 export const ProductsContext = createContext<ProductsContextType>(defaultState)
 
 export const ProductsPageLayout = () => {
   const [sortOpen, setSortOpen] = useState(false)
+  const [selectedSort, setSort] = useState("")
   const [, setRefresh] = useState(0)
   const [allProducts, setAllProducts] = useState<Product[]>()
 
@@ -77,7 +79,7 @@ export const ProductsPageLayout = () => {
 
   if (searchParams.size === 0) {
     // automatically routes to first page when user loads /products
-    setSearchParams({ page: "1"})
+    setSearchParams({ page: "1" })
   }
 
   // Gets value of "brand" search query
@@ -109,23 +111,28 @@ export const ProductsPageLayout = () => {
   }, [])
 
   function sortData(option: string) {
+    
     // Conditions check which option was clicked
     if (option === "low") {
+      setSort("low")
       allProducts?.sort((a: Product, b: Product) => {
         // sorts by lowest price
         return a.price - b.price
       })
     } else if (option === "high") {
+      setSort("high")
       allProducts?.sort((a: Product, b: Product) => {
         // sorts by highest price
         return b.price - a.price
       })
     } else if (option === "alpha") {
+      setSort("alpha")
       allProducts?.sort((a: Product, b: Product) => {
         // takes the first letter of the colorway name and sorts in alphabetical order
         return a.name.split("\"", 2)[1].charCodeAt(0) - b.name.split("\"", 2)[1].charCodeAt(0)
       })
     } else if (option === "reverse-alpha") {
+      setSort("reverse")
       allProducts?.sort((a: Product, b: Product) => {
         // takes the first letter of the colorway name and sorts in reverse alphabetical order
         return b.name.split("\"", 2)[1].charCodeAt(0) - a.name.split("\"", 2)[1].charCodeAt(0)
@@ -137,29 +144,33 @@ export const ProductsPageLayout = () => {
 
   return (
     <ProductsLayoutContainer>
-      <Header>{query ? `"${query}"` : brand ? `${brandHeading?.join("")} Products`: "All Products"}</Header>
+      <Header data-cy="header">{query ? `"${query}"` : brand ? `${brandHeading?.join("")} Products`: "All Products"}</Header>
       <StyledButton onClick={() => setSortOpen(prev => !prev)} data-cy="sort-btn">Sort By:
         <DropDownContainer style={{ display: `${sortOpen ? "block" : "none"}`}}>
           <DropdownItem 
             onClick={() => sortData("low")} 
+            id={selectedSort === "low" ? "selected" : "not-low"}
             data-cy="sort-low"
           >
             Lowest Price
           </DropdownItem>
           <DropdownItem 
             onClick={() => sortData("high")} 
+            id={selectedSort === "high" ? "selected" : "not-high"}
             data-cy="sort-high"
           >
             Highest Price
           </DropdownItem>
           <DropdownItem 
             onClick={() => sortData("alpha")} 
+            id={selectedSort === "alpha" ? "selected" : "not-alpha"}
             data-cy="sort-alpha"
           >
             A-Z
           </DropdownItem>
           <DropdownItem 
             onClick={() => sortData("reverse-alpha")} 
+            id={selectedSort === "reverse" ? "selected" : "not-reverse"}
             data-cy="sort-reverse"
           >
             Z-A

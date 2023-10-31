@@ -28,6 +28,7 @@ export const Pagination = ({ pageCount }: NavbarProps) => {
     return (
       <PageButton 
         onClick={() => setSearchParams({ page: `${index + 1}`})}
+        key={index}
       >
         {index + 1}
       </PageButton>
