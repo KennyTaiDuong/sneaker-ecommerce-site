@@ -31,14 +31,14 @@ const getUser = async (req, res) => {
 
 const createUser = async (req, res) => {
   try {
-    const { username, password, first_name, last_name, phone } = req.body;
+    const { email, first_name, last_name, phone, shipping_info } = req.body;
 
     const newUser = await pool.query(createUserQuery, [
-      username,
-      password,
+      email,
       first_name,
       last_name,
       phone,
+      shipping_info,
     ]);
 
     res.json(newUser);
@@ -61,14 +61,14 @@ const updateUser = async (req, res) => {
   const { id } = req.params;
 
   try {
-    const { username, password, first_name, last_name, phone } = req.body;
+    const { email, first_name, last_name, phone, shipping_info } = req.body;
 
     const updatedUser = await pool.query(updateUserQuery, [
-      username,
-      password,
+      email,
       first_name,
       last_name,
       phone,
+      shipping_info,
       id,
     ]);
 
