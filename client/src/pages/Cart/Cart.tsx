@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
-// import { useParams } from "react-router";
+import { useContext } from "react";
 import styled from "styled-components";
-import { CartCard } from "./CartCard";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate } from "react-router";
+import { UserDataContext } from "../../components/Layout/Layout";
 
 const Container = styled.div`
   padding: 1rem;
@@ -81,27 +80,45 @@ const ItemNumber = styled.p`
 `
 
 export const Cart = () => {
-  // const { id } = useParams()
-  const { isAuthenticated, user } = useAuth0() 
-  const [cart, setCart] = useState<any>()
+  const { isLoading, isAuthenticated, user } = useAuth0() 
 
-  console.log(cart)
+  const {currentCart} = useContext(UserDataContext)
 
   const navigate = useNavigate()
 
-  useEffect(() => {
-    async function fetchCart() {
-      const res = await fetch("http://localhost:5000/api/carts")
+  const itemsElements = currentCart?.products?.map((item, index) => {
+    const { name, price, quantity, size } = item
 
-      const data = await res.json()
+    return (
+      <ReceiptRow key={index}>
+        <ItemNumber>{index + 1}</ItemNumber>
+        <ItemLabel>{name}</ItemLabel>
+        <SizeLabel>{size}</SizeLabel>
+        <QuantityLabel>{quantity}</QuantityLabel>
+        <PriceLabel>${price}</PriceLabel>
+      </ReceiptRow>
+    )
+  })
 
-      setCart(data)
-    }
+  const EmptyItems = () => {
+    return (
+      <ReceiptRow>
+        <ItemNumber>1</ItemNumber>
+        <ItemLabel></ItemLabel>
+        <SizeLabel></SizeLabel>
+        <QuantityLabel>0</QuantityLabel>
+        <PriceLabel>$0</PriceLabel>
+      </ReceiptRow>
+    )
+  }
 
-    fetchCart()
-  }, [])
+  if (isLoading) {
+    return (
+      <Container>Loading...</Container>
+    )
+  }
 
-  if (!isAuthenticated) {
+  if (!isAuthenticated && !isLoading) {
     setTimeout(() => {
       navigate("/profile")
     }, 3500)
@@ -128,24 +145,9 @@ export const Cart = () => {
             <QuantityLabel>Quantity</QuantityLabel>
             <PriceLabel>Price</PriceLabel>
           </CategoryRow>
-          {/* Map this section vvvv */}
-          <ReceiptRow>
-            <ItemNumber>1</ItemNumber>
-            <ItemLabel>Jordan 4 SB "Pine Green"</ItemLabel>
-            <SizeLabel>10.5</SizeLabel>
-            <QuantityLabel>1</QuantityLabel>
-            <PriceLabel>$500</PriceLabel>
-          </ReceiptRow>
-          {/* Map this section ^^^^ */}
-          <ReceiptRow>
-            <ItemNumber>2</ItemNumber>
-            <ItemLabel>Nike Dunk Low "St. John's"</ItemLabel>
-            <SizeLabel>10.5</SizeLabel>
-            <QuantityLabel>1</QuantityLabel>
-            <PriceLabel>$250</PriceLabel>
-          </ReceiptRow>
+          {itemsElements?.length === 0 ? <EmptyItems /> : itemsElements }
         </CartInfoContainer>
-        <CartCard />
+
       </ReceiptContainer>
     </Container>
   )
