@@ -70,7 +70,7 @@ export const CardSection = ({ productsArray, logo, brand }: CardSectionProps) =>
   return (
     <BrandSection>
       {/* Brand Banner */}
-      <StyledNavLink to={`/products?brand=${brand.toLowerCase()}`}>
+      <StyledNavLink to={`/products?brand=${brand.toLowerCase()}&page=1`}>
         <BrandBanner style={{ backgroundColor: `${brand === "Nike" ? "rgba(255,101,0,255)" : brand === "Jordan" ? "black" : "rgba(156,125,78,255)"}` }}>
           <Logo src={logo} />
         </BrandBanner>
