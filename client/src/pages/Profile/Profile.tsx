@@ -2,6 +2,8 @@ import styled from "styled-components";
 import { useAuth0 } from "@auth0/auth0-react";
 import { LogoutButton } from "../../components/LogoutButton/LogoutButton";
 import { LoginPage } from "./LoginPage";
+import { UserDataContext } from "../../components/Layout/Layout";
+import { FormEvent, useContext, useState } from "react";
 
 const ProfileContainer = styled.div`
   display: flex;
@@ -37,12 +39,83 @@ const Email = styled.p`
 
 `
 
+const FormContainer = styled.form`
+  
+`
+
+const UserInfoSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+`
+
+const SectionName = styled.p`
+  font-weight: 700;
+  font-size: 1.25rem;
+`
+
+const StyledInput = styled.input`
+  padding: 0.25rem;
+`
+
+const StyledLabel = styled.label`
+
+`
+
+const FormButton = styled.button`
+  width: 100%;
+  padding: 0.5rem;
+`
+
+type UserType = {
+  email: string | undefined,
+  first_name: string,
+  last_name: string,
+  phone: string,
+  shipping_info: {},
+}
+
 export const Profile = () => {
   const { isLoading, isAuthenticated, user } = useAuth0();
-  
+  const { currentUser } = useContext(UserDataContext)
 
+  const [firstName, setFirstName] = useState("")
+  const [lastName, setLastName] = useState("")
+  const [phoneNumber, setPhoneNumber] = useState("")
+  const [streetAddress, setStreetAddress] = useState("")
+  const [city, setCity] = useState("")
+  const [state, setState] = useState("")
+  const [zip, setZip] = useState("")
+
+  const [newUserData, setNewUserData] = useState<UserType | undefined>()
+
+  function handleFormSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+
+    const streetNumber = streetAddress.split(" ", 1)
+    const streetName = streetAddress.split(" ").slice(1).join(" ")
+    
+    setNewUserData({
+      email: currentUser?.email,
+      first_name: firstName,
+      last_name: lastName,
+      phone: phoneNumber,
+      shipping_info: {
+        street_number: streetNumber[0],
+        street_name: streetName,
+        state: state,
+        city: city,
+        zip: zip,
+        country: "US"
+      }
+    })
+
+    console.log(newUserData)
+  }
+
+  
   if (isLoading) {
-    return <div>Loading...</div>
+    return <ProfileContainer>Loading...</ProfileContainer>
   }
 
   return (
@@ -52,12 +125,126 @@ export const Profile = () => {
         <ProfilePic src={user?.picture} alt={user?.name} />
         <InfoContainer>
           <Label>Profile Name:</Label>
-          <Username>{user?.name}</Username>
+          <Username>{currentUser?.first_name ? currentUser.first_name + currentUser.last_name : user?.nickname}</Username>
         </InfoContainer>
         <InfoContainer>
           <Label>Profile Email:</Label>
           <Email>{user?.email}</Email>
         </InfoContainer>
+        <FormContainer onSubmit={(e) => handleFormSubmit(e)}>
+          <SectionName>Profile Information</SectionName>
+          <UserInfoSection>
+            <StyledLabel 
+              htmlFor="first"
+            >
+              First Name
+            </StyledLabel>
+            <StyledInput 
+              required 
+              type="text" 
+              id="first" 
+              placeholder="Enter first name" 
+              onChange={(e) => {setFirstName(e.target.value)}} 
+              value={firstName}
+            />
+            <StyledLabel 
+              htmlFor="last"
+            >
+              Last Name
+            </StyledLabel>
+            <StyledInput 
+              required 
+              type="text" 
+              id="last" 
+              placeholder="Enter last name" 
+              onChange={(e) => setLastName(e.target.value)}
+              value={lastName}
+            />
+            <StyledLabel 
+              htmlFor="phone"
+            >
+              Phone Number
+            </StyledLabel>
+            <StyledInput 
+              required 
+              autoComplete="phone" 
+              type="text" 
+              id="phone" 
+              placeholder="Enter phone number" 
+              onChange={(e) => setPhoneNumber(e.target.value)}
+              value={phoneNumber}
+            />
+          </UserInfoSection>
+
+          <SectionName>Shipping Details</SectionName>
+          <UserInfoSection>
+            <StyledLabel 
+              htmlFor="street"
+            >
+              Street Address
+            </StyledLabel>
+            <StyledInput 
+              required 
+              type="text" 
+              id="street" 
+              placeholder="Enter street address" 
+              onChange={(e) => setStreetAddress(e.target.value)}
+              value={streetAddress}
+            />
+            <StyledLabel 
+              htmlFor="city"
+            >
+              City
+            </StyledLabel>
+            <StyledInput 
+              required 
+              type="text" 
+              id="city" 
+              placeholder="Enter city" 
+              onChange={(e) => setCity(e.target.value)}
+              value={city}
+            />
+            <StyledLabel 
+              htmlFor="state"
+            >
+              State
+            </StyledLabel>
+            <StyledInput 
+              required 
+              type="text" 
+              id="state" 
+              placeholder="Enter state" 
+              onChange={(e) => setState(e.target.value)}
+              value={state}
+            />
+            <StyledLabel 
+              htmlFor="zip"
+            >
+              ZIP or Postal code
+            </StyledLabel>
+            <StyledInput 
+              required 
+              type="text" 
+              id="zip" 
+              placeholder="Enter ZIP"
+              onChange={(e) => setZip(e.target.value)} 
+              value={zip}
+            />
+            <StyledLabel 
+              htmlFor="country"
+            >
+              Country
+            </StyledLabel>
+            <StyledInput 
+              type="text" 
+              id="country" 
+              value={"US"}  
+              disabled 
+            />
+          </UserInfoSection>
+
+          <FormButton type="submit">Update Profile</FormButton>
+        </FormContainer>
         <LogoutButton />
       </ProfileContainer>
     ) :

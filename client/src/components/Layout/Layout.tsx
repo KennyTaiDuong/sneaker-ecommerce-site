@@ -17,7 +17,6 @@ type UserType = {
   first_name: string,
   last_name: string,
   id: number,
-  user_id: string
   phone: string,
   shipping_info: {},
 }
