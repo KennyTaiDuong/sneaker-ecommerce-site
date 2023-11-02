@@ -82,10 +82,10 @@ const ItemNumber = styled.p`
 
 export const Cart = () => {
   // const { id } = useParams()
-  const [cart, setCart] = useState<any>()
   const { isAuthenticated, user } = useAuth0() 
+  const [cart, setCart] = useState<any>()
 
-  console.log(useAuth0())
+  console.log(cart)
 
   const navigate = useNavigate()
 
@@ -99,7 +99,7 @@ export const Cart = () => {
     }
 
     fetchCart()
-  }, [isAuthenticated])
+  }, [])
 
   if (!isAuthenticated) {
     setTimeout(() => {
