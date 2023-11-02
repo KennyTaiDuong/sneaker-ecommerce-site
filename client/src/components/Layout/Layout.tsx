@@ -25,7 +25,9 @@ type UserType = {
 type CartItemType = {
   sku: string,
   size: string,
-  quantity: string
+  quantity: string,
+  name: string,
+  price: number
 }
 
 type CartType = {
