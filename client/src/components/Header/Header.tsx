@@ -122,6 +122,7 @@ export const Header = ({ setMenuIsOpen }: SidebarProps) => {
         >
           <StyledInput 
             type="text" 
+            name="search-bar"
             placeholder={`Search for an item (include punctuation)`} 
             onChange={(event) => {handleInputChange(event)}}
           />

@@ -88,7 +88,6 @@ export const Cart = () => {
 
   const itemsElements = currentCart?.products?.map((item, index) => {
     const { name, price, quantity, size } = item
-    console.log(item)
 
     return (
       <ReceiptRow key={index}>
