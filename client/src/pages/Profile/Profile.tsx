@@ -69,9 +69,9 @@ const FormButton = styled.button`
 
 type UserType = {
   email: string | undefined,
-  first_name: string,
-  last_name: string,
-  phone: string,
+  first_name: string | undefined,
+  last_name: string | undefined,
+  phone: string | undefined,
   shipping_info: {},
 }
 
@@ -79,38 +79,58 @@ export const Profile = () => {
   const { isLoading, isAuthenticated, user } = useAuth0();
   const { currentUser } = useContext(UserDataContext)
 
-  const [firstName, setFirstName] = useState("")
-  const [lastName, setLastName] = useState("")
-  const [phoneNumber, setPhoneNumber] = useState("")
+  const [firstName, setFirstName] = useState(currentUser?.first_name)
+  const [lastName, setLastName] = useState(currentUser?.last_name)
+  const [phoneNumber, setPhoneNumber] = useState(currentUser?.phone)
   const [streetAddress, setStreetAddress] = useState("")
   const [city, setCity] = useState("")
   const [state, setState] = useState("")
   const [zip, setZip] = useState("")
 
-  const [newUserData, setNewUserData] = useState<UserType | undefined>()
+  const [newUserData, setNewUserData] = useState<UserType | undefined>(currentUser)
 
   function handleFormSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
 
     const streetNumber = streetAddress.split(" ", 1)
     const streetName = streetAddress.split(" ").slice(1).join(" ")
+    const shippingInfo = {
+      street_number: streetNumber[0],
+      street_name: streetName,
+      state: state,
+      city: city,
+      zip: zip,
+      country: "US"
+    }
     
     setNewUserData({
       email: currentUser?.email,
       first_name: firstName,
       last_name: lastName,
       phone: phoneNumber,
-      shipping_info: {
-        street_number: streetNumber[0],
-        street_name: streetName,
-        state: state,
-        city: city,
-        zip: zip,
-        country: "US"
-      }
+      shipping_info: shippingInfo 
     })
 
-    console.log(newUserData)
+    postNewUserData()
+  }
+
+  async function postNewUserData() {
+    try {
+      console.log(newUserData)
+      const res = await fetch(`http://localhost:5000/api/users/${currentUser?.id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(newUserData)
+      })
+
+      const data = await res.json()
+
+      console.log(data)
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   
@@ -168,7 +188,7 @@ export const Profile = () => {
             <StyledInput 
               required 
               autoComplete="phone" 
-              type="text" 
+              type="number" 
               id="phone" 
               placeholder="Enter phone number" 
               onChange={(e) => setPhoneNumber(e.target.value)}
@@ -224,7 +244,7 @@ export const Profile = () => {
             </StyledLabel>
             <StyledInput 
               required 
-              type="text" 
+              type="number" 
               id="zip" 
               placeholder="Enter ZIP"
               onChange={(e) => setZip(e.target.value)} 
