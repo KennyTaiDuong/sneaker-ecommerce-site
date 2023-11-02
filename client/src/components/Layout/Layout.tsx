@@ -2,7 +2,7 @@ import styled from "styled-components"
 import { Outlet } from "react-router-dom"
 import { Header } from "../Header/Header"
 import { Footer } from "../Footer/Footer"
-import { useEffect, useState } from "react"
+import { Dispatch, SetStateAction, createContext, useEffect, useState } from "react"
 import { Sidebar } from "../Sidebar/Sidebar"
 import { useAuth0 } from "@auth0/auth0-react"
 
@@ -13,8 +13,6 @@ const SiteContainer = styled.div`
 `
 
 type UserType = {
-  created_on: string,
-  updated_on: string,
   email: string,
   first_name: string,
   last_name: string,
@@ -24,12 +22,40 @@ type UserType = {
   shipping_info: {},
 }
 
-export const Layout = () => {
-  const [menuIsOpen, setMenuIsOpen] = useState(false)
-  const { isAuthenticated, user } = useAuth0()
+type CartItemType = {
+  sku: string,
+  size: string,
+  quantity: string
+}
 
+type CartType = {
+  products?: CartItemType[],
+  user_id: number,
+  id: number,
+}
+
+type UserDataContextType = {
+  currentUser?: UserType,
+  setCurrentUser: Dispatch<SetStateAction<UserType | undefined>>,
+  currentCart?: CartType,
+  setCurrentCart: Dispatch<SetStateAction<CartType | undefined>>
+}
+
+const defaultState = {
+  currentUser: {},
+  setCurrentUser: () => { },
+  currentCart: {},
+  setCurrentCart: () => { }
+} as unknown as UserDataContextType
+
+export const UserDataContext = createContext<UserDataContextType>(defaultState)
+
+export const Layout = () => {
+  const { isAuthenticated, user } = useAuth0()
+  
   const [currentUser, setCurrentUser] = useState<UserType>()
-  const [, setCurrentCart] = useState()
+  const [currentCart, setCurrentCart] = useState<CartType>()
+  const [menuIsOpen, setMenuIsOpen] = useState(false)
 
   useEffect(() => {
     async function createUser() {
@@ -131,9 +157,10 @@ export const Layout = () => {
     <SiteContainer>
       {menuIsOpen && <Sidebar setMenuIsOpen={() => setMenuIsOpen(false)} />}
       <Header setMenuIsOpen={() => setMenuIsOpen(true)} />
-      <main>
+      <UserDataContext.Provider value={{ currentUser, setCurrentUser, currentCart, setCurrentCart }}>
         <Outlet />
-      </main>
+      </UserDataContext.Provider>
+      
       <Footer />
     </SiteContainer>
   )
