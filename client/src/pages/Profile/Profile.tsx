@@ -111,9 +111,7 @@ export const Profile = () => {
 
   const [newUserData, setNewUserData] = useState<UserType | undefined>(currentUser)
 
-  function handleFormSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault()
-
+  function updateUserData() {
     const streetNumber = streetAddress?.split(" ", 1)
     const streetName = streetAddress?.split(" ").slice(1).join(" ")
     const shippingInfo = {
@@ -132,11 +130,15 @@ export const Profile = () => {
       phone: phoneNumber,
       shipping_info: shippingInfo 
     })
-
-    postNewUserData()
   }
 
-  async function postNewUserData() {
+  function handleFormSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+
+    updateNewUserData()
+  }
+
+  async function updateNewUserData() {
     try {
       await fetch(`http://localhost:5000/api/users/${currentUser?.id}`, {
         method: "PUT",
@@ -162,14 +164,14 @@ export const Profile = () => {
           <ProfilePic src={user?.picture} alt={user?.name} />
           <UserContainer>
             <Label>Profile Name:</Label>
-            <Username>{currentUser?.first_name ? currentUser.first_name + currentUser.last_name : user?.nickname}</Username>
+            <Username>{currentUser?.first_name ? `${currentUser.first_name + ' ' + currentUser.last_name}` : user?.nickname}</Username>
           </UserContainer>
           <EmailContainer>
             <Label>Profile Email:</Label>
             <Email>{user?.email}</Email>
           </EmailContainer>
         </ProfileSection>
-        <FormContainer onSubmit={(e) => handleFormSubmit(e)}>
+        <FormContainer onSubmit={(e) => handleFormSubmit(e)} onChange={updateUserData}>
           <UserInfoSection>
             <SectionName>Update Profile Information</SectionName>
             <InputContainer>

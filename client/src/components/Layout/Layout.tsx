@@ -30,7 +30,7 @@ type ShippingInfoType = {
   country: string
 }
 
-type CartItemType = {
+export type CartItemType = {
   sku: string,
   size: string,
   quantity: string,
