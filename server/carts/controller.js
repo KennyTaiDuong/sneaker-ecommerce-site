@@ -34,12 +34,7 @@ const createCart = async (req, res) => {
   try {
     const { products, user_id } = req.body;
 
-    const productsAsJsonb = products.map((product) => JSON.stringify(product));
-
-    const createdCart = await pool.query(createCartQuery, [
-      productsAsJsonb,
-      user_id,
-    ]);
+    const createdCart = await pool.query(createCartQuery, [products, user_id]);
 
     res.json(createdCart);
   } catch (error) {
@@ -63,13 +58,9 @@ const updateCart = async (req, res) => {
   const { id } = req.params;
 
   try {
-    const { products, user_id } = req.body;
+    const { products } = req.body;
 
-    const updatedCart = await pool.query(updateCartQuery, [
-      products,
-      user_id,
-      id,
-    ]);
+    const updatedCart = await pool.query(updateCartQuery, [products, id]);
 
     res.json(updatedCart);
   } catch (error) {
