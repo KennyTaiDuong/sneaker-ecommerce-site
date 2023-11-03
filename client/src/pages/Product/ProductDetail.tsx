@@ -1,6 +1,9 @@
-import { useEffect, useState } from "react";
+import { useAuth0 } from "@auth0/auth0-react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router";
 import styled from "styled-components";
+import { CartItemType, UserDataContext } from "../../components/Layout/Layout";
+import { NavLink } from "react-router-dom";
 
 const Container = styled.div`
   padding: 1rem;
@@ -73,6 +76,11 @@ const WarningText = styled.p`
   color: red;
 `
 
+const StyledNavLink = styled(NavLink)`
+  text-decoration: none;
+  color: black;
+`
+
 type ProductProps = {
   name: string,
   price: number,
@@ -89,7 +97,13 @@ type ProductProps = {
 }
 
 export const ProductDetail = () => {
+  const { isAuthenticated } = useAuth0()
   const { id } = useParams()
+  const { currentCart, currentUser, setCurrentCart } = useContext(UserDataContext)
+
+  const [sizeListOpen, setSizeListOpen] = useState(false)
+  const [selectedSize, setSelectedSize] = useState("Select Size")
+  const [showMessage, setShowMessage] = useState(false)
   const [product, setProduct] = useState<ProductProps>({
     name: "",
     price: 0,
@@ -101,8 +115,6 @@ export const ProductDetail = () => {
     updated_on: "",
     id: 0
   })
-  const [sizeListOpen, setSizeListOpen] = useState(false)
-  const [selectedSize, setSelectedSize] = useState("Select Size")
 
   useEffect(() => {
     async function fetchProduct() {
@@ -672,7 +684,83 @@ export const ProductDetail = () => {
         </SizeDropdown>
       )
     }
+  }
 
+  const UserLoginMessage = () => {
+    return (
+      <WarningText>
+        User not logged in! 
+        <StyledNavLink to="/profile">Click Here to log in</StyledNavLink>
+      </WarningText>
+    )
+  }
+
+  function addToCart() {
+    if (isAuthenticated) {
+      let itemsUpdated = 0
+
+      const newCart = currentCart?.products?.map((shoe) => {
+
+        if (shoe.sku === sku && shoe.size === selectedSize) {
+          itemsUpdated++
+
+          return {
+            ...shoe,
+            quantity: `${parseInt(shoe.quantity) + 1}`
+          }
+        } else {
+          return shoe
+        }
+      })
+
+      if (itemsUpdated === 0) {
+        newCart?.push({
+          sku: sku,
+          name: name,
+          size: selectedSize,
+          price: price,
+          quantity: "1"
+        })
+      }
+
+      updateNewCart(newCart)
+      
+    } else {
+      setShowMessage(true)
+    }
+  }
+
+  async function updateNewCart(newCart: CartItemType[] | undefined) {
+
+    try {
+      await fetch(`http://localhost:5000/api/carts/${currentUser?.id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          products: newCart
+        })
+      })
+
+      fetchCart()
+      
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  async function fetchCart() {
+    try {
+      const res = await fetch(`http://localhost:5000/api/carts/${currentUser?.id}`)
+
+      const cart = await res.json()
+
+      setCurrentCart(cart.rows[0])
+
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   function ChangeSize(event: any) {
@@ -692,7 +780,14 @@ export const ProductDetail = () => {
         <SizeDisplay onClick={() => setSizeListOpen(prev => !prev)}>{selectedSize}</SizeDisplay>
         {sizeListOpen && <SizeList />}
       </DropdownContainer>
-      <CartButton>ADD TO CART</CartButton>
+      <CartButton onClick={addToCart}>ADD TO CART</CartButton>
+      {showMessage && <UserLoginMessage />}
     </Container>
   )
 }
+
+// check cart for same product
+// if product and size match
+//    - add 1 to quantity
+// if product and size dont match
+//    - add new object
