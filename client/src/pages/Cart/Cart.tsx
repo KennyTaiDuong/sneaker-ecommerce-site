@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate } from "react-router";
@@ -41,12 +41,16 @@ const ReceiptRow = styled.div`
   color: rgb(138,134,85);
   font-size: 0.625rem;
   display: grid;
-  grid-template-columns: 1.5rem 1fr 2rem 3.25rem 2rem;
+  grid-template-columns: 1.5rem 1fr 2rem 3.25rem 3rem;
   border-top: 1px solid rgb(138,134,85);
 `
 
 const CategoryRow = styled(ReceiptRow)`
   border: 0;
+`
+
+const TotalRow = styled(CategoryRow)`
+  border-top: 2px solid rgb(138,134,85);
 `
 
 const CategoryLabel = styled.p`
@@ -81,10 +85,44 @@ const ItemNumber = styled.p`
 
 export const Cart = () => {
   const { isLoading, isAuthenticated, user } = useAuth0() 
-
-  const {currentCart} = useContext(UserDataContext)
-
+  const {currentCart, currentUser} = useContext(UserDataContext)
   const navigate = useNavigate()
+
+  const [totalPrice, setTotalPrice] = useState(0)
+  const [totalQuantity, setTotalQuantity] = useState(0)
+
+  useEffect(() => {
+    
+  function getTotalPrice() {
+    
+    const totalArray = currentCart?.products?.map((shoe) => {
+      return shoe.price
+    })
+
+    const total = totalArray?.reduce((acc, current) => {
+      return acc + current
+    })
+
+    setTotalPrice(total ? total : 0)
+  }
+
+  function getTotalQuantity() {
+    
+    const quantityArray = currentCart?.products?.map((shoe) => {
+      return parseInt(shoe.quantity)
+    })
+
+    const quantity = quantityArray?.reduce((acc, current) => {
+      return acc + current
+    })
+
+    setTotalQuantity(quantity ? quantity : 0)
+  }
+
+  getTotalPrice()
+  getTotalQuantity()
+
+  }, [currentCart])
 
   const itemsElements = currentCart?.products?.map((item, index) => {
     const { name, price, quantity, size } = item
@@ -106,8 +144,8 @@ export const Cart = () => {
         <ItemNumber>1</ItemNumber>
         <ItemLabel></ItemLabel>
         <SizeLabel></SizeLabel>
-        <QuantityLabel>0</QuantityLabel>
-        <PriceLabel>$0</PriceLabel>
+        <QuantityLabel></QuantityLabel>
+        <PriceLabel></PriceLabel>
       </ReceiptRow>
     )
   }
@@ -118,6 +156,7 @@ export const Cart = () => {
     )
   }
 
+  // If user not logged in and data not loading, redirect to login page
   if (!isAuthenticated && !isLoading) {
     setTimeout(() => {
       navigate("/profile")
@@ -133,7 +172,7 @@ export const Cart = () => {
 
   return (
     <Container>
-      <Username>{user?.nickname}'s Cart</Username>
+      <Username>{currentUser ? currentUser?.first_name.trimEnd() : user?.nickname}'s Cart</Username>
       <ReceiptContainer>
         <ReceiptTitle>aksupplied</ReceiptTitle>
         <ReceiptSubtitle>Sports Depot</ReceiptSubtitle>
@@ -146,8 +185,14 @@ export const Cart = () => {
             <PriceLabel>Price</PriceLabel>
           </CategoryRow>
           {itemsElements?.length === 0 ? <EmptyItems /> : itemsElements }
+          <TotalRow>
+            <ItemLabel></ItemLabel>
+            <CategoryLabel>Total</CategoryLabel>
+            <SizeLabel></SizeLabel>
+            <QuantityLabel>{totalQuantity}</QuantityLabel>
+            <PriceLabel>${totalPrice}</PriceLabel>
+          </TotalRow>
         </CartInfoContainer>
-
       </ReceiptContainer>
     </Container>
   )

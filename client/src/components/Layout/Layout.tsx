@@ -18,7 +18,16 @@ type UserType = {
   last_name: string,
   id: number,
   phone: string,
-  shipping_info: {},
+  shipping_info: ShippingInfoType,
+}
+
+type ShippingInfoType = {
+  street_number: string,
+  street_name: string,
+  city: string,
+  state: string,
+  zip: string,
+  country: string
 }
 
 type CartItemType = {
