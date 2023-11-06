@@ -72,8 +72,8 @@ export const Footer = () => {
         <StyledSection>
           <SectionTitle>Site Links</SectionTitle>
           <FooterLinks to="/">Home</FooterLinks>
-          <FooterLinks to="">Products</FooterLinks>
-          <FooterLinks to="">Contact</FooterLinks>
+          <FooterLinks to="/products">Products</FooterLinks>
+          <FooterLinks to="/contact">Contact</FooterLinks>
         </StyledSection>
         <StyledSection>
           <SectionTitle>Social Media</SectionTitle>
