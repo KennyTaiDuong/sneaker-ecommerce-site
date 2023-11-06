@@ -113,38 +113,29 @@ export const Cart = () => {
   useEffect(() => {
     
   function getTotalPrice() {
+
+    let total = 0
     
-    const totalArray = currentCart?.products?.map((shoe) => {
-      console.log(shoe)
-      return shoe.price
+    currentCart?.products?.forEach((item) => {
+      total += item.price
     })
 
-    if (!totalArray) {
-      const total = totalArray?.reduce((acc: any, current: any) => {
-        return acc + current
-      })
-  
-      setTotalPrice(total)
-    } else {
-      setTotalPrice(0)
-    }
+    setTotalPrice(total)
   }
 
   function getTotalQuantity() {
     
-    const quantityArray = currentCart?.products?.map((shoe) => {
-      return parseInt(shoe.quantity)
+    let total = 0
+
+    currentCart?.products?.forEach((item) => {
+      total += parseInt(item.quantity)
     })
 
-    const quantity = quantityArray?.reduce((acc, current) => {
-      return acc + current
-    })
-
-    setTotalQuantity(quantity ? quantity : 0)
+    setTotalQuantity(total)
   }
 
   getTotalPrice()
-  // getTotalQuantity()
+  getTotalQuantity()
 
   }, [currentCart])
 
