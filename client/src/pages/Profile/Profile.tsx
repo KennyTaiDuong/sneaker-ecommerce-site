@@ -99,7 +99,7 @@ type UserType = {
 
 export const Profile = () => {
   const { isLoading, isAuthenticated, user } = useAuth0();
-  const { currentUser } = useContext(UserDataContext)
+  const { currentUser, setCurrentUser } = useContext(UserDataContext)
 
   const [firstName, setFirstName] = useState("")
   const [lastName, setLastName] = useState("")
@@ -147,6 +147,8 @@ export const Profile = () => {
         },
         body: JSON.stringify(newUserData)
       })
+
+      fetchUser() 
     } catch (error) {
       console.error(error)
     }
@@ -154,6 +156,18 @@ export const Profile = () => {
 
   if (isLoading) {
     return <ProfileContainer>Loading...</ProfileContainer>
+  }
+
+  async function fetchUser() {
+    try {
+      const res = await fetch(`http://localhost:5000/api/users/${currentUser?.email}`)
+
+      const data = await res.json()
+
+      setCurrentUser(data.rows[0])
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   return (
