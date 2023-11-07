@@ -14,6 +14,10 @@ const Container = styled.div`
   padding: 1rem;
   z-index: 2;
   background-color: white;
+
+  @media screen and (min-width: 650px) {
+    position: static;
+  }
 `
 
 const StyledHeader = styled.header`
@@ -27,12 +31,20 @@ const Icon = styled.img`
   &:hover {
     filter: brightness(10%);
   }
+
+  @media screen and (min-width: 650px) {
+    display: none;
+  }
 `
 
 const Logo = styled.img`
   width: 3rem;
   border-radius: 50%;
   box-shadow: 0px 0px 10px black;
+
+  @media screen and (min-width: 650px) {
+    display: none;
+  }
 `
 
 const MenuCategory = styled.p`

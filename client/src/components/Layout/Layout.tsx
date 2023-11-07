@@ -162,15 +162,15 @@ export const Layout = () => {
     }
   }, [currentUser])
 
-
   return (
     <SiteContainer>
       {menuIsOpen && <Sidebar setMenuIsOpen={() => setMenuIsOpen(false)} />}
       <Header setMenuIsOpen={() => setMenuIsOpen(true)} />
+
       <UserDataContext.Provider value={{ currentUser, setCurrentUser, currentCart, setCurrentCart }}>
         <Outlet />
       </UserDataContext.Provider>
-      
+
       <Footer />
     </SiteContainer>
   )
