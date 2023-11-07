@@ -4,14 +4,19 @@ import { NavLink } from "react-router-dom";
 import { Card } from "./Card";
 
 const BrandSection = styled.div`
-
+  width: 100%;
+  max-width: 43rem;
+  margin: 0 auto;
 `
 
 const CardContainer = styled.div`
-  display: flex;
-  overflow: scroll;
   padding: 1rem 0;
+  display: grid;
+  overflow: scroll;
   gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(10rem,1fr));
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(10rem,1fr);
 `
 
 const BrandBanner = styled.div`
