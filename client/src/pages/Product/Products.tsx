@@ -13,12 +13,15 @@ const CardsContainer = styled.div`
   padding: 1rem 0;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  column-gap: 1rem;
-  row-gap: 0.5rem;
+  gap: 0.5rem;
+  
+  @media screen and (min-width: 650px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 `
 
-export const ProductsPage = () => {
-  const {allProducts, setRefresh} = useContext(ProductsContext)
+export const Products = () => {
+  const { allProducts } = useContext(ProductsContext)
 
   const [searchParams] = useSearchParams()
 
@@ -33,25 +36,25 @@ export const ProductsPage = () => {
     const plainQuery = query?.toLowerCase().split('"').join("").trimEnd()
     const plainName = product.name?.toLowerCase().split('"').join("")
     
-      if (brand || query) {
-        if (brand && plainName.includes(brand)) {
-          
-          // returns products that have brand included in name
-          return product
-        } else if (query && plainName.includes(plainQuery)) {
+    if (brand || query) {
+      if (brand && plainName.includes(brand)) {
+        
+        // returns products that have brand included in name
+        return product
+      } else if (query && plainName.includes(plainQuery)) {
 
-          // returns products where query is included in name
-          return product
-        }
-      } else if (!brand && !query) {
-
-        // Return all products when no brand or query specified
-        return product 
+        // returns products where query is included in name
+        return product
       }
+    } else if (!brand && !query) {
+
+      // Return all products when no brand or query specified
+      return product 
+    }
     
-    }).filter((product) => product)
+  }).filter((product) => product)
     
-    const ProductCards = foundProducts?.map((value: Product, index: number) => {
+  const ProductCards = foundProducts?.map((value: Product, index: number) => {
       // Renders the products that match the search queries
       const {name, price, images, sku} = value
       
@@ -63,7 +66,6 @@ export const ProductsPage = () => {
       if (index < upperIndexLimit && index >= lowerIndexLimit) {
         return <Card name={name} price={price} image={images} sku={sku} key={index}/>
       }
-      setRefresh(prev => prev++)
   })
 
   return (
@@ -71,7 +73,7 @@ export const ProductsPage = () => {
       <CardsContainer>
         {ProductCards}
       </CardsContainer>
-      <Pagination pageCount={Math.ceil(foundProducts?.length / 12)}/>
+      <Pagination pageCount={Math.ceil(foundProducts?.length / 12)} />
     </Container>
   )
 }

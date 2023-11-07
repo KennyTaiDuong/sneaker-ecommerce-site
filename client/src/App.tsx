@@ -3,9 +3,9 @@ import Global from "./GlobalStyles";
 import { Layout } from "./components/Layout/Layout";
 import { Contact } from "./pages/Contact";
 import { Home } from "./pages/Home";
-import { ProductsPage } from "./pages/Product/Products";
+import { Products } from "./pages/Product/Products";
 import { ProductDetail } from "./pages/Product/ProductDetail";
-import { ProductsPageLayout } from "./components/Layout/ProductsLayout";
+import { ProductsLayout } from "./components/Layout/ProductsLayout";
 import { Profile } from "./pages/Profile/Profile";
 import { Cart } from "./pages/Cart/Cart";
 
@@ -18,8 +18,8 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="contact" element={<Contact />} />
-          <Route path="products" element={<ProductsPageLayout />}>
-            <Route index element={<ProductsPage />} />
+          <Route path="products" element={<ProductsLayout />}>
+            <Route index element={<Products />} />
           </Route>
           <Route path="products/:id" element={<ProductDetail />} />
           <Route path="profile" element={<Profile />} />

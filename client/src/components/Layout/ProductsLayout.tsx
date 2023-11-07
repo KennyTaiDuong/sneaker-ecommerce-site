@@ -1,10 +1,12 @@
 import styled from "styled-components";
-import { useEffect, useState,createContext, Dispatch, SetStateAction } from "react";
+import { useEffect, useState,createContext } from "react";
 import { Outlet } from "react-router";
 import { useSearchParams } from "react-router-dom";
 
 const ProductsLayoutContainer = styled.div`
   padding: 1rem;
+  max-width: 40rem;
+  margin: 0 auto;
 `
 
 const Header = styled.p`
@@ -58,18 +60,16 @@ export type Product = {
 }
 
 type ProductsContextType = {
-  allProducts?: Product[],
-  setRefresh: Dispatch<SetStateAction<number>>
+  allProducts?: Product[]
 }
 
 const defaultState = {
-  allProducts: [],
-  setRefresh: () => {}
+  allProducts: []
 } as ProductsContextType
 
 export const ProductsContext = createContext<ProductsContextType>(defaultState)
 
-export const ProductsPageLayout = () => {
+export const ProductsLayout = () => {
   const [sortOpen, setSortOpen] = useState(false)
   const [selectedSort, setSort] = useState("")
   const [, setRefresh] = useState(0)
@@ -144,7 +144,15 @@ export const ProductsPageLayout = () => {
 
   return (
     <ProductsLayoutContainer>
-      <Header data-cy="header">{query ? `"${query}"` : brand ? `${brandHeading?.join("")} Products`: "All Products"}</Header>
+      <Header data-cy="header">
+        {
+          query 
+          ? `"${query}"` 
+          : brand 
+          ? `${brandHeading?.join("")} Products`
+          : "All Products"
+        }
+      </Header>
       <StyledButton onClick={() => setSortOpen(prev => !prev)} data-cy="sort-btn">Sort By:
         <DropDownContainer style={{ display: `${sortOpen ? "block" : "none"}`}}>
           <DropdownItem 
@@ -177,7 +185,7 @@ export const ProductsPageLayout = () => {
           </DropdownItem>
         </DropDownContainer>
       </StyledButton>
-      <ProductsContext.Provider value={{allProducts, setRefresh}}>
+      <ProductsContext.Provider value={{allProducts}}>
         <Outlet />
       </ProductsContext.Provider>
     </ProductsLayoutContainer>
