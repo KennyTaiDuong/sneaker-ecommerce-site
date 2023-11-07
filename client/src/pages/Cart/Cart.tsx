@@ -264,7 +264,11 @@ export const Cart = () => {
             <UserFullRow>
               Name
               <UserInfoText>
-                {`${currentUser?.first_name} ${currentUser?.last_name}`}
+                {
+                  currentUser?.first_name
+                  ? `${currentUser?.first_name} ${currentUser?.last_name}`
+                  : " "
+                }
               </UserInfoText>
             </UserFullRow>
           </UserInfoRow>
