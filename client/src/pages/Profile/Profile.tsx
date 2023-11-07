@@ -89,14 +89,6 @@ const FormButton = styled.button`
   border: 3px solid rgb(0, 141, 7);
 `
 
-type UserType = {
-  email: string | undefined,
-  first_name: string | undefined,
-  last_name: string | undefined,
-  phone: string | undefined,
-  shipping_info: {},
-}
-
 export const Profile = () => {
   const { isLoading, isAuthenticated, user } = useAuth0();
   const { currentUser, setCurrentUser } = useContext(UserDataContext)
@@ -109,28 +101,7 @@ export const Profile = () => {
   const [state, setState] = useState("")
   const [zip, setZip] = useState("")
 
-  const [newUserData, setNewUserData] = useState<UserType | undefined>(currentUser)
 
-  function updateUserData() {
-    const streetNumber = streetAddress?.split(" ", 1)
-    const streetName = streetAddress?.split(" ").slice(1).join(" ")
-    const shippingInfo = {
-      street_number: streetNumber[0],
-      street_name: streetName.trimEnd(),
-      state: state.trimEnd(),
-      city: city.trimEnd(),
-      zip: zip.trimEnd(),
-      country: "US"
-    }
-    
-    setNewUserData({
-      email: currentUser?.email,
-      first_name: firstName.trimEnd(),
-      last_name: lastName.trimEnd(),
-      phone: phoneNumber.trimEnd(),
-      shipping_info: shippingInfo
-    })
-  }
 
   function handleFormSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -139,7 +110,8 @@ export const Profile = () => {
   }
 
   async function updateNewUserData() {
-    updateUserData()
+    const streetNumber = streetAddress?.split(" ", 1)
+    const streetName = streetAddress?.split(" ").slice(1).join(" ")
 
     try {
       await fetch(`http://localhost:5000/api/users/${currentUser?.id}`, {
@@ -147,7 +119,20 @@ export const Profile = () => {
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify(newUserData)
+        body: JSON.stringify({
+          email: currentUser?.email,
+          first_name: firstName.trim(),
+          last_name: lastName.trim(),
+          phone: phoneNumber.trim(),
+          shipping_info: {
+            street_number: streetNumber[0],
+            street_name: streetName.trim(),
+            state: state.trim(),
+            city: city.trim(),
+            zip: zip.trim(),
+            country: "US"
+          }
+        })
       })
 
       fetchUser() 
@@ -187,7 +172,7 @@ export const Profile = () => {
             <Email>{user?.email}</Email>
           </EmailContainer>
         </ProfileSection>
-        <FormContainer onSubmit={(e) => handleFormSubmit(e)} onChange={updateUserData}>
+        <FormContainer onSubmit={(e) => handleFormSubmit(e)} >
           <UserInfoSection>
             <SectionName>Update Profile Information</SectionName>
             <InputContainer>
@@ -216,7 +201,7 @@ export const Profile = () => {
                 type="text" 
                 id="last" 
                 placeholder="Enter last name" 
-                onChange={(e) => setLastName(e.target.value)}
+                onChange={(e) => {setLastName(e.target.value)}}
                 value={lastName ? lastName : ""}
               />
             </InputContainer>
@@ -232,7 +217,7 @@ export const Profile = () => {
                 type="number" 
                 id="phone" 
                 placeholder="Enter phone number" 
-                onChange={(e) => setPhoneNumber(e.target.value)}
+                onChange={(e) => {setPhoneNumber(e.target.value)}}
                 value={phoneNumber ? phoneNumber : ""}
               />
             </InputContainer>
@@ -251,7 +236,7 @@ export const Profile = () => {
                 type="text" 
                 id="street" 
                 placeholder="Enter street address" 
-                onChange={(e) => setStreetAddress(e.target.value)}
+                onChange={(e) => {setStreetAddress(e.target.value)}}
                 value={streetAddress ? streetAddress : ""}
               />
             </InputContainer>
@@ -266,7 +251,7 @@ export const Profile = () => {
                 type="text" 
                 id="city" 
                 placeholder="Enter city" 
-                onChange={(e) => setCity(e.target.value)}
+                onChange={(e) => {setCity(e.target.value)}}
                 value={city ? city : ""}
               />
             </InputContainer>
@@ -281,7 +266,7 @@ export const Profile = () => {
                 type="text" 
                 id="state" 
                 placeholder="Enter state" 
-                onChange={(e) => setState(e.target.value)}
+                onChange={(e) => {setState(e.target.value)}}
                 value={state ? state : ""}
               />
             </InputContainer>
@@ -296,7 +281,7 @@ export const Profile = () => {
                 type="number" 
                 id="zip" 
                 placeholder="Enter ZIP"
-                onChange={(e) => setZip(e.target.value)} 
+                onChange={(e) => {setZip(e.target.value)}} 
                 value={zip ? zip : ""}
               />
             </InputContainer>

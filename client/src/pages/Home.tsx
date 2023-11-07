@@ -24,8 +24,8 @@ export const Home = () => {
         const data = await res.json()
 
         setProductsArray(data.rows)
-      } catch (error: any) {
-        console.error(error.message)
+      } catch (error) {
+        console.error(error)
       }
 
     }

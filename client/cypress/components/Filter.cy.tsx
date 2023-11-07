@@ -5,7 +5,7 @@ import Global from "../../src/GlobalStyles";
 const MockFilter = () => {
   return (
     <BrowserRouter>
-  <Global />
+      <Global />
       <Filter />
     </BrowserRouter>
   )

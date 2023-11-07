@@ -11,7 +11,7 @@ const ProductCard = styled(NavLink)`
   gap: 0.5rem;
   border-radius: 0.5rem;
   padding: 0.5rem;
-  min-width: 10rem;
+  width: 100%;
 `
 
 const CardImg = styled.div`
