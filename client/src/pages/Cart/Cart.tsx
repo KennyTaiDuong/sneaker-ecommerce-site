@@ -17,9 +17,10 @@ const ReceiptContainer = styled.div`
   background-color: rgb(220,209,159);
   padding: 1rem;
   border-radius: 0.5rem;
+  color: rgb(138,134,85);
 `
 
-const ReceiptTitle = styled.p`
+const BrandName = styled.p`
   color: rgb(195,71,82);
   font-weight: 700;
   font-size: 2rem;
@@ -36,8 +37,21 @@ const CartInfoContainer = styled.div`
   border-radius: 0.25rem;
 `
 
+const UserInfoContainer = styled(CartInfoContainer)`
+  margin-bottom: 1rem;
+`
+
+const UserCategoryRow = styled.div`
+  font-size: 0.625rem;
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+`
+
+const UserInfoRow = styled(UserCategoryRow)`
+  grid-template-columns: 1fr;
+`
+
 const ReceiptRow = styled.div`
-  color: rgb(138,134,85);
   font-size: 0.625rem;
   display: grid;
   grid-template-columns: 1.5rem 1fr 2rem 3.25rem 3rem;
@@ -55,50 +69,57 @@ const TotalRow = styled(CategoryRow)`
 const CategoryLabel = styled.p`
   padding: 0.25rem;
   border-right: 1px solid rgb(138,134,85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+
+const ColumnOne = styled(CategoryLabel)`
+  grid-column: 1;
+`
+
+const ColumnTwo = styled(CategoryLabel)`
   grid-column: 2;
+  justify-content: space-between;
 `
 
-const SizeLabel = styled(CategoryLabel)`
+const ColumnThree = styled(CategoryLabel)`
   grid-column: 3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 `
 
-const QuantityLabel = styled(CategoryLabel)`
+const ColumnFour = styled(CategoryLabel)`
   grid-column: 4;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 `
 
-const PriceLabel = styled(CategoryLabel)`
+const ColumnFive = styled(CategoryLabel)`
   grid-column: 5;
   border-right: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 `
 
-const ItemLabel = styled.p`
-  padding: 0.25rem;
-  border-right: 1px solid rgb(138,134,85);
-  display: flex;
+const UserColumnOne = styled(CategoryLabel)`
+  grid-column: 1;
+  justify-content: start;
+`
+
+const UserColumnTwo = styled(CategoryLabel)`
+  grid-column: 2;
   justify-content: space-between;
-  align-items: center;
+  border-right: 0;
 `
 
-const ItemNumber = styled.p`
+const UserFullRow = styled.div`
   padding: 0.25rem;
-  border-right: 1px solid rgb(138,134,85);
-  text-align: center;
+  border-top: 1px solid rgb(138,134,85);
+`
+
+const UserInfoText = styled.p`
+  
 `
 
 const RemoveButton = styled.button`
   background-color: transparent;
   border: 0;
   font-size: 0.5rem;
-  color: rgb(138,134,85);
   padding: 0;
 `
 
@@ -109,6 +130,8 @@ export const Cart = () => {
 
   const [totalPrice, setTotalPrice] = useState(0)
   const [totalQuantity, setTotalQuantity] = useState(0)
+
+  const date = new Date().toLocaleDateString()
 
   useEffect(() => {
     
@@ -178,14 +201,14 @@ export const Cart = () => {
 
     return (
       <ReceiptRow key={index}>
-        <ItemNumber>{index + 1}</ItemNumber>
-        <ItemLabel>
+        <ColumnOne>{index + 1}</ColumnOne>
+        <ColumnTwo>
           {name}
           <RemoveButton onClick={() => RemoveItem(index)}>remove</RemoveButton>
-        </ItemLabel>
-        <SizeLabel>{size}</SizeLabel>
-        <QuantityLabel>{quantity}</QuantityLabel>
-        <PriceLabel>${price}</PriceLabel>
+        </ColumnTwo>
+        <ColumnThree>{size}</ColumnThree>
+        <ColumnFour>{quantity}</ColumnFour>
+        <ColumnFive>${price}</ColumnFive>
       </ReceiptRow>
     )
   })
@@ -193,11 +216,11 @@ export const Cart = () => {
   const EmptyItems = () => {
     return (
       <ReceiptRow>
-        <ItemNumber>1</ItemNumber>
-        <ItemLabel></ItemLabel>
-        <SizeLabel></SizeLabel>
-        <QuantityLabel></QuantityLabel>
-        <PriceLabel></PriceLabel>
+        <ColumnOne>1</ColumnOne>
+        <ColumnTwo></ColumnTwo>
+        <ColumnThree></ColumnThree>
+        <ColumnFour></ColumnFour>
+        <ColumnFive></ColumnFive>
       </ReceiptRow>
     )
   }
@@ -224,25 +247,68 @@ export const Cart = () => {
 
   return (
     <Container>
-      <Username>{currentUser ? currentUser?.first_name.trimEnd() : user?.nickname}'s Cart</Username>
+      <Username>{currentUser?.first_name ? currentUser?.first_name.trimEnd() : user?.nickname}'s Cart</Username>
       <ReceiptContainer>
-        <ReceiptTitle>aksupplied</ReceiptTitle>
+        <BrandName>aksupplied</BrandName>
         <ReceiptSubtitle>Sports Depot</ReceiptSubtitle>
+        {/* USER INFO CONTAINER LIKE THE OLD RECEIPT */}
+        <UserInfoContainer>
+          <UserCategoryRow>
+            <UserColumnOne>Customer Order No.</UserColumnOne>
+            <UserColumnTwo>
+              Date
+              <span>{`${date}`}</span>
+            </UserColumnTwo>
+          </UserCategoryRow>
+          <UserInfoRow>
+            <UserFullRow>
+              Name
+              <UserInfoText>
+                {`${currentUser?.first_name} ${currentUser?.last_name}`}
+              </UserInfoText>
+            </UserFullRow>
+          </UserInfoRow>
+          <UserInfoRow>
+            <UserFullRow>
+              Address
+              <UserInfoText>
+                {
+                  currentUser?.shipping_info?.street_number 
+                  ? `${currentUser?.shipping_info?.street_number} ${currentUser?.shipping_info?.street_name}` 
+                  : ""
+                }
+              </UserInfoText>
+            </UserFullRow>
+          </UserInfoRow>
+          <UserInfoRow>
+            <UserFullRow>
+              City, STATE, ZIP
+              <UserInfoText>
+                {
+                  currentUser?.shipping_info?.city
+                  ? `${currentUser?.shipping_info?.city}, ${currentUser?.shipping_info?.state.trimEnd()}, ${currentUser?.shipping_info?.zip}`
+                  : ""
+                }
+              </UserInfoText>
+            </UserFullRow>
+          </UserInfoRow>
+        </UserInfoContainer>
         <CartInfoContainer>
+          {/* Category labels for receipt */}
           <CategoryRow>
-            <ItemNumber></ItemNumber>
-            <CategoryLabel>Items</CategoryLabel>
-            <SizeLabel>Size</SizeLabel>
-            <QuantityLabel>Quantity</QuantityLabel>
-            <PriceLabel>Price</PriceLabel>
+            <ColumnOne></ColumnOne>
+            <ColumnTwo>Items</ColumnTwo>
+            <ColumnThree>Size</ColumnThree>
+            <ColumnFour>Quantity</ColumnFour>
+            <ColumnFive>Price</ColumnFive>
           </CategoryRow>
           {itemsElements?.length === 0 ? <EmptyItems /> : itemsElements }
           <TotalRow>
-            <ItemLabel></ItemLabel>
-            <CategoryLabel>Total</CategoryLabel>
-            <SizeLabel></SizeLabel>
-            <QuantityLabel>{totalQuantity}</QuantityLabel>
-            <PriceLabel>${totalPrice}</PriceLabel>
+            <ColumnOne></ColumnOne>
+            <ColumnTwo>Total</ColumnTwo>
+            <ColumnThree></ColumnThree>
+            <ColumnFour>{totalQuantity}</ColumnFour>
+            <ColumnFive>${totalPrice}</ColumnFive>
           </TotalRow>
         </CartInfoContainer>
       </ReceiptContainer>

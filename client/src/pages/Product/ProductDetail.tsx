@@ -785,9 +785,3 @@ export const ProductDetail = () => {
     </Container>
   )
 }
-
-// check cart for same product
-// if product and size match
-//    - add 1 to quantity
-// if product and size dont match
-//    - add new object

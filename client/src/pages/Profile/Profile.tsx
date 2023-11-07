@@ -116,19 +116,19 @@ export const Profile = () => {
     const streetName = streetAddress?.split(" ").slice(1).join(" ")
     const shippingInfo = {
       street_number: streetNumber[0],
-      street_name: streetName,
-      state: state,
-      city: city,
-      zip: zip,
+      street_name: streetName.trimEnd(),
+      state: state.trimEnd(),
+      city: city.trimEnd(),
+      zip: zip.trimEnd(),
       country: "US"
     }
     
     setNewUserData({
       email: currentUser?.email,
-      first_name: firstName,
-      last_name: lastName,
-      phone: phoneNumber,
-      shipping_info: shippingInfo 
+      first_name: firstName.trimEnd(),
+      last_name: lastName.trimEnd(),
+      phone: phoneNumber.trimEnd(),
+      shipping_info: shippingInfo
     })
   }
 
@@ -139,6 +139,8 @@ export const Profile = () => {
   }
 
   async function updateNewUserData() {
+    updateUserData()
+
     try {
       await fetch(`http://localhost:5000/api/users/${currentUser?.id}`, {
         method: "PUT",
