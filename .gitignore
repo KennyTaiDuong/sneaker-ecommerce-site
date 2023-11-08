@@ -27,3 +27,6 @@ dist-ssr
 *.pem
 
 coverage
+auth_config.json
+.nyc_output
+out.json
