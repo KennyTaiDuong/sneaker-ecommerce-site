@@ -136,8 +136,275 @@ export const ProductDetail = () => {
 
   const SizeList = () => {
     // Display size range for mens/wmns/kids/infants
-
-    if (category === "m") {
+    
+    if (name.includes("Yeezy")) {
+      return (
+        <SizeDropdown>
+          <DropdownItem 
+            onClick={(event) => ChangeSize(event)} 
+            disabled={sizes[0].quantity === "0"}
+            id="4"
+          >
+            4
+            {parseInt(sizes[0].quantity) <= 3 && sizes[0].quantity != "0" && <WarningText>Low Stock!</WarningText>}
+          </DropdownItem>
+          <DropdownItem 
+            onClick={(event) => ChangeSize(event)} 
+            disabled={sizes[1].quantity === "0"}
+            id="4.5"
+          >
+            4.5
+            {parseInt(sizes[1].quantity) <= 3 && sizes[1].quantity != "0" && <WarningText>Low Stock!</WarningText>}
+          </DropdownItem>
+          <DropdownItem 
+            onClick={(event) => ChangeSize(event)} 
+            disabled={sizes[2].quantity === "0"}
+            id="5"
+          >
+            5
+            {parseInt(sizes[2].quantity) <= 3 && sizes[2].quantity != "0" && <WarningText>Low Stock!</WarningText>}
+          </DropdownItem>
+          <DropdownItem 
+            onClick={(event) => ChangeSize(event)} 
+            disabled={sizes[3].quantity === "0"}
+            id="5.5"
+          >
+            5.5
+            {parseInt(sizes[3].quantity) <= 3 && sizes[3].quantity != "0" && <WarningText>Low Stock!</WarningText>}
+          </DropdownItem>
+          <DropdownItem 
+            onClick={(event) => ChangeSize(event)} 
+            disabled={sizes[4].quantity === "0"}
+            id="6"
+          >
+            6
+            {parseInt(sizes[4].quantity) <= 3 && sizes[4].quantity != "0" && <WarningText>Low Stock!</WarningText>}
+          </DropdownItem>
+          <DropdownItem 
+            onClick={(event) => ChangeSize(event)} 
+            disabled={sizes[5].quantity === "0"}
+            id="6.5"
+          >
+            6.5
+            {parseInt(sizes[5].quantity) <= 3 && sizes[5].quantity != "0" && <WarningText>Low Stock!</WarningText>}
+          </DropdownItem>
+          <DropdownItem 
+            onClick={(event) => ChangeSize(event)} 
+            disabled={sizes[6].quantity === "0"}
+            id="7"
+          >
+            7
+            {parseInt(sizes[6].quantity) <= 3 && sizes[6].quantity != "0" && <WarningText>Low Stock!</WarningText>}
+          </DropdownItem>
+          <DropdownItem 
+            onClick={(event) => ChangeSize(event)} 
+            disabled={sizes[7].quantity === "0"}
+            id="7.5"
+          >
+            7.5
+            {/* displays warning if certain size has 3 or less */}
+            {parseInt(sizes[7].quantity) <= 3 && sizes[7].quantity != "0" && <WarningText>Low Stock!</WarningText>}
+          </DropdownItem>
+          <DropdownItem 
+            onClick={(event) => ChangeSize(event)} 
+            disabled={sizes[8].quantity === "0"}
+            id="8"
+          >
+            8
+            {parseInt(sizes[8].quantity) <= 3 && sizes[8].quantity != "0" && <WarningText>Low Stock!</WarningText>}
+          </DropdownItem>
+          <DropdownItem 
+            onClick={(event) => ChangeSize(event)} 
+            disabled={sizes[9].quantity === "0"}
+            id="8.5"
+          >
+            8.5
+            {parseInt(sizes[9].quantity) <= 3 && sizes[9].quantity != "0" && <WarningText>Low Stock!</WarningText>}
+          </DropdownItem>
+          <DropdownItem 
+            onClick={(event) => ChangeSize(event)} 
+            disabled={sizes[10].quantity === "0"}
+            id="9"
+          >
+            9
+            {parseInt(sizes[10].quantity) <= 3 && sizes[10].quantity != "0" && <WarningText>Low Stock!</WarningText>}
+          </DropdownItem>
+          <DropdownItem 
+            onClick={(event) => ChangeSize(event)} 
+            disabled={sizes[11].quantity === "0"}
+            id="9.5"
+          >
+            9.5
+            {parseInt(sizes[11].quantity) <= 3 && sizes[11].quantity != "0" && <WarningText>Low Stock!</WarningText>}
+          </DropdownItem>
+          <DropdownItem 
+            onClick={(event) => ChangeSize(event)} 
+            disabled={sizes[12].quantity === "0"}
+            id="10"
+          >
+            10
+            {parseInt(sizes[12].quantity) <= 3 && sizes[12].quantity != "0" && <WarningText>Low Stock!</WarningText>}
+          </DropdownItem>
+          <DropdownItem 
+            onClick={(event) => ChangeSize(event)} 
+            disabled={sizes[13].quantity === "0"}
+            id="10.5"
+          >
+            10.5
+            {parseInt(sizes[13].quantity) <= 3 && sizes[13].quantity != "0" && <WarningText>Low Stock!</WarningText>}
+          </DropdownItem>
+          <DropdownItem 
+            onClick={(event) => ChangeSize(event)} 
+            disabled={sizes[14].quantity === "0"}
+            id="11"
+          >
+            11
+            {parseInt(sizes[14].quantity) <= 3 && sizes[14].quantity != "0" && <WarningText>Low Stock!</WarningText>}
+          </DropdownItem>
+          <DropdownItem 
+            onClick={(event) => ChangeSize(event)} 
+            disabled={sizes[15].quantity === "0"}
+            id="11.5"
+          >
+            11.5
+            {parseInt(sizes[15].quantity) <= 3 && sizes[15].quantity != "0" && <WarningText>Low Stock!</WarningText>}
+          </DropdownItem>
+          <DropdownItem 
+            onClick={(event) => ChangeSize(event)} 
+            disabled={sizes[16].quantity === "0"}
+            id="12"
+          >
+            12
+            {parseInt(sizes[16].quantity) <= 3 && sizes[16].quantity != "0" && <WarningText>Low Stock!</WarningText>}
+          </DropdownItem>
+          <DropdownItem 
+            onClick={(event) => ChangeSize(event)} 
+            disabled={sizes[17].quantity === "0"}
+            id="13"
+          >
+            13
+            {parseInt(sizes[17].quantity) <= 3 && sizes[17].quantity != "0" && <WarningText>Low Stock!</WarningText>}
+          </DropdownItem>
+          <DropdownItem 
+            onClick={(event) => ChangeSize(event)} 
+            disabled={sizes[18].quantity === "0"}
+            id="14"
+          >
+            14
+            {parseInt(sizes[18].quantity) <= 3 && sizes[18].quantity != "0" && <WarningText>Low Stock!</WarningText>}
+          </DropdownItem>
+          <DropdownItem 
+            onClick={(event) => ChangeSize(event)} 
+            disabled={sizes[19].quantity === "0"}
+            id="15"
+          >
+            15
+            {parseInt(sizes[19].quantity) <= 3 && sizes[19].quantity != "0" && <WarningText>Low Stock!</WarningText>}
+          </DropdownItem>
+        </SizeDropdown>
+      )
+    } else if (name.includes("Slide") || name.includes("Foam RNNR")) {
+      return (
+        <SizeDropdown>
+          <DropdownItem 
+            onClick={(event) => ChangeSize(event)} 
+            disabled={sizes[0].quantity === "0"}
+            id="4"
+          >
+            4
+            {parseInt(sizes[0].quantity) <= 3 && sizes[0].quantity != "0" && <WarningText>Low Stock!</WarningText>}
+          </DropdownItem>
+          <DropdownItem 
+            onClick={(event) => ChangeSize(event)} 
+            disabled={sizes[1].quantity === "0"}
+            id="5"
+          >
+            5
+            {parseInt(sizes[1].quantity) <= 3 && sizes[1].quantity != "0" && <WarningText>Low Stock!</WarningText>}
+          </DropdownItem>
+          <DropdownItem 
+            onClick={(event) => ChangeSize(event)} 
+            disabled={sizes[2].quantity === "0"}
+            id="6"
+          >
+            6
+            {parseInt(sizes[2].quantity) <= 3 && sizes[2].quantity != "0" && <WarningText>Low Stock!</WarningText>}
+          </DropdownItem>
+          <DropdownItem 
+            onClick={(event) => ChangeSize(event)} 
+            disabled={sizes[3].quantity === "0"}
+            id="7"
+          >
+            7
+            {parseInt(sizes[3].quantity) <= 3 && sizes[3].quantity != "0" && <WarningText>Low Stock!</WarningText>}
+          </DropdownItem>
+          <DropdownItem 
+            onClick={(event) => ChangeSize(event)} 
+            disabled={sizes[4].quantity === "0"}
+            id="8"
+          >
+            8
+            {parseInt(sizes[4].quantity) <= 3 && sizes[4].quantity != "0" && <WarningText>Low Stock!</WarningText>}
+          </DropdownItem>
+          <DropdownItem 
+            onClick={(event) => ChangeSize(event)} 
+            disabled={sizes[5].quantity === "0"}
+            id="9"
+          >
+            9
+            {parseInt(sizes[5].quantity) <= 3 && sizes[5].quantity != "0" && <WarningText>Low Stock!</WarningText>}
+          </DropdownItem>
+          <DropdownItem 
+            onClick={(event) => ChangeSize(event)} 
+            disabled={sizes[6].quantity === "0"}
+            id="10"
+          >
+            10
+            {parseInt(sizes[6].quantity) <= 3 && sizes[6].quantity != "0" && <WarningText>Low Stock!</WarningText>}
+          </DropdownItem>
+          <DropdownItem 
+            onClick={(event) => ChangeSize(event)} 
+            disabled={sizes[7].quantity === "0"}
+            id="11"
+          >
+            11
+            {parseInt(sizes[7].quantity) <= 3 && sizes[7].quantity != "0" && <WarningText>Low Stock!</WarningText>}
+          </DropdownItem>
+          <DropdownItem 
+            onClick={(event) => ChangeSize(event)} 
+            disabled={sizes[8].quantity === "0"}
+            id="12"
+          >
+            12
+            {parseInt(sizes[8].quantity) <= 3 && sizes[8].quantity != "0" && <WarningText>Low Stock!</WarningText>}
+          </DropdownItem>
+          <DropdownItem 
+            onClick={(event) => ChangeSize(event)} 
+            disabled={sizes[9].quantity === "0"}
+            id="13"
+          >
+            13
+            {parseInt(sizes[9].quantity) <= 3 && sizes[9].quantity != "0" && <WarningText>Low Stock!</WarningText>}
+          </DropdownItem>
+          <DropdownItem 
+            onClick={(event) => ChangeSize(event)} 
+            disabled={sizes[10].quantity === "0"}
+            id="14"
+          >
+            14
+            {parseInt(sizes[10].quantity) <= 3 && sizes[10].quantity != "0" && <WarningText>Low Stock!</WarningText>}
+          </DropdownItem>
+          <DropdownItem 
+            onClick={(event) => ChangeSize(event)} 
+            disabled={sizes[11].quantity === "0"}
+            id="15"
+          >
+            15
+            {parseInt(sizes[11].quantity) <= 3 && sizes[11].quantity != "0" && <WarningText>Low Stock!</WarningText>}
+          </DropdownItem>
+        </SizeDropdown>
+      )
+    } else if (category === "m") {
       return (
         <SizeDropdown>
           <DropdownItem 
