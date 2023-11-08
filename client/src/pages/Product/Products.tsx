@@ -4,9 +4,16 @@ import { Card } from "../../components/Products/Card";
 import { ProductsContext, Product } from "../../components/Layout/ProductsLayout";
 import { Pagination } from "../../components/Pagination/Pagination";
 import { useSearchParams } from "react-router-dom";
+import { Sidebar } from "../../components/Sidebar/Sidebar";
+import { EmptyFeed } from "../../components/EmptyFeed/EmptyFeed";
 
 const Container = styled.div`
   overflow: hidden;
+
+  @media screen and (min-width: 650px) {
+    display: grid;
+    grid-template-columns: 22% repeat(3, 1fr);
+  }
 `
 
 const CardsContainer = styled.div`
@@ -17,6 +24,16 @@ const CardsContainer = styled.div`
   
   @media screen and (min-width: 650px) {
     grid-template-columns: repeat(3, 1fr);
+    grid-column: 2 / -1;
+  }
+`
+
+const SidebarContainer = styled.div`
+  display: none;
+
+  @media screen and (min-width: 650px) {
+    display: flex;
+    grid-column: 1;
   }
 `
 
@@ -70,8 +87,11 @@ export const Products = () => {
 
   return (
     <Container>
+      <SidebarContainer>
+        <Sidebar setMenuIsOpen={() => {}} />
+      </SidebarContainer>
       <CardsContainer>
-        {ProductCards}
+        {ProductCards?.length != 0 ? ProductCards : <EmptyFeed />}
       </CardsContainer>
       <Pagination pageCount={Math.ceil(foundProducts?.length / 12)} />
     </Container>

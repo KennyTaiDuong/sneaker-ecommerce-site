@@ -6,6 +6,10 @@ const StyledButton = styled.button`
   color: rgb(160, 160, 160);
   padding: 0.5rem 0;
   font-weight: 700;
+
+  @media screen and (min-width: 650px) {
+    grid-column: 1;
+  }
 `
 
 export const LogoutButton = () => {

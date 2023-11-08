@@ -10,11 +10,24 @@ const ProfileContainer = styled.div`
   flex-direction: column;
   padding: 1rem;
   gap: 1rem;
+  width: 100%;
+  max-width: 50rem;
+  margin: 0 auto;
+
+  @media screen and (min-width: 650px) {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 2rem 6rem 2.5rem 1fr;
+  }
 `
 
 const Heading = styled.p`
   font-size: 1.75rem;
   font-weight: 700;
+
+  @media screen and (min-width: 650px) {
+    grid-column: 1;
+  }
 `
 
 const ProfileSection = styled.div`
@@ -22,6 +35,10 @@ const ProfileSection = styled.div`
   grid-template-columns: 6rem 1fr;
   grid-template-rows: 3rem;
   gap: 0.5rem;
+
+  @media screen and (min-width: 650px) {
+    grid-column: 1;
+  }
 `
 
 const ProfilePic = styled.img`
@@ -53,6 +70,11 @@ const Email = styled.p`
 
 const FormContainer = styled.form`
   
+
+  @media screen and (min-width: 650px) {
+    grid-column: 2;
+    grid-row: 1 / -1;
+  }
 `
 
 const UserInfoSection = styled.div`

@@ -16,11 +16,30 @@ const Container = styled.div`
   flex-direction: column;
   gap: 2rem;
   margin-top: auto;
+
+  @media screen and (min-width: 650px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 1.5rem;
+  }
 `
 
 const StyledSection = styled.section`
   display: flex;
   flex-direction: column;
+`
+
+const ContactSection = styled(StyledSection)`
+  grid-column: 1;
+  grid-row: 1 / 3;
+`
+
+const LinkSection = styled(StyledSection)`
+  grid-column: 2;
+`
+
+const SocialSection = styled(StyledSection)`
+  grid-column: 2;
 `
 
 const SectionTitle = styled.p`
@@ -53,7 +72,7 @@ const Logo = styled.img`
 export const Footer = () => {
   return (
       <Container>
-        <StyledSection>
+        <ContactSection>
           <SectionTitle>About Us</SectionTitle>
           <ContentText>
             We aim to provide our customers and clients with 100% 
@@ -68,14 +87,14 @@ export const Footer = () => {
             <Logo src={EmailLogo} style={{ width: "1rem" }} />
             aksupplied@gmail.com
           </ContactInfo>
-        </StyledSection>
-        <StyledSection>
+        </ContactSection>
+        <LinkSection>
           <SectionTitle>Site Links</SectionTitle>
           <FooterLinks to="/">Home</FooterLinks>
           <FooterLinks to="/products">Products</FooterLinks>
           <FooterLinks to="/contact">Contact</FooterLinks>
-        </StyledSection>
-        <StyledSection>
+        </LinkSection>
+        <SocialSection>
           <SectionTitle>Social Media</SectionTitle>
           
           <FooterLinks to="https://www.instagram.com/aksupplied">
@@ -90,7 +109,7 @@ export const Footer = () => {
             <Logo src={TwitterLogo} />
             Twitter
           </FooterLinks>
-        </StyledSection>
+        </SocialSection>
       </Container>
   )
 }

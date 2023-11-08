@@ -3,35 +3,79 @@ import { NavLink } from "react-router-dom";
 
 import { Card } from "./Card";
 
+import NikeBg from "../../assets/backgrounds/panda-dunks.jpg"
+import JordanBg from "../../assets/backgrounds/cool-grey-11s.jpg"
+import YeezyBg from "../../assets/backgrounds/yeezy.jpg"
+
 const BrandSection = styled.div`
   width: 100%;
   max-width: 43rem;
   margin: 0 auto;
+
+  @media screen and (min-width: 650px) {
+    display: grid;
+    grid-template-columns: 10rem 1fr;
+    gap: 1rem;
+
+    ::-webkit-scrollbar {
+      display: block;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #888;
+      border-radius: 0.5rem;
+      border: 6px solid white;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #fff;
+      border-radius: 0.5rem;
+      border: 2px solid #888;
+    }
+  }
 `
 
 const CardContainer = styled.div`
   padding: 1rem 0;
   display: grid;
-  overflow: scroll;
+  overflow: auto;
   gap: 1rem;
   grid-template-columns: repeat(auto-fill, 10rem);
   grid-auto-flow: column;
   grid-auto-columns: 10rem;
-`
 
-const BrandBanner = styled.div`
-  display: flex;
-  justify-content: center;
-  padding: 1rem 0;
+  @media screen and (min-width: 650px) {
+    grid-column: 2;
+  }
 `
 
 const StyledNavLink = styled(NavLink)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 4rem;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
 
+  @media screen and (min-width: 650px) {
+    grid-column: 1;
+  }
+`
+
+const DarkContainer = styled.div`
+  background-color: rgba(0, 0, 0, 0.65);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 4rem;
 `
 
 const Logo = styled.img`
   width: 5rem;
-  filter: brightness(10);
+
 `
 
 type CardSectionProps = {
@@ -75,10 +119,13 @@ export const CardSection = ({ productsArray, logo, brand }: CardSectionProps) =>
   return (
     <BrandSection>
       {/* Brand Banner */}
-      <StyledNavLink to={`/products?brand=${brand.toLowerCase()}&page=1`}>
-        <BrandBanner style={{ backgroundColor: `${brand === "Nike" ? "rgba(255,101,0,255)" : brand === "Jordan" ? "black" : "rgba(156,125,78,255)"}` }}>
+      <StyledNavLink 
+        to={`/products?brand=${brand.toLowerCase()}&page=1`} 
+        style={{ backgroundImage: `${brand === "Nike" ? `url(${NikeBg})` : brand === "Jordan" ? `url(${JordanBg})` : `url(${YeezyBg})`}` }}
+      >
+        <DarkContainer>
           <Logo src={logo} />
-        </BrandBanner>
+        </DarkContainer>
       </StyledNavLink>
 
       {/* Products cards slider */}
@@ -88,3 +135,5 @@ export const CardSection = ({ productsArray, logo, brand }: CardSectionProps) =>
     </BrandSection>
   )
 }
+
+// 
