@@ -19,12 +19,22 @@ const DarkContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: 1rem;
+  gap: 1rem;
+
+  @media screen and (min-width: 650px) {
+    padding: 1.5rem;
+  }
 `
 
 const IconContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media screen and (min-width: 650px) {
+    display: grid;
+    grid-template-columns: 50% repeat(3, auto);
+  }
 `
 
 const SearchBar = styled.form`
@@ -33,17 +43,28 @@ const SearchBar = styled.form`
   border-radius: 1.5rem;
   padding: 0.5rem;
   border: 1px solid #fff;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 40rem;
 `
 
 const Logo = styled.img`
   height: 3rem;
   border-radius: 50%;
   box-shadow: 0 0 20px black;
+
+  @media screen and (min-width: 650px) {
+    height: 5rem;
+  }
 `
 
 const Icon = styled.img`
   width: 2rem;
   cursor: pointer;
+
+  @media screen and (min-width: 650px) {
+    display: none;
+  }
 `
 
 const MenuLabel = styled.p`
@@ -74,6 +95,27 @@ const MenuLabel = styled.p`
   &:hover {
     color: rgb(255, 0, 0);
   }
+
+  @media screen and (min-width: 650px) {
+    font-size: 1.25rem;
+  }
+`
+
+const StyledNavLink = styled(NavLink)`
+  grid-column: 1;
+  grid-row: 1;
+`
+
+const SearchLabel = styled(MenuLabel)`
+  grid-column: 2;
+`
+
+const CartLabel = styled(MenuLabel)`
+  grid-column: 3;
+`
+
+const AccountLabel = styled(MenuLabel)`
+  grid-column: 4;
 `
 
 const StyledInput = styled.input`
@@ -82,6 +124,15 @@ const StyledInput = styled.input`
 
   &:focus {
     outline: none;
+  }
+`
+
+const StyledSpan = styled.span`
+
+
+  @media screen and (min-width: 650px) {
+    grid-column: 1;
+    grid-row: 1;
   }
 `
 
@@ -110,10 +161,12 @@ export const Header = ({ setMenuIsOpen }: SidebarProps) => {
       <DarkContainer>
         <IconContainer>
           <Icon src={hamburgerIcon} alt="hamburger icon" data-cy="hamburger-icon" onClick={setMenuIsOpen}/>
-          <MenuLabel data-cy="search-button" onClick={() => setSearchIsOpen(prev => !prev)} >Search</MenuLabel>
-          <NavLink to="/"><Logo src={logo} alt="aksupplied logo" /></NavLink>
-          <MenuLabel onClick={() => navigate("/cart")}>Cart</MenuLabel>
-          <MenuLabel onClick={() => navigate("/profile")}>Account</MenuLabel>
+          <SearchLabel data-cy="search-button" onClick={() => setSearchIsOpen(prev => !prev)} >Search</SearchLabel>
+          <StyledSpan>
+            <StyledNavLink to="/"><Logo src={logo} alt="aksupplied logo" /></StyledNavLink>
+          </StyledSpan>
+          <CartLabel onClick={() => navigate("/cart")}>Cart</CartLabel>
+          <AccountLabel onClick={() => navigate("/profile")}>Account</AccountLabel>
         </IconContainer>
         <SearchBar 
           data-cy="search-bar" 
@@ -123,7 +176,7 @@ export const Header = ({ setMenuIsOpen }: SidebarProps) => {
           <StyledInput 
             type="text" 
             name="search-bar"
-            placeholder={`Search for an item (include punctuation)`} 
+            placeholder={`Search for an item`} 
             onChange={(event) => {handleInputChange(event)}}
           />
         </SearchBar>

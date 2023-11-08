@@ -2,9 +2,13 @@ import styled from "styled-components";
 import { useSearchParams } from "react-router-dom";
 
 const Container = styled.div`
+  margin: 0 auto;
   display: flex;
   justify-content: center;
   gap: 1rem;
+  @media screen and (min-width: 650px) {
+    grid-column: 2 / -1;
+  }
 `
 
 const PageButton = styled.button`
@@ -22,7 +26,7 @@ type NavbarProps = {
 export const Pagination = ({ pageCount }: NavbarProps) => {
   const [, setSearchParams] = useSearchParams()
 
-  const pageElements = new Array(pageCount ? pageCount : 1)
+  const buttonElements = new Array(pageCount ? pageCount : 1)
   .fill("")
   .map((_item, index: number) => {
     return (
@@ -37,7 +41,7 @@ export const Pagination = ({ pageCount }: NavbarProps) => {
 
   return (
     <Container>
-      {pageElements}
+      {buttonElements}
     </Container>
   )
 }

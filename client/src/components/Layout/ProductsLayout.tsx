@@ -5,11 +5,16 @@ import { useSearchParams } from "react-router-dom";
 
 const ProductsLayoutContainer = styled.div`
   padding: 1rem;
-  max-width: 40rem;
   margin: 0 auto;
+  width: 100%;
+  max-width: 50rem;
+
+  @media screen and (min-width: 650px) {
+    padding: 1.5rem;
+  }
 `
 
-const Header = styled.p`
+const Heading = styled.p`
   font-size: 2rem;
   color: rgb(160, 160, 160);
 `
@@ -28,7 +33,7 @@ const StyledButton = styled.button`
     background-color: rgb(238, 238, 238);
     color: white;
   }
-  `
+`
 
 const DropDownContainer = styled.div`
   width: 100%;
@@ -77,10 +82,13 @@ export const ProductsLayout = () => {
 
   const [searchParams, setSearchParams] = useSearchParams()
 
-  if (searchParams.size === 0) {
-    // automatically routes to first page when user loads /products
-    setSearchParams({ page: "1" })
-  }
+  useEffect(() => {
+    if (searchParams.size === 0) {
+      // automatically routes to first page when user loads /products
+      setSearchParams({ page: "1" })
+    }
+  }, [searchParams])
+
 
   // Gets value of "brand" search query
   const brand = searchParams.get("brand")
@@ -144,7 +152,7 @@ export const ProductsLayout = () => {
 
   return (
     <ProductsLayoutContainer>
-      <Header data-cy="header">
+      <Heading data-cy="header">
         {
           query 
           ? `"${query}"` 
@@ -152,7 +160,7 @@ export const ProductsLayout = () => {
           ? `${brandHeading?.join("")} Products`
           : "All Products"
         }
-      </Header>
+      </Heading>
       <StyledButton onClick={() => setSortOpen(prev => !prev)} data-cy="sort-btn">Sort By:
         <DropDownContainer style={{ display: `${sortOpen ? "block" : "none"}`}}>
           <DropdownItem 
