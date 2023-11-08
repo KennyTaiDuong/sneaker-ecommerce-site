@@ -33,7 +33,7 @@ const IconContainer = styled.div`
 
   @media screen and (min-width: 650px) {
     display: grid;
-    grid-template-columns: 50% repeat(3, auto);
+    grid-template-columns: 40% repeat(4, auto);
   }
 `
 
@@ -71,6 +71,7 @@ const MenuLabel = styled.p`
   font-weight: 700;
   color: #fff;
   position: relative;
+  grid-row: 1;
   cursor: pointer;
 
   &::after {
@@ -110,12 +111,21 @@ const SearchLabel = styled(MenuLabel)`
   grid-column: 2;
 `
 
-const CartLabel = styled(MenuLabel)`
+const BrowseLabel = styled(MenuLabel)`
   grid-column: 3;
+  display: none;
+
+  @media screen and (min-width: 650px) {
+    display: block;
+  }
+`
+
+const CartLabel = styled(MenuLabel)`
+  grid-column: 4;
 `
 
 const AccountLabel = styled(MenuLabel)`
-  grid-column: 4;
+  grid-column: 5;
 `
 
 const StyledInput = styled.input`
@@ -165,6 +175,7 @@ export const Header = ({ setMenuIsOpen }: SidebarProps) => {
           <StyledSpan>
             <StyledNavLink to="/"><Logo src={logo} alt="aksupplied logo" /></StyledNavLink>
           </StyledSpan>
+          <BrowseLabel onClick={() => navigate("/products")}>Browse</BrowseLabel>
           <CartLabel onClick={() => navigate("/cart")}>Cart</CartLabel>
           <AccountLabel onClick={() => navigate("/profile")}>Account</AccountLabel>
         </IconContainer>

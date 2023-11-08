@@ -6,6 +6,9 @@ import { UserDataContext } from "../../components/Layout/Layout";
 
 const Container = styled.div`
   padding: 1rem;
+  width: 100%;
+  max-width: 40rem;
+  margin: 0 auto;
 `
 
 const Username = styled.p`
@@ -204,7 +207,7 @@ export const Cart = () => {
         <ColumnOne>{index + 1}</ColumnOne>
         <ColumnTwo>
           {name}
-          <RemoveButton onClick={() => RemoveItem(index)}>remove</RemoveButton>
+          <RemoveButton onClick={() => RemoveItem(index)}>x</RemoveButton>
         </ColumnTwo>
         <ColumnThree>{size}</ColumnThree>
         <ColumnFour>{quantity}</ColumnFour>
@@ -247,14 +250,13 @@ export const Cart = () => {
 
   return (
     <Container>
-      <Username>{currentUser?.first_name ? currentUser?.first_name.trimEnd() : user?.nickname}'s Cart</Username>
       <ReceiptContainer>
         <BrandName>aksupplied</BrandName>
         <ReceiptSubtitle>Sports Depot</ReceiptSubtitle>
         {/* USER INFO CONTAINER LIKE THE OLD RECEIPT */}
         <UserInfoContainer>
           <UserCategoryRow>
-            <UserColumnOne>Customer Order No.</UserColumnOne>
+            <UserColumnOne>Customer Email: {user?.email}</UserColumnOne>
             <UserColumnTwo>
               Date
               <span>{`${date}`}</span>
