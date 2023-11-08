@@ -17,6 +17,7 @@ const Container = styled.div`
 
   @media screen and (min-width: 650px) {
     position: static;
+    padding: 0;
   }
 `
 

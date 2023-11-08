@@ -14,9 +14,9 @@ const CardContainer = styled.div`
   display: grid;
   overflow: scroll;
   gap: 1rem;
-  grid-template-columns: repeat(auto-fill, minmax(10rem,1fr));
+  grid-template-columns: repeat(auto-fill, 10rem);
   grid-auto-flow: column;
-  grid-auto-columns: minmax(10rem,1fr);
+  grid-auto-columns: 10rem;
 `
 
 const BrandBanner = styled.div`
