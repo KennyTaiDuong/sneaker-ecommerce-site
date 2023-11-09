@@ -12,7 +12,7 @@ const Container = styled.div`
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
-  border-bottom: 1px solid #888;
+  border-bottom: 1px solid #000;
 `
 
 const DarkContainer = styled.div`
@@ -46,7 +46,7 @@ const SearchBar = styled.form`
   border: 1px solid #fff;
   width: 100%;
   margin: 0 auto;
-  max-width: 40rem;
+  max-width: 47rem;
 `
 
 const Logo = styled.img`
