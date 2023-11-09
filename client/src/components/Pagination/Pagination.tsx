@@ -24,14 +24,17 @@ type NavbarProps = {
 }
 
 export const Pagination = ({ pageCount }: NavbarProps) => {
-  const [, setSearchParams] = useSearchParams()
+  const [searchParams, setSearchParams] = useSearchParams()
+
+  const brand = searchParams.get("brand")
+  const query = searchParams.get("query")
 
   const buttonElements = new Array(pageCount ? pageCount : 1)
   .fill("")
   .map((_item, index: number) => {
     return (
       <PageButton 
-        onClick={() => setSearchParams({ page: `${index + 1}`})}
+        onClick={() => setSearchParams({ brand: `${brand || ""}`, page: `${index + 1}`, query: `${query || ""}`})}
         key={index}
       >
         {index + 1}

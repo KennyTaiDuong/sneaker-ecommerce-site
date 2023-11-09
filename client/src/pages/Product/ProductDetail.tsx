@@ -1,7 +1,7 @@
+import styled from "styled-components";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router";
-import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
 import { CartItemType, UserDataContext } from "../../components/Layout/Layout";
@@ -10,12 +10,11 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  max-width: 50rem;
+  min-width: 100%;
+  max-width: 20rem;
 
   @media screen and (min-width: 650px) {
     display: grid;
-    min-width: 100%;
     grid-template-columns: 20rem 1fr;
     grid-template-rows: 2.25rem minmax(24.375rem, 1fr);
     column-gap: 3rem;
