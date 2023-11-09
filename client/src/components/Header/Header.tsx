@@ -12,6 +12,7 @@ const Container = styled.div`
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
+  border-bottom: 1px solid #888;
 `
 
 const DarkContainer = styled.div`
