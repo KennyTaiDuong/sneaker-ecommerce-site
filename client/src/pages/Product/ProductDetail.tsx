@@ -2,13 +2,75 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router";
 import styled from "styled-components";
-import { CartItemType, UserDataContext } from "../../components/Layout/Layout";
 import { NavLink } from "react-router-dom";
 
+import { CartItemType, UserDataContext } from "../../components/Layout/Layout";
+
+import DollarIcon from "../../assets/icons/dollar-icon.png"
+import QuestionIcon from "../../assets/icons/question-icon.png"
+import CheckIcon from "../../assets/icons/check-icon.png"
+
 const Container = styled.div`
-  padding: 1rem;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 50rem;
+
+  @media screen and (min-width: 650px) {
+    display: grid;
+    min-width: 100%;
+    grid-template-columns: 20rem 1fr;
+    grid-template-rows: 2.25rem minmax(24.375rem, 1fr);
+    column-gap: 3rem;
+    align-items: start;
+  }
+`
+
+const PathContainer = styled.div`
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 0.75rem;
+  font-size: 0.75rem;
+  padding: 1rem;
+
+  @media screen and (min-width: 650px) {
+    font-size: 1rem;
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+`
+
+const InfoContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+
+  @media screen and (min-width: 650px) {
+    grid-column: 2;
+    grid-row: 2;
+    padding: 1.5rem;
+  }
+`
+
+const BannerContainer = styled.div`
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  gap: 4rem;
+
+  @media screen and (min-width: 650px) {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1.5rem;
+  }
 `
 
 const TextContainer = styled.div`
@@ -19,6 +81,10 @@ const TextContainer = styled.div`
 
 const ProductName = styled.p`
   font-weight: bold;
+
+  @media screen and (min-width: 650px) {
+    font-size: 1.5rem;
+  }
 `
 
 const ProductSku = styled.p`
@@ -27,6 +93,15 @@ const ProductSku = styled.p`
 
 const ProductImage = styled.img`
   width: 100%;
+  max-width: 20rem;
+  padding: 1rem;
+
+  @media screen and (min-width: 650px) {
+    grid-column: 1;
+    grid-row: 2;
+    align-self: center;
+    padding: 1.5rem;
+  }
 `
 
 const ProductPrice = styled.p`
@@ -34,18 +109,19 @@ const ProductPrice = styled.p`
 `
 
 const DropdownContainer = styled.div`
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 `
 
 const SizeDisplay = styled.p`
-  border: 2px solid black;
+  border: 1px solid #888;
   padding: 0.5rem;
 `
 
 const SizeDropdown = styled.ul`
   list-style: none;
-  border: 2px solid rgb(216, 216, 216);
-  position: absolute;
+  border: 1px solid #888;
   background-color: white;
   width: 100%;
   top: 55px;
@@ -62,14 +138,17 @@ const DropdownItem = styled.button`
 `
 
 const CartButton = styled.button`
-  width: 100%;
-  background: rgb(0, 143, 0);
+  max-width: 10rem;
+  background: rgba(0,186,0,255);
   border: none;
   font-weight: 700;
   color: rgb(255, 255, 255);
   padding: 0.5rem;
-  margin-top: 1rem;
-  
+  align-self: end;
+
+  @media screen and (min-width: 650px) {
+    font-size: 1rem;
+  }
 `
 
 const WarningText = styled.p`
@@ -78,7 +157,32 @@ const WarningText = styled.p`
 
 const StyledNavLink = styled(NavLink)`
   text-decoration: none;
-  color: black;
+  color: #888;
+`
+
+const StyledSection = styled.section`
+  width: 100%;
+  max-width: 15rem;
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+`
+
+const Icon = styled.img`
+  width: 5rem;
+  background-color: white;
+  border-radius: 50%;
+  padding: 0.5rem;
+`
+
+const BannerText = styled.p`
+  
+`
+
+const Bold = styled.p`
+  font-weight: 700;
 `
 
 type ProductProps = {
@@ -131,6 +235,79 @@ export const ProductDetail = () => {
 
     fetchProduct()
   }, [])
+
+  function addToCart() {
+    if (isAuthenticated) {
+      let itemsUpdated = 0
+
+      const newCart = currentCart?.products?.map((shoe) => {
+
+        if (shoe.sku === sku && shoe.size === selectedSize) {
+          itemsUpdated++
+
+          return {
+            ...shoe,
+            quantity: `${parseInt(shoe.quantity) + 1}`
+          }
+        } else {
+          return shoe
+        }
+      })
+
+      if (itemsUpdated === 0) {
+        newCart?.push({
+          sku: sku,
+          name: name,
+          size: selectedSize,
+          price: price,
+          quantity: "1"
+        })
+      }
+
+      updateNewCart(newCart)
+      
+    } else {
+      setShowMessage(true)
+    }
+  }
+
+  async function updateNewCart(newCart: CartItemType[] | undefined) {
+
+    try {
+      await fetch(`http://localhost:5000/api/carts/${currentUser?.id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          products: newCart
+        })
+      })
+
+      fetchCart()
+      
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  async function fetchCart() {
+    try {
+      const res = await fetch(`http://localhost:5000/api/carts/${currentUser?.id}`)
+
+      const cart = await res.json()
+
+      setCurrentCart(cart.rows[0])
+
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  function ChangeSize(event: any) {
+    setSelectedSize(event.target.id)
+    setSizeListOpen(false)
+  }
 
   const { name, price, images, sku, sizes, category } = product
 
@@ -961,94 +1138,57 @@ export const ProductDetail = () => {
       </WarningText>
     )
   }
-
-  function addToCart() {
-    if (isAuthenticated) {
-      let itemsUpdated = 0
-
-      const newCart = currentCart?.products?.map((shoe) => {
-
-        if (shoe.sku === sku && shoe.size === selectedSize) {
-          itemsUpdated++
-
-          return {
-            ...shoe,
-            quantity: `${parseInt(shoe.quantity) + 1}`
-          }
-        } else {
-          return shoe
-        }
-      })
-
-      if (itemsUpdated === 0) {
-        newCart?.push({
-          sku: sku,
-          name: name,
-          size: selectedSize,
-          price: price,
-          quantity: "1"
-        })
-      }
-
-      updateNewCart(newCart)
-      
-    } else {
-      setShowMessage(true)
-    }
-  }
-
-  async function updateNewCart(newCart: CartItemType[] | undefined) {
-
-    try {
-      await fetch(`http://localhost:5000/api/carts/${currentUser?.id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          products: newCart
-        })
-      })
-
-      fetchCart()
-      
-    } catch (error) {
-      console.error(error)
-    }
-  }
-
-  async function fetchCart() {
-    try {
-      const res = await fetch(`http://localhost:5000/api/carts/${currentUser?.id}`)
-
-      const cart = await res.json()
-
-      setCurrentCart(cart.rows[0])
-
-    } catch (error) {
-      console.error(error)
-    }
-  }
-
-  function ChangeSize(event: any) {
-    setSelectedSize(event.target.id)
-    setSizeListOpen(false)
-  }
   
   return (
     <Container>
+      <PathContainer>
+        <StyledNavLink to="/">HOME</StyledNavLink>
+        /
+        <StyledNavLink to="/products">PRODUCTS</StyledNavLink>
+        /
+        <StyledNavLink to={`${window.location.pathname}`}>{sku}</StyledNavLink>
+      </PathContainer>
       <ProductImage src={images} />
-      <TextContainer>
-        <ProductName>{name}</ProductName>
-        <ProductSku>{sku}</ProductSku>
-        <ProductPrice>${price}.00</ProductPrice>
-      </TextContainer>
-      <DropdownContainer>
-        <SizeDisplay onClick={() => setSizeListOpen(prev => !prev)}>{selectedSize}</SizeDisplay>
-        {sizeListOpen && <SizeList />}
-      </DropdownContainer>
-      <CartButton onClick={addToCart}>ADD TO CART</CartButton>
-      {showMessage && <UserLoginMessage />}
+      <InfoContainer>
+        <TextContainer>
+          <ProductName>{name}</ProductName>
+          <ProductSku>{sku}</ProductSku>
+          <ProductPrice>${price}.00</ProductPrice>
+        </TextContainer>
+        <DropdownContainer>
+          <SizeDisplay onClick={() => setSizeListOpen(prev => !prev)}>{selectedSize}</SizeDisplay>
+          {sizeListOpen && <SizeList />}
+        </DropdownContainer>
+        <CartButton onClick={addToCart}>ADD TO CART</CartButton>
+        {showMessage && <UserLoginMessage />}
+      </InfoContainer>
+      <BannerContainer>
+        <StyledSection>
+          <Icon src={QuestionIcon} />
+          <Bold>Don't see your size?</Bold>
+          <BannerText>
+            Click here to visit our contact page where 
+            you can request for us to find your size.
+          </BannerText>
+        </StyledSection>
+        <StyledSection>
+          <Icon src={CheckIcon} />
+          <Bold>100% Authentic</Bold>
+          <BannerText>
+            Our staff has years of experience buying and selling shoes and will 
+            gaurantee every product sold is authentic
+          </BannerText>
+        </StyledSection>
+        <StyledSection>
+          <Icon src={DollarIcon} />
+          <Bold>Looking for quick cash?</Bold>
+          <BannerText>
+            We are always looking to buy new inventory 
+            so be sure to send us a DM on Instagram 
+            or email us pictures and prices of your shoes.
+          </BannerText>
+        </StyledSection>
+      </BannerContainer>
     </Container>
   )
 }
