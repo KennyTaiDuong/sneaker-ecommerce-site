@@ -9,7 +9,7 @@ import YeezyBg from "../../assets/backgrounds/yeezy.jpg"
 
 const BrandSection = styled.div`
   width: 100%;
-  max-width: 43rem;
+  max-width: 60rem;
   margin: 0 auto;
 
   @media screen and (min-width: 650px) {

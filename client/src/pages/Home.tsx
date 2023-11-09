@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 
+import { CardSection } from "../components/Products/CardSection";
+
+import HeroBg from "../assets/backgrounds/philly.jpeg"
 import NikeLogo from "../assets/logo/nike-logo.png"
 import YeezyLogo from "../assets/logo/yeezy-logo.png"
 import JordanLogo from "../assets/logo/jordan-logo.png"
-import { CardSection } from "../components/Products/CardSection";
 
 const HomeContainer = styled.div`
   overflow: hidden;
@@ -13,11 +15,41 @@ const HomeContainer = styled.div`
   flex-direction: column;
   gap: 1rem;
   max-width: 50rem;
+  min-width: 100%;
 
   @media screen and (min-width: 650px) {
-    display: grid;
-    margin: 0 auto;
-    padding: 1.5rem;
+    justify-content: center;
+  }
+`
+
+const HeroSection = styled.section`
+  background-image: url(${HeroBg});
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 20%;
+  height: 25rem;
+`
+
+const DarkContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
+
+const HeroHeading = styled.p`
+  font-size: clamp(2rem, 4vw, 5rem);
+`
+
+const HeroSubheading = styled.p`
+  font-size: 1rem;
+
+  @media screen and (min-width: 650px) {
+    font-size: 1.25rem;
   }
 `
 
@@ -42,9 +74,19 @@ export const Home = () => {
 
   return (
     <HomeContainer>
-        <CardSection productsArray={productsArray} logo={NikeLogo} brand={"Nike"} />
-        <CardSection productsArray={productsArray} logo={JordanLogo} brand={"Jordan"} />
-        <CardSection productsArray={productsArray} logo={YeezyLogo} brand={"Yeezy"} />
+      <HeroSection>
+        <DarkContainer>
+          <HeroSubheading>
+            Welcome to
+          </HeroSubheading>
+          <HeroHeading>
+            AKSUPPLIED
+          </HeroHeading>
+        </DarkContainer>
+      </HeroSection>
+      <CardSection productsArray={productsArray} logo={NikeLogo} brand={"Nike"} />
+      <CardSection productsArray={productsArray} logo={JordanLogo} brand={"Jordan"} />
+      <CardSection productsArray={productsArray} logo={YeezyLogo} brand={"Yeezy"} />
     </HomeContainer>
   )
 }

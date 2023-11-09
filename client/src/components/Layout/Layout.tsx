@@ -5,6 +5,7 @@ import { Footer } from "../Footer/Footer"
 import { Dispatch, SetStateAction, createContext, useEffect, useState } from "react"
 import { Sidebar } from "../Sidebar/Sidebar"
 import { useAuth0 } from "@auth0/auth0-react"
+import { ServiceBanner } from "../ServiceBanner/ServiceBanner"
 
 const SiteContainer = styled.div`
   min-height: 100vh;
@@ -170,7 +171,8 @@ export const Layout = () => {
       <UserDataContext.Provider value={{ currentUser, setCurrentUser, currentCart, setCurrentCart }}>
         <Outlet />
       </UserDataContext.Provider>
-
+      
+      <ServiceBanner />
       <Footer />
     </SiteContainer>
   )
