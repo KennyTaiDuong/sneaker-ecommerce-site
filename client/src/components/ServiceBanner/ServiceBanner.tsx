@@ -11,7 +11,7 @@ const BannerContainer = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 1rem;
-  gap: 4rem;
+  gap: 2rem;
 
   @media screen and (min-width: 650px) {
     grid-column: 1 / -1;
@@ -45,7 +45,7 @@ const BannerText = styled.p`
 const Bold = styled.p`
   font-weight: 700;
 `
-      
+
 
 export const ServiceBanner = () => {
 
