@@ -22,12 +22,28 @@ const HomeContainer = styled.div`
   }
 `
 
+const Main = styled.main`
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; 
+
+  @media screen and (min-width: 650px) {
+    padding: 3rem;
+    gap: 2rem;
+  }
+`
+
 const HeroSection = styled.section`
   background-image: url(${HeroBg});
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 20%;
-  height: 25rem;
+  height: 20rem;
+
+  @media screen and (min-width: 650px) {
+    height: 25rem;
+  }
 `
 
 const DarkContainer = styled.div`
@@ -42,7 +58,7 @@ const DarkContainer = styled.div`
 `
 
 const HeroHeading = styled.p`
-  font-size: clamp(2rem, 4vw, 5rem);
+  font-size: clamp(2rem, 10vw, 5.5rem);
 `
 
 const HeroSubheading = styled.p`
@@ -84,9 +100,11 @@ export const Home = () => {
           </HeroHeading>
         </DarkContainer>
       </HeroSection>
-      <CardSection productsArray={productsArray} logo={NikeLogo} brand={"Nike"} />
-      <CardSection productsArray={productsArray} logo={JordanLogo} brand={"Jordan"} />
-      <CardSection productsArray={productsArray} logo={YeezyLogo} brand={"Yeezy"} />
+      <Main>
+        <CardSection productsArray={productsArray} logo={NikeLogo} brand={"Nike"} />
+        <CardSection productsArray={productsArray} logo={JordanLogo} brand={"Jordan"} />
+        <CardSection productsArray={productsArray} logo={YeezyLogo} brand={"Yeezy"} />
+      </Main>
     </HomeContainer>
   )
 }

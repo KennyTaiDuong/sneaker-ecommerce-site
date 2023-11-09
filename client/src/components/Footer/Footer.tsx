@@ -14,12 +14,12 @@ const Container = styled.div`
   padding: 1rem;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 2rem;
   margin-top: auto;
 
   @media screen and (min-width: 650px) {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    flex-direction: row;
     padding: 1.5rem;
   }
 `
@@ -27,6 +27,7 @@ const Container = styled.div`
 const StyledSection = styled.section`
   display: flex;
   flex-direction: column;
+  max-width: 25rem;
 `
 
 const ContactSection = styled(StyledSection)`

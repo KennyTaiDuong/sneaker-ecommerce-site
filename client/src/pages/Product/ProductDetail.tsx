@@ -13,18 +13,11 @@ const Container = styled.div`
   min-width: 100%;
   max-width: 20rem;
 
-  @media screen and (min-width: 650px) {
-    display: grid;
-    grid-template-columns: 20rem 1fr;
-    grid-template-rows: 2.25rem minmax(24.375rem, 1fr);
-    column-gap: 3rem;
-    align-items: start;
-  }
 `
 
 const PathContainer = styled.div`
-  grid-column: 1 / -1;
   display: flex;
+  align-self: flex-start;
   gap: 0.75rem;
   font-size: 0.75rem;
   padding: 1rem;
@@ -36,6 +29,16 @@ const PathContainer = styled.div`
   }
 `
 
+const ContentContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 30rem;
+
+  @media screen and (min-width: 650px) {
+    flex-direction: row;
+  }
+`
+
 const InfoContainer = styled.div`
   width: 100%;
   display: flex;
@@ -44,9 +47,8 @@ const InfoContainer = styled.div`
   padding: 1rem;
 
   @media screen and (min-width: 650px) {
-    grid-column: 2;
-    grid-row: 2;
     padding: 1.5rem;
+    max-width: 30rem;
   }
 `
 
@@ -70,12 +72,10 @@ const ProductSku = styled.p`
 
 const ProductImage = styled.img`
   width: 100%;
-  max-width: 20rem;
+  max-width: 25rem;
   padding: 1rem;
 
   @media screen and (min-width: 650px) {
-    grid-column: 1;
-    grid-row: 2;
     align-self: center;
     padding: 1.5rem;
   }
@@ -1100,20 +1100,22 @@ export const ProductDetail = () => {
         /
         <StyledNavLink to={`${window.location.pathname}`}>{sku}</StyledNavLink>
       </PathContainer>
-      <ProductImage src={images} />
-      <InfoContainer>
-        <TextContainer>
-          <ProductName>{name}</ProductName>
-          <ProductSku>{sku}</ProductSku>
-          <ProductPrice>${price}.00</ProductPrice>
-        </TextContainer>
-        <DropdownContainer>
-          <SizeDisplay onClick={() => setSizeListOpen(prev => !prev)}>{selectedSize}</SizeDisplay>
-          {sizeListOpen && <SizeList />}
-        </DropdownContainer>
-        <CartButton onClick={addToCart}>ADD TO CART</CartButton>
-        {showMessage && <UserLoginMessage />}
-      </InfoContainer>
+      <ContentContainer>
+        <ProductImage src={images} />
+        <InfoContainer>
+          <TextContainer>
+            <ProductName>{name}</ProductName>
+            <ProductSku>{sku}</ProductSku>
+            <ProductPrice>${price}.00</ProductPrice>
+          </TextContainer>
+          <DropdownContainer>
+            <SizeDisplay onClick={() => setSizeListOpen(prev => !prev)}>{selectedSize}</SizeDisplay>
+            {sizeListOpen && <SizeList />}
+          </DropdownContainer>
+          <CartButton onClick={addToCart}>ADD TO CART</CartButton>
+          {showMessage && <UserLoginMessage />}
+        </InfoContainer>
+      </ContentContainer>
     </Container>
   )
 }
