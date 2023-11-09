@@ -12,26 +12,26 @@ const BrandSection = styled.div`
   max-width: 60rem;
   margin: 0 auto;
 
+  ::-webkit-scrollbar {
+    display: block;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #888;
+    border-radius: 1rem;
+    border: 6px solid white;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #fff;
+    border-radius: 1rem;
+    border: 2px solid #888;
+  }
+
   @media screen and (min-width: 650px) {
     display: grid;
     grid-template-columns: 10rem 1fr;
     gap: 1rem;
-
-    ::-webkit-scrollbar {
-      display: block;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: #888;
-      border-radius: 0.5rem;
-      border: 6px solid white;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: #fff;
-      border-radius: 0.5rem;
-      border: 2px solid #888;
-    }
   }
 `
 
@@ -44,8 +44,16 @@ const CardContainer = styled.div`
   grid-auto-flow: column;
   grid-auto-columns: 10rem;
 
-  @media screen and (min-width: 650px) {
+  @media screen and (min-width: 650px) and (max-width: 1023px) {
     grid-column: 2;
+    grid-template-columns: repeat(auto-fill, 12.5rem);
+    grid-auto-columns: 12.5rem;
+  }
+
+  @media screen and (min-width: 1024px) {
+    grid-column: 2;
+    grid-template-columns: repeat(auto-fill, 15rem);
+    grid-auto-columns: 15rem;
   }
 `
 
@@ -121,7 +129,14 @@ export const CardSection = ({ productsArray, logo, brand }: CardSectionProps) =>
       {/* Brand Banner */}
       <StyledNavLink 
         to={`/products?brand=${brand.toLowerCase()}&page=1`} 
-        style={{ backgroundImage: `${brand === "Nike" ? `url(${NikeBg})` : brand === "Jordan" ? `url(${JordanBg})` : `url(${YeezyBg})`}` }}
+        style={{ 
+          backgroundImage: 
+            `${brand === "Nike" 
+            ? `url(${NikeBg})` 
+            : brand === "Jordan" 
+            ? `url(${JordanBg})` 
+            : `url(${YeezyBg})`}` 
+        }}
       >
         <DarkContainer>
           <Logo src={logo} />
