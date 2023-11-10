@@ -25,9 +25,13 @@ const DarkContainer = styled.div`
   @media screen and (min-width: 650px) {
     padding: 1.5rem;
   }
+
+  @media screen and (min-width: 1024px) {
+    padding: 2.5rem;
+  }
 `
 
-const IconContainer = styled.div`
+const LabelContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -39,14 +43,7 @@ const IconContainer = styled.div`
 `
 
 const SearchBar = styled.form`
-  background-color: white;
-  display: flex;
-  border-radius: 1.5rem;
-  padding: 0.5rem;
-  border: 1px solid #fff;
   width: 100%;
-  margin: 0 auto;
-  max-width: 47rem;
 `
 
 const Logo = styled.img`
@@ -56,6 +53,10 @@ const Logo = styled.img`
 
   @media screen and (min-width: 650px) {
     height: 5rem;
+  }
+
+  @media screen and (min-width: 1024px) {
+    height: 8rem;
   }
 `
 
@@ -100,6 +101,14 @@ const MenuLabel = styled.p`
 
   @media screen and (min-width: 650px) {
     font-size: 1.25rem;
+    
+    &::after {
+      height: 4px;
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    font-size: 1.5rem;
   }
 `
 
@@ -132,15 +141,24 @@ const AccountLabel = styled(MenuLabel)`
 const StyledInput = styled.input`
   border: 0;
   width: 100%;
+  max-width: 67rem;
+  padding: 0.5rem;
+  border: 1px solid #fff;
+  display: flex;
+  border-radius: 1.5rem;
+  margin: 0 auto;
 
   &:focus {
     outline: none;
   }
+
+  @media screen and (min-width: 650px) {
+    font-size: 1rem;
+    padding: 0.75rem;
+  }
 `
 
 const StyledSpan = styled.span`
-
-
   @media screen and (min-width: 650px) {
     grid-column: 1;
     grid-row: 1;
@@ -170,7 +188,7 @@ export const Header = ({ setMenuIsOpen }: SidebarProps) => {
   return (
     <Container>
       <DarkContainer>
-        <IconContainer>
+        <LabelContainer>
           <Icon src={hamburgerIcon} alt="hamburger icon" data-cy="hamburger-icon" onClick={setMenuIsOpen}/>
           <SearchLabel data-cy="search-button" onClick={() => setSearchIsOpen(prev => !prev)} >Search</SearchLabel>
           <StyledSpan>
@@ -179,7 +197,7 @@ export const Header = ({ setMenuIsOpen }: SidebarProps) => {
           <BrowseLabel onClick={() => navigate("/products")}>Browse</BrowseLabel>
           <CartLabel onClick={() => navigate("/cart")}>Cart</CartLabel>
           <AccountLabel onClick={() => navigate("/profile")}>Account</AccountLabel>
-        </IconContainer>
+        </LabelContainer>
         <SearchBar 
           data-cy="search-bar" 
           style={{ display: `${searchIsOpen ? "block" : "none"}`}} 

@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
 import IGLogo from "../../assets/logo/logo-instagram.svg"
-import TwitterLogo from "../../assets/logo/logo-twitter.svg"
 import TikTokLogo from "../../assets/logo/logo-tiktok.svg"
 import PhoneLogo from "../../assets/logo/logo-phone.svg"
 import EmailLogo from "../../assets/logo/logo-email.svg"
@@ -16,11 +15,11 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   gap: 2rem;
-  margin-top: auto;
 
   @media screen and (min-width: 650px) {
     flex-direction: row;
     padding: 1.5rem;
+    gap: 3rem;
   }
 `
 
@@ -28,6 +27,11 @@ const StyledSection = styled.section`
   display: flex;
   flex-direction: column;
   max-width: 25rem;
+
+  @media screen and (min-width: 650px) {
+    font-size: 1.25rem;
+    gap: 0.5rem;
+  }
 `
 
 const ContactSection = styled(StyledSection)`
@@ -57,6 +61,10 @@ const ContactInfo = styled.p`
   margin-top: 1rem;
   display: flex;
   gap: 0.5rem;
+
+  @media screen and (min-width: 650px) {
+    gap: 1rem;
+  }
 `
 
 const FooterLinks = styled(NavLink)`
@@ -105,10 +113,6 @@ export const Footer = () => {
           <FooterLinks to="https://www.tiktok.com/@aksuppliedsneakers">
             <Logo src={TikTokLogo} />
             TikTok
-          </FooterLinks>
-          <FooterLinks to="">
-            <Logo src={TwitterLogo} />
-            Twitter
           </FooterLinks>
         </SocialSection>
       </Container>

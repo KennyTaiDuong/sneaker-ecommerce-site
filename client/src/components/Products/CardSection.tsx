@@ -28,9 +28,15 @@ const BrandSection = styled.div`
     border: 2px solid #888;
   }
 
-  @media screen and (min-width: 650px) {
+  @media screen and (min-width: 650px) and (max-width: 1023px) {
     display: grid;
     grid-template-columns: 10rem 1fr;
+    gap: 1rem;
+  }
+
+  @media screen and (min-width: 1024px) {
+    display: grid;
+    grid-template-columns: 15rem 1fr;
     gap: 1rem;
   }
 `
@@ -84,6 +90,9 @@ const DarkContainer = styled.div`
 const Logo = styled.img`
   width: 5rem;
 
+  @media screen and (min-width: 1024px) {
+    width: 8rem;
+  }
 `
 
 type CardSectionProps = {
@@ -137,6 +146,13 @@ export const CardSection = ({ productsArray, logo, brand }: CardSectionProps) =>
             ? `url(${JordanBg})` 
             : `url(${YeezyBg})`}` 
         }}
+        id={`${
+          brand === "Nike" 
+          ? "nike" 
+          : brand === "Jordan"
+          ? "jordan"
+          : "yeezy"
+        }`}
       >
         <DarkContainer>
           <Logo src={logo} />
@@ -150,5 +166,3 @@ export const CardSection = ({ productsArray, logo, brand }: CardSectionProps) =>
     </BrandSection>
   )
 }
-
-// 

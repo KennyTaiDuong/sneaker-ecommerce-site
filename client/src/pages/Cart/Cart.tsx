@@ -21,18 +21,30 @@ const ReceiptContainer = styled.div`
   padding: 1rem;
   border-radius: 0.5rem;
   color: rgb(138,134,85);
+
+  @media screen and (min-width: 650px) {
+    padding: 2rem;
+  }
 `
 
-const BrandName = styled.p`
+const CompanyName = styled.p`
   color: rgb(195,71,82);
   font-weight: 700;
   font-size: 2rem;
+
+  @media screen and (min-width: 650px) {
+    font-size: 2.75rem;
+  }
 `
 
 const ReceiptSubtitle = styled.p`
   color: rgb(81,68,54);
   font-weight: 700;
   font-size: 1.25rem;
+
+  @media screen and (min-width: 650px) {
+    font-size: 1.75rem;
+  }
 `
 
 const CartInfoContainer = styled.div`
@@ -48,6 +60,10 @@ const UserCategoryRow = styled.div`
   font-size: 0.625rem;
   display: grid;
   grid-template-columns: 3fr 2fr;
+
+  @media screen and (min-width: 650px) {
+    font-size: 0.875rem;
+  }
 `
 
 const UserInfoRow = styled(UserCategoryRow)`
@@ -59,6 +75,10 @@ const ReceiptRow = styled.div`
   display: grid;
   grid-template-columns: 1.5rem 1fr 2rem 3.25rem 3rem;
   border-top: 1px solid rgb(138,134,85);
+
+  @media screen and (min-width: 650px) {
+    grid-template-columns: 2rem 1fr 2.75rem 5rem 3.5rem;
+  }
 `
 
 const CategoryRow = styled(ReceiptRow)`
@@ -75,6 +95,11 @@ const CategoryLabel = styled.p`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media screen and (min-width: 650px) {
+    font-size: 0.875rem;
+    padding: 0.5rem;
+  }
 `
 
 const ColumnOne = styled(CategoryLabel)`
@@ -113,6 +138,10 @@ const UserColumnTwo = styled(CategoryLabel)`
 const UserFullRow = styled.div`
   padding: 0.25rem;
   border-top: 1px solid rgb(138,134,85);
+
+  @media screen and (min-width: 650px) {
+    padding: 0.5rem;
+  }
 `
 
 const UserInfoText = styled.p`
@@ -251,7 +280,7 @@ export const Cart = () => {
   return (
     <Container>
       <ReceiptContainer>
-        <BrandName>aksupplied</BrandName>
+        <CompanyName>aksupplied</CompanyName>
         <ReceiptSubtitle>Sports Depot</ReceiptSubtitle>
         {/* USER INFO CONTAINER LIKE THE OLD RECEIPT */}
         <UserInfoContainer>

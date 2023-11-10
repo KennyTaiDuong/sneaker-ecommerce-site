@@ -5,9 +5,11 @@ import { useSearchParams } from "react-router-dom";
 
 const ProductsLayoutContainer = styled.div`
   padding: 1rem;
-  margin: 0 auto;
   width: 100%;
-  max-width: 50rem;
+  max-width: 70rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 
   @media screen and (min-width: 650px) {
     padding: 1.5rem;
@@ -17,6 +19,10 @@ const ProductsLayoutContainer = styled.div`
 const Heading = styled.p`
   font-size: 2rem;
   color: rgb(160, 160, 160);
+
+  @media screen and (min-width: 650px) {
+    font-size: 2.5rem;
+  }
 `
 
 const StyledButton = styled.button`
@@ -33,11 +39,17 @@ const StyledButton = styled.button`
     background-color: rgb(238, 238, 238);
     color: white;
   }
+
+  @media screen and (min-width: 650px) {
+    font-size: 1.125rem;
+    width: 78%;
+    margin-left: auto;
+  }
 `
 
 const DropDownContainer = styled.div`
   width: 100%;
-  border: 2px solid black;
+  border: 2px solid (238, 238, 238);
   background-color: white;
   position: absolute;
   top: 48px;
@@ -193,7 +205,7 @@ export const ProductsLayout = () => {
           </DropdownItem>
         </DropDownContainer>
       </StyledButton>
-      <ProductsContext.Provider value={{allProducts}}>
+      <ProductsContext.Provider value={{ allProducts }}>
         <Outlet />
       </ProductsContext.Provider>
     </ProductsLayoutContainer>
