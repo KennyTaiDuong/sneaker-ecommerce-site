@@ -9,33 +9,34 @@ import { CartItemType, UserDataContext } from "../../components/Layout/Layout";
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  min-width: 100%;
-  max-width: 20rem;
-
+  width: 100%;
 `
 
 const PathContainer = styled.div`
   display: flex;
-  align-self: flex-start;
   gap: 0.75rem;
   font-size: 0.75rem;
   padding: 1rem;
+  width: 100%;
 
   @media screen and (min-width: 650px) {
     font-size: 1rem;
     gap: 1rem;
     padding: 1.5rem;
+    max-width: 70rem;
   }
 `
 
 const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
-  min-height: 30rem;
+  min-height: 25.375rem;
 
   @media screen and (min-width: 650px) {
     flex-direction: row;
+    gap: 3rem;
   }
 `
 
@@ -48,7 +49,7 @@ const InfoContainer = styled.div`
 
   @media screen and (min-width: 650px) {
     padding: 1.5rem;
-    max-width: 30rem;
+    max-width: 40rem;
   }
 `
 
@@ -56,18 +57,6 @@ const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-`
-
-const ProductName = styled.p`
-  font-weight: bold;
-
-  @media screen and (min-width: 650px) {
-    font-size: 1.5rem;
-  }
-`
-
-const ProductSku = styled.p`
-  font-size: 0.875rem;
 `
 
 const ProductImage = styled.img`
@@ -78,11 +67,28 @@ const ProductImage = styled.img`
   @media screen and (min-width: 650px) {
     align-self: center;
     padding: 1.5rem;
+    max-width: 30rem;
   }
 `
 
 const ProductPrice = styled.p`
   font-weight: 700;
+`
+
+const ProductName = styled.p`
+  font-weight: bold;
+
+  @media screen and (min-width: 650px) {
+    font-size: 1.5rem;
+  }
+
+  @media screen and (min-width: 1024px) {
+    font-size: 2rem;
+  }
+`
+
+const ProductSku = styled.p`
+  font-size: 0.875rem;
 `
 
 const DropdownContainer = styled.div`

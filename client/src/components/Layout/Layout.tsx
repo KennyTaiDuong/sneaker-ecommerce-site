@@ -13,6 +13,10 @@ const SiteContainer = styled.div`
   flex-direction: column;  
 `
 
+const FooterContainer = styled.div`
+  margin-top: auto;
+`
+
 type UserType = {
   email: string,
   first_name: string,
@@ -172,8 +176,10 @@ export const Layout = () => {
         <Outlet />
       </UserDataContext.Provider>
       
-      <ServiceBanner />
-      <Footer />
+      <FooterContainer>
+        <ServiceBanner />
+        <Footer />
+      </FooterContainer>
     </SiteContainer>
   )
 }
