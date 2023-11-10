@@ -36,7 +36,10 @@ const ContentContainer = styled.div`
 
   @media screen and (min-width: 650px) {
     flex-direction: row;
-    gap: 3rem;
+  }
+
+  @media screen and (min-width: 1024px) {
+    min-height: 28rem;
   }
 `
 
@@ -67,7 +70,8 @@ const ProductImage = styled.img`
   @media screen and (min-width: 650px) {
     align-self: center;
     padding: 1.5rem;
-    max-width: 30rem;
+    width: 50%;
+    max-width: 40rem;
   }
 `
 
@@ -89,6 +93,10 @@ const ProductName = styled.p`
 
 const ProductSku = styled.p`
   font-size: 0.875rem;
+
+  @media screen and (min-width: 650px) {
+    font-size: 1rem;
+  }
 `
 
 const DropdownContainer = styled.div`

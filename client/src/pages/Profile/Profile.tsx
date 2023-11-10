@@ -11,13 +11,15 @@ const ProfileContainer = styled.div`
   padding: 1rem;
   gap: 1rem;
   width: 100%;
-  max-width: 50rem;
+  max-width: 70rem;
   margin: 0 auto;
 
   @media screen and (min-width: 650px) {
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-template-rows: 2rem 6rem 2.5rem 1fr;
+    column-gap: 2rem;
+    padding: 1.5rem;
   }
 `
 
@@ -96,6 +98,10 @@ const InputContainer = styled.div`
 
 const StyledInput = styled.input`
   padding: 0.25rem;
+
+  &:focus {
+    outline: 0;
+  }
 `
 
 const StyledLabel = styled.label`

@@ -27,7 +27,7 @@ const Heading = styled.p`
 
 const StyledButton = styled.button`
   width: 100%;
-  border: 2px solid rgb(238, 238, 238);
+  border: 1px solid rgb(238, 238, 238);
   background-color: white;
   padding: 0.5rem;
   font-weight: 700;
@@ -49,7 +49,8 @@ const StyledButton = styled.button`
 
 const DropDownContainer = styled.div`
   width: 100%;
-  border: 2px solid (238, 238, 238);
+  flex-direction: column;
+  gap: 1rem;
   background-color: white;
   position: absolute;
   top: 48px;
@@ -57,8 +58,9 @@ const DropDownContainer = styled.div`
 `
 
 const DropdownItem = styled.p`
-  border: 1px solid rgb(238, 238, 238);
   padding: 0.5rem 0;
+  border: 2px solid rgb(160, 160, 160);
+  background-color: white;
   cursor: pointer;
 `
 
@@ -174,7 +176,7 @@ export const ProductsLayout = () => {
         }
       </Heading>
       <StyledButton onClick={() => setSortOpen(prev => !prev)} data-cy="sort-btn">Sort By:
-        <DropDownContainer style={{ display: `${sortOpen ? "block" : "none"}`}}>
+        <DropDownContainer style={{ display: `${sortOpen ? "flex" : "none"}`}}>
           <DropdownItem 
             onClick={() => sortData("low")} 
             id={selectedSort === "low" ? "selected" : "not-low"}
