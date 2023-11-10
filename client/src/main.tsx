@@ -10,7 +10,7 @@ const providerConfig = {
   domain: domain,
   clientId: clientId,
   authorizationParams: {
-    redirect_uri: window.location.origin
+    redirect_uri: `${window.location.origin}/profile`
   }
 }
 

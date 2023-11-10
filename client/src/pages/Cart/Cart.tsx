@@ -153,6 +153,11 @@ const RemoveButton = styled.button`
   border: 0;
   font-size: 0.5rem;
   padding: 0;
+  color: rgb(138,134,85);
+
+  @media screen and (min-width: 650px) {
+    font-size: 0.75rem;
+  }
 `
 
 export const Cart = () => {
