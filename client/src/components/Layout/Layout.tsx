@@ -77,7 +77,7 @@ export const Layout = () => {
       // Send post request to http://localhost:5000/api/users and add new user
       const newUser = {
         email: user?.email,
-        phone: 1234567890,
+        phone: "",
         first_name: "",
         last_name: "",
         shipping_info: {}
