@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate } from "react-router";
 import { UserDataContext } from "../../components/Layout/Layout";
+import { ShippingForm } from "../Checkout/ShippingForm";
+import { PaymentForm } from "../Checkout/PaymentForm";
 
 const Container = styled.div`
   padding: 1rem;
@@ -109,6 +111,7 @@ const ColumnOne = styled(CategoryLabel)`
 const ColumnTwo = styled(CategoryLabel)`
   grid-column: 2;
   justify-content: space-between;
+  gap: 0.25rem;
 `
 
 const ColumnThree = styled(CategoryLabel)`
@@ -160,42 +163,54 @@ const RemoveButton = styled.button`
   }
 `
 
+const CheckoutButton = styled.button`
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background: rgb(195,71,82);
+  border: 0;
+  border-radius: 0.5rem;
+  color: white;
+  
+`
+
 export const Cart = () => {
   const { isLoading, isAuthenticated, user } = useAuth0() 
-  const {currentCart, currentUser, setCurrentCart} = useContext(UserDataContext)
   const navigate = useNavigate()
-
-  const [totalPrice, setTotalPrice] = useState(0)
-  const [totalQuantity, setTotalQuantity] = useState(0)
+  
+  const {currentCart, currentUser, setCurrentCart} = useContext(UserDataContext)
+  const [totalPrice, setTotalPrice] = useState<number>(0)
+  const [totalQuantity, setTotalQuantity] = useState<number>(0)
+  const [useShippingInfo, setUseShippingInfo] = useState(false)
 
   const date = new Date().toLocaleDateString()
 
   useEffect(() => {
     
-  function getTotalPrice() {
+    function getTotalPrice() {
 
-    let total = 0
-    
-    currentCart?.products?.forEach((item) => {
-      total += item.price
-    })
+      let total = 0
+      
+      currentCart?.products?.forEach((item) => {
+        total += item.price
+      })
 
-    setTotalPrice(total)
-  }
+      setTotalPrice(total)
+    }
 
-  function getTotalQuantity() {
-    
-    let total = 0
+    function getTotalQuantity() {
+      
+      let total = 0
 
-    currentCart?.products?.forEach((item) => {
-      total += parseInt(item.quantity)
-    })
+      currentCart?.products?.forEach((item) => {
+        total += parseInt(item.quantity)
+      })
 
-    setTotalQuantity(total)
-  }
+      setTotalQuantity(total)
+    }
 
-  getTotalPrice()
-  getTotalQuantity()
+    getTotalPrice()
+    getTotalQuantity()
 
   }, [currentCart])
 
@@ -231,6 +246,10 @@ export const Cart = () => {
     } catch (error) {
       console.error(error)
     }
+  }
+
+  function handleCheckoutButton() {
+    
   }
 
   const itemsElements = currentCart?.products?.map((item, index) => {
@@ -352,6 +371,9 @@ export const Cart = () => {
           </TotalRow>
         </CartInfoContainer>
       </ReceiptContainer>
+      <CheckoutButton onClick={() => handleCheckoutButton()}>Continue to checkout</CheckoutButton>
+      <ShippingForm />
+      <PaymentForm setUseShippingInfo={setUseShippingInfo} useShippingInfo={useShippingInfo} />
     </Container>
   )
 }
