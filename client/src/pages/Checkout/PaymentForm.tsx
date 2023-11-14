@@ -20,8 +20,12 @@ const StyledButton = styled.button`
   padding: 0.5rem;
   border-radius: 0.25rem;
   border: 0;
-  background: #2db105;
+  background: rgb(195,71,82);
   color: white;
+`
+
+const StatusMessage = styled.p`
+
 `
 
 type Props = {
@@ -29,7 +33,7 @@ type Props = {
 }
 
 export const PaymentForm = ({ setCartStep }: Props) => {
-  const [message, setMessage] = useState("")
+  const [message, setMessage] = useState<string | undefined>("")
   const [isProcessing, setIsProcessing] = useState(false)
 
   const stripe = useStripe()
@@ -44,12 +48,25 @@ export const PaymentForm = ({ setCartStep }: Props) => {
 
     setIsProcessing(true)
 
-    const { error } = await stripe.confirmPayment({
+    const { error, paymentIntent } = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        return_url: `${window.location.origin}/completion`
-      }
+        return_url: `${window.location.origin}/completion`,
+        receipt_email: "kennyduong537@gmail.com"
+      },
+      redirect: "if_required"
     })
+
+    console.log(paymentIntent)
+
+    if (error) {
+      setMessage(error?.message)
+    } else if (paymentIntent && paymentIntent.status === 'succeeded') {
+      setMessage(`Payment status: ${paymentIntent.status}`)
+      setIsProcessing(false)
+    } else {
+      setMessage("Unexpected error")
+    }
   }
 
   return (
@@ -58,6 +75,7 @@ export const PaymentForm = ({ setCartStep }: Props) => {
         <PaymentElement />
         <StyledButton onClick={() => setCartStep(2)}>Go Back</StyledButton>
         <StyledButton disabled={isProcessing}>{isProcessing ? "Processing..." : "Pay Now"}</StyledButton>
+        {message && <StatusMessage>{message}</StatusMessage>}
       </Form>
     </Container>
   )

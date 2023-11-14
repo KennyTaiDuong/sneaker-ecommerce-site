@@ -4,8 +4,7 @@ import { UserDataContext } from "../../components/Layout/Layout";
 
 const Container = styled.div`
   padding: 1rem;
-  background: rgb(195,71,82);
-  color: white;
+  background: rgb(255, 255, 255);
   border-radius: 0.5rem;
   margin-top: 1rem;
   display: flex;
@@ -32,9 +31,10 @@ const Form = styled.form`
 `
 
 const TextInput = styled.input`
-  border: 0;
-  border-radius: 1rem;
-  padding: 0.25rem 0.5rem;
+  border: 1px solid #e6e6e6;
+  border-radius: 0.25rem;
+  padding: 0.75rem;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.03), 0px 3px 6px rgba(0, 0, 0, 0.02);
 
   &:focus {
     outline: 0;
@@ -52,7 +52,8 @@ const ButtonContainer = styled.div`
 `
 
 const StyledButton = styled.button`
-  background: white;
+  background: rgb(195,71,82);
+  color: white;
   padding: 0.5rem;
   border: 0;
   border-radius: 0.5rem;
@@ -135,6 +136,8 @@ export const ShippingForm = ({ setCartStep }: Props) => {
             id="phone"
             value={phoneNumber}
             onChange={(e) => setPhoneNumber(e.target.value)}
+            placeholder="10-digit number"
+            maxLength={10}
           />
         </InputLabel>
         <Heading>Shipping Information</Heading>
@@ -163,6 +166,7 @@ export const ShippingForm = ({ setCartStep }: Props) => {
             id="state"
             value={state}
             onChange={(e) => setState(e.target.value)}
+            placeholder="2-letter state"
           />
         </InputLabel>
         <InputLabel htmlFor="zip">
@@ -172,6 +176,7 @@ export const ShippingForm = ({ setCartStep }: Props) => {
             id="zip"
             value={zip}
             onChange={(e) => setZip(e.target.value)}
+            placeholder="5-digit ZIP"
           />
         </InputLabel>
       </Form>
