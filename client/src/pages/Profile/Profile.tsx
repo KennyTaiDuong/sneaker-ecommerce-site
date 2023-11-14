@@ -117,10 +117,6 @@ const FormButton = styled.button`
   border: 3px solid rgb(0, 141, 7);
 `
 
-const ExampleText = styled.span`
-  color: rgb(187, 187, 187);
-`
-
 export const Profile = () => {
   const { isLoading, isAuthenticated, user } = useAuth0();
   const { currentUser, setCurrentUser } = useContext(UserDataContext)
@@ -242,14 +238,13 @@ export const Profile = () => {
                 htmlFor="phone"
               >
                 Phone Number 
-                <ExampleText> (ex. 1234567890)</ExampleText>
               </StyledLabel>
               <StyledInput 
                 required 
                 autoComplete="phone" 
                 type="number" 
                 id="phone" 
-                placeholder="Enter phone number" 
+                placeholder="ex. 1234567890" 
                 onChange={(e) => {setPhoneNumber(e.target.value)}}
                 value={phoneNumber ? phoneNumber : ""}
                 pattern="[0-9]{3}[0-9]{3}[0-9]{4}"
@@ -299,9 +294,10 @@ export const Profile = () => {
                 required 
                 type="text" 
                 id="state" 
-                placeholder="Enter state" 
+                placeholder="2-letter State" 
                 onChange={(e) => {setState(e.target.value)}}
                 value={state ? state : ""}
+                maxLength={2}
               />
             </InputContainer>
             <InputContainer>
@@ -314,7 +310,7 @@ export const Profile = () => {
                 required 
                 type="number" 
                 id="zip" 
-                placeholder="Enter ZIP"
+                placeholder="5-digit ZIP"
                 onChange={(e) => {setZip(e.target.value)}} 
                 value={zip ? zip : ""}
                 pattern="[0-9]{5}"

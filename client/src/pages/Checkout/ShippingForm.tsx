@@ -58,7 +58,11 @@ const StyledButton = styled.button`
   border-radius: 0.5rem;
 `
 
-export const ShippingForm = () => {
+type Props = {
+  setCartStep: React.Dispatch<React.SetStateAction<number>>
+}
+
+export const ShippingForm = ({ setCartStep }: Props) => {
   const { currentUser } = useContext(UserDataContext)
 
   const [firstName, setFirstName] = useState<string>("")
@@ -81,8 +85,7 @@ export const ShippingForm = () => {
           currentUser?.shipping_info?.street_name 
           ? currentUser?.shipping_info?.street_name 
           : ""
-        }
-      `
+        }`
       setFirstName(currentUser?.first_name)
       setLastName(currentUser?.last_name)
       setPhoneNumber(currentUser?.phone)
@@ -173,8 +176,9 @@ export const ShippingForm = () => {
         </InputLabel>
       </Form>
       <ButtonContainer>
+        <StyledButton onClick={() => setCartStep(1)}>Go Back</StyledButton>
         <StyledButton onClick={() => clearForm()}>Clear Form</StyledButton>
-        <StyledButton onClick={() => {}}>Continue to Payment</StyledButton>
+        <StyledButton onClick={() => setCartStep(3)}>Continue to Payment</StyledButton>
       </ButtonContainer>
     </Container>
   )

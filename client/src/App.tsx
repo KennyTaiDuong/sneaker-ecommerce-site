@@ -8,6 +8,7 @@ import { ProductDetail } from "./pages/Product/ProductDetail";
 import { ProductsLayout } from "./components/Layout/ProductsLayout";
 import { Profile } from "./pages/Profile/Profile";
 import { Cart } from "./pages/Cart/Cart";
+import { Completion } from "./pages/Checkout/Completion";
 
 function App() {
   
@@ -24,6 +25,7 @@ function App() {
           <Route path="products/:id" element={<ProductDetail />} />
           <Route path="profile" element={<Profile />} />
           <Route path="cart" element={<Cart />} />
+          <Route path="completion" element={<Completion />} />
         </Route>
       </Routes>
     </BrowserRouter>

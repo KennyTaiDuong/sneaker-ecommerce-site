@@ -2362,6 +2362,24 @@
     "f": {},
     "b": {}
   },
+  "D:/dev/sneaker-ecommerce-site/client/src/pages/Checkout/PaymentForm.tsx": {
+    "path": "D:/dev/sneaker-ecommerce-site/client/src/pages/Checkout/PaymentForm.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "D:/dev/sneaker-ecommerce-site/client/src/pages/Checkout/ShippingForm.tsx": {
+    "path": "D:/dev/sneaker-ecommerce-site/client/src/pages/Checkout/ShippingForm.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
   "D:/dev/sneaker-ecommerce-site/client/src/pages/Product/ProductDetail.tsx": {
     "path": "D:/dev/sneaker-ecommerce-site/client/src/pages/Product/ProductDetail.tsx",
     "statementMap": {},
