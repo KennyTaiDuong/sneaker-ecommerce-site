@@ -5,6 +5,8 @@ import { useNavigate } from "react-router";
 import { UserDataContext } from "../../components/Layout/Layout";
 import { ShippingForm } from "../Checkout/ShippingForm";
 import { PaymentForm } from "../Checkout/PaymentForm";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 
 const Container = styled.div`
   padding: 1rem;
@@ -181,9 +183,46 @@ export const Cart = () => {
   const {currentCart, currentUser, setCurrentCart} = useContext(UserDataContext)
   const [totalPrice, setTotalPrice] = useState<number>(0)
   const [totalQuantity, setTotalQuantity] = useState<number>(0)
-  const [useShippingInfo, setUseShippingInfo] = useState(false)
+  const [stripePromise, setStripePromise] = useState<any>();
+  const [clientSecret, setClientSecret] = useState("");
+  const [cartStep, setCartStep] = useState(1)
 
   const date = new Date().toLocaleDateString()
+
+  useEffect(() => {
+    async function fetchStripePromise() {
+      try {
+        const res = await fetch(`http://localhost:5000/stripe/config`)
+  
+        const { publishableKey } = await res.json()
+  
+        setStripePromise(loadStripe(publishableKey))
+      } catch (error) {
+        console.error(error)
+      }
+    }
+
+    fetchStripePromise()
+  }, [])
+
+  useEffect(() => {
+    async function fetchClientSecret() {
+      try {
+        const res = await fetch(`http://localhost:5000/stripe/create-payment-intent`, {
+          method: "POST",
+          body: JSON.stringify({}),
+        })
+
+        const data = await res.json()
+
+        setClientSecret(data.clientSecret)
+      } catch (error) {
+        console.error(error)
+      }
+    }
+
+    fetchClientSecret()
+  }, [])
 
   useEffect(() => {
     
@@ -249,7 +288,7 @@ export const Cart = () => {
   }
 
   function handleCheckoutButton() {
-    
+    setCartStep(2)
   }
 
   const itemsElements = currentCart?.products?.map((item, index) => {
@@ -303,77 +342,94 @@ export const Cart = () => {
 
   return (
     <Container>
-      <ReceiptContainer>
-        <CompanyName>aksupplied</CompanyName>
-        <ReceiptSubtitle>Sports Depot</ReceiptSubtitle>
-        {/* USER INFO CONTAINER LIKE THE OLD RECEIPT */}
-        <UserInfoContainer>
-          <UserCategoryRow>
-            <UserColumnOne>Customer Email: {user?.email}</UserColumnOne>
-            <UserColumnTwo>
-              Date
-              <span>{`${date}`}</span>
-            </UserColumnTwo>
-          </UserCategoryRow>
-          <UserInfoRow>
-            <UserFullRow>
-              Name
-              <UserInfoText>
-                {
-                  currentUser?.first_name
-                  ? `${currentUser?.first_name} ${currentUser?.last_name}`
-                  : " "
-                }
-              </UserInfoText>
-            </UserFullRow>
-          </UserInfoRow>
-          <UserInfoRow>
-            <UserFullRow>
-              Address
-              <UserInfoText>
-                {
-                  currentUser?.shipping_info?.street_number 
-                  ? `${currentUser?.shipping_info?.street_number} ${currentUser?.shipping_info?.street_name}` 
-                  : ""
-                }
-              </UserInfoText>
-            </UserFullRow>
-          </UserInfoRow>
-          <UserInfoRow>
-            <UserFullRow>
-              City, STATE, ZIP
-              <UserInfoText>
-                {
-                  currentUser?.shipping_info?.city
-                  ? `${currentUser?.shipping_info?.city}, ${currentUser?.shipping_info?.state.trimEnd()}, ${currentUser?.shipping_info?.zip}`
-                  : ""
-                }
-              </UserInfoText>
-            </UserFullRow>
-          </UserInfoRow>
-        </UserInfoContainer>
-        <CartInfoContainer>
-          {/* Category labels for receipt */}
-          <CategoryRow>
-            <ColumnOne></ColumnOne>
-            <ColumnTwo>Items</ColumnTwo>
-            <ColumnThree>Size</ColumnThree>
-            <ColumnFour>Quantity</ColumnFour>
-            <ColumnFive>Price</ColumnFive>
-          </CategoryRow>
-          {itemsElements?.length === 0 ? <EmptyItems /> : itemsElements }
-          <TotalRow>
-            <ColumnOne></ColumnOne>
-            <ColumnTwo>Total</ColumnTwo>
-            <ColumnThree></ColumnThree>
-            <ColumnFour>{totalQuantity}</ColumnFour>
-            <ColumnFive>${totalPrice}</ColumnFive>
-          </TotalRow>
-        </CartInfoContainer>
-      </ReceiptContainer>
-      <CheckoutButton onClick={() => handleCheckoutButton()}>Continue to checkout</CheckoutButton>
-      <ShippingForm />
-      <PaymentForm setUseShippingInfo={setUseShippingInfo} useShippingInfo={useShippingInfo} />
+      {cartStep === 1 && (
+        <>
+          <ReceiptContainer>
+            <CompanyName>aksupplied</CompanyName>
+            <ReceiptSubtitle>Sports Depot</ReceiptSubtitle>
+            {/* USER INFO CONTAINER LIKE THE OLD RECEIPT */}
+            <UserInfoContainer>
+              <UserCategoryRow>
+                <UserColumnOne>Customer Email: {user?.email}</UserColumnOne>
+                <UserColumnTwo>
+                  Date
+                  <span>{`${date}`}</span>
+                </UserColumnTwo>
+              </UserCategoryRow>
+              <UserInfoRow>
+                <UserFullRow>
+                  Name
+                  <UserInfoText>
+                    {
+                      currentUser?.first_name
+                      ? `${currentUser?.first_name} ${currentUser?.last_name}`
+                      : " "
+                    }
+                  </UserInfoText>
+                </UserFullRow>
+              </UserInfoRow>
+              <UserInfoRow>
+                <UserFullRow>
+                  Address
+                  <UserInfoText>
+                    {
+                      currentUser?.shipping_info?.street_number 
+                      ? `${currentUser?.shipping_info?.street_number} ${currentUser?.shipping_info?.street_name}` 
+                      : ""
+                    }
+                  </UserInfoText>
+                </UserFullRow>
+              </UserInfoRow>
+              <UserInfoRow>
+                <UserFullRow>
+                  City, STATE, ZIP
+                  <UserInfoText>
+                    {
+                      currentUser?.shipping_info?.city
+                      ? `${currentUser?.shipping_info?.city}, ${currentUser?.shipping_info?.state.trimEnd()}, ${currentUser?.shipping_info?.zip}`
+                      : ""
+                    }
+                  </UserInfoText>
+                </UserFullRow>
+              </UserInfoRow>
+            </UserInfoContainer>
+            <CartInfoContainer>
+              {/* Category labels for receipt */}
+              <CategoryRow>
+                <ColumnOne></ColumnOne>
+                <ColumnTwo>Items</ColumnTwo>
+                <ColumnThree>Size</ColumnThree>
+                <ColumnFour>Quantity</ColumnFour>
+                <ColumnFive>Price</ColumnFive>
+              </CategoryRow>
+              {itemsElements?.length === 0 ? <EmptyItems /> : itemsElements }
+              <TotalRow>
+                <ColumnOne></ColumnOne>
+                <ColumnTwo>Total</ColumnTwo>
+                <ColumnThree></ColumnThree>
+                <ColumnFour>{totalQuantity}</ColumnFour>
+                <ColumnFive>${totalPrice}</ColumnFive>
+              </TotalRow>
+            </CartInfoContainer>
+          </ReceiptContainer>
+          <CheckoutButton 
+            onClick={() => handleCheckoutButton()} 
+            disabled={currentCart?.products?.length === 0} 
+          >
+            Continue to checkout
+          </CheckoutButton>
+        </>
+      )}
+
+      { cartStep === 2 && <ShippingForm  setCartStep={setCartStep} /> }
+
+      {
+        stripePromise && clientSecret && cartStep === 3 && (
+          <Elements stripe={stripePromise} options={{ clientSecret }}>
+            <PaymentForm setCartStep={setCartStep} />
+          </Elements>
+        )
+      }
     </Container>
   )
 }

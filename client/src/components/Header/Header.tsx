@@ -121,7 +121,7 @@ const SearchLabel = styled(MenuLabel)`
   grid-column: 2;
 `
 
-const BrowseLabel = styled(MenuLabel)`
+const ShopLabel = styled(MenuLabel)`
   grid-column: 3;
   display: none;
 
@@ -194,7 +194,7 @@ export const Header = ({ setMenuIsOpen }: SidebarProps) => {
           <StyledSpan>
             <StyledNavLink to="/"><Logo src={logo} alt="aksupplied logo" /></StyledNavLink>
           </StyledSpan>
-          <BrowseLabel onClick={() => navigate("/products")}>Browse</BrowseLabel>
+          <ShopLabel onClick={() => navigate("/products")}>Shop</ShopLabel>
           <CartLabel onClick={() => navigate("/cart")}>Cart</CartLabel>
           <AccountLabel onClick={() => navigate("/profile")}>Account</AccountLabel>
         </LabelContainer>

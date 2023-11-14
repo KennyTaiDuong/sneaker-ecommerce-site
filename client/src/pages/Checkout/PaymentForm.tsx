@@ -1,16 +1,14 @@
+import { PaymentElement, useElements, useStripe } from "@stripe/react-stripe-js";
+import { Dispatch, FormEvent, SetStateAction, useState } from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
   margin-top: 1rem;
 `
 
-const Heading = styled.p`
-
-`
-
 const Form = styled.form`
   padding: 1rem;
-  background: #888;
+  background: #fff;
   border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
@@ -18,103 +16,48 @@ const Form = styled.form`
   color: white;
 `
 
-const InputLabel = styled.label`
-  display: flex;
-  flex-direction: column;
-
-  
-`
-
-const TextInput = styled.input`
-  padding: 0.25rem;
-  border-radius: 1rem;
+const StyledButton = styled.button`
+  padding: 0.5rem;
+  border-radius: 0.25rem;
   border: 0;
-
-  &:focus {
-    outline: 0;
-  }
-`
-
-const CheckBox = styled.input`
-
-`
-const CheckboxLabel = styled.label`
-  display: flex;
-  gap: 0.5rem;
+  background: #2db105;
+  color: white;
 `
 
 type Props = {
-  useShippingInfo: boolean,
-  setUseShippingInfo: React.Dispatch<React.SetStateAction<boolean>>
+  setCartStep: Dispatch<SetStateAction<number>>
 }
 
-export const PaymentForm = ({ useShippingInfo, setUseShippingInfo }: Props) => {
+export const PaymentForm = ({ setCartStep }: Props) => {
+  const [message, setMessage] = useState("")
+  const [isProcessing, setIsProcessing] = useState(false)
 
-  if (useShippingInfo) {
-    
+  const stripe = useStripe()
+  const elements = useElements()
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+
+    if (!stripe || !elements) {
+      return;
+    }
+
+    setIsProcessing(true)
+
+    const { error } = await stripe.confirmPayment({
+      elements,
+      confirmParams: {
+        return_url: `${window.location.origin}/completion`
+      }
+    })
   }
 
   return (
     <Container>
-      <Form>
-        <InputLabel htmlFor="first_name">
-          First Name
-          <TextInput 
-            type="text"
-            id="first_name"
-          />
-        </InputLabel>
-        <InputLabel htmlFor="last_name">
-          Last Name
-          <TextInput 
-            type="text"
-            id="last_name"
-          />
-        </InputLabel>
-        <InputLabel htmlFor="phone">
-          Phone Number
-          <TextInput 
-            type="text"
-            id="phone"
-          />
-        </InputLabel>
-        <Heading>Billing Address</Heading>
-        <InputLabel htmlFor="street_address">
-          Street Address
-          <TextInput 
-            type="text"
-            id="street_address"
-          />
-        </InputLabel>
-        <InputLabel htmlFor="city">
-          City
-          <TextInput 
-            type="text"
-            id="city"
-          />
-        </InputLabel>
-        <InputLabel htmlFor="state">
-          State
-          <TextInput 
-            type="text"
-            id="state"
-          />
-        </InputLabel>
-        <InputLabel htmlFor="zip">
-          ZIP
-          <TextInput 
-            type="text"
-            id="zip"
-          />
-        </InputLabel>
-        <CheckboxLabel htmlFor="check">
-          Billing same as shipping?
-          <CheckBox 
-            type="checkbox"
-            id="check"
-            onChange={() => setUseShippingInfo(prev => !prev)}
-          />
-        </CheckboxLabel>
+      <Form onSubmit={(event) => handleSubmit(event)}>
+        <PaymentElement />
+        <StyledButton onClick={() => setCartStep(2)}>Go Back</StyledButton>
+        <StyledButton disabled={isProcessing}>{isProcessing ? "Processing..." : "Pay Now"}</StyledButton>
       </Form>
     </Container>
   )
