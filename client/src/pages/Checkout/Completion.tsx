@@ -11,7 +11,7 @@ const Heading = styled.p`
 export const Completion = () => {
   return (
     <Container>
-      Completion
+      <Heading>Thank you for your order!</Heading>
     </Container>
   )
 }

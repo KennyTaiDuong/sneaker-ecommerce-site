@@ -207,10 +207,12 @@ export const Cart = () => {
 
   useEffect(() => {
     async function fetchClientSecret() {
+
       try {
         const res = await fetch(`http://localhost:5000/stripe/create-payment-intent`, {
           method: "POST",
-          body: JSON.stringify({}),
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ items: currentCart?.products }),
         })
 
         const data = await res.json()
@@ -222,7 +224,7 @@ export const Cart = () => {
     }
 
     fetchClientSecret()
-  }, [])
+  }, [currentCart])
 
   useEffect(() => {
     

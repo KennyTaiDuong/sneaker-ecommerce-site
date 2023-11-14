@@ -72,17 +72,17 @@ export const Products = () => {
   }).filter((product) => product)
     
   const ProductCards = foundProducts?.map((value: Product, index: number) => {
-      // Renders the products that match the search queries
-      const {name, price, images, sku} = value
-      
-      const itemsPerPage = 12
-      const upperIndexLimit = parseInt(page) * itemsPerPage
-      const lowerIndexLimit = (parseInt(page) - 1) * itemsPerPage
-      
-      // only renders 12 items per page
-      if (index < upperIndexLimit && index >= lowerIndexLimit) {
-        return <Card name={name} price={price} image={images} sku={sku} key={index}/>
-      }
+    // Renders the products that match the search queries
+    const {name, price, images, sku} = value
+    
+    const itemsPerPage = 12
+    const upperIndexLimit = parseInt(page) * itemsPerPage
+    const lowerIndexLimit = (parseInt(page) - 1) * itemsPerPage
+    
+    // only renders 12 items per page
+    if (index < upperIndexLimit && index >= lowerIndexLimit) {
+      return <Card name={name} price={price} image={images} sku={sku} key={index}/>
+    }
   })
 
   return (
