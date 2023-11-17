@@ -213,6 +213,7 @@ export const ProductDetail = () => {
 
           return {
             ...shoe,
+            price: (parseInt(shoe.quantity) + 1) * price,
             quantity: `${parseInt(shoe.quantity) + 1}`
           }
         } else {

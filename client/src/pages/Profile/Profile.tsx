@@ -129,8 +129,6 @@ export const Profile = () => {
   const [state, setState] = useState("")
   const [zip, setZip] = useState("")
 
-
-
   function handleFormSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
 

@@ -8,7 +8,7 @@ import { ProductDetail } from "./pages/Product/ProductDetail";
 import { ProductsLayout } from "./components/Layout/ProductsLayout";
 import { Profile } from "./pages/Profile/Profile";
 import { Cart } from "./pages/Cart/Cart";
-import { Completion } from "./pages/Checkout/Completion";
+import { Completion } from "./components/Checkout/Completion";
 
 function App() {
   
