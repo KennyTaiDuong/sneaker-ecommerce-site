@@ -1,10 +1,10 @@
-import { FormEvent, useContext, useEffect, useState } from "react";
+import { MouseEvent, useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate } from "react-router";
-import { UserDataContext } from "../../components/Layout/Layout";
+import { CartItemType, UserDataContext } from "../../components/Layout/Layout";
 import { ShippingForm } from "../../components/Checkout/ShippingForm";
-import { PaymentForm } from "../../components/Checkout/PaymentForm";
+import { PaymentForm } from "../../components/Checkout/PaymentForm"
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 
@@ -74,7 +74,7 @@ const UserInfoRow = styled(UserCategoryRow)`
   grid-template-columns: 1fr;
 `
 
-const ReceiptRow = styled.form`
+const ReceiptRow = styled.div`
   font-size: 0.625rem;
   display: grid;
   grid-template-columns: 1.5rem 1fr 2rem 3.25rem 3rem;
@@ -122,13 +122,6 @@ const ColumnThree = styled(CategoryLabel)`
 
 const ColumnFour = styled(CategoryLabel)`
   grid-column: 4;
-`
-
-const QuantityInput = styled.input`
-  width: 100%;
-  text-align: center;
-  background-color: transparent;
-  border: none;
 `
 
 const ColumnFive = styled(CategoryLabel)`
@@ -180,7 +173,14 @@ const CheckoutButton = styled.button`
   border: 0;
   border-radius: 0.5rem;
   color: white;
-  
+`
+
+const QuantityButton = styled.button`
+  background: transparent;
+  border: none;
+  margin: 0 0.5rem;
+  text-align: center;
+  color: rgb(138,134,85);
 `
 
 export const Cart = () => {
@@ -248,7 +248,7 @@ export const Cart = () => {
       let total = 0
       
       currentCart?.products?.forEach((item) => {
-        total += item.price
+        total += item.price * parseInt(item.quantity)
       })
 
       setTotalPrice(total)
@@ -292,6 +292,69 @@ export const Cart = () => {
     }
   }
 
+  function increaseQuantity(e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) {
+    const { target } = e
+
+    const cartItemSize = (target as HTMLButtonElement).id.split("#")[0]
+    const cartItemSku = (target as HTMLButtonElement).id.split("#")[1]
+
+    const newCart = currentCart?.products?.map((shoe) => {
+
+      if (shoe.sku === cartItemSku && shoe.size === cartItemSize) {
+        
+        return {
+          ...shoe,
+          quantity: `${parseInt(shoe.quantity) + 1}`
+        }
+      } else {
+        return shoe
+      }
+    })
+
+    updateCart(newCart)
+  }
+
+  function decreaseQuantity(e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) {
+    const { target } = e
+
+    const cartItemSize = (target as HTMLButtonElement).id.split("#")[0]
+    const cartItemSku = (target as HTMLButtonElement).id.split("#")[1]
+
+    const newCart = currentCart?.products?.map((shoe) => {
+
+      if (shoe.sku === cartItemSku && shoe.size === cartItemSize) {
+
+        // prevents number going below 1
+        const quantity = Math.max(parseInt(shoe.quantity) - 1, 1)
+      
+        return {
+          ...shoe,
+          quantity: `${quantity}`
+        }
+      } else {
+        return shoe
+      }
+    })
+
+    updateCart(newCart)
+  }
+
+  async function updateCart(cart: CartItemType[] | undefined) {
+    try {
+      await fetch(`http://localhost:5000/api/carts/${currentUser?.id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          products: cart,
+        })
+      })
+
+      fetchCart()
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
   async function fetchCart() {
     try {
       const res = await fetch(`http://localhost:5000/api/carts/${currentUser?.id}`)
@@ -304,36 +367,34 @@ export const Cart = () => {
     }
   }
 
-  function handleFormChange(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault()
-    
-    console.log("form changed")
-  }
-
   function handleCheckoutButton() {
     setCartStep(2)
   }
 
   const itemsElements = currentCart?.products?.map((item, index) => {
-    const { name, price, quantity, size } = item
+    const { name, price, quantity, size, sku } = item
 
     return (
-      <ReceiptRow key={index} onChange={(e) => handleFormChange(e)}>
+      <ReceiptRow key={index}>
         <ColumnOne>{index + 1}</ColumnOne>
         <ColumnTwo>
           {name}
           <RemoveButton onClick={() => RemoveItem(index)}>x</RemoveButton>
         </ColumnTwo>
         <ColumnThree>{size}</ColumnThree>
-        <ColumnFour><QuantityInput type="number" defaultValue={quantity}/></ColumnFour>
-        <ColumnFive>${price}</ColumnFive>
+        <ColumnFour>
+          <QuantityButton id={`${size}#${sku}`} onClick={(e) => decreaseQuantity(e)}>-</QuantityButton>
+          {quantity}
+          <QuantityButton id={`${size}#${sku}`} onClick={(e) => increaseQuantity(e)}>+</QuantityButton>
+        </ColumnFour>
+        <ColumnFive>${parseInt(quantity) * price}</ColumnFive>
       </ReceiptRow>
     )
   })
 
   const EmptyItems = () => {
     return (
-      <ReceiptRow onSubmit={(e) => e.preventDefault()}>
+      <ReceiptRow>
         <ColumnOne>1</ColumnOne>
         <ColumnTwo></ColumnTwo>
         <ColumnThree></ColumnThree>
@@ -418,7 +479,7 @@ export const Cart = () => {
             </UserInfoContainer>
             <CartInfoContainer>
               {/* Category labels for receipt */}
-              <CategoryRow onSubmit={(e) => e.preventDefault()}>
+              <CategoryRow>
                 <ColumnOne></ColumnOne>
                 <ColumnTwo>Items</ColumnTwo>
                 <ColumnThree>Size</ColumnThree>
@@ -426,7 +487,7 @@ export const Cart = () => {
                 <ColumnFive>Price</ColumnFive>
               </CategoryRow>
               {itemsElements?.length === 0 ? <EmptyItems /> : itemsElements }
-              <TotalRow onSubmit={(e) => e.preventDefault()}>
+              <TotalRow>
                 <ColumnOne></ColumnOne>
                 <ColumnTwo>Total</ColumnTwo>
                 <ColumnThree></ColumnThree>
