@@ -1,10 +1,10 @@
-import { useContext, useEffect, useState } from "react";
+import { FormEvent, useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate } from "react-router";
 import { UserDataContext } from "../../components/Layout/Layout";
-import { ShippingForm } from "../Checkout/ShippingForm";
-import { PaymentForm } from "../Checkout/PaymentForm";
+import { ShippingForm } from "../../components/Checkout/ShippingForm";
+import { PaymentForm } from "../../components/Checkout/PaymentForm";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 
@@ -74,7 +74,7 @@ const UserInfoRow = styled(UserCategoryRow)`
   grid-template-columns: 1fr;
 `
 
-const ReceiptRow = styled.div`
+const ReceiptRow = styled.form`
   font-size: 0.625rem;
   display: grid;
   grid-template-columns: 1.5rem 1fr 2rem 3.25rem 3rem;
@@ -122,6 +122,13 @@ const ColumnThree = styled(CategoryLabel)`
 
 const ColumnFour = styled(CategoryLabel)`
   grid-column: 4;
+`
+
+const QuantityInput = styled.input`
+  width: 100%;
+  text-align: center;
+  background-color: transparent;
+  border: none;
 `
 
 const ColumnFive = styled(CategoryLabel)`
@@ -186,6 +193,13 @@ export const Cart = () => {
   const [stripePromise, setStripePromise] = useState<any>();
   const [clientSecret, setClientSecret] = useState("");
   const [cartStep, setCartStep] = useState(1)
+  const [shippingInfo, setShippingInfo] = useState({
+    street_number: "",
+    street_name: "",
+    city: "",
+    state: "",
+    zip: ""
+  })
 
   const date = new Date().toLocaleDateString()
 
@@ -207,7 +221,6 @@ export const Cart = () => {
 
   useEffect(() => {
     async function fetchClientSecret() {
-
       try {
         const res = await fetch(`http://localhost:5000/stripe/create-payment-intent`, {
           method: "POST",
@@ -223,7 +236,9 @@ export const Cart = () => {
       }
     }
 
-    fetchClientSecret()
+    if (stripePromise && currentCart?.products?.length != 0) {
+      fetchClientSecret()
+    }
   }, [currentCart])
 
   useEffect(() => {
@@ -289,6 +304,12 @@ export const Cart = () => {
     }
   }
 
+  function handleFormChange(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    
+    console.log("form changed")
+  }
+
   function handleCheckoutButton() {
     setCartStep(2)
   }
@@ -297,14 +318,14 @@ export const Cart = () => {
     const { name, price, quantity, size } = item
 
     return (
-      <ReceiptRow key={index}>
+      <ReceiptRow key={index} onChange={(e) => handleFormChange(e)}>
         <ColumnOne>{index + 1}</ColumnOne>
         <ColumnTwo>
           {name}
           <RemoveButton onClick={() => RemoveItem(index)}>x</RemoveButton>
         </ColumnTwo>
         <ColumnThree>{size}</ColumnThree>
-        <ColumnFour>{quantity}</ColumnFour>
+        <ColumnFour><QuantityInput type="number" defaultValue={quantity}/></ColumnFour>
         <ColumnFive>${price}</ColumnFive>
       </ReceiptRow>
     )
@@ -312,7 +333,7 @@ export const Cart = () => {
 
   const EmptyItems = () => {
     return (
-      <ReceiptRow>
+      <ReceiptRow onSubmit={(e) => e.preventDefault()}>
         <ColumnOne>1</ColumnOne>
         <ColumnTwo></ColumnTwo>
         <ColumnThree></ColumnThree>
@@ -397,7 +418,7 @@ export const Cart = () => {
             </UserInfoContainer>
             <CartInfoContainer>
               {/* Category labels for receipt */}
-              <CategoryRow>
+              <CategoryRow onSubmit={(e) => e.preventDefault()}>
                 <ColumnOne></ColumnOne>
                 <ColumnTwo>Items</ColumnTwo>
                 <ColumnThree>Size</ColumnThree>
@@ -405,7 +426,7 @@ export const Cart = () => {
                 <ColumnFive>Price</ColumnFive>
               </CategoryRow>
               {itemsElements?.length === 0 ? <EmptyItems /> : itemsElements }
-              <TotalRow>
+              <TotalRow onSubmit={(e) => e.preventDefault()}>
                 <ColumnOne></ColumnOne>
                 <ColumnTwo>Total</ColumnTwo>
                 <ColumnThree></ColumnThree>
@@ -415,7 +436,7 @@ export const Cart = () => {
             </CartInfoContainer>
           </ReceiptContainer>
           <CheckoutButton 
-            onClick={() => handleCheckoutButton()} 
+            onClick={handleCheckoutButton} 
             disabled={currentCart?.products?.length === 0} 
           >
             Continue to checkout
@@ -423,12 +444,12 @@ export const Cart = () => {
         </>
       )}
 
-      { cartStep === 2 && <ShippingForm  setCartStep={setCartStep} /> }
+      { cartStep === 2 && <ShippingForm setCartStep={setCartStep} shippingInfo={shippingInfo} setShippingInfo={setShippingInfo} /> }
 
       {
         stripePromise && clientSecret && cartStep === 3 && (
           <Elements stripe={stripePromise} options={{ clientSecret }}>
-            <PaymentForm setCartStep={setCartStep} />
+            <PaymentForm setCartStep={setCartStep} shippingInfo={shippingInfo} totalPrice={totalPrice} />
           </Elements>
         )
       }

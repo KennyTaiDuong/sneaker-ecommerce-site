@@ -1,6 +1,6 @@
-import { useContext, useEffect, useState } from "react";
+import { FormEvent, useContext, useEffect, useState } from "react";
 import styled from "styled-components";
-import { UserDataContext } from "../../components/Layout/Layout";
+import { UserDataContext } from "../Layout/Layout";
 
 const Container = styled.div`
   padding: 1rem;
@@ -59,11 +59,21 @@ const StyledButton = styled.button`
   border-radius: 0.5rem;
 `
 
-type Props = {
-  setCartStep: React.Dispatch<React.SetStateAction<number>>
+type ShippingInfoType = {
+  street_number: string,
+  street_name: string,
+  city: string,
+  state: string,
+  zip: string
 }
 
-export const ShippingForm = ({ setCartStep }: Props) => {
+type Props = {
+  setCartStep: React.Dispatch<React.SetStateAction<number>>,
+  setShippingInfo: React.Dispatch<React.SetStateAction<ShippingInfoType>>,
+  shippingInfo: ShippingInfoType
+}
+
+export const ShippingForm = ({ setCartStep, setShippingInfo, shippingInfo }: Props) => {
   const { currentUser } = useContext(UserDataContext)
 
   const [firstName, setFirstName] = useState<string>("")
@@ -76,27 +86,20 @@ export const ShippingForm = ({ setCartStep }: Props) => {
   
   useEffect(() => {
 
-    if (currentUser?.first_name && currentUser?.last_name) {
-      // string together street number and name
-      const address = `${
-          currentUser?.shipping_info?.street_number 
-          ? currentUser?.shipping_info?.street_number 
-          : ""
-        } ${
-          currentUser?.shipping_info?.street_name 
-          ? currentUser?.shipping_info?.street_name 
-          : ""
-        }`
+    if (currentUser?.first_name) {      
       setFirstName(currentUser?.first_name)
       setLastName(currentUser?.last_name)
       setPhoneNumber(currentUser?.phone)
-      setStreetAddress(address)
-      setCity(currentUser?.shipping_info?.city)
-      setState(currentUser?.shipping_info?.state)
-      setZip(currentUser?.shipping_info?.zip)
     }
 
-  }, [currentUser])
+    if (shippingInfo.street_number) {
+      setStreetAddress(shippingInfo.street_number + " " + shippingInfo.street_name)
+      setCity(shippingInfo.city)
+      setState(shippingInfo.state)
+      setZip(shippingInfo.zip)
+    }
+
+  }, [])
 
   function clearForm() {
     setFirstName("")
@@ -108,9 +111,28 @@ export const ShippingForm = ({ setCartStep }: Props) => {
     setZip("")
   }
 
+  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+
+    const addressArray = streetAddress.split(" ")
+
+    const streetNumber = addressArray[0]
+    const streetName = addressArray.slice(1).join(" ")
+
+    setShippingInfo({
+      street_number: streetNumber,
+      street_name: streetName,
+      city: city,
+      state: state,
+      zip: zip
+    })
+
+    setCartStep(3)
+  }
+
   return (
     <Container>
-      <Form>
+      <Form id="shipping-form" onSubmit={(e) => handleSubmit(e)}>
         <InputLabel htmlFor="first_name">
           First Name
           <TextInput 
@@ -148,6 +170,7 @@ export const ShippingForm = ({ setCartStep }: Props) => {
             id="street_address"
             value={streetAddress}
             onChange={(e) => setStreetAddress(e.target.value)}
+            required
           />
         </InputLabel>
         <InputLabel htmlFor="city">
@@ -157,6 +180,7 @@ export const ShippingForm = ({ setCartStep }: Props) => {
             id="city"
             value={city}
             onChange={(e) => setCity(e.target.value)}
+            required
           />
         </InputLabel>
         <InputLabel htmlFor="state">
@@ -166,7 +190,9 @@ export const ShippingForm = ({ setCartStep }: Props) => {
             id="state"
             value={state}
             onChange={(e) => setState(e.target.value)}
-            placeholder="2-letter state"
+            maxLength={2}
+            placeholder="2 Characters"
+            required
           />
         </InputLabel>
         <InputLabel htmlFor="zip">
@@ -176,14 +202,16 @@ export const ShippingForm = ({ setCartStep }: Props) => {
             id="zip"
             value={zip}
             onChange={(e) => setZip(e.target.value)}
-            placeholder="5-digit ZIP"
+            placeholder="5-digits"
+            maxLength={5}
+            required
           />
         </InputLabel>
       </Form>
       <ButtonContainer>
         <StyledButton onClick={() => setCartStep(1)}>Go Back</StyledButton>
         <StyledButton onClick={() => clearForm()}>Clear Form</StyledButton>
-        <StyledButton onClick={() => setCartStep(3)}>Continue to Payment</StyledButton>
+        <StyledButton type="submit" form="shipping-form">Continue to Payment</StyledButton>
       </ButtonContainer>
     </Container>
   )
