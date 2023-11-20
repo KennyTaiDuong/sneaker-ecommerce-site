@@ -1,19 +1,19 @@
 import { BrowserRouter } from "react-router-dom";
-import { ProductsPageLayout } from "../../src/components/Layout/ProductsLayout";
+import { ProductsLayout } from "../../src/components/Layout/ProductsLayout";
 import Global from "../../src/GlobalStyles";
 
-const MockProductsPageLayout = () => {
+const MockProductsLayout = () => {
   return (
     <BrowserRouter>
       <Global />
-      <ProductsPageLayout />
+      <ProductsLayout />
     </BrowserRouter>
   )
 }
 
 describe("Products page layout", () => {
   beforeEach(() => {
-    cy.mount(<MockProductsPageLayout />)
+    cy.mount(<MockProductsLayout />)
   })
 
   it("should display all", () => {
@@ -27,7 +27,7 @@ describe("Products page layout", () => {
       headers: {
         'content-type': 'application/json',
       },
-    }).as("fetchData")
+    }).as("fetchProducts")
   })
   
   it("open sort bar", () => {

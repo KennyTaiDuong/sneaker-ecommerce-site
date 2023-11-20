@@ -116,7 +116,7 @@ export const ProductsLayout = () => {
   })
 
   useEffect(() => {
-    async function fetchData() {
+    async function fetchProducts() {
       try {
         // Fetch all products
         const res = await fetch("http://localhost:5000/api/products")
@@ -129,7 +129,7 @@ export const ProductsLayout = () => {
       }
     } 
 
-    fetchData()
+    fetchProducts()
   }, [])
 
   function sortData(option: string) {
