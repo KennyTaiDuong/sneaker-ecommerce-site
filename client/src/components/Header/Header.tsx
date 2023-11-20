@@ -194,12 +194,12 @@ export const Header = ({ setMenuIsOpen }: SidebarProps) => {
           <StyledSpan>
             <StyledNavLink to="/"><Logo src={logo} alt="aksupplied logo" /></StyledNavLink>
           </StyledSpan>
-          <ShopLabel onClick={() => navigate("/products")}>Shop</ShopLabel>
-          <CartLabel onClick={() => navigate("/cart")}>Cart</CartLabel>
-          <AccountLabel onClick={() => navigate("/profile")}>Account</AccountLabel>
+          <ShopLabel onClick={() => navigate("/products")} data-cy="shop-btn">Shop</ShopLabel>
+          <CartLabel onClick={() => navigate("/cart")} data-cy="cart-btn">Cart</CartLabel>
+          <AccountLabel onClick={() => navigate("/profile")} data-cy="account-btn">Account</AccountLabel>
         </LabelContainer>
         <SearchBar 
-          data-cy="search-bar" 
+          data-cy="search-form"
           style={{ display: `${searchIsOpen ? "block" : "none"}`}} 
           onSubmit={(e) => handleOnSubmit(e)}
         >
@@ -208,6 +208,7 @@ export const Header = ({ setMenuIsOpen }: SidebarProps) => {
             name="search-bar"
             placeholder={`Search for an item`} 
             onChange={(event) => {handleInputChange(event)}}
+            data-cy="search-input"
           />
         </SearchBar>
       </DarkContainer>

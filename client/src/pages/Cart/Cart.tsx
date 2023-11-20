@@ -470,7 +470,7 @@ export const Cart = () => {
                   <UserInfoText>
                     {
                       currentUser?.shipping_info?.city
-                      ? `${currentUser?.shipping_info?.city}, ${currentUser?.shipping_info?.state.trimEnd()}, ${currentUser?.shipping_info?.zip}`
+                      ? `${currentUser?.shipping_info?.city}, ${currentUser?.shipping_info?.state.trimEnd().toUpperCase()}, ${currentUser?.shipping_info?.zip}`
                       : ""
                     }
                   </UserInfoText>
