@@ -13,6 +13,15 @@ const MockHome = () => {
 
 describe("Home page", () => {
   
+  it("handle failed fetch request", () => {
+    cy.intercept("GET", "http://localhost:5000/api/products", {
+      statusCode: 400,
+      body: "Something went wrong",
+      headers: {
+        'content-type': 'application/json',
+      },
+    }).as("fetchProducts")
+  })
 
   it("should mount home page", () => {
     cy.viewport("iphone-x")
