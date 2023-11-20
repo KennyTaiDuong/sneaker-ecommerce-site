@@ -966,7 +966,7 @@
     },
     "inputSourceMap": {
       "version": 3,
-      "mappings": "AA8EQ;AA9ER,OAAOA,oBAAY;AAAmB;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AACtC,SAASC,eAAe;AAExB,OAAOC,kBAAkB;AAEzB,MAAMC,cAAcH,OAAOC,OAAO;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AASjCG,KATKD;AAWN,MAAME,UAAUL,OAAOM;AAAAA;AAAAA;AAAAA;AAAAA;AAItBC,MAJKF;AAMN,MAAMG,WAAWR,OAAOM;AAAAA;AAAAA;AAAAA;AAAAA;AAIvBG,MAJKD;AAMN,MAAME,cAAcV,OAAOW;AAAAA;AAAAA;AAAAA;AAG1BC,MAHKF;AAKN,MAAMG,eAAeb,OAAOW;AAAAA;AAAAA;AAAAA;AAAAA;AAAAA;AAAAA;AAM3BG,MANKD;AAON,MAAME,WAAWf,OAAOW;AAAAA;AAAAA;AAAAA;AAAAA;AAAAA;AAAAA;AAMvBK,MANKD;AAQN,MAAME,aAAajB,OAAOkB;AAAAA;AAAAA;AAAAA;AAAAA;AAAAA;AAAAA;AAMzBC,MANKF;AAQN,MAAMG,eAAepB,OAAOqB;AAAAA;AAAAA;AAAAA;AAAAA;AAI3BC,MAJKF;AAMN,MAAMG,OAAOvB,OAAOqB;AAAAA;AAAAA;AAEnBG,MAFKD;AAWC,aAAME,OAAOA,CAAC;AAAA,EAAEC;AAAAA,EAAMC;AAAAA,EAAOC;AAAAA,EAAOC;AAAe,MAAM;AAE9D,SACE,uBAAC,eAAY,IAAK,aAAYA,GAAI,IAChC;AAAA,2BAAC,WACC,iCAAC,gBAAa,KAAKD,SAAnB;AAAA;AAAA;AAAA;AAAA,WAAyB,KAD3B;AAAA;AAAA;AAAA;AAAA,WAEA;AAAA,IACA,uBAAC,YACC;AAAA,6BAAC,YACC;AAAA,+BAAC,QAAK,KAAK1B,gBAAX;AAAA;AAAA;AAAA;AAAA,eAAwB;AAAA,QAAG;AAAA,WAD7B;AAAA;AAAA;AAAA;AAAA,aAGA;AAAA,MACA,uBAAC,eAAawB,kBAAd;AAAA;AAAA;AAAA;AAAA,aAAmB;AAAA,MACnB,uBAAC,gBACC;AAAA,+BAAC,cAAW,uBAAZ;AAAA;AAAA;AAAA;AAAA,eAAmB;AAAA,QAAa;AAAA,QAC9BC;AAAAA,QAAM;AAAA,WAFV;AAAA;AAAA;AAAA;AAAA,aAGA;AAAA,SATF;AAAA;AAAA;AAAA;AAAA,WAUA;AAAA,OAdF;AAAA;AAAA;AAAA;AAAA,SAeA;AAEJ;AAACG,OApBYL;AAAI,IAAArB,IAAAG,KAAAE,KAAAG,KAAAE,KAAAE,KAAAG,KAAAG,KAAAE,KAAAM;AAAAC,aAAA3B,IAAA;AAAA2B,aAAAxB,KAAA;AAAAwB,aAAAtB,KAAA;AAAAsB,aAAAnB,KAAA;AAAAmB,aAAAjB,KAAA;AAAAiB,aAAAf,KAAA;AAAAe,aAAAZ,KAAA;AAAAY,aAAAT,KAAA;AAAAS,aAAAP,KAAA;AAAAO,aAAAD,MAAA",
+      "mappings": "AA8EQ;AA9ER,OAAOA,oBAAY;AAAmB;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AACtC,SAASC,eAAe;AAExB,OAAOC,kBAAkB;AAEzB,MAAMC,cAAcH,OAAOC,OAAO;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AASjCG,KATKD;AAWN,MAAME,UAAUL,OAAOM;AAAAA;AAAAA;AAAAA;AAAAA;AAItBC,MAJKF;AAMN,MAAMG,WAAWR,OAAOM;AAAAA;AAAAA;AAAAA;AAAAA;AAIvBG,MAJKD;AAMN,MAAME,cAAcV,OAAOW;AAAAA;AAAAA;AAAAA;AAG1BC,MAHKF;AAKN,MAAMG,eAAeb,OAAOW;AAAAA;AAAAA;AAAAA;AAAAA;AAAAA;AAAAA;AAM3BG,MANKD;AAON,MAAME,WAAWf,OAAOW;AAAAA;AAAAA;AAAAA;AAAAA;AAAAA;AAAAA;AAMvBK,MANKD;AAQN,MAAME,aAAajB,OAAOkB;AAAAA;AAAAA;AAAAA;AAAAA;AAAAA;AAAAA;AAMzBC,MANKF;AAQN,MAAMG,eAAepB,OAAOqB;AAAAA;AAAAA;AAAAA;AAAAA;AAI3BC,MAJKF;AAMN,MAAMG,OAAOvB,OAAOqB;AAAAA;AAAAA;AAEnBG,MAFKD;AAWC,aAAME,OAAOA,CAAC;AAAA,EAAEC;AAAAA,EAAMC;AAAAA,EAAOC;AAAAA,EAAOC;AAAe,MAAM;AAE9D,SACE,uBAAC,eAAY,IAAK,aAAYA,GAAI,IAChC;AAAA,2BAAC,WACC,iCAAC,gBAAa,KAAKD,SAAnB;AAAA;AAAA;AAAA;AAAA,WAAyB,KAD3B;AAAA;AAAA;AAAA;AAAA,WAEA;AAAA,IACA,uBAAC,YACC;AAAA,6BAAC,YACC;AAAA,+BAAC,QAAK,KAAK1B,gBAAX;AAAA;AAAA;AAAA;AAAA,eAAwB;AAAA,QAAG;AAAA,WAD7B;AAAA;AAAA;AAAA;AAAA,aAGA;AAAA,MACA,uBAAC,eAAY,WAAQ,QAAQwB,kBAA7B;AAAA;AAAA;AAAA;AAAA,aAAkC;AAAA,MAClC,uBAAC,gBAAa,WAAQ,SACpB;AAAA,+BAAC,cAAW,uBAAZ;AAAA;AAAA;AAAA;AAAA,eAAmB;AAAA,QAAa;AAAA,QAC9BC;AAAAA,QAAM;AAAA,WAFV;AAAA;AAAA;AAAA;AAAA,aAGA;AAAA,SATF;AAAA;AAAA;AAAA;AAAA,WAUA;AAAA,OAdF;AAAA;AAAA;AAAA;AAAA,SAeA;AAEJ;AAACG,OApBYL;AAAI,IAAArB,IAAAG,KAAAE,KAAAG,KAAAE,KAAAE,KAAAG,KAAAG,KAAAE,KAAAM;AAAAC,aAAA3B,IAAA;AAAA2B,aAAAxB,KAAA;AAAAwB,aAAAtB,KAAA;AAAAsB,aAAAnB,KAAA;AAAAmB,aAAAjB,KAAA;AAAAiB,aAAAf,KAAA;AAAAe,aAAAZ,KAAA;AAAAY,aAAAT,KAAA;AAAAS,aAAAP,KAAA;AAAAO,aAAAD,MAAA",
       "names": [
         "styled",
         "NavLink",
@@ -1007,7 +1007,7 @@
       "file": "D:/dev/sneaker-ecommerce-site/client/src/components/Products/Card.tsx"
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "2eb3e299b11b1b346f9e7a2720dc63bddfaf4382"
+    "hash": "caa835db7fcd8c4c4f94115ee54e7ca2086bbb2f"
   },
   "D:/dev/sneaker-ecommerce-site/client/src/components/Products/CardSection.tsx": {
     "path": "D:/dev/sneaker-ecommerce-site/client/src/components/Products/CardSection.tsx",
@@ -2254,6 +2254,33 @@
     "f": {},
     "b": {}
   },
+  "D:/dev/sneaker-ecommerce-site/client/src/components/Checkout/Completion.tsx": {
+    "path": "D:/dev/sneaker-ecommerce-site/client/src/components/Checkout/Completion.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "D:/dev/sneaker-ecommerce-site/client/src/components/Checkout/PaymentForm.tsx": {
+    "path": "D:/dev/sneaker-ecommerce-site/client/src/components/Checkout/PaymentForm.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "D:/dev/sneaker-ecommerce-site/client/src/components/Checkout/ShippingForm.tsx": {
+    "path": "D:/dev/sneaker-ecommerce-site/client/src/components/Checkout/ShippingForm.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
   "D:/dev/sneaker-ecommerce-site/client/src/components/EmptyFeed/EmptyFeed.tsx": {
     "path": "D:/dev/sneaker-ecommerce-site/client/src/components/EmptyFeed/EmptyFeed.tsx",
     "statementMap": {},
@@ -2355,24 +2382,6 @@
   },
   "D:/dev/sneaker-ecommerce-site/client/src/pages/Cart/Cart.tsx": {
     "path": "D:/dev/sneaker-ecommerce-site/client/src/pages/Cart/Cart.tsx",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "D:/dev/sneaker-ecommerce-site/client/src/pages/Checkout/PaymentForm.tsx": {
-    "path": "D:/dev/sneaker-ecommerce-site/client/src/pages/Checkout/PaymentForm.tsx",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "D:/dev/sneaker-ecommerce-site/client/src/pages/Checkout/ShippingForm.tsx": {
-    "path": "D:/dev/sneaker-ecommerce-site/client/src/pages/Checkout/ShippingForm.tsx",
     "statementMap": {},
     "fnMap": {},
     "branchMap": {},
