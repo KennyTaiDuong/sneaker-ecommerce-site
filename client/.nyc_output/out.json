@@ -4799,6 +4799,10 @@
           "column": 8
         },
         "end": {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1edc9187d704b607e41a7e7a2e87a3ec739da536
           "line": 73,
           "column": 29
         }
@@ -4884,6 +4888,10 @@
         }
       },
       "36": {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1edc9187d704b607e41a7e7a2e87a3ec739da536
         "start": {
           "line": 90,
           "column": 6
@@ -6366,6 +6374,36 @@
     "f": {},
     "b": {}
   },
+<<<<<<< HEAD
+=======
+  "D:/dev/sneaker-ecommerce-site/client/src/components/Checkout/ShippingForm.tsx": {
+    "path": "D:/dev/sneaker-ecommerce-site/client/src/components/Checkout/ShippingForm.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "D:/dev/sneaker-ecommerce-site/client/src/components/EmptyFeed/EmptyFeed.tsx": {
+    "path": "D:/dev/sneaker-ecommerce-site/client/src/components/EmptyFeed/EmptyFeed.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "D:/dev/sneaker-ecommerce-site/client/src/components/Filter/Filter.tsx": {
+    "path": "D:/dev/sneaker-ecommerce-site/client/src/components/Filter/Filter.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+>>>>>>> 1edc9187d704b607e41a7e7a2e87a3ec739da536
   "D:/dev/sneaker-ecommerce-site/client/src/components/Layout/ProductsLayout.tsx": {
     "path": "D:/dev/sneaker-ecommerce-site/client/src/components/Layout/ProductsLayout.tsx",
     "statementMap": {},
@@ -6375,8 +6413,10 @@
     "f": {},
     "b": {}
   },
-  "D:/dev/sneaker-ecommerce-site/client/src/components/LoginButton/LoginButton.tsx": {
-    "path": "D:/dev/sneaker-ecommerce-site/client/src/components/LoginButton/LoginButton.tsx",
+
+  "D:/dev/sneaker-ecommerce-site/client/src/components/Products/Card.tsx": {
+    "path": "D:/dev/sneaker-ecommerce-site/client/src/components/Products/Card.tsx",
+
     "statementMap": {},
     "fnMap": {},
     "branchMap": {},
@@ -6384,8 +6424,9 @@
     "f": {},
     "b": {}
   },
-  "D:/dev/sneaker-ecommerce-site/client/src/components/LogoutButton/LogoutButton.tsx": {
-    "path": "D:/dev/sneaker-ecommerce-site/client/src/components/LogoutButton/LogoutButton.tsx",
+
+  "D:/dev/sneaker-ecommerce-site/client/src/components/Products/CardSection.tsx": {
+    "path": "D:/dev/sneaker-ecommerce-site/client/src/components/Products/CardSection.tsx",
     "statementMap": {},
     "fnMap": {},
     "branchMap": {},
@@ -6411,6 +6452,7 @@
     "f": {},
     "b": {}
   },
+<<<<<<< HEAD
   "D:/dev/sneaker-ecommerce-site/client/src/components/Products/CardSection.tsx": {
     "path": "D:/dev/sneaker-ecommerce-site/client/src/components/Products/CardSection.tsx",
     "statementMap": {},
@@ -6429,6 +6471,9 @@
     "f": {},
     "b": {}
   },
+=======
+
+>>>>>>> 1edc9187d704b607e41a7e7a2e87a3ec739da536
   "D:/dev/sneaker-ecommerce-site/client/src/pages/Product/ProductDetail.tsx": {
     "path": "D:/dev/sneaker-ecommerce-site/client/src/pages/Product/ProductDetail.tsx",
     "statementMap": {},
