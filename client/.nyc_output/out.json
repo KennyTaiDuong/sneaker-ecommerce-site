@@ -4799,6 +4799,7 @@
           "column": 8
         },
         "end": {
+
           "line": 73,
           "column": 29
         }
@@ -4884,6 +4885,7 @@
         }
       },
       "36": {
+
         "start": {
           "line": 90,
           "column": 6
@@ -6366,6 +6368,33 @@
     "f": {},
     "b": {}
   },
+  "D:/dev/sneaker-ecommerce-site/client/src/components/Checkout/ShippingForm.tsx": {
+    "path": "D:/dev/sneaker-ecommerce-site/client/src/components/Checkout/ShippingForm.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "D:/dev/sneaker-ecommerce-site/client/src/components/EmptyFeed/EmptyFeed.tsx": {
+    "path": "D:/dev/sneaker-ecommerce-site/client/src/components/EmptyFeed/EmptyFeed.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "D:/dev/sneaker-ecommerce-site/client/src/components/Filter/Filter.tsx": {
+    "path": "D:/dev/sneaker-ecommerce-site/client/src/components/Filter/Filter.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
   "D:/dev/sneaker-ecommerce-site/client/src/components/Layout/ProductsLayout.tsx": {
     "path": "D:/dev/sneaker-ecommerce-site/client/src/components/Layout/ProductsLayout.tsx",
     "statementMap": {},
@@ -6375,8 +6404,10 @@
     "f": {},
     "b": {}
   },
-  "D:/dev/sneaker-ecommerce-site/client/src/components/LoginButton/LoginButton.tsx": {
-    "path": "D:/dev/sneaker-ecommerce-site/client/src/components/LoginButton/LoginButton.tsx",
+
+  "D:/dev/sneaker-ecommerce-site/client/src/components/Products/Card.tsx": {
+    "path": "D:/dev/sneaker-ecommerce-site/client/src/components/Products/Card.tsx",
+
     "statementMap": {},
     "fnMap": {},
     "branchMap": {},
@@ -6384,8 +6415,9 @@
     "f": {},
     "b": {}
   },
-  "D:/dev/sneaker-ecommerce-site/client/src/components/LogoutButton/LogoutButton.tsx": {
-    "path": "D:/dev/sneaker-ecommerce-site/client/src/components/LogoutButton/LogoutButton.tsx",
+
+  "D:/dev/sneaker-ecommerce-site/client/src/components/Products/CardSection.tsx": {
+    "path": "D:/dev/sneaker-ecommerce-site/client/src/components/Products/CardSection.tsx",
     "statementMap": {},
     "fnMap": {},
     "branchMap": {},
@@ -6411,24 +6443,7 @@
     "f": {},
     "b": {}
   },
-  "D:/dev/sneaker-ecommerce-site/client/src/components/Products/CardSection.tsx": {
-    "path": "D:/dev/sneaker-ecommerce-site/client/src/components/Products/CardSection.tsx",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
-  "D:/dev/sneaker-ecommerce-site/client/src/pages/Cart/Cart.tsx": {
-    "path": "D:/dev/sneaker-ecommerce-site/client/src/pages/Cart/Cart.tsx",
-    "statementMap": {},
-    "fnMap": {},
-    "branchMap": {},
-    "s": {},
-    "f": {},
-    "b": {}
-  },
+
   "D:/dev/sneaker-ecommerce-site/client/src/pages/Product/ProductDetail.tsx": {
     "path": "D:/dev/sneaker-ecommerce-site/client/src/pages/Product/ProductDetail.tsx",
     "statementMap": {},
