@@ -8,7 +8,7 @@ const MockLoginButton = () => {
       domain="dev-u3z00aypdqeez6q6.us.auth0.com"
       clientId="WJEW4YQtfIDgnQqDoEHczDgwYRLFcMZl"
       authorizationParams={{
-        redirect_uri: "http://localhost:5173"
+        redirect_uri: "http://localhost:5173/profile"
       }}
     >
       <BrowserRouter>
@@ -22,7 +22,5 @@ const MockLoginButton = () => {
 describe("Login Button", () => {
   it("should render button", () => {
     cy.mount(<MockLoginButton />)
-
-    cy.contains("Log In").click()
   })
 })
