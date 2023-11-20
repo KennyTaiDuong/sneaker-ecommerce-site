@@ -6323,6 +6323,35 @@
   },
   "D:/dev/sneaker-ecommerce-site/client/src/components/Checkout/Completion.tsx": {
     "path": "D:/dev/sneaker-ecommerce-site/client/src/components/Checkout/Completion.tsx",
+
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "D:/dev/sneaker-ecommerce-site/client/src/components/Checkout/PaymentForm.tsx": {
+    "path": "D:/dev/sneaker-ecommerce-site/client/src/components/Checkout/PaymentForm.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "D:/dev/sneaker-ecommerce-site/client/src/components/Checkout/ShippingForm.tsx": {
+    "path": "D:/dev/sneaker-ecommerce-site/client/src/components/Checkout/ShippingForm.tsx",
+    "statementMap": {},
+    "fnMap": {},
+    "branchMap": {},
+    "s": {},
+    "f": {},
+    "b": {}
+  },
+  "D:/dev/sneaker-ecommerce-site/client/src/components/EmptyFeed/EmptyFeed.tsx": {
+    "path": "D:/dev/sneaker-ecommerce-site/client/src/components/EmptyFeed/EmptyFeed.tsx",
+
     "statementMap": {},
     "fnMap": {},
     "branchMap": {},

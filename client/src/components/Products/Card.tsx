@@ -83,8 +83,8 @@ export const Card = ({ name, price, image, sku }: CardProps) => {
           <Icon src={VerifiedIcon} />
           100% Authentic
         </CardText>
-        <ProductName>{name}</ProductName>
-        <ProductPrice>
+        <ProductName data-cy="name">{name}</ProductName>
+        <ProductPrice data-cy="price">
           <StyledSpan>Price: </StyledSpan>
           ${price}.00
         </ProductPrice>
