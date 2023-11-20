@@ -1,4 +1,4 @@
-import { PaymentElement, useElements, useStripe } from "@stripe/react-stripe-js";
+import { AddressElement, PaymentElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { Dispatch, FormEvent, SetStateAction, useContext, useState } from "react";
 import styled from "styled-components";
 import { UserDataContext } from "../Layout/Layout";
@@ -151,7 +151,7 @@ export const PaymentForm = ({ setCartStep, shippingInfo, totalPrice }: Props) =>
   } 
 
   async function checkInventory() {
-
+    // create individual fetches for each product in cart and search for if size has enough quantity
     const products = currentCart?.products
 
     if (!products || products.length === 0) {
