@@ -14,5 +14,7 @@ const MockPagination = () => {
 describe("Pagination", () => {
   it("render pagination with 5 pages", () => {
     cy.mount(<MockPagination />)
+
+    cy.get('[data-cy="button-0"]').click()
   })
 })

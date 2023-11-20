@@ -29,13 +29,16 @@ export const Pagination = ({ pageCount }: NavbarProps) => {
   const brand = searchParams.get("brand")
   const query = searchParams.get("query")
 
-  const buttonElements = new Array(pageCount ? pageCount : 1)
+  // creates an array and fills each item with empty string
+  const buttonElements = new Array(pageCount)
   .fill("")
   .map((_item, index: number) => {
+    // replaces each item with the index number to be displayed
     return (
       <PageButton 
         onClick={() => setSearchParams({ brand: `${brand || ""}`, page: `${index + 1}`, query: `${query || ""}`})}
         key={index}
+        data-cy={`button-${index}`}
       >
         {index + 1}
       </PageButton>

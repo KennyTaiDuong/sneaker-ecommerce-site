@@ -12,5 +12,9 @@ const StyledButton = styled.button`
 export const LoginButton = () => {
   const { loginWithRedirect } = useAuth0();
 
-  return <StyledButton onClick={() => {loginWithRedirect()}}>Log In</StyledButton>
+  function handleButtonClick() {
+    loginWithRedirect()
+  }
+
+  return <StyledButton onClick={handleButtonClick}>Log In</StyledButton>
 }
