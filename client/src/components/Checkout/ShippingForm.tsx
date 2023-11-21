@@ -1,6 +1,7 @@
 import { FormEvent, useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import { UserDataContext } from "../Layout/Layout";
+import { useNavigate } from "react-router";
 
 const Container = styled.div`
   padding: 1rem;
@@ -10,14 +11,6 @@ const Container = styled.div`
   display: flex;
   flex-direction: column; 
   gap: 1rem;
-
-  @media screen and (min-width: 650px) {
-    padding: 1.5rem;
-  }
-
-  @media screen and (min-width: 1024px) {
-    padding: 2rem;
-  }
 `
 
 const Heading = styled.p`
@@ -49,6 +42,8 @@ const InputLabel = styled.label`
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
+  gap: 0.5rem;
 `
 
 const StyledButton = styled.button`
@@ -75,6 +70,7 @@ type Props = {
 
 export const ShippingForm = ({ setCartStep, setShippingInfo, shippingInfo }: Props) => {
   const { currentUser } = useContext(UserDataContext)
+  const navigate = useNavigate()
 
   const [firstName, setFirstName] = useState<string>("")
   const [lastName, setLastName] = useState<string>("")
@@ -127,7 +123,7 @@ export const ShippingForm = ({ setCartStep, setShippingInfo, shippingInfo }: Pro
       zip: zip
     })
 
-    setCartStep(3)
+    navigate("/checkout")
   }
 
   return (

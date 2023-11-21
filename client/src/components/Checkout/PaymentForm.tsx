@@ -1,10 +1,13 @@
 import { AddressElement, PaymentElement, useElements, useStripe } from "@stripe/react-stripe-js";
-import { Dispatch, FormEvent, SetStateAction, useContext, useState } from "react";
+import { FormEvent, useContext, useState } from "react";
 import styled from "styled-components";
 import { UserDataContext } from "../Layout/Layout";
+import { NavLink, useNavigate } from "react-router-dom";
+import { StripeAddressElementChangeEvent } from "@stripe/stripe-js";
 
 const Container = styled.div`
   margin-top: 1rem;
+  padding: 1rem;
 `
 
 const Form = styled.form`
@@ -18,7 +21,7 @@ const Form = styled.form`
 `
 
 const ButtonContainer = styled.div`
-  padding: 0 1rem;
+  padding: 0 1rem 1rem;
 `
 
 const StyledButton = styled.button`
@@ -27,36 +30,39 @@ const StyledButton = styled.button`
   border: 0;
   background: rgb(195,71,82);
   color: white;
+  
+`
+
+const StyledNavLink = styled(NavLink)`
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  border: 0;
+  background: rgb(195,71,82);
+  color: white;
+  text-decoration: 0;
 `
 
 const StatusMessage = styled.p`
   color: black;
 `
 
-type ShippingInfoType = {
-  street_number: string,
-  street_name: string,
-  city: string,
-  state: string,
-  zip: string
-}
-
 type Props = {
-  setCartStep: Dispatch<SetStateAction<number>>,
-  shippingInfo: ShippingInfoType,
   totalPrice: number
 }
 
-export const PaymentForm = ({ setCartStep, shippingInfo, totalPrice }: Props) => {
+export const PaymentForm = ({ totalPrice }: Props) => {
   const { currentCart, currentUser, setCurrentCart } = useContext(UserDataContext)
+  const navigate = useNavigate()
 
   const [message, setMessage] = useState<string | undefined>("")
   const [isProcessing, setIsProcessing] = useState(false)
+  const [shippingInfo, setShippingInfo] = useState({})
+  const [name, setName] = useState("")
 
   const stripe = useStripe()
   const elements = useElements()
 
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handlePaymentForm(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
 
     // return if stripe/elements not loaded
@@ -82,16 +88,18 @@ export const PaymentForm = ({ setCartStep, shippingInfo, totalPrice }: Props) =>
         setMessage(error?.message)
         setIsProcessing(false)
       } else if (paymentIntent && paymentIntent.status === 'succeeded') {
-        // if successful transaction, update inv, set status message, 
+        // if successful transaction, update inventory, set status message, 
         // post order to database, clear user's cart, re-fetch cart
         setMessage(`Payment status: ${paymentIntent.status}`)
         setIsProcessing(false)
         updateProductInventory()
         postOrder()
         clearCart()
+        navigate("/completion")
       } else {
         setMessage("Unexpected error")
       }
+
     } else {
       setMessage("One or more of the products in your cart are not available.")
       setIsProcessing(false)
@@ -109,9 +117,10 @@ export const PaymentForm = ({ setCartStep, shippingInfo, totalPrice }: Props) =>
           total_price: totalPrice,
           shipping_info: shippingInfo,
           order_status: "paid",
-          user_id: currentUser?.id,
           cart_id: currentCart?.id,
-          products: currentCart?.products
+          user_id: currentUser?.id,
+          products: currentCart?.products,
+          name: name
         })
       })
     } catch (error) {
@@ -166,8 +175,11 @@ export const PaymentForm = ({ setCartStep, shippingInfo, totalPrice }: Props) =>
         const res = await fetch(`http://localhost:5000/api/products/${sku}`);
         const { sizes } = await res.json();
     
-        const foundSize = sizes.find((item: { size: string; }) => item.size === size);
-    
+        const foundSize = sizes.find((item: { size: string; }) => {
+
+          return item.size.toUpperCase() === size
+        })
+
         return foundSize ? foundSize.quantity >= quantity : false;
       } catch (error) {
         console.error(error)
@@ -196,10 +208,9 @@ export const PaymentForm = ({ setCartStep, shippingInfo, totalPrice }: Props) =>
         const res = await fetch(`http://localhost:5000/api/products/${sku}`);
   
         const product = await res.json();
-        console.log(product);
-  
+
         newSizesArray = product.sizes.map((item: { size: string; quantity: string; }) => {
-          if (item.size === size) {
+          if (item.size.toUpperCase() === size) {
             return {
               ...item,
               quantity: `${parseInt(item.quantity) - parseInt(quantity)}`,
@@ -223,12 +234,21 @@ export const PaymentForm = ({ setCartStep, shippingInfo, totalPrice }: Props) =>
     }
   }
 
+  function handleAddressChange(event: StripeAddressElementChangeEvent) {
+    const name = event.value.name
+    const address = event.value.address
+
+    setName(name)
+    setShippingInfo(address)
+  }
+
   return (
     <Container>
       <ButtonContainer>
-        <StyledButton onClick={() => setCartStep(2)}>Go Back</StyledButton>
+        <StyledNavLink to={"/cart"}>Go Back</StyledNavLink>
       </ButtonContainer>
-      <Form onSubmit={(event) => handleSubmit(event)}>
+      <Form onSubmit={(event) => handlePaymentForm(event)}>
+        <AddressElement options={{ mode: "shipping" }} onChange={(event) => {handleAddressChange(event)}}/>
         <PaymentElement />
         <StyledButton disabled={isProcessing || !stripe || !elements}>{isProcessing ? "Processing..." : `Pay $${totalPrice}`}</StyledButton>
       </Form>

@@ -9,6 +9,7 @@ import { ProductsLayout } from "./components/Layout/ProductsLayout";
 import { Profile } from "./pages/Profile/Profile";
 import { Cart } from "./pages/Cart/Cart";
 import { Completion } from "./components/Checkout/Completion";
+import { Checkout } from "./pages/Checkout";
 
 function App() {
   
@@ -25,6 +26,7 @@ function App() {
           <Route path="products/:id" element={<ProductDetail />} />
           <Route path="profile" element={<Profile />} />
           <Route path="cart" element={<Cart />} />
+          <Route path="checkout" element={<Checkout />} />
           <Route path="completion" element={<Completion />} />
         </Route>
       </Routes>

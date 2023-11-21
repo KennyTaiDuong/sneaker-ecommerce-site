@@ -5,20 +5,11 @@ import { Elements } from "@stripe/react-stripe-js";
 
 const MockPaymentForm = () => {
 
-
   return (
     <BrowserRouter>
       <Global />
       <Elements stripe={null}>
-        <PaymentForm 
-          setCartStep={() => {}}
-          shippingInfo={{
-            street_number: "",
-            street_name: "",
-            city: "",
-            state: "",
-            zip: ""
-          }} 
+        <PaymentForm
           totalPrice={0} 
         />
       </Elements>

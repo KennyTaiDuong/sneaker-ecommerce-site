@@ -30,7 +30,7 @@ export const Pagination = ({ pageCount }: NavbarProps) => {
   const query = searchParams.get("query")
 
   // creates an array and fills each item with empty string
-  const buttonElements = new Array(pageCount)
+  const buttonElements = new Array(pageCount ? pageCount : 1)
   .fill("")
   .map((_item, index: number) => {
     // replaces each item with the index number to be displayed
