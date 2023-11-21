@@ -37,6 +37,7 @@ const createOrder = async (req, res) => {
     cart_id,
     user_id,
     products,
+    name,
   } = req.body;
 
   try {
@@ -47,6 +48,7 @@ const createOrder = async (req, res) => {
       cart_id,
       user_id,
       products,
+      name,
     ]);
 
     res.json(newOrder);
@@ -78,6 +80,7 @@ const updateOrder = async (req, res) => {
       user_id,
       cart_id,
       products,
+      name,
     } = req.body;
 
     const updatedOrder = await pool.query(updateOrderQuery, [
@@ -87,6 +90,7 @@ const updateOrder = async (req, res) => {
       user_id,
       cart_id,
       products,
+      name,
       id,
     ]);
 
