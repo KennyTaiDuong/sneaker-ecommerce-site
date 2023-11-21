@@ -18,7 +18,7 @@ describe("Home page", () => {
       statusCode: 400,
       body: "Something went wrong",
       headers: {
-        'content-type': 'application/json',
+        'Content-Type': 'application/json',
       },
     }).as("fetchProducts")
   })
