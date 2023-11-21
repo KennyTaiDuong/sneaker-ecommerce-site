@@ -1,0 +1,64 @@
+{
+  "id": 14,
+  "sku": "CU1727-100",
+  "name": "Nike Dunk Low \"St. John's\"",
+  "price": 250,
+  "category": "m",
+  "images": "https://www.kicksonfire.com/wp-content/uploads/2020/06/Nike-Dunk-Low-St-Johns-2023-Release-Date.jpeg",
+  "created_on": "2023-10-24T03:06:22.000Z",
+  "updated_on": "2023-10-25T02:55:51.000Z",
+  "sizes": [
+      {
+          "size": "7.5",
+          "quantity": "5"
+      },
+      {
+          "size": "8",
+          "quantity": "2"
+      },
+      {
+          "size": "8.5",
+          "quantity": "4"
+      },
+      {
+          "size": "9",
+          "quantity": "8"
+      },
+      {
+          "size": "9.5",
+          "quantity": "4"
+      },
+      {
+          "size": "10",
+          "quantity": "5"
+      },
+      {
+          "size": "10.5",
+          "quantity": "0"
+      },
+      {
+          "size": "11",
+          "quantity": "1"
+      },
+      {
+          "size": "11.5",
+          "quantity": "2"
+      },
+      {
+          "size": "12",
+          "quantity": "4"
+      },
+      {
+          "size": "13",
+          "quantity": "1"
+      },
+      {
+          "size": "14",
+          "quantity": "0"
+      },
+      {
+          "size": "15",
+          "quantity": "0"
+      }
+  ]
+}
