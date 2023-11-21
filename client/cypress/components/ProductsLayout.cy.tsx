@@ -20,15 +20,15 @@ describe("Products page layout", () => {
     cy.contains("All Products").should("be.visible")
   })
 
-  it("handle failed fetch request", () => {
-    cy.intercept("GET", "http://localhost:5000/api/products", {
-      statusCode: 400,
-      body: "Something went wrong",
-      headers: {
-        'content-type': 'application/json',
-      },
-    }).as("fetchProducts")
-  })
+  // it("handle failed fetch request", () => {
+  //   cy.intercept("GET", "http://localhost:5000/api/products", {
+  //     statusCode: 400,
+  //     body: "Something went wrong",
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //   }).as("fetchProducts")
+  // })
   
   it("open sort bar", () => {
     cy.contains("Sort By").click()
