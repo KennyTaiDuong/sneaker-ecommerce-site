@@ -74,7 +74,7 @@ export type Product = {
   name: string;
   price: number;
   sizes: Size[];
-  category: "m" | "w" | "gs" | "ps" | "td";
+  category: "m" | "w" | "gs" | "ps" | "td" | "yeezy" | "slide" | "foam";
   images: string;
 }
 

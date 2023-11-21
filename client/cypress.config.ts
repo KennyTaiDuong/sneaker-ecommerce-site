@@ -4,7 +4,7 @@ import codeCoverageTask from "@cypress/code-coverage/task";
 export default defineConfig({
   env: {
     codeCoverage: {
-        exclude: "cypress/**/*.*",
+      exclude: "cypress/**/*.*",
     },
   },
 
@@ -17,6 +17,10 @@ export default defineConfig({
       codeCoverageTask(on, config);
 
       return config;
+    },
   },
+
+  e2e: {
+    baseUrl: 'http://localhost:5173'
   },
 });

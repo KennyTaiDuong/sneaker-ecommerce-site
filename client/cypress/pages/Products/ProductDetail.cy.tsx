@@ -12,7 +12,11 @@ const MockProductDetail = () => {
 }
 
 describe("Product detail page", () => {
-  it("render product detail page", () => {
+  beforeEach("render product detail page", () => {
     cy.mount(<MockProductDetail />)
+  })
+
+  it("should open size drop down", () => {
+    
   })
 })
