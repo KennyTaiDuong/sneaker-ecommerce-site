@@ -16,5 +16,5 @@ export const LoginButton = () => {
     loginWithRedirect()
   }
 
-  return <StyledButton onClick={handleButtonClick}>Log In</StyledButton>
+  return <StyledButton onClick={handleButtonClick} data-cy="login-btn">Log In</StyledButton>
 }

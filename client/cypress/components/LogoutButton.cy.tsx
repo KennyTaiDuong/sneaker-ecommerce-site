@@ -18,7 +18,6 @@ const MockLogoutButton = () => {
 describe("Logout Button", () => {
   it("should render button", () => {
     cy.mount(<MockLogoutButton />)
-
-    cy.contains("Log Out")
+    cy.contains("Log Out").should("exist")
   })
 })

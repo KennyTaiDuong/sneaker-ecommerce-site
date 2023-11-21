@@ -11,7 +11,7 @@ const MockLayout = () => {
   )
 }
 
-describe("Testing functionality of layour", () => {
+describe("Layout component", () => {
   beforeEach(() => {
     cy.viewport('iphone-x')
     cy.mount(<MockLayout />)
@@ -49,5 +49,30 @@ describe("Testing functionality of layour", () => {
     cy.get('[data-cy="search-button"]').click()
     cy.get('[data-cy="search-input"]').type("Nike")
     cy.get('[data-cy="search-form"]').submit()
+  })
+
+  it("should open sidebar", () => {
+    cy.get('[data-cy="hamburger-icon"]').click({force: true})
+    cy.contains("Shop by Brand:").should("be.visible")
+  })
+
+  it("should receive successful GET request", async () => {
+    const email = "kd@gmail.com"
+    cy.intercept("GET", `http://localhost:5000/api/users/${email}`, {
+      statusCode: 200,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: [
+        {
+          id: 1,
+          email: "kd@gmail.com",
+          first_name: "Kenny",
+          last_name: "Duong",
+          shipping_info: {},
+          phone: "2673681421"
+        }
+      ],
+    }).as("fetchUser")
   })
 })

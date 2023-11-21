@@ -22,5 +22,6 @@ const MockLoginButton = () => {
 describe("Login Button", () => {
   it("should render button", () => {
     cy.mount(<MockLoginButton />)
+    cy.get('[data-cy="login-btn"]').should("exist")
   })
 })
