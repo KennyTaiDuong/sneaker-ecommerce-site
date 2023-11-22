@@ -88,7 +88,7 @@ export const Products = () => {
   return (
     <Container>
       <SidebarContainer>
-        <Sidebar setMenuIsOpen={() => {}} />
+        <Sidebar setMenuIsOpen={() => void {}} />
       </SidebarContainer>
       <CardsContainer>
         {ProductCards?.length != 0 ? ProductCards : <EmptyFeed />}

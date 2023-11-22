@@ -28,14 +28,6 @@ const MockCart = () => {
 describe("Cart", () => {
   it("renders cart", () => {
     cy.mount(<MockCart />)
-    cy.intercept("GET", "http://localhost:5000/api/carts/5", {
-      statusCode: 200,
-      headers: { "Content-Type": "application/json" },
-      body: {
-        id: 17,
-        products: [],
-        user_id: 5
-      }
-    })
+    
   })
 })
