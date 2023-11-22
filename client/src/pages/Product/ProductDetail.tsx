@@ -287,10 +287,10 @@ export const ProductDetail = () => {
             <ProductPrice>${price}.00</ProductPrice>
           </TextContainer>
           <DropdownContainer>
-            <SizeDisplay onClick={() => setSizeListOpen(prev => !prev)}>{selectedSize}</SizeDisplay>
+            <SizeDisplay onClick={() => setSizeListOpen(prev => !prev)} data-cy="size-display" >{selectedSize}</SizeDisplay>
             {sizeListOpen && <SizeList changeSize={async (e) => changeSize(e)} sizes={sizes} type={category} />}
           </DropdownContainer>
-          <CartButton onClick={addToCart}>ADD TO CART</CartButton>
+          <CartButton onClick={addToCart} data-cy="cart-btn">ADD TO CART</CartButton>
           {showMessage && <UserLoginMessage />}
         </InfoContainer>
       </ContentContainer>
