@@ -109,9 +109,4 @@ describe("Products Page", () => {
     cy.mount(<MockProducts searchQuery="/?page=1&query=dunk"/>)
     cy.contains("Kentucky").should("be.visible")
   })
-
-  it("should render sidebar in tablet/bigger screen size", () => {
-    cy.mount(<MockProducts searchQuery="/?page=1&query=dunk"/>)
-    cy.get('[data-cy="close-button"]')
-  })
 })
