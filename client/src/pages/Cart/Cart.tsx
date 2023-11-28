@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate } from "react-router";
 import { CartItemType, UserDataContext } from "../../components/Layout/Layout";
+import fetchCart from "../../hooks/fetchCart";
 
 const Container = styled.div`
   padding: 1rem;
@@ -185,6 +186,7 @@ export const Cart = () => {
   const {currentCart, currentUser, setCurrentCart} = useContext(UserDataContext)
   const [totalPrice, setTotalPrice] = useState<number>(0)
   const [totalQuantity, setTotalQuantity] = useState<number>(0)
+  const cart = fetchCart(currentUser?.id)
 
   const date = new Date().toLocaleDateString()
 
@@ -233,7 +235,7 @@ export const Cart = () => {
         })
       })
 
-      fetchCart()
+      getCart()
     } catch (error) {
       console.error(error)
     }
@@ -296,22 +298,14 @@ export const Cart = () => {
         })
       })
 
-      fetchCart()
+      getCart()
     } catch (error) {
       console.error(error)
     }
   }
 
-  async function fetchCart() {
-    try {
-      const res = await fetch(`http://localhost:5000/api/carts/${currentUser?.id}`)
-
-      const data = await res.json()
-
-      setCurrentCart(data.rows[0])
-    } catch (error) {
-      console.error(error)
-    }
+  async function getCart() {
+    setCurrentCart(await cart)
   }
 
   function handleCheckoutButton() {

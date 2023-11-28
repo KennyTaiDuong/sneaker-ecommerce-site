@@ -1,37 +1,33 @@
-import { useEffect } from "react"
-import fetchCart from "./fetchCart"
-
 
 const createCart = (user_id: number | undefined) => {
-  useEffect(() => {
-    async function postCart() {
+  async function postCart() {
 
-      // new cart object model
-      const newCart = {
-        products: [],
-        user_id: user_id
-      }
-
-      // create new cart
-      try {
-        await fetch("http://localhost:5000/api/carts", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(newCart)
-        })
-
-        // re-fetch cart and set state
-        fetchCart(user_id)
-
-      } catch (error) {
-        console.error(error)
-      }
+    // new cart object model
+    const newCart = {
+      products: [],
+      user_id: user_id
     }
 
+    // create new cart
+    try {
+
+      await fetch("http://localhost:5000/api/carts", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newCart)
+      })
+
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  // create new cart if user_id exists
+  if (user_id) {
     postCart()
-  }, [user_id])
+  }
 }
 
 export default createCart

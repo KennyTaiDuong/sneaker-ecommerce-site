@@ -74,13 +74,13 @@ export const Layout = () => {
   const [currentUser, setCurrentUser] = useState<UserType>()
   const [currentCart, setCurrentCart] = useState<CartType>()
   const [menuIsOpen, setMenuIsOpen] = useState(false)
-  const data = fetchUser(user?.email);
-  const cart = fetchCart(user?.id);
+  const userData = fetchUser(user?.email);
+  const cart = fetchCart(currentUser?.id);
 
   
   useEffect(() => {
     const getUser = async () => {
-      setCurrentUser(await data);
+      setCurrentUser(await userData);
     };
   
     const getCart = async () => {
@@ -94,7 +94,7 @@ export const Layout = () => {
     if (currentUser) {
       getCart()
     }
-  }, [isAuthenticated, data])
+  }, [isAuthenticated, userData])
 
   return (
     <SiteContainer>
