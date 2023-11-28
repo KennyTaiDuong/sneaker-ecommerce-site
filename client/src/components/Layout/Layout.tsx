@@ -6,6 +6,8 @@ import { Dispatch, SetStateAction, createContext, useEffect, useState } from "re
 import { Sidebar } from "../Sidebar/Sidebar"
 import { useAuth0 } from "@auth0/auth0-react"
 import { ServiceBanner } from "../ServiceBanner/ServiceBanner"
+import fetchUser from "../../hooks/fetchUser"
+import fetchCart from "../../hooks/fetchCart"
 
 const SiteContainer = styled.div`
   min-height: 100vh;
@@ -17,7 +19,7 @@ const FooterContainer = styled.div`
   margin-top: auto;
 `
 
-type UserType = {
+export type UserType = {
   email: string,
   first_name: string,
   last_name: string,
@@ -43,7 +45,7 @@ export type CartItemType = {
   price: number
 }
 
-type CartType = {
+export type CartType = {
   products?: CartItemType[],
   user_id: number,
   id: number,
@@ -72,117 +74,27 @@ export const Layout = () => {
   const [currentUser, setCurrentUser] = useState<UserType>()
   const [currentCart, setCurrentCart] = useState<CartType>()
   const [menuIsOpen, setMenuIsOpen] = useState(false)
+  const data = fetchUser(user?.email);
+  const cart = fetchCart(user?.id);
 
+  
   useEffect(() => {
+    const getUser = async () => {
+      setCurrentUser(await data);
+    };
+  
+    const getCart = async () => {
+      setCurrentCart(await cart);
+    };
 
-    async function fetchUser() {
-      try {
-        const res = await fetch(`http://localhost:5000/api/users/${user?.email}`)
-
-        const data = await res.json()
-
-        // if user not found, create new user
-        if (data.rows.length === 0) {
-          createUser()
-          
-        } else {
-
-          // if user found, set user into state
-          setCurrentUser(data.rows[0])
-        }
-      } catch (error) {
-        console.error(error)
-      }
-    }
-
-    async function createUser() {
-      // new user object model
-      const newUser = {
-        email: user?.email,
-        phone: "",
-        first_name: "",
-        last_name: "",
-        shipping_info: {}
-      }
-
-      // create new user
-      try {
-        await fetch("http://localhost:5000/api/users", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(newUser)
-        })
-
-        // after posting user, re-fetch to set user state
-        fetchUser()
-
-      } catch (error) {
-        console.error(error)
-      }
-    }
-
-    // once user isAuthenticated, run fetchUser function
     if (isAuthenticated) {
-      fetchUser()
-    }
-  }, [isAuthenticated])
-
-  useEffect(() => {
-    async function fetchCart() {
-
-      // search for user's cart in db
-      try {
-        const res = await fetch(`http://localhost:5000/api/carts/${currentUser?.id}`)
-
-        const cart = await res.json()
-
-        // if no cart found, create new cart
-        if (cart.rows.length === 0) {
-          createCart()
-        } else {
-
-          // if cart found, set state with cart data
-          setCurrentCart(cart.rows[0])
-        }
-
-      } catch (error) {
-        console.error(error)
-      }
-    } 
-
-    async function createCart() {
-
-      // new cart object model
-      const newCart = {
-        products: [],
-        user_id: currentUser?.id
-      }
-
-      // create new cart
-      try {
-        await fetch("http://localhost:5000/api/carts", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(newCart)
-        })
-
-        // re-fetch cart and set state
-        fetchCart()
-
-      } catch (error) {
-        console.error(error)
-      }
+      getUser()
     }
 
-    // once user is stored in state, fetch user's cart
     if (currentUser) {
-      fetchCart()
+      getCart()
     }
-  }, [currentUser])
+  }, [isAuthenticated, data])
 
   return (
     <SiteContainer>

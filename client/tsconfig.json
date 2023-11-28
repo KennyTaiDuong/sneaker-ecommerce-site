@@ -23,6 +23,6 @@
     /* Cypress Testing */
     "types": ["cypress", "@testing-library/cypress"]
   },
-  "include": ["src", "cypress", "cypress/support/index.d.ts"],
+  "include": ["src", "cypress", "cypress/support/commands.d.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

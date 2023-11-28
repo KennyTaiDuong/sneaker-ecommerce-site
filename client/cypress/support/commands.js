@@ -35,3 +35,12 @@
 //     }
 //   }
 // }
+
+Cypress.Commands.add("waitForCreateUserEvent", () => {
+  return cy.window().then((win) => {
+    return new Cypress.Promise((resolve) => {
+      // Listen for the event and resolve the promise when it occurs
+      win.addEventListener("createUserEvent", resolve);
+    });
+  });
+});

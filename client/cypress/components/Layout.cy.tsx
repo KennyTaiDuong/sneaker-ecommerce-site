@@ -55,4 +55,17 @@ describe("Layout component", () => {
     cy.get('[data-cy="hamburger-icon"]').click({force: true})
     cy.contains("Shop by Brand:").should("be.visible")
   })
+
+  it("should close sidebar", () => {
+    cy.get('[data-cy="hamburger-icon"]').click({force: true})
+    cy.get('[data-cy="close-button"]').click()
+  })
+
+  it("should fetch user data", () => {
+    cy.stub(window, "fetch").resolves({
+      json: cy.stub().resolves({
+        rows: []
+      })
+    })
+  })
 })

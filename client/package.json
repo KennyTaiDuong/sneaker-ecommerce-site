@@ -11,7 +11,8 @@
     "cy:open-e2e": "cypress open --e2e --browser chrome",
     "cy:open-unit": "cypress open --component --browser chrome",
     "cy:run-e2e": "cypress run --e2e",
-    "cy:run-unit": "cypress run --component"
+    "cy:run-unit": "cypress run --component",
+    "test": "vitest"
   },
   "dependencies": {
     "@auth0/auth0-react": "^2.2.1",
@@ -48,6 +49,7 @@
     "typescript": "^5.0.2",
     "uuid": "^9.0.1",
     "vite": "^4.4.5",
-    "vite-plugin-istanbul": "^5.0.0"
+    "vite-plugin-istanbul": "^5.0.0",
+    "vitest": "^0.34.6"
   }
 }
