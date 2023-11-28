@@ -11,11 +11,6 @@ const Container = styled.div`
   margin: 0 auto;
 `
 
-const Username = styled.p`
-  font-size: 1.5rem;
-  font-weight: 700;
-`
-
 const ReceiptContainer = styled.div`
   background-color: rgb(220,209,159);
   padding: 1rem;
@@ -184,7 +179,7 @@ const QuantityButton = styled.button`
 `
 
 export const Cart = () => {
-  const { isLoading, isAuthenticated, user } = useAuth0() 
+  const { isLoading, user } = useAuth0()
   const navigate = useNavigate()
   
   const {currentCart, currentUser, setCurrentCart} = useContext(UserDataContext)
@@ -359,20 +354,6 @@ export const Cart = () => {
   if (isLoading) {
     return (
       <Container>Loading...</Container>
-    )
-  }
-
-  // If user not logged in and data not loading, redirect to login page
-  if (!isAuthenticated && !isLoading) {
-    setTimeout(() => {
-      navigate("/profile")
-    }, 3500)
-
-    return (
-      <Container>
-        <Username>User not found</Username>
-        <ReceiptSubtitle>Redirecting to user login page.</ReceiptSubtitle>
-      </Container>
     )
   }
 

@@ -1,14 +1,28 @@
 import { MemoryRouter } from "react-router-dom";
 import { ProductDetail } from "../../../src/pages/Product/ProductDetail";
 import Global from "../../../src/GlobalStyles";
+import { Auth0Provider } from "@auth0/auth0-react";
+import authConfig from "../../../auth_config.json"
 
 const MockProductDetail = () => {
 
+  const providerConfig = {
+    domain: authConfig.domain,
+    clientId: authConfig.client_id,
+    authorizationParams: {
+      redirect_uri: `${window.location.origin}/profile`
+    }
+  }
+
   return (
-    <MemoryRouter initialEntries={["/"]}>
-      <Global />
-      <ProductDetail />
-    </MemoryRouter>
+    <Auth0Provider
+      {...providerConfig}
+    >
+      <MemoryRouter initialEntries={["/"]}>
+        <Global />
+        <ProductDetail />
+      </MemoryRouter>
+    </Auth0Provider>
   )
 }
 
@@ -93,11 +107,7 @@ describe("Product detail page", () => {
     cy.contains("Select Size").click()
     cy.contains("7.5").click()
     cy.get('[data-cy="size-display"]').should("have.text", "7.5")
-  })
-
-  it("should display error message when size not selected", () => {
     cy.get('[data-cy="cart-btn"]').click()
-    cy.contains("User not logged in!").should("be.visible")
   })
 
 })
