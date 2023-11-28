@@ -187,10 +187,12 @@ export const ProductDetail = () => {
 
   function addToCart() {
     if (isAuthenticated) {
+      // counter to track if anything was updated in cart
       let itemsUpdated = 0
 
       const newCart = currentCart?.products?.map((shoe) => {
 
+        // check if sku and size already exist in cart
         if (shoe.sku === sku && shoe.size === selectedSize) {
           itemsUpdated++
 
@@ -203,6 +205,7 @@ export const ProductDetail = () => {
         }
       })
 
+      // if no items were updated, push object into cart
       if (itemsUpdated === 0) {
         newCart?.push({
           sku: sku,
