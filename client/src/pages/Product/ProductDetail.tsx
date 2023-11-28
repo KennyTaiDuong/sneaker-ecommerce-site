@@ -262,7 +262,7 @@ export const ProductDetail = () => {
 
   const UserLoginMessage = () => {
     return (
-      <WarningText>
+      <WarningText data-cy="error-msg" >
         User not logged in! 
         <StyledNavLink to="/profile">Click Here to log in</StyledNavLink>
       </WarningText>
