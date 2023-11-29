@@ -186,7 +186,6 @@ export const Cart = () => {
   const {currentCart, currentUser, setCurrentCart} = useContext(UserDataContext)
   const [totalPrice, setTotalPrice] = useState<number>(0)
   const [totalQuantity, setTotalQuantity] = useState<number>(0)
-  const cart = fetchCart(currentUser?.id)
 
   const date = new Date().toLocaleDateString()
 
@@ -305,7 +304,16 @@ export const Cart = () => {
   }
 
   async function getCart() {
-    setCurrentCart(await cart)
+    try {
+      const res = await fetch(`http://localhost:5000/api/carts/${currentUser?.id}`)
+
+      const data = await res.json()
+
+      setCurrentCart(data.rows[0])
+
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   function handleCheckoutButton() {
@@ -320,13 +328,13 @@ export const Cart = () => {
         <ColumnOne>{index + 1}</ColumnOne>
         <ColumnTwo>
           {name}
-          <RemoveButton onClick={() => RemoveItem(index)}>x</RemoveButton>
+          <RemoveButton onClick={() => RemoveItem(index)} data-testid={`remove-${sku}-${size}`} >x</RemoveButton>
         </ColumnTwo>
         <ColumnThree>{size}</ColumnThree>
         <ColumnFour>
-          <QuantityButton id={`${size}#${sku}`} onClick={(e) => decreaseQuantity(e)}>-</QuantityButton>
+          <QuantityButton id={`${size}#${sku}`} onClick={(e) => decreaseQuantity(e)} data-testid={`${size}-${sku}`}>-</QuantityButton>
           {quantity}
-          <QuantityButton id={`${size}#${sku}`} onClick={(e) => increaseQuantity(e)}>+</QuantityButton>
+          <QuantityButton id={`${size}#${sku}`} onClick={(e) => increaseQuantity(e)} data-testid={`${size}+${sku}`}>+</QuantityButton>
         </ColumnFour>
         <ColumnFive>${parseInt(quantity) * price}</ColumnFive>
       </ReceiptRow>
@@ -354,7 +362,7 @@ export const Cart = () => {
   return (
     <Container>
       <ReceiptContainer>
-        <CompanyName>aksupplied</CompanyName>
+        <CompanyName data-testid="title" >aksupplied</CompanyName>
         <ReceiptSubtitle>Sports Depot</ReceiptSubtitle>
         {/* USER INFO CONTAINER LIKE THE OLD RECEIPT */}
         <UserInfoContainer>
@@ -416,14 +424,15 @@ export const Cart = () => {
             <ColumnOne></ColumnOne>
             <ColumnTwo>Total</ColumnTwo>
             <ColumnThree></ColumnThree>
-            <ColumnFour>{totalQuantity}</ColumnFour>
-            <ColumnFive>${totalPrice}</ColumnFive>
+            <ColumnFour data-testid="quantity">{totalQuantity}</ColumnFour>
+            <ColumnFive data-testid="total-price">${totalPrice}</ColumnFive>
           </TotalRow>
         </CartInfoContainer>
       </ReceiptContainer>
       <CheckoutButton 
         onClick={handleCheckoutButton} 
         disabled={currentCart?.products?.length === 0} 
+        data-testid="checkout-btn"
       >
         Continue to checkout
       </CheckoutButton>
