@@ -1,8 +1,8 @@
 import { Elements } from "@stripe/react-stripe-js";
-import { PaymentForm } from "../components/Checkout/PaymentForm";
+import { PaymentForm } from "../../components/Checkout/PaymentForm";
 import { useContext, useEffect, useState } from "react";
 import { loadStripe } from "@stripe/stripe-js";
-import { UserDataContext } from "../components/Layout/Layout";
+import { UserDataContext } from "../../components/Layout/Layout";
 import { useNavigate } from "react-router";
 
 export const Checkout = () => {
@@ -48,7 +48,7 @@ export const Checkout = () => {
     if (stripePromise && currentCart?.products?.length != 0) {
       fetchClientSecret()
     }
-  }, [currentCart, stripePromise])
+  }, [stripePromise, currentCart])
 
   useEffect(() => {
     
@@ -56,7 +56,9 @@ export const Checkout = () => {
 
       let total = 0
       
-      currentCart?.products?.forEach((item) => {
+      const cartItems = currentCart?.products
+
+      cartItems?.forEach((item) => {
         total += item.price * parseInt(item.quantity)
       })
 

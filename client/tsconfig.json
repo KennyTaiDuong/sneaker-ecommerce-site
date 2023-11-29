@@ -21,7 +21,7 @@
     "noFallthroughCasesInSwitch": true,
 
     /* Cypress Testing */
-    "types": ["cypress", "@testing-library/cypress"]
+    "types": ["cypress", "@testing-library/cypress", "vitest/globals"]
   },
   "include": ["src", "cypress", "cypress/support/commands.d.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]

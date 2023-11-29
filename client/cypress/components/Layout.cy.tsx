@@ -61,11 +61,28 @@ describe("Layout component", () => {
     cy.get('[data-cy="close-button"]').click()
   })
 
-  it("should fetch user data", () => {
-    cy.stub(window, "fetch").resolves({
-      json: cy.stub().resolves({
-        rows: []
-      })
-    })
+  it("should render cart and user", () => {
+    // const useAuth0Stub = cy.stub();
+    // const auth0Proxy = new Proxy(auth0, {
+    //   get: (target, prop) => {
+    //     if (prop === 'useAuth0') {
+    //       return useAuth0Stub;
+    //     }
+    //     return target[prop];
+    //   },
+    // });
+
+    // // Replace the original auth0 module with the proxy
+    // cy.window().then((win) => {
+    //   win.auth0 = auth0Proxy;
+    // });
+
+    // // Set up the stubbed behavior for useAuth0
+    // useAuth0Stub.returns({
+    //   isAuthenticated: true,
+    //   user: { email: 'test@example.com' },
+    // });
+
   })
+
 })

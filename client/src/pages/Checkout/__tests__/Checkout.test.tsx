@@ -1,18 +1,18 @@
+import { Checkout } from "../Checkout";
+import { it } from "vitest"
 import { BrowserRouter } from "react-router-dom";
-import { Checkout } from "../../src/pages/Checkout/Checkout";
-import Global from "../../src/GlobalStyles";
+import { render } from "@testing-library/react";
 
 const MockCheckout = () => {
   return (
     <BrowserRouter>
-      <Global />
       <Checkout />
     </BrowserRouter>
   )
 }
 
 describe("Checkout page", () => {
-  it("renders checkout", () => {
-    cy.mount(<MockCheckout />)
+  it("should render checkout page", () => {
+    render(<MockCheckout />)
   })
 })

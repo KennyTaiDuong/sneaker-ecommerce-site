@@ -9,7 +9,7 @@ import { ProductsLayout } from "./components/Layout/ProductsLayout";
 import { Profile } from "./pages/Profile/Profile";
 import { Cart } from "./pages/Cart/Cart";
 import { Completion } from "./components/Checkout/Completion";
-import { Checkout } from "./pages/Checkout";
+import { Checkout } from "./pages/Checkout/Checkout";
 
 function App() {
   
