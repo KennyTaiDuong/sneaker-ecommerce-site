@@ -6,6 +6,9 @@ import { UserDataContext } from "../../../components/Layout/Layout"
 import { useState } from "react"
 import { CartType, UserType } from "../../../components/Layout/Layout"
 import userEvent from "@testing-library/user-event"
+import { act } from "react-dom/test-utils"
+import {setupServer } from "msw/node"
+import { HttpResponse, http } from "msw"
 
 const EmptyCart = {
   products: [],
@@ -27,27 +30,83 @@ const TestCart = {
   id: 17
 }
 
-type PropsType = { 
-  cart: CartType
+const NewUser = {
+  email: "kennyduong536@gmail.com",
+  first_name: "",
+  last_name: "",
+  id: 1,
+  phone: "",
+  shipping_info: {
+    street_number: "",
+    street_name: "",
+    city: "",
+    state: "",
+    zip: "",
+    country: "US"
+  }
 }
 
-const MockCart = ({ cart }: PropsType) => {
-  const [currentCart, setCurrentCart] = useState<CartType | undefined>(cart)
-  const [currentUser, setCurrentUser] = useState<UserType | undefined>({
-    email: "kd@gmail.com",
-    first_name: "Test",
-    last_name: "User",
-    id: 5,
-    phone: "1234560987",
-    shipping_info: {
-      street_number: "",
-      street_name: "",
-      city: "",
-      state: "",
-      zip: "",
-      country: "US"
-    }
+const OldUser = {
+  email: "kd@gmail.com",
+  first_name: "Test",
+  last_name: "User",
+  id: 5,
+  phone: "1234560987",
+  shipping_info: {
+    street_number: "123",
+    street_name: "Sesame St",
+    city: "Elmo",
+    state: "FL",
+    zip: "88888",
+    country: "US"
+  }
+}
+
+type PropsType = { 
+  cart: CartType,
+  user: UserType
+}
+
+const restHandlers = [
+  http.get("http://localhost:5000/api/carts/:id", () => {
+    HttpResponse.json({
+      rows: [{
+        products: [
+          {
+            sku: "DD1391-100",
+            size: "10",
+            name: 'Nike Dunk Low "Panda"',
+            quantity: "5",
+            price: 200
+          }
+        ],
+        user_id: 5,
+        id: 17
+      }]
+    },
+    {
+      status: 200
+    })
+  }),
+  http.get("http://localhost:5000/api/carts/:id", () => {
+    HttpResponse.error()
+  }),
+  http.put("http://localhost:5000/api/carts/:id", () => {
+    return HttpResponse.json({
+      status: 200,
+    })
+  }),
+  http.put("http://localhost:5000/api/carts/:id", () => {
+    return HttpResponse.json({
+      status: 400,
+      error: "Error! Something went wrong"
+    })
   })
+]
+
+const MockCart = ({ cart, user }: PropsType) => {
+  const [currentCart, setCurrentCart] = useState<CartType | undefined>(cart)
+  const [currentUser, setCurrentUser] = useState<UserType | undefined>(user)
 
   return (
     <UserDataContext.Provider value={{ currentCart, setCurrentCart, currentUser, setCurrentUser }}>
@@ -58,6 +117,8 @@ const MockCart = ({ cart }: PropsType) => {
   )
 }
 
+const server = setupServer(...restHandlers)
+
 describe("Cart page", () => {
   vi.mock("@auth0/auth0-react", () => ({
     useAuth0: () => ({
@@ -67,61 +128,86 @@ describe("Cart page", () => {
       },
       isLoading: false
     })
-  }))
+  }));
+  
+  beforeAll(() => server.listen())
 
-  it("should render cart", () => {
-    render(<MockCart cart={TestCart} />)
+  afterEach(() => {
+    server.resetHandlers()
+  })
+
+  afterAll(() => server.close())
+
+  it.todo("should render loading...", () => {
+    render(<MockCart cart={TestCart} user={OldUser} />)
+    // const loading = screen.getByText("Loading...")
+  })
+
+  it("should user data", () => {
+    render(<MockCart cart={TestCart} user={OldUser} />)
     const title = screen.getByTestId("title")
     const subtitle = screen.getByText("Sports Depot")
     const email = screen.getByText("Customer Email: kd@gmail.com")
+    const name = screen.getByText("Test User")
+    const streetAddress = screen.getByText("123 Sesame St")
     expect(title.textContent).contains("aksupplied")
     expect(subtitle.textContent).contains("Sports Depot")
     expect(email.textContent).contains("Customer Email: kd@gmail.com")
+    expect(name.textContent).contains("Test User")
+    expect(streetAddress.textContent).contains("123 Sesame St")
   })
 
-  it("should render empty cart", () => {
-    render(<MockCart cart={TestCart} />)
+  it("should new user data", () => {
+    render(<MockCart cart={TestCart} user={NewUser} />)
+    const emptyName = screen.getByText("Name")
+    expect(emptyName.textContent).contains("Name")
+  })
+
+  it("should render with mock data", () => {
+    render(<MockCart cart={TestCart}  user={OldUser} />)
     const totalPrice = screen.getByTestId("total-price")
     expect(totalPrice.textContent).contains("$600")
   })
 
   it("should add one to the quantity when plus-sign clicked", async () => {
-    render(<MockCart cart={TestCart} />)
+    render(<MockCart cart={TestCart} user={OldUser} />)
     const user = userEvent.setup()
-    const addQuantityBtn = screen.getByTestId("10+DD1391-100")
-    await user.click(addQuantityBtn)
+    await act(async () => {
+      const addQuantityBtn = screen.getByTestId("10+DD1391-100")
+      await user.click(addQuantityBtn)
+    })
     const quantityCount = screen.getByTestId("quantity")
     expect(quantityCount.textContent).contains("3")
   })
 
   it("should subtract one to the quantity when plus-sign clicked", async () => {
-    render(<MockCart cart={TestCart} />)
+    render(<MockCart cart={TestCart} user={OldUser} />)
     const user = userEvent.setup()
-    const minusQuantityBtn = screen.getByTestId("10-DD1391-100")
-    await user.click(minusQuantityBtn)
-    const quantityCount = screen.getByTestId("quantity")
-    expect(quantityCount.textContent).contains("3")
+    await act(async () => {
+      const minusQuantityBtn = screen.getByTestId("10-DD1391-100")
+      await user.click(minusQuantityBtn)
+      const quantityCount = screen.getByTestId("quantity")
+      expect(quantityCount.textContent).contains("3")
+    })
   })
 
   it("should remove item from list", async () => {
-    render(<MockCart cart={TestCart} />)
+    render(<MockCart cart={TestCart} user={OldUser} />)
     const user = userEvent.setup()
     const removeItemBtn = screen.getByTestId("remove-DD1391-100-10")
     await user.click(removeItemBtn)
   })
 
   it("should click on checkout button", async () => {
-    render(<MockCart cart={TestCart} />)
+    render(<MockCart cart={TestCart} user={OldUser} />)
     const user = userEvent.setup()
     const checkoutBtn = screen.getByTestId("checkout-btn")
     await user.click(checkoutBtn)
   })
 
-  // it("should render empty cart", async () => {
+  it("should handle fetch error", async () => {
+    vi.spyOn(global, 'fetch').mockRejectedValue(new Error('Failed to fetch cart'));
+    render(<MockCart cart={EmptyCart} user={NewUser} />)
     
-  //   render(<MockCart cart={EmptyCart}/>)
-  //   const emptyItem = screen.getByText("nothing to be found")
-  //   expect(emptyItem.textContent).contains("nothing to be found")
-  // })
-
+  })
 })
