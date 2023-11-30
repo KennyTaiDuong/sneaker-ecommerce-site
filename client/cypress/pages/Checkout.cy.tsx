@@ -13,6 +13,10 @@ const MockCheckout = () => {
 
 describe("Checkout page", () => {
   it("renders checkout", () => {
+    cy.intercept("http://localhost:5000/stripe/create-payment-intent", {
+      statusCode: 200,
+    })
     cy.mount(<MockCheckout />)
+
   })
 })

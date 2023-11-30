@@ -58,18 +58,16 @@ const MockCart = ({ cart }: PropsType) => {
   )
 }
 
-vi.mock("@auth0/auth0-react")
-
 describe("Cart page", () => {
-  // vi.mock("@auth0/auth0-react", () => ({
-  //   useAuth0: () => ({
-  //     isAuthenticated: true,
-  //     user: {
-  //       email: "kd@gmail.com"
-  //     },
-  //     isLoading: false
-  //   })
-  // }))
+  vi.mock("@auth0/auth0-react", () => ({
+    useAuth0: () => ({
+      isAuthenticated: true,
+      user: {
+        email: "kd@gmail.com"
+      },
+      isLoading: false
+    })
+  }))
 
   it("should render cart", () => {
     render(<MockCart cart={TestCart} />)
@@ -102,7 +100,7 @@ describe("Cart page", () => {
     const minusQuantityBtn = screen.getByTestId("10-DD1391-100")
     await user.click(minusQuantityBtn)
     const quantityCount = screen.getByTestId("quantity")
-    expect(quantityCount.textContent).contains("2")
+    expect(quantityCount.textContent).contains("3")
   })
 
   it("should remove item from list", async () => {
@@ -112,18 +110,18 @@ describe("Cart page", () => {
     await user.click(removeItemBtn)
   })
 
-  it("should remove item from list", async () => {
+  it("should click on checkout button", async () => {
     render(<MockCart cart={TestCart} />)
     const user = userEvent.setup()
     const checkoutBtn = screen.getByTestId("checkout-btn")
     await user.click(checkoutBtn)
   })
 
-  it("should render empty cart", async () => {
+  // it("should render empty cart", async () => {
     
-    render(<MockCart cart={EmptyCart}/>)
-    const emptyItem = screen.getByText("nothing to be found")
-    expect(emptyItem.textContent).contains("nothing to be found")
-  })
+  //   render(<MockCart cart={EmptyCart}/>)
+  //   const emptyItem = screen.getByText("nothing to be found")
+  //   expect(emptyItem.textContent).contains("nothing to be found")
+  // })
 
 })

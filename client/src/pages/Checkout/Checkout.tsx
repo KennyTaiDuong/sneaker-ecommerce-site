@@ -1,14 +1,14 @@
 import { Elements } from "@stripe/react-stripe-js";
 import { PaymentForm } from "../../components/Checkout/PaymentForm";
 import { useContext, useEffect, useState } from "react";
-import { loadStripe } from "@stripe/stripe-js";
+import { Stripe, loadStripe } from "@stripe/stripe-js";
 import { UserDataContext } from "../../components/Layout/Layout";
 import { useNavigate } from "react-router";
 
 export const Checkout = () => {
   const navigate = useNavigate()
   const { currentCart } = useContext(UserDataContext)
-  const [stripePromise, setStripePromise] = useState<any>();
+  const [stripePromise, setStripePromise] = useState<Promise<Stripe | null>>();
   const [clientSecret, setClientSecret] = useState("");
   const [totalPrice, setTotalPrice] = useState(0)
 
@@ -28,6 +28,7 @@ export const Checkout = () => {
     fetchStripePromise()
   }, [])
 
+  // fetches client secret
   useEffect(() => {
     async function fetchClientSecret() {
       try {
@@ -55,10 +56,8 @@ export const Checkout = () => {
     function getTotalPrice() {
 
       let total = 0
-      
-      const cartItems = currentCart?.products
 
-      cartItems?.forEach((item) => {
+      currentCart?.products?.forEach((item) => {
         total += item.price * parseInt(item.quantity)
       })
 
@@ -74,7 +73,9 @@ export const Checkout = () => {
       navigate("/cart")
     }, 3000)
   }
-  
+
+  console.log(stripePromise)
+
   return (
     stripePromise && clientSecret && (
       <Elements stripe={stripePromise} options={{ clientSecret }}>

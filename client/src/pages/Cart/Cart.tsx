@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate } from "react-router";
 import { CartItemType, UserDataContext } from "../../components/Layout/Layout";
-import fetchCart from "../../hooks/fetchCart";
 
 const Container = styled.div`
   padding: 1rem;
