@@ -72,8 +72,6 @@ export const Layout = () => {
   const [currentUser, setCurrentUser] = useState<UserType>()
   const [currentCart, setCurrentCart] = useState<CartType>()
   const [menuIsOpen, setMenuIsOpen] = useState(false)
-
-  console.log(user)
   
   useEffect(() => {
     async function getUser() {
@@ -171,7 +169,6 @@ export const Layout = () => {
     }
 
     if (currentUser) {
-      console.log("updating cart from layout")
       getCart()
     }
   }, [currentUser])
