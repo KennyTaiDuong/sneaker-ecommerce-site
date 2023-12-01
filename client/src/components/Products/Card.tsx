@@ -72,11 +72,10 @@ type CardProps = {
 }
 
 export const Card = ({ name, price, image, sku }: CardProps) => {
-
   return (
-    <ProductCard to={`/products/${sku}`}>
+    <ProductCard to={`/products/${sku}`} id={sku}>
       <CardImg>
-        <ProductImage src={image} />
+        <ProductImage src={image} alt={`${name}`} />
       </CardImg>
       <CardInfo>
         <CardText>

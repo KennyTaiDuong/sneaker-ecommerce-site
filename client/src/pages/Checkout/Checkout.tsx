@@ -20,7 +20,6 @@ export const Checkout = () => {
         const { publishableKey } = await res.json()
   
         setStripePromise(loadStripe(publishableKey))
-        console.log(stripePromise)
       } catch (error) {
         console.error(error)
       }
