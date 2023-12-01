@@ -90,7 +90,7 @@ export const Home = () => {
   return (
     <HomeContainer>
       <HeroSection>
-        <DarkContainer>
+        <DarkContainer data-cy="hero-section" >
           <HeroSubheading>
             Welcome to
           </HeroSubheading>
