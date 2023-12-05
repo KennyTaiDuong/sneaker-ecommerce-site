@@ -17,7 +17,7 @@ const MockCheckout = () => {
   )
 }
 
-global.fetch = vi.fn()
+global.fetch = vi.fn() as any;
 
 describe("Checkout page", () => {
   it("should render checkout page with back and pay button", async () => {
@@ -48,12 +48,18 @@ describe("Checkout page", () => {
     })
   })
 
-  it("should handle failed fetch request for publishableKey and log error", async () => {
+  it("should handle failed fetch request for publishableKey", async () => {
 
-    (fetch as jest.Mock).mockRejectedValueOnce(new Error("Error! Something went wrong."))
+    (fetch as jest.Mock).mockResolvedValueOnce({
+      json: vi.fn().mockResolvedValue({ error: "Error! Something went wrong."}),
+    });
 
     await act(async () => {
       render(<MockCheckout />)
     })
   })
 })
+// const backButton = screen.getByText("Go Back")
+// const payButton = screen.getByText("Pay $100")
+// expect(backButton.textContent).contains("Go Back")
+// expect(payButton.textContent).contains("Pay $100")
