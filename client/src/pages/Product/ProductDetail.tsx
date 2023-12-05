@@ -132,6 +132,7 @@ const WarningText = styled.p`
 const StyledNavLink = styled(NavLink)`
   text-decoration: none;
   color: #888;
+  font-weight: 700;
 `
 
 type ProductProps = {
@@ -266,8 +267,8 @@ export const ProductDetail = () => {
   const UserLoginMessage = () => {
     return (
       <WarningText data-cy="error-msg" >
-        User not logged in! 
-        <StyledNavLink to="/profile">Click Here to log in</StyledNavLink>
+        User not logged in!
+        <StyledNavLink to="/profile"> Click Here to log in</StyledNavLink>
       </WarningText>
     )
   }
@@ -293,7 +294,7 @@ export const ProductDetail = () => {
             <SizeDisplay onClick={() => setSizeListOpen(prev => !prev)} data-cy="size-display" >{selectedSize}</SizeDisplay>
             {sizeListOpen && <SizeList changeSize={async (e) => changeSize(e)} sizes={sizes} type={category} />}
           </DropdownContainer>
-          <CartButton onClick={addToCart} data-cy="cart-btn">ADD TO CART</CartButton>
+          <CartButton onClick={addToCart} data-cy="add-to-cart-btn">ADD TO CART</CartButton>
           {showMessage && <UserLoginMessage />}
         </InfoContainer>
       </ContentContainer>

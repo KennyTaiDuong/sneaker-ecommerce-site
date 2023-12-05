@@ -107,7 +107,7 @@ describe("Product detail page", () => {
     cy.contains("Select Size").click()
     cy.contains("7.5").click()
     cy.get('[data-cy="size-display"]').should("have.text", "7.5")
-    cy.get('[data-cy="cart-btn"]').click()
+    cy.get('[data-cy="add-to-cart-btn"]').click()
   })
 
 })
