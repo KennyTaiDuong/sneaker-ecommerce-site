@@ -42,9 +42,9 @@ describe("Checkout page", () => {
     
     await waitFor(async () => {
       const backBtn = screen.getByText("Go Back")
-      expect(backBtn.textContent).contains("Go Back")
+      expect(backBtn.textContent).toContain("Go Back")
       const totalPrice = screen.getByText("Pay $0")
-      expect(totalPrice.textContent).contains("Pay $0")
+      expect(totalPrice.textContent).toContain("Pay $0")
     })
   })
 

@@ -329,7 +329,7 @@ export const Profile = () => {
             </InputContainer>
           </UserInfoSection>
 
-          <FormButton type="submit">Update Profile</FormButton>
+          <FormButton type="submit" id="update-button">Update Profile</FormButton>
         </FormContainer>
         <LogoutButton />
       </ProfileContainer>

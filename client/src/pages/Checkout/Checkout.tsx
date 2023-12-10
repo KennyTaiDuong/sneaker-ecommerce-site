@@ -12,6 +12,7 @@ export const Checkout = () => {
   const [clientSecret, setClientSecret] = useState("");
   const [totalPrice, setTotalPrice] = useState(0)
 
+  // fetches stripe promise
   useEffect(() => {
     async function fetchStripePromise() {
       try {
@@ -51,6 +52,7 @@ export const Checkout = () => {
     }
   }, [stripePromise, currentCart])
 
+  // calculates total price of cart
   useEffect(() => {
     
     function getTotalPrice() {
@@ -76,7 +78,7 @@ export const Checkout = () => {
 
   return (
     stripePromise && clientSecret && (
-      <Elements stripe={stripePromise} options={{ clientSecret }}>
+      <Elements stripe={stripePromise} options={{ clientSecret, loader: "always" }}>
         <PaymentForm totalPrice={totalPrice} />
       </Elements>
     )

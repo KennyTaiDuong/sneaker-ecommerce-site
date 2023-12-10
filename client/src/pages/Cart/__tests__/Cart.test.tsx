@@ -97,10 +97,7 @@ const restHandlers = [
     })
   }),
   http.put("http://localhost:5000/api/carts/:id", () => {
-    return HttpResponse.json({
-      status: 400,
-      error: "Error! Something went wrong"
-    })
+    return HttpResponse.error()
   })
 ]
 
@@ -138,11 +135,6 @@ describe("Cart page", () => {
 
   afterAll(() => server.close())
 
-  it.todo("should render loading...", () => {
-    render(<MockCart cart={TestCart} user={OldUser} />)
-    // const loading = screen.getByText("Loading...")
-  })
-
   it("should user data", () => {
     render(<MockCart cart={TestCart} user={OldUser} />)
     const title = screen.getByTestId("title")
@@ -150,23 +142,23 @@ describe("Cart page", () => {
     const email = screen.getByText("Customer Email: kd@gmail.com")
     const name = screen.getByText("Test User")
     const streetAddress = screen.getByText("123 Sesame St")
-    expect(title.textContent).contains("aksupplied")
-    expect(subtitle.textContent).contains("Sports Depot")
-    expect(email.textContent).contains("Customer Email: kd@gmail.com")
-    expect(name.textContent).contains("Test User")
-    expect(streetAddress.textContent).contains("123 Sesame St")
+    expect(title.textContent).toContain("aksupplied")
+    expect(subtitle.textContent).toContain("Sports Depot")
+    expect(email.textContent).toContain("Customer Email: kd@gmail.com")
+    expect(name.textContent).toContain("Test User")
+    expect(streetAddress.textContent).toContain("123 Sesame St")
   })
 
   it("should new user data", () => {
     render(<MockCart cart={TestCart} user={NewUser} />)
     const emptyName = screen.getByText("Name")
-    expect(emptyName.textContent).contains("Name")
+    expect(emptyName.textContent).toContain("Name")
   })
 
   it("should render with mock data", () => {
     render(<MockCart cart={TestCart}  user={OldUser} />)
     const totalPrice = screen.getByTestId("total-price")
-    expect(totalPrice.textContent).contains("$600")
+    expect(totalPrice.textContent).toContain("$600")
   })
 
   it("should add one to the quantity when plus-sign clicked", async () => {
@@ -177,7 +169,7 @@ describe("Cart page", () => {
       await user.click(addQuantityBtn)
     })
     const quantityCount = screen.getByTestId("quantity")
-    expect(quantityCount.textContent).contains("3")
+    expect(quantityCount.textContent).toContain("3")
   })
 
   it("should subtract one to the quantity when plus-sign clicked", async () => {
@@ -187,7 +179,7 @@ describe("Cart page", () => {
       const minusQuantityBtn = screen.getByTestId("10-DD1391-100")
       await user.click(minusQuantityBtn)
       const quantityCount = screen.getByTestId("quantity")
-      expect(quantityCount.textContent).contains("3")
+      expect(quantityCount.textContent).toContain("3")
     })
   })
 
@@ -208,6 +200,5 @@ describe("Cart page", () => {
   it("should handle fetch error", async () => {
     vi.spyOn(global, 'fetch').mockRejectedValue(new Error('Failed to fetch cart'));
     render(<MockCart cart={EmptyCart} user={NewUser} />)
-    
   })
 })
