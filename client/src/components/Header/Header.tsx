@@ -192,7 +192,7 @@ export const Header = ({ setMenuIsOpen }: SidebarProps) => {
           <Icon src={hamburgerIcon} alt="hamburger icon" data-cy="hamburger-icon" onClick={setMenuIsOpen}/>
           <SearchLabel data-cy="search-button" onClick={() => setSearchIsOpen(prev => !prev)} >Search</SearchLabel>
           <StyledSpan>
-            <StyledNavLink to="/"><Logo src={logo} alt="aksupplied logo" /></StyledNavLink>
+            <StyledNavLink to="/"><Logo src={logo} alt="aksupplied logo" id="logo" /></StyledNavLink>
           </StyledSpan>
           <ShopLabel onClick={() => navigate("/products")} data-cy="shop-btn">Shop</ShopLabel>
           <CartLabel onClick={() => navigate("/cart")} data-cy="cart-btn">Cart</CartLabel>

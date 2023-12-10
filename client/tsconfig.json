@@ -21,7 +21,7 @@
     "noFallthroughCasesInSwitch": true,
 
     /* Cypress Testing */
-    "types": ["cypress", "@testing-library/cypress", "vitest/globals", "@testing-library/jest-dom"]
+    "types": ["cypress", "@testing-library/cypress", "vitest/globals", "@testing-library/jest-dom", "cypress-plugin-stripe-elements"]
   },
   "include": ["src", "cypress", "cypress/support/commands.d.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]

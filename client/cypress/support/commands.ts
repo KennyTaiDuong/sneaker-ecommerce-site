@@ -58,7 +58,7 @@ function loginViaAuth0Ui(username: string, password: string) {
       cy.get('button[name="action"][value="default"]:visible').click();
 
       // Ensure Auth0 has redirected us back to the RWA.
-      // cy.visit("http://localhost:5173/profile")
+
       cy.url().should("include", "")
     }
   );
@@ -82,20 +82,3 @@ Cypress.Commands.add('loginToAuth0', (username: string, password: string) => {
   log.end();
 });
 
-
-Cypress.Commands.add("fillStripeElement", (selector, value) => {
-
-  if (Cypress.config("chromeWebSecurity")) {
-    // https://docs.cypress.io/guides/guides/web-security
-
-    throw new Error(
-      "To get stripe element `chromeWebSecurity` must be disabled."
-    );
-  }
-  cy.get("iframe")
-    .should((iframe) => expect(iframe.contents().find(selector).should("exist")))
-    .then((iframe) => cy.wrap(iframe.contents().find(selector)))
-    .within((input) => {
-      cy.wrap(input).should("not.be.disabled").clear().type(value);
-    });
-});

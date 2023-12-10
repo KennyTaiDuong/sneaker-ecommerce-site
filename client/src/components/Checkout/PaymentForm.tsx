@@ -67,6 +67,7 @@ export const PaymentForm = ({ totalPrice }: Props) => {
 
     // return if stripe/elements not loaded
     if (!stripe || !elements) {
+      console.log("stripe or elements not loaded")
       return;
     }
 
@@ -249,7 +250,7 @@ export const PaymentForm = ({ totalPrice }: Props) => {
       </ButtonContainer>
       <Form onSubmit={(event) => handlePaymentForm(event)}>
         <AddressElement options={{ mode: "shipping" }} onChange={(event) => {handleAddressChange(event)}}/>
-        <PaymentElement />
+        <PaymentElement id="payment-element" />
         <StyledButton disabled={isProcessing || !stripe || !elements}>{isProcessing ? "Processing..." : `Pay $${totalPrice}`}</StyledButton>
       </Form>
       {message && <StatusMessage>{message}</StatusMessage>}

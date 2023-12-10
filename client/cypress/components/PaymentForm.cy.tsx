@@ -24,8 +24,12 @@ describe("Payment Form component", () => {
     cy.mount(<MockPaymentForm />)
   })
 
-  it("renders footer", () => {
+  it("renders header, footer, and service banner", () => {
     cy.mount(<MockPaymentForm />)
+    cy.viewport("macbook-16")
     cy.contains("About Us").should("be.visible")
+    cy.get('[data-cy="search-button"]').should("be.visible").click()
+    cy.get('[data-cy="search-input"]').type("Test{enter}")
+    cy.contains("Size out of stock?").should("exist")
   })
 })

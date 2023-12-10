@@ -75,18 +75,21 @@ export const Layout = () => {
   
   useEffect(() => {
     async function getUser() {
+      console.log("running function")
       try {
         const res = await fetch(`http://localhost:5000/api/users/${user?.email}`);
   
         const result = await res.json();
+        console.log("getting results")
   
         // user object found in results, set user object in state, else create user
-        if (result.rows && result.rows.length > 0) {
+        if (result.rows.length > 0) {
           setCurrentUser(result.rows[0]);
         } else {
           postUser()
         }
       } catch (error) {
+        console.log("encoutered error")
         console.error(error);
       }
     }
@@ -118,6 +121,7 @@ export const Layout = () => {
     }
 
     if (isAuthenticated) {
+      console.log("user authenticated")
       getUser()
     }
 
